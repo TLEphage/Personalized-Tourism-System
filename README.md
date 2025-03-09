@@ -12,7 +12,7 @@ BUPT数据结构课设-北京市导航系统
 - 内容推荐
 
 ## **本项目使用的数据：**
-[bbbike](https://extract.bbbike.org/?lang=en;sw_lng=12.614;sw_lat=52.186;ne_lng=14.163;ne_lat=52.847;format=geojson.xz;city=%E5%8C%97%E4%BA%AC%E5%B8%82%E6%B5%B7%E6%B7%80%E5%8C%BA;email=3386392530%40qq.com;as=200.1933675049442;pg=0.9908653590446167;coords=;oi=1;layers=B00T;submit=;expire=)
+- [bbbike](https://extract.bbbike.org/?lang=en;sw_lng=12.614;sw_lat=52.186;ne_lng=14.163;ne_lat=52.847;format=geojson.xz;city=%E5%8C%97%E4%BA%AC%E5%B8%82%E6%B5%B7%E6%B7%80%E5%8C%BA;email=3386392530%40qq.com;as=200.1933675049442;pg=0.9908653590446167;coords=;oi=1;layers=B00T;submit=;expire=)
 
 **内容包含：**
 - 景区和校园数量至少200个，景区和校园内部可以一致

@@ -1,0 +1,2 @@
+axios
+vue-router@4

@@ -1,6 +1,9 @@
 <!-- src/components/NavBar.vue -->
  <template>
     <div class="navbar">
+        <div class="github-link-container">
+            <GitHubLink />
+        </div>
         <div class="logo">
             <img v-if="logo" :src="logo" alt="Logo" />
             <span v-else>喵旅游喵</span>
@@ -22,8 +25,12 @@
     </div>
 </template>
 <script>
+import GitHubLink from './GitHubLink.vue';
 export default{
     name:'NavBar',
+    components:{
+        GitHubLink,
+    },
     props:{
         logo:{
             type:String,
@@ -70,6 +77,13 @@ export default{
   left: 0;
   right: 0;
   z-index: 1000;
+}
+
+.github-link-container {
+  position:'absolute';
+  top:10px;
+  left:10px;
+  z-index:1001;
 }
 
 .logo {

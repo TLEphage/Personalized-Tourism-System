@@ -1,4 +1,4 @@
-# Beijing-Navigation-System
+# Personalized-Tourism-System
 BUPT数据结构课设-基于大模型的个性化旅游系统的设计和开发
 
 ## 课程任务

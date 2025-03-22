@@ -80,7 +80,7 @@ export default{
 }
 
 .github-link-container {
-  position:'absolute';
+  position:absolute;
   top:10px;
   left:10px;
   z-index:1001;

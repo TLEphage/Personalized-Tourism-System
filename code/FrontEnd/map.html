@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.bootcdn.net/ajax/libs/leaflet/1.6.0/leaflet.css" rel="stylesheet">
+        <script src="https://cdn.bootcdn.net/ajax/libs/leaflet/1.6.0/leaflet.js"></script>
+        <style>
+            #map{
+                position:absolute;
+                width:100vw;
+                height:100vh;
+            }
+        </style>
+    </head>
+    <body>
+        <div id='map'>
+        </div>
+        <script>
+            var map = L.map('map', {
+                zoomSnap: 0.1, // 地图的有效缩放级别
+                maxZoom: 18,
+                zoomControl: true,
+                editable: true,
+            }).setView([39.961554, 116.358103], 15); // 北京邮电大学的经纬度
+
+            let baseLayer = L.tileLayer("http://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}", {
+                attribution: '&copy; 高德地图',
+                maxZoom: 18,
+                minZoom: 3,
+                subdomains: "1234",
+                zoom: 3
+            });
+            map.addLayer(baseLayer);
+
+            map.on('click', function(event) {
+                console.log(event); // 返回当前点击的经纬度，及当前容器的坐标
+                let {lat, lng} = event.latlng;
+            });
+
+            
+            map.on('zoomstart', function () {
+                var zoomLevel = map.getZoom();
+                console.log(zoomLevel);
+            });
+        </script>
+    </body>
+</html>

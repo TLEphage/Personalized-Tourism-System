@@ -3,6 +3,7 @@ import Recommend from './views/Recommend.vue'
 import Plan from './views/Plan.vue'
 import Diary from './views/Diary.vue'
 import LoginRegister from './components/LoginRegister.vue'
+import CustomMap from './components/CustomMap.vue'
 const router = createRouter({
     history: createWebHashHistory(),
     routes:[
@@ -22,6 +23,11 @@ const router = createRouter({
             path: '/LoginRegister',
             name:'LoginRegister',
             component:LoginRegister
+        },
+        {
+            path:'/custom-map',
+            name:'CustomMap',
+            component:CustomMap,
         }
     ]
 });

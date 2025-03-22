@@ -1,2 +1,3 @@
 axios
 vue-router@4
+leaflet

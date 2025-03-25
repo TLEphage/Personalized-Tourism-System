@@ -25,7 +25,7 @@ const router = createRouter({
             component:LoginRegister
         },
         {
-            path:'/custom-map',
+            path:'/CustomMap',
             name:'CustomMap',
             component:CustomMap,
         }

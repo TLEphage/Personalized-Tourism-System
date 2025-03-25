@@ -1,6 +1,6 @@
 <!-- src/components/CustomMap.vue -->
 <template>
-  <div id="custom-map">
+  <div id="custom-map" class="custom-map">
     <div id="custom-map-container" class="map-container">
     </div>
   </div>
@@ -9,40 +9,69 @@
 <script>
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import {points} from '../data/points.js';
+import {graph} from '../data/graph';
 
 export default{
     name:'CustomMap',
+    data(){
+      return{
+        mapInstance:null
+      }
+    },
+    beforeUnmount(){
+      if(this.mapInstance){
+        this.mapInstance.remove();
+        this.mapInstance=null;
+      }
+    },
     mounted(){
         console.log('CustomMap mounted');
+        console.log('Container dimensions:', document.getElementById('custom-map-container').getBoundingClientRect());
         this.initCustomMap();
     },
-    methods:{
-        initCustomMap(){
-            // 创建地图实例（初始中心和缩放可随意设置，后面会fitBounds调整）
-            const map = L.map('custom-map-container').setView([39.962, 116.350], 16);
+    methods: {
+    initCustomMap() {
+        // 创建自定义坐标系地图
+        this.mapInstance = L.map('custom-map-container', {
+            crs: L.CRS.Simple,
+            attributionControl: false,
+            zoomControl: false
+        });
 
-            // 添加高德地图瓦片
-            L.tileLayer("http://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}", {
-                attribution: '© 高德地图',
-                maxZoom: 18,
-                minZoom: 3,
-                subdomains: "1234",
-            }).addTo(map);
+        // 计算坐标边界
+        let coords = graph.V.map(node => [node.x, node.y]);
+        let bounds = L.latLngBounds(coords);
+    
+        // 设置地图显示范围
+        this.mapInstance.fitBounds(bounds);
+        this.mapInstance.setMaxBounds(bounds.pad(0.1));
 
-            // 根据坐标数据创建标记
-            const markers = points.map(point => {
-                return L.marker([point.lat, point.lng]).bindPopup(`<b>${point.name}</b><br>${point.type}`);
-            });
+        // 绘制所有节点
+        graph.V.forEach(node => {
+            L.circleMarker([node.x, node.y], {
+                radius: 6,
+                color: '#3388ff',
+                fillColor: '#3388ff',
+                fillOpacity: 0.8
+            }).bindTooltip(node.id.toString()).addTo(this.mapInstance);
+        });
 
-            // 将所有标记放入一个 featureGroup，并调整地图视图以包含所有标记
-            const group = L.featureGroup(markers).addTo(map);
-            map.fitBounds(group.getBounds().pad(0.1)); // 加点内边距
+        // 绘制所有边
+        graph.E.forEach(edge => {
+            const start = graph.V[edge[0]];
+            const end = graph.V[edge[1]];
+            
+            L.polyline(
+                [[start.x, start.y], [end.x, end.y]],
+                { color: '#ff7800', weight: 3 }
+            ).addTo(this.mapInstance);
+        });
 
-            // 如果需要，也可以单独添加每个标记到地图上（featureGroup 已经包含了）
-            markers.forEach(marker => marker.addTo(map));
-        }
+        // 添加缩放控件
+        L.control.zoom({ position: 'topright' }).addTo(this.mapInstance);
+
     }
+}
 }
 
 </script>
@@ -50,12 +79,14 @@ export default{
 
 <style scoped>
 .custom-map {
+  display:block;
   width: 800px;
   height: 600px;
   position: relative;
 }
 .map-container {
-  width: 100%;
-  height: 100%;
+  width: 100% !important;
+  height: 100% !important;
+  background: #f0f0f0;
 }
 </style>

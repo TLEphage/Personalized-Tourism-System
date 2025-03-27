@@ -53,7 +53,7 @@ export default{
                 color: '#3388ff',
                 fillColor: '#3388ff',
                 fillOpacity: 0.8
-            }).bindTooltip(node.id.toString()).addTo(this.mapInstance);
+            }).bindTooltip(node.name).addTo(this.mapInstance);
         });
 
         // 绘制所有边

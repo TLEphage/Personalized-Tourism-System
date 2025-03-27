@@ -67,7 +67,7 @@ export default {
         login () {
             const self = this;
             if(self.form.useremail != "" && self.form.userpwd != "") {
-                axios.post( 'https://rjvgiviori.hzh.sealos.run/Login', {
+                axios.post( '', {
                         username: self.form.username,
                         password: self.form.userpwd,
                 })
@@ -75,7 +75,7 @@ export default {
                     res => {
                         switch(res.data){
                             case 1:
-                                alert("登陆成功！");
+                                alert("登录成功！");
                                 break;
                             case 0:
                                 this.passwordError = true;
@@ -98,7 +98,7 @@ export default {
         register () {
             const self = this;
             if(self.form.username != "" && self.form.useremail != "" && self.form.userpwd != "") {
-                axios.post('https://rjvgiviori.hzh.sealos.run/Register', {
+                axios.post('', {
 						username: self.form.username,
 						email: self.form.useremail,
 						password: self.form.userpwd

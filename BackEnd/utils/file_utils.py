@@ -1,0 +1,38 @@
+import json
+import os
+
+def read_json(file_path, default=None):
+    """
+    读取 JSON 文件并返回数据。
+    如果文件不存在，则返回 default（默认为 None）。
+    """
+    if not os.path.exists(file_path):
+        return default if default is not None else {}
+    with open(file_path, "r", encoding="utf-8") as f:
+        try:
+            data = json.load(f)
+        except json.JSONDecodeError:
+            data = default if default is not None else {}
+    return data
+
+def write_json(file_path, data):
+    """
+    将数据写入指定 JSON 文件，保存时格式化为可读的形式。
+    """
+    # 创建父目录（如果不存在）
+    os.makedirs(os.path.dirname(file_path), exist_ok=True)
+    with open(file_path, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=4)
+
+def append_json(file_path, new_data):
+    """
+    如果 JSON 文件中数据是列表，则附加数据到列表尾部；
+    如果文件不存在，则创建一个新列表，并写入 new_data。
+    """
+    data = read_json(file_path, default=[])
+    if isinstance(data, list):
+        data.append(new_data)
+    else:
+        # 如果已有数据不是列表，则将其转换为列表形式存储
+        data = [data, new_data]
+    write_json(file_path, data)

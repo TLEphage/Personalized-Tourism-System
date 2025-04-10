@@ -40,6 +40,7 @@
 
 <script>
 import { onMounted, ref } from "vue";
+import AMapLoader from "@amap/amap-jsapi-loader";
 
 export default {
   name: "MapComponent",
@@ -49,103 +50,107 @@ export default {
     const totalDistance = ref(0);
     const estimatedTime = ref(0);
     const points = ref("");
-    onMounted(() => {
-      // 引入高德地图API
-      const script = document.createElement("script");
-      script.src = "https://webapi.amap.com/maps?v=1.4.15&key=你的高德地图API密钥";
-      script.onload = () => {
-        initMap();
-      };
-      document.head.appendChild(script);
+    const map = ref(null);
 
-      function initMap() {
+    let AMapInstance = null;
+
+    onMounted(() => {
+      // 配置安全密钥
+      window._AMapSecurityConfig = {
+        securityJsCode: "7ac63ea230a00cbb7a4d0f9f3b046a84", // 替换为你的安全密钥
+      };
+
+      // 使用 AMapLoader 加载高德地图 API
+      AMapLoader.load({
+        key: "82af44ada0b783b707679cdc4f0ff723", // 替换为你的API Key
+        version: "2.0", // 指定要加载的 JSAPI 的版本
+      })
+      .then((AMap) => {
         // 初始化地图
-        const map = new AMap.Map("map-container", {
+        AMapInstance = AMap;
+        map.value = new AMap.Map("map-container", {
           center: [116.36, 39.96], // 北京邮电大学的经纬度
           zoom: 16,
         });
-
-        // // 预定义路径坐标（示例数据）
-        // const points = [
-        //   new AMap.LngLat(116.36101, 39.96241), // 起点
-        //   new AMap.LngLat(116.35724, 39.96226),
-        //   new AMap.LngLat(116.35706, 39.965), // 终点
-        // ];
-      }
+      })
+      .catch((e) => {
+        console.error("Failed to load AMap script", e);
+        alert("加载高德地图API失败，请检查网络连接或API Key是否正确");
+      });
     });
 
-    function startNavigation() {
-      if(!startLocation.value || !endLocation.value) {
+    async function startNavigation() {
+      if (!startLocation.value || !endLocation.value) {
         alert("请填写起点和终点位置！");
         return;
       }
 
-      // const response = await post(
-      //   "/api/searchPath",{
-      //     start: startLocation.value,
-      //     end: endLocation.value
-      //   }
-      // );
-      // const data = await response.json();
-      
+      // const response = await axios.post('http://localhost:8080/plan', {
+      //   startLocation: startLocation.value,
+      //   endLocation: endLocation.value,
+      // });
+
       const data = {
         existed: true,
         distance: 8,
-        time: 100,
-        route: {
-          paths: [
-              {lat: 39.96241, lng: 116.36101},
-              {lat: 39.96226, lng: 116.35724},
-              {lat: 39.965, lng: 116.35706},
-      ]
-      }};
+        time: 10,
+        route: [
+          { name: "北京邮电大学北门", polyline: "116.36101,39.96241;116.36000,39.96200" },
+          { name: "时光广场", polyline: "116.36100,39.96200;116.35900,39.96100" },
+          { name: "北京邮电大学东门", polyline: "116.35900,39.96100;116.35706,39.96500" }
+        ]
+      };
 
-      if(data.existed === true && data.route.paths.length > 0){
-        const path = data.route.paths[0];
-        totalDistance.value = path.distance / 1000;
-        estimatedTime.value = path.duration / 60;
-        points.value = path.steps.map(step => step.instruction).join(" -> ");
+      if (data.existed === true && data.route.length > 0) {
+        const route = data.route;
+        totalDistance.value = data.distance;
+        estimatedTime.value = data.time;
+        points.value = route.map(step => step.name).join(" -> ");
 
+        if(!AMapInstance){
+          alert("地图加载失败，请稍后再试！");
+          return;
+        }
         // 绘制导航路径
-        const routePath = path.steps.flatMap(step => step.polyline.split(";").map(coord => {
+        const routePath = route.flatMap(step => step.polyline.split(";").map(coord => {
           const [lng, lat] = coord.split(",");
-          return new AMap.LngLat(lng, lat);
+          return new AMapInstance.LngLat(lng, lat);
         }));
 
-        const polyline = new AMap.Polyline({
+        const polyline = new AMapInstance.Polyline({
           path: routePath,
           strokeColor: "#4CAF50",
           strokeWeight: 6,
           strokeOpacity: 0.7,
         });
-        map.add(polyline);
+        map.value.add(polyline);
 
         // 添加起点终点标记
         const markers = [
-          new AMap.Marker({
+          new AMapInstance.Marker({
             position: routePath[0],
-            icon: new AMap.Icon({
-              size: new AMap.Size(34, 34),
+            icon: new AMapInstance.Icon({
+              size: new AMapInstance.Size(34, 34),
               image: "https://mapapi.qq.com/web/lbs/javascriptGL/demo/img/markerDefault.png",
             }),
             title: "起点",
           }),
-          new AMap.Marker({
+          new AMapInstance.Marker({
             position: routePath[routePath.length - 1],
-            icon: new AMap.Icon({
-              size: new AMap.Size(34, 34),
+            icon: new AMapInstance.Icon({
+              size: new AMapInstance.Size(34, 34),
               image: "https://mapapi.qq.com/web/lbs/javascriptGL/demo/img/markerRed.png",
             }),
             title: "终点",
           }),
         ];
-        map.add(markers);
+        map.value.add(markers);
       } else {
         alert("未找到路线");
       }
     }
 
-    return { startNavigation };
+    return { startLocation, endLocation, totalDistance, estimatedTime, points, startNavigation };
   },
 };
 </script>

@@ -2,5 +2,4 @@
 axios
 vue-router@4
 leaflet
-
-
+@amap/amap-jsapi-loader

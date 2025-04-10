@@ -6,8 +6,8 @@
         <div class="ranking">
             <h2>热门景点</h2>
             <ul>
-                <li v-for="(spot,index) in rankingList" :key="index" @click="gotoDetailPage(spot.id)">
-                    <img  alt="spot.name">
+                <li v-for="(spot,index) in rankingList" :key="index" @click="gotoDetailPage(spot.id)" class="spot">
+                    <img  alt="景点照片" :src="spot.image">
                     <p>{{ spot.name }}</p>
                 </li>
             </ul>
@@ -17,6 +17,17 @@
 </template>
 
 <script>
+// 景点数据结构
+// name:String
+// id:Int16Array,
+// image:jpg/png/...,可以是数组
+// rating:float,
+// lng,lat:float,经纬度
+// type:String,如山水，公园，古迹等
+// content:stirng,具体的景点描述
+// link: 整型数组，展示景点相关的日记
+
+
 import swiper from '../components/swiper.vue';
 export default{
     name:'Recommend',
@@ -34,7 +45,7 @@ export default{
     methods:{
         fetchRankingList(){
             this.rankingList=[
-                {id:1,name:'spot1',image:"../assets/bupt.jpg"},
+                {id:1,name:'北京邮电大学',image:"https://inews.gtimg.com/om_bt/O9MxUvbYy398K4oy9xqTlJofhwUlrVZU-FNauSwRNEss8AA/641"},
             ]
         },
         gotoDetailPage(spotId){
@@ -79,8 +90,8 @@ export default{
 }
 
 .ranking .spot img {
-  width: 50px;
-  height: 50px;
+  width: 400px;
+  height: 200px;
   margin-right: 10px;
 }
 

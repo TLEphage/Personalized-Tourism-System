@@ -28,6 +28,7 @@ diary
                 class="diary-item"
             >
                 <h3>{{ diary.title }}</h3>
+                <p><strong>作者：</strong>{{ diary.username }}</p>
                 <p>{{ diary.content }}</p>
                 <img :src="diary.image" alt="旅行照片" class="diary-image">
                 <video controls v-if="diary.video" class="diary-video">
@@ -54,14 +55,39 @@ export default{
     },
     data(){
       return {
-        diaries: [],
-        searchQuery: '',
-        sortBy: 'hot',
-        editingDiaryId:null,
+        diaries: []
       }
     },
     created(){
       this.fetchDiaries();
+    },
+    computed:{
+      filteredDiaries(){
+        // 从后端直接读取排好序的数据
+        // let filtered = this.diaries.filter(diary => {
+
+        // })
+        // if(this.sortBy === 'hot'){
+          
+        // } else {
+
+        // }
+        
+        let filtered = [
+          {
+              username:"xn",
+              id: '1',
+              title:"大美北邮",
+              content:"啊！啊！北邮好美！",
+              image: "https://inews.gtimg.com/om_bt/O9MxUvbYy398K4oy9xqTlJofhwUlrVZU-FNauSwRNEss8AA/641",
+              video:"",
+              views:100,
+              rating:5,
+          }
+        ]
+
+        return filtered;
+      }
     },
     methods:{
       fetchDiaries(){

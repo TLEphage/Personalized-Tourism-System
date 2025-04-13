@@ -94,9 +94,8 @@ export default {
         register () {
             const self = this;
             if(self.form.username != "" && self.form.useremail != "" && self.form.userpwd != "") {
-                axios.post('', {
+                axios.post('http://localhost:8000/register', {
 						username: self.form.username,
-						email: self.form.useremail,
 						password: self.form.userpwd
                 })
                 .then(

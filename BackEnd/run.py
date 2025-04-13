@@ -30,6 +30,16 @@ class Diary(BaseModel):
 
 app = FastAPI(title="旅游系统后端 API")
 
+# 添加 CORS 中间件（必须放在其他路由和中间件之前）
+from fastapi.middleware.cors import CORSMiddleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # 允许所有来源（生产环境应限制为具体域名）
+    allow_credentials=True,
+    allow_methods=["*"],  # 允许所有 HTTP 方法（包括 OPTIONS）
+    allow_headers=["*"],  # 允许所有请求头
+)
+
 @app.get("/")
 def home():
     return {"message": "旅游系统后端服务已运行，请访问 /docs 查看接口文档"}

@@ -66,24 +66,20 @@ export default {
         },
         login () {
             const self = this;
-            if(self.form.useremail != "" && self.form.userpwd != "") {
-                axios.post( '', {
+            if(self.form.username != "" && self.form.userpwd != "") {
+                axios.post( 'http://localhost:8000/login', {
                         username: self.form.username,
                         password: self.form.userpwd,
                 })
                 .then(
                     res => {
-                        switch(res.data){
-                            case 1:
-                                alert("登录成功！");
-                                break;
-                            case 0:
-                                this.passwordError = true;
-                                break;
-                            case -1:
-                                this.username = true;
-                                break;
-                        }
+						if (res.message === '登录成功'){
+							alert("登录成功！");
+						} else if (res.message === '密码错误'){
+							alert("用户名或密码错误");
+						} else {
+							alert("用户名不存在");
+						}
                     }
                 )
                 .catch(

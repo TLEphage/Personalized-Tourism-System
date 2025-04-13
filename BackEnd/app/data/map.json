@@ -1,0 +1,86 @@
+{
+  "nodes": [
+    {
+      "id": 1,
+      "name": "中央公园",
+      "type": "地标",
+      "popularity": 95,
+      "longitude": 116.3914,
+      "latitude": 39.9087,
+      "connected_edges": [1, 2]
+    },
+    {
+      "id": 2,
+      "name": "科技大厦",
+      "type": "商业",
+      "popularity": 88,
+      "longitude": 116.3954,
+      "latitude": 39.9127,
+      "connected_edges": [1, 3]
+    },
+    {
+      "id": 3,
+      "name": "艺术中心",
+      "type": "文化",
+      "popularity": 75,
+      "longitude": 116.3894,
+      "latitude": 39.9157,
+      "connected_edges": [2, 4]
+    },
+    {
+      "id": 4,
+      "name": "住宅区A",
+      "type": "住宅",
+      "popularity": 60,
+      "longitude": 116.3854,
+      "latitude": 39.9107,
+      "connected_edges": [3, 5]
+    },
+    {
+      "id": 5,
+      "name": "商业广场",
+      "type": "商业",
+      "popularity": 85,
+      "longitude": 116.3934,
+      "latitude": 39.9057,
+      "connected_edges": [4, 5]
+    }
+  ],
+  "edges": [
+    {
+      "id": 1,
+      "start_node": 1,
+      "end_node": 2,
+      "distance": 500,
+      "congestion": 65
+    },
+    {
+      "id": 2,
+      "start_node": 2,
+      "end_node": 3,
+      "distance": 400,
+      "congestion": 70
+    },
+    {
+      "id": 3,
+      "start_node": 3,
+      "end_node": 4,
+      "distance": 350,
+      "congestion": 50
+    },
+    {
+      "id": 4,
+      "start_node": 4,
+      "end_node": 5,
+      "distance": 450,
+      "congestion": 80
+    },
+    {
+      "id": 5,
+      "start_node": 5,
+      "end_node": 1,
+      "distance": 600,
+      "congestion": 75
+    }
+  ]
+}

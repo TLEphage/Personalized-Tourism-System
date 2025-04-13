@@ -30,6 +30,10 @@ class Diary(BaseModel):
 
 app = FastAPI(title="旅游系统后端 API")
 
+@app.get("/")
+def home():
+    return {"message": "旅游系统后端服务已运行，请访问 /docs 查看接口文档"}
+
 # 用户注册接口
 @app.post("/register")
 def register(user: User):

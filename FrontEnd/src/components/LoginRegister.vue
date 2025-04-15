@@ -18,7 +18,7 @@
                     <div class="bform">
                         <input type="text" placeholder="用户名" v-model="form.username">
                         <span class="errTips" v-if="existed">* 用户名已经存在</span>
-                        <input type="email" placeholder="邮箱" v-model="form.useremail">
+                        <!-- <input type="email" placeholder="邮箱" v-model="form.useremail"> -->
                         <input type="password" placeholder="密码" v-model="form.userpwd">
                     </div>
                     <button class="bbutton" @click="register">注册</button>
@@ -64,58 +64,67 @@ export default {
             this.form.useremail = '';
             this.form.userpwd = '';
         },
-        login () {
-            const self = this;
-            if(self.form.username != "" && self.form.userpwd != "") {
-                axios.post( 'http://localhost:8000/login', {
-                        username: self.form.username,
-                        password: self.form.userpwd,
-                })
-                .then(
-                    res => {
-						if (res.message === '登录成功'){
-							alert("登录成功！");
-						} else if (res.message === '密码错误'){
-							alert("用户名或密码错误");
-						} else {
-							alert("用户名不存在");
-						}
-                    }
-                )
-                .catch(
-                    err => {
-                        console.log(err);
-                    }
-                )
-            } else {
-                alert("填写不能为空！");
-            }
-        },
+        login() {
+			const self = this;
+			if (self.form.username !== "" && self.form.userpwd !== "") {
+				axios.post('http://localhost:8000/login', {
+					username: self.form.username,
+					password: self.form.userpwd,
+				})
+				.then(res => {
+					// 检查后端返回的数据
+					if (res.data.token) { // 如果有 token，表示登录成功
+						alert("登录成功！");
+						store.dispatch('saveToken', res.data.token); // 存储 token
+					} else {
+						// 如果没有 token，可能是后端返回了错误信息
+						alert("用户名或密码错误！");
+					}
+				})
+				.catch(err => {
+					// 捕获网络请求错误或后端抛出的异常
+					if (err.response && err.response.data) {
+						// 如果后端抛出了 HTTPException，通常会在 err.response.data 中返回错误信息
+						alert("登录失败：" + err.response.data.detail);
+					} else {
+						// 其他网络错误
+						alert("登录失败：网络错误");
+					}
+					console.error(err);
+				});
+			} else {
+				alert("填写不能为空！");
+			}
+		},
         register () {
             const self = this;
-            if(self.form.username != "" && self.form.useremail != "" && self.form.userpwd != "") {
+            if(self.form.username != ""  && self.form.userpwd != "") {
                 axios.post('http://localhost:8000/register', {
 						username: self.form.username,
 						password: self.form.userpwd
                 })
                 .then(
                     res => {
-                        switch(res.data){
-                            case 0:
-                                alert("注册成功！");
-                                this.login();
-                                break;
-                            case -1:
-                                this.existed = true;
-								console.log("用户名已经存在");
-                                break;
-                        }
+                        if(res.data.message === "注册成功"){
+							alert("注册成功！");
+						} else {
+							this.existed = true;
+							alert("用户名已存在");
+						}
                     }
                 )
                 .catch(
                     err => {
-                        console.log(err);
-                    }
+					// 捕获网络请求错误或后端抛出的异常
+					if (err.response && err.response.data) {
+						// 如果后端抛出了 HTTPException，通常会在 err.response.data 中返回错误信息
+						alert("注册失败：" + err.response.data.detail);
+					} else {
+						// 其他网络错误
+						alert("登录失败：网络错误");
+					}
+					console.error(err);
+				}
                 )
             } else {
                 alert("填写不能为空！");

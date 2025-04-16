@@ -42,8 +42,15 @@
 
 <script>
 import axios from 'axios';
+import {useStore} from 'vuex';
 export default {
     name: 'LoginRegister',
+	setup() {
+		const store = useStore();
+		return {
+			store
+		};
+	},
     data () {
         return {
             isLogin:false,
@@ -75,7 +82,22 @@ export default {
 					// 检查后端返回的数据
 					if (res.data.token) { // 如果有 token，表示登录成功
 						alert("登录成功！");
-						store.dispatch('saveToken', res.data.token); // 存储 token
+						this.store.dispatch('saveToken', res.data.token); // 存储 token
+						//先向后端请求用户信息，如果没有兴趣信息，就跳转到兴趣页面，否则跳转到旅游推荐
+						// axios.get('http://localhost:8000/user/info', {
+						// 	headers: {
+						// 		Authorization: `Bearer ${res.data.token}`
+						// 	}
+						// })
+						// .then(res => {
+						// 	if (res.data.interest) { // 如果有兴趣信息，跳转到旅游推荐
+						// 		self.$router.push({name: 'Recommend'});
+						// 	} else {
+						// 		self.$router.push({name: 'InterestSelector'});
+						// 	}
+						// })
+						self.$router.push({name: 'InterestSelector'});
+						//console.log(res.data);
 					} else {
 						// 如果没有 token，可能是后端返回了错误信息
 						alert("用户名或密码错误！");
@@ -107,6 +129,7 @@ export default {
                     res => {
                         if(res.data.message === "注册成功"){
 							alert("注册成功！");
+							this.isLogin = true;
 						} else {
 							this.existed = true;
 							alert("用户名已存在");

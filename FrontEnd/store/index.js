@@ -1,7 +1,7 @@
 // store/index.js
 import { createStore } from 'vuex';
 
-export default createStore({
+const store = createStore({
   state() {
     return {
       token: null, // 初始化 token 为 null
@@ -18,3 +18,5 @@ export default createStore({
     },
   },
 });
+
+export default store;

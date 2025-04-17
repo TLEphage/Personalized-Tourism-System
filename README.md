@@ -5,6 +5,8 @@ BUPT数据结构课设-基于大模型的个性化旅游系统的设计和开发
 - [数据结构课程设计常见问题解答](https://w3yfz0db79.feishu.cn/docx/DVZvdr0CpoadKMxSfVNcTibmn9g)
 - [项目计划书](https://lvtdvwrkwee.feishu.cn/wiki/M7h6wpRDBi1DB5kXLtPc7C3Enof)
 - [代码留档区](https://lvtdvwrkwee.feishu.cn/wiki/Rd4Pw751ciWGLmkJKcOcqxb4nVb)
+- [处理地图数据的AIagent](https://www.coze.cn/store/agent/7494286841948930083?bot_id=true)
+- [经纬度获取](https://api.map.baidu.com/lbsapi/getpoint/index.html)
 - [5-6周周报](https://lvtdvwrkwee.feishu.cn/wiki/X3Dbwe2UfikjS6k1cI8czFHzn3d)
 
 ## 课程任务

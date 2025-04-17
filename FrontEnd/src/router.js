@@ -5,6 +5,7 @@ import Diary from './views/Diary.vue'
 import LoginRegister from './components/LoginRegister.vue'
 import CustomMap from './components/CustomMap.vue'
 import InterestSelector from './components/InterestSelector.vue'
+import UserProfile from './components/UserProfile.vue'
 
 const router = createRouter({
     history: createWebHashHistory(),
@@ -39,6 +40,11 @@ const router = createRouter({
             name:'InterestSelector',
             component:InterestSelector,
         },
+        {
+            path:'/UserProfile',
+            name:'UserProfile',
+            component:UserProfile
+        }
     ]
 });
 

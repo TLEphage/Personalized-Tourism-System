@@ -7,3 +7,4 @@ Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://
 ## 启动命令
 npm install
 npm run dev
+

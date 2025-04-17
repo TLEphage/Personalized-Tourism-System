@@ -20,12 +20,19 @@
             </div>
         </div>
         <div class="user-actions">
-            <div class="login-btn" @click="handleLoginRegister">登录/注册meme</div>
+            <!-- 登录/注册按钮  -->
+            <div v-if="!isLoggedIn" class="login-btn" @click="handleLoginRegister">登录/注册</div>
+            <!-- 用户头像和用户名 -->
+            <div v-else class="user-profile" @click="goToUserProfile">
+                <img src="" alt="User Avatar" class="avatar" />
+                <div class="username">{{ username }}</div>
+            </div>
         </div>
     </div>
 </template>
 <script>
 import GitHubLink from './GitHubLink.vue';
+import { mapState } from 'vuex'; 
 export default{
     name:'NavBar',
     components:{
@@ -43,12 +50,36 @@ export default{
                 {name:'旅游规划', route:'plan'},
                 {name:'旅游日记', route:'diary'},
             ]
+        },
+        isLoggedIn:{
+            type:Boolean,
+            default:false,
+        },
+        userAvatar:{
+            type:String,
+            default:''
+        },
+        username:{
+          type:String,
+          default:''
         }
     },
     data(){
         return {
             activeIndex:0,
         }
+    },
+    computed: {
+        ...mapState(['user']),
+        // isLoggedIn() {
+        //   return this.user.id; // 根据你的用户数据结构判断是否登录
+        // },
+        // username() {
+        //   return this.user.username || '';
+        // },
+        // userAvatar() {
+        //   return this.user.avatarPath || '';
+        // }
     },
     methods:{
         handleNavClick(index, route){
@@ -59,6 +90,11 @@ export default{
         handleLoginRegister(){
             this.$router.push({name:'LoginRegister'});
         },
+        goToUserProfile(){
+            console.log('goToUserProfile');
+            this.$router.push({name:'UserProfile'});
+            console.log('gotoed');
+        }
     }
 }
 </script>
@@ -164,5 +200,24 @@ export default{
 .register-btn:hover {
   background-color: #40a9ff;
   border-color: #40a9ff;
+}
+
+.user-profile {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.username {
+  font-size: 14px;
+  color: #333;
 }
 </style>

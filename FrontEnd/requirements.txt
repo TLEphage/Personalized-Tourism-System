@@ -4,3 +4,5 @@ vue-router@4
 leaflet
 @amap/amap-jsapi-loader
 vuex@next
+vuex@4
+typescript

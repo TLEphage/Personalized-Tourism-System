@@ -1,3 +1,4 @@
+<!-- src/components/LoginRegister.vue -->
 <template>
     <div class="login-register">
         <div class="contain">
@@ -79,22 +80,30 @@ export default {
 					password: self.form.userpwd,
 				})
 				.then(res => {
+					console.log(res.data);
 					// 检查后端返回的用户数据
 					if (res.data.id) { // 如果有id，表示登录成功
 						alert("登录成功！");
-						//this.store.dispatch('saveToken', res.data.token); // 存储 token
-						if (res.data.interest) { // 如果有兴趣信息，跳转到旅游推荐
+						//存储用户信息到Vuex store 或本地存储
+						self.store.commit('setUser', res.data);
+						//通知导航栏更新
+						self.$emit('user-login', {
+							isLoggedIn:true,
+							username:res.data.username,
+							userAvatar:res.data.avatarPath,
+						});
+						if (res.data.hobbies) { // 如果有兴趣信息，跳转到旅游推荐
 							self.$router.push({name: 'Recommend'});
 						} else {
 							self.$router.push({name: 'InterestSelector'});
 						}
-						//console.log(res.data);
 					} else {
 						// 如果没有 token，可能是后端返回了错误信息
 						alert("用户名或密码错误！");
 					}
 				})
 				.catch(err => {
+					console.log(err);
 					// 捕获网络请求错误或后端抛出的异常
 					if (err.response && err.response.data) {
 						// 如果后端抛出了 HTTPException，通常会在 err.response.data 中返回错误信息

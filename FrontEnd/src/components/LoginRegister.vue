@@ -79,24 +79,15 @@ export default {
 					password: self.form.userpwd,
 				})
 				.then(res => {
-					// 检查后端返回的数据
-					if (res.data.token) { // 如果有 token，表示登录成功
+					// 检查后端返回的用户数据
+					if (res.data.id) { // 如果有id，表示登录成功
 						alert("登录成功！");
-						this.store.dispatch('saveToken', res.data.token); // 存储 token
-						//先向后端请求用户信息，如果没有兴趣信息，就跳转到兴趣页面，否则跳转到旅游推荐
-						// axios.get('http://localhost:8000/user/info', {
-						// 	headers: {
-						// 		Authorization: `Bearer ${res.data.token}`
-						// 	}
-						// })
-						// .then(res => {
-						// 	if (res.data.interest) { // 如果有兴趣信息，跳转到旅游推荐
-						// 		self.$router.push({name: 'Recommend'});
-						// 	} else {
-						// 		self.$router.push({name: 'InterestSelector'});
-						// 	}
-						// })
-						self.$router.push({name: 'InterestSelector'});
+						//this.store.dispatch('saveToken', res.data.token); // 存储 token
+						if (res.data.interest) { // 如果有兴趣信息，跳转到旅游推荐
+							self.$router.push({name: 'Recommend'});
+						} else {
+							self.$router.push({name: 'InterestSelector'});
+						}
 						//console.log(res.data);
 					} else {
 						// 如果没有 token，可能是后端返回了错误信息

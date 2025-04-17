@@ -32,9 +32,9 @@ class Diary(BaseModel):
     username: str
     title: str
     content: str
-    images: list = None
-    videos: list = None
-    tags: list = None
+    images: Optional[List[str]] = None
+    videos: Optional[List[str]] = None
+    tags: Optional[List[str]] = None
 
 app = FastAPI(title="旅游系统后端 API")
 

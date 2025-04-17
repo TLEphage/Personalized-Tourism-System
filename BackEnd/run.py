@@ -1,24 +1,28 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import uvicorn
-
-# 假设我们已经实现下面这些函数，在各自的模块中：
-# user_service.register(username, password) 返回 True/False
-# user_service.login(username, password) 返回 token 或 None
-# map_service.a_star(start, end) 返回路径列表或 None
-# diary_service.add_diary(username, content) 保存日记
-# diary_service.get_diaries(username) 返回该用户的日记列表
-
+from typing import Optional, List
 from app.services import user_service, diary_service, map_service
 
 # 定义请求和响应数据模型
-class User(BaseModel):
+class UserCreate(BaseModel):
+    """用户注册请求模型"""
     username: str
     password: str
 
-class Login(BaseModel):
+class UserLogin(BaseModel):
+    """用户登录请求模型"""
     username: str
     password: str
+
+class UserResponse(BaseModel):
+    """用户信息响应模型"""
+    id: int
+    username: str
+    role: str
+    avatarPath: Optional[str] = None
+    signature: Optional[str] = None
+    hobbies: Optional[List[str]] = None
 
 class MapRequest(BaseModel):
     start: str  # 起点标识，可以根据实际需要调整数据类型
@@ -26,7 +30,11 @@ class MapRequest(BaseModel):
 
 class Diary(BaseModel):
     username: str
+    title: str
     content: str
+    images: list = None
+    videos: list = None
+    tags: list = None
 
 app = FastAPI(title="旅游系统后端 API")
 
@@ -46,20 +54,29 @@ def home():
 
 # 用户注册接口
 @app.post("/register")
-def register(user: User):
+def register(user: UserCreate):
     if user_service.register(user.username, user.password):
         return {"message": "注册成功"}
     else:
-        raise HTTPException(status_code=400, detail="注册失败，用户名可能已存在")
+        raise HTTPException(status_code=400, detail="注册失败，用户名已存在")
 
 # 用户登录接口
 @app.post("/login")
-def login(login: Login):
-    token = user_service.login(login.username, login.password)
-    if token:
-        return {"token": token, "message": "登录成功"}
+def login(user: UserLogin):
+    login_information = user_service.login(user.username, user.password)
+    if login_information.get("id", False):
+        return login_information["user"]
+    elif login_information.get("message","") == "密码错误":
+        raise HTTPException(status_code=400, detail="密码错误")
     else:
-        raise HTTPException(status_code=400, detail="用户名或密码错误")
+        raise HTTPException(status_code=400, detail="用户名不存在")
+
+@app.get("/users/{username}")
+def get_user(username: str):
+    user = user_service.get_user([], username)
+    if user:
+        return UserResponse(**user)
+    raise HTTPException(status_code=404, detail="用户不存在")
 
 # 最短路径规划接口，使用A*算法
 @app.post("/shortest_path")
@@ -73,7 +90,14 @@ def shortest_path(map_req: MapRequest):
 # 日记存储接口
 @app.post("/diaries")
 def add_diary(diary: Diary):
-    diary_service.add_diary(diary.username, diary.content)
+    diary_service.add_diary(
+        diary.username, 
+        diary.title, 
+        diary.content, 
+        diary.images, 
+        diary.videos, 
+        diary.tags
+    )
     return {"message": "日记添加成功"}
 
 # 日记读取接口，根据用户名查询该用户所有日记

@@ -16,5 +16,14 @@
         "avatarPath": "D:\\BUPT\\大二\\课设\\数据结构\\Personalized-Tourism-System\\BackEnd\\app\\data\\avatars\\default_avatar.jpg",
         "signature": null,
         "hobbies": null
+    },
+    {
+        "id": 3,
+        "username": "Elaina",
+        "passwordHash": "799854826:1744911725062",
+        "role": "admin",
+        "avatarPath": "D:\\BUPT\\大二\\课设\\数据结构\\Personalized-Tourism-System\\BackEnd\\app\\data\\avatars\\default_avatar.jpg",
+        "signature": null,
+        "hobbies": null
     }
 ]

@@ -16,7 +16,7 @@ def register(username: str, password: str) -> bool:
       - 否则，对密码进行哈希处理，并保存到文件中，返回 True
     """
     users = read_json(USERS_FILE, default={})
-    if username in users:
+    if any(user.get("username","") == username for user in users):
         return False
     passwordHash = hash_password(password)
     new_user = {
@@ -41,6 +41,7 @@ def get_user(users: list, username: str) -> dict:
             return {
                 "id": user.get("id", -1),
                 "username": user.get("username", ""),
+                "passwordHash": user.get("passwordHash", ""),
                 "role": user.get("role", ""),
                 "avatarPath": user.get("avatarPath", os.path.join(USERS_AVATARS_DIR, "default_avatar.jpg")),
                 "signature": user.get("signature", ""),
@@ -62,7 +63,7 @@ def login(username: str, password: str) -> dict:
             "success": False,
             "message": "用户名不存在"
         }
-    stored_password = user[username]
+    stored_password = user.get("passwordHash","")
     if not verify_password(stored_password, password):
         return {
             "success": False,

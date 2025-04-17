@@ -7,5 +7,14 @@
         "avatarPath": "/path/to/avatars/default_avatar.jpg",
         "signature": null,
         "hobbies": null
+    },
+    {
+        "id": 2,
+        "username": "TLEphage",
+        "passwordHash": "201757652:1744883375623",
+        "role": "admin",
+        "avatarPath": "D:\\BUPT\\大二\\课设\\数据结构\\Personalized-Tourism-System\\BackEnd\\app\\data\\avatars\\default_avatar.jpg",
+        "signature": null,
+        "hobbies": null
     }
 ]

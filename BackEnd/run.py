@@ -58,18 +58,16 @@ def register(user: UserCreate):
     if user_service.register(user.username, user.password):
         return {"message": "注册成功"}
     else:
-        raise HTTPException(status_code=400, detail="注册失败，用户名已存在")
+        raise HTTPException(status_code=400, detail="用户名已存在")
 
 # 用户登录接口
 @app.post("/login")
 def login(user: UserLogin):
     login_information = user_service.login(user.username, user.password)
-    if login_information.get("id", False):
+    if login_information.get("success", False):
         return login_information["user"]
-    elif login_information.get("message","") == "密码错误":
-        raise HTTPException(status_code=400, detail="密码错误")
     else:
-        raise HTTPException(status_code=400, detail="用户名不存在")
+        raise HTTPException(status_code=400, detail=login_information.get("message",""))
 
 @app.get("/users/{username}")
 def get_user(username: str):

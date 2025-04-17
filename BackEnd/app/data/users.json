@@ -1,4 +1,11 @@
-{
-    "alice": "191403424:1744292562908",
-    "TLEphage": "534003049:1744561593723"
-}
+[
+    {
+        "id": 1,
+        "username": "test_user",
+        "passwordHash": "hashed_password_here",
+        "role": "admin",
+        "avatarPath": "/path/to/avatars/default_avatar.jpg",
+        "signature": null,
+        "hobbies": null
+    }
+]

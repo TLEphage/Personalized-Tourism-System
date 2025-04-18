@@ -12,8 +12,9 @@ sys.path.append(project_root)
 
 from app.services.map_service import a_star
 
-cost, path = a_star(8, 12, 2)
-print(f"最优花费: {cost}")
+distance, time, path = a_star("留学生公寓", "学六公寓", 0)
+print(f"最短路径: {distance} 米")
+print(f"最短时间: {time} 分钟")
 print("路径:")
 for n in path:
     print(n)

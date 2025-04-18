@@ -16,7 +16,7 @@ def haversine(lat1, lon1, lat2, lon2):
     return 2 * R * math.atan2(math.sqrt(a), math.sqrt(1 - a))
 
 
-def a_star(start_id, end_id, mode):
+def a_star(start_name, end_name, mode):
     """
     在 map.json 图上执行 A* 最短路算法。
 
@@ -36,6 +36,14 @@ def a_star(start_id, end_id, mode):
     graph = read_json(MAP_FILE, default={})
     nodes = graph.get('nodes', [])
     edges = graph.get('edges', [])
+    start_id, end_id = -1, -1
+    for node in nodes:
+        if node.get("name", "") == start_name:
+            start_id = node.get("id",-1)
+        if node.get("name", "") == end_name:
+            end_id = node.get("id",-1)
+    if start_id == -1 or end_id == -1:
+        return float('inf'), float('inf'), []
 
     # 构造节点索引和邻接表
     node_index = {node['id']: node for node in nodes}
@@ -61,8 +69,9 @@ def a_star(start_id, end_id, mode):
     inf = float('inf')
     g_score = {nid: inf for nid in node_index}
     f_score = {nid: inf for nid in node_index}
+    distance = {nid: inf for nid in node_index} # 用于mode!=0时存放距离
     g_score[start_id] = 0
-
+    distance[start_id] = 0
     # 初始估价
     if mode == 0:
         # 距离模式
@@ -89,7 +98,7 @@ def a_star(start_id, end_id, mode):
                 nid = came_from[nid]
             path.append(node_index[start_id])
             path.reverse()
-            return round(g_score[end_id], 2), path
+            return round(distance[end_id], 2), round(g_score[end_id], 2), path
 
         for edge in adjacency[current]:
             neighbor = edge['end_node'] if edge['start_node'] == current else edge['start_node']
@@ -113,6 +122,7 @@ def a_star(start_id, end_id, mode):
                 came_from[neighbor] = current
                 g_score[neighbor] = tentative_g
                 f_score[neighbor] = tentative_f
+                distance[neighbor] = distance[current] + dist
                 heapq.heappush(open_set, (tentative_f, neighbor))
 
     # 无路径
@@ -121,8 +131,8 @@ def a_star(start_id, end_id, mode):
 
 # 示例调用
 if __name__ == '__main__':
-    cost, path = a_star(8, 12, 1)
-    print(f"最优花费: {cost} 分钟")
+    distance, time, path = a_star(8, 12, 1)
+    print(f"距离：{distance}, 花费: {time} 分钟")
     print("路径:")
     for n in path:
         print(n)

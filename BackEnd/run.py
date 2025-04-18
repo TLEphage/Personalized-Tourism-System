@@ -25,8 +25,8 @@ class UserResponse(BaseModel):
     hobbies: Optional[List[str]] = None
 
 class MapRequest(BaseModel):
-    start: str  # 起点标识，可以根据实际需要调整数据类型
-    end: str    # 终点标识
+    start: str  # 起点名字
+    end: str    # 终点名字
     mode: int   # 0:最短路径 1:步行最短时间 2:自行车最短时间 3:电动车最短时间
 
 class Diary(BaseModel):
@@ -80,13 +80,13 @@ def get_user(username: str):
 # 最短路径规划接口，使用A*算法
 @app.post("/shortest_path")
 def shortest_path(map_req: MapRequest):
-    cost, path = map_service.a_star(map_req.start, map_req.end, map_req.mode)
-    if cost == float('inf'):
+    distance, time, path = map_service.a_star(map_req.start, map_req.end, map_req.mode)
+    if distance == float('inf'):
         raise HTTPException(status_code=404, detail="未能找到合适的路径")
-    elif map_req.mode == 0:
-        return {"message": f"最短路径长度为 {cost} m", "shortest_path": path}
+    elif map_req.mode == 0: # 不考虑交通方式
+        return {"distance": distance, "time": time, "shortest_path": path}
     else:
-        return {"message": f"最短时间为 {cost} min", "shortest_path": path}
+        return {"distance": distance, "time": time, "shortest_path": path}
 
 # 日记存储接口
 @app.post("/diaries")

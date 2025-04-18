@@ -2,6 +2,7 @@ import time
 from app.config import DIARIES_FILE
 from utils.file_utils import read_json, write_json
 
+
 def add_diary(
     username: str,
     title: str,
@@ -24,7 +25,7 @@ def add_diary(
 
     # 读取现有日记并生成新ID
     diaries = read_json(DIARIES_FILE, default=[])
-    max_id = max((entry.get("id", 0) for entry in diaries) if diaries else 0)
+    max_id = max((entry.get("id", 0) for entry in diaries) if diaries else [0])
     new_id = max_id + 1
 
     # 创建完整日记条目
@@ -45,6 +46,7 @@ def add_diary(
     diaries.append(diary_entry)
     write_json(DIARIES_FILE, diaries)
 
+
 def get_diaries(username: str) -> list:
     """
     根据用户名查询日记：
@@ -52,8 +54,44 @@ def get_diaries(username: str) -> list:
     - 保持其他过滤逻辑不变
     """
     diaries = read_json(DIARIES_FILE, default=[])
-    if(username == "__all__"):
+    if username == "__all__":
         return sorted(diaries, key=lambda x: x["id"], reverse=True)
     else:
         user_diaries = [entry for entry in diaries if entry.get("username") == username]
         return sorted(user_diaries, key=lambda x: x["id"], reverse=True)
+
+
+def update_diary(
+    username: str,
+    diary_id: int,
+    fields: dict
+) -> dict:
+    """
+    更新日记：
+    - 根据 username 和 id 查找日记条目
+    - 如果不存在，抛出 ValueError
+    - 更新传入的字段（title, content, images, videos, tags）
+    - 保留其他字段（views, rating, timestamp）不变
+    - 写回文件并返回更新后的日记对象
+    """
+    diaries = read_json(DIARIES_FILE, default=[])
+    # 查找目标日记
+    for entry in diaries:
+        if entry.get("id") == diary_id:
+            # 更新可选字段，仅当不为 None 时才更新
+            entry['username'] = username
+            if fields.get("title") is not None:
+                entry["title"] = fields["title"]
+            if fields.get("content") is not None:
+                entry["content"] = fields["content"]
+            if fields.get("images") is not None:
+                entry["image"] = fields["images"]
+            if fields.get("videos") is not None:
+                entry["video"] = fields["videos"]
+            if fields.get("tags") is not None:
+                entry["tags"] = fields["tags"]
+            # 写回并返回
+            write_json(DIARIES_FILE, diaries)
+            return entry
+    # 若未找到则抛出错误
+    raise ValueError(f"未找到用户名 {username} 下 ID 为 {diary_id} 的日记")

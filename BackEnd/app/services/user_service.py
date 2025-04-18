@@ -1,7 +1,7 @@
 import os
 from app.config import USERS_FILE, USERS_AVATARS_DIR
 from utils.file_utils import read_json, write_json
-from utils.security import hash_password, verify_password, create_token
+from utils.security import hash_password, verify_password
 
 def get_max_id(users):
     if not users:

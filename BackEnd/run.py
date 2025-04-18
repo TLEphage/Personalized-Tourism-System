@@ -83,8 +83,8 @@ def get_user(username: str):
     raise HTTPException(status_code=404, detail="用户不存在")
 
 # 最短路径规划接口，使用A*算法
-@app.post("/shortest_path")
-def shortest_path(map_req: PathPlanRequest):
+@app.post("/path_plan")
+def path_plan(map_req: PathPlanRequest):
     distance, time, path = map_service.a_star(map_req.start, map_req.end, map_req.mode)
     if distance == float('inf'):
         raise HTTPException(status_code=404, detail="未能找到合适的路径")

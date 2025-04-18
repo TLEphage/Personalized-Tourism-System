@@ -1,4 +1,3 @@
-# run.py
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import uvicorn
@@ -173,6 +172,7 @@ class Diary(BaseModel):
       - tags: 可选标签列表
     """
     username: str
+    id: Optional[int] = None  # 可选，更新日记时需要
     title: str
     content: str
     images: Optional[List[str]] = None
@@ -203,6 +203,32 @@ def get_diaries(username: str):
     """
     diaries = diary_service.get_diaries(username)
     return {"diaries": diaries}
+
+@app.put("/diaries")
+def update_diary(diary: Diary):
+    """
+    更新日记接口：
+      - 接收包含 username 和 id 的 Diary 对象
+      - 如果未提供 id 或找不到对应日记，返回 404
+      - 仅更新传入的字段，保留其他字段不变
+    """
+    if diary.id is None:
+        raise HTTPException(status_code=400, detail="缺少日记 ID，无法更新")
+    try:
+        updated = diary_service.update_diary(
+            diary.username,
+            diary.id,
+            {
+                "title": diary.title,
+                "content": diary.content,
+                "images": diary.images,
+                "videos": diary.videos,
+                "tags": diary.tags
+            }
+        )
+    except ValueError as e:
+        raise HTTPException(status_code=404, detail=str(e))
+    return {"message": "日记更新成功", "diary": updated}
 
 # 启动服务，指定主机和端口
 if __name__ == "__main__":

@@ -25,5 +25,14 @@
         "avatarPath": "D:\\BUPT\\大二\\课设\\数据结构\\Personalized-Tourism-System\\BackEnd\\app\\data\\avatars\\default_avatar.jpg",
         "signature": null,
         "hobbies": null
+    },
+    {
+        "id": 4,
+        "username": "Chtholly",
+        "passwordHash": "301669406:1744947533636",
+        "role": "admin",
+        "avatarPath": "D:\\BUPT\\大二\\课设\\数据结构\\Personalized-Tourism-System\\BackEnd\\app\\data\\avatars\\default_avatar.jpg",
+        "signature": null,
+        "hobbies": []
     }
 ]

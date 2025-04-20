@@ -26,11 +26,20 @@
         />
       </div>
 
+      <div class="input-group">
+        <label>导航模式</label>
+        <select name="input-field" v-model="selectedMode">
+          <option value="1">步行</option>
+          <option value="2">自行车</option>
+          <option value="3">电动车</option>
+        </select>
+      </div>
+
       <button class="nav-button" @click="startNavigation">开始导航</button>
 
       <div class="route-info">
         <h3>推荐路线信息</h3>
-        <p>🗺️ 总距离: {{ totalDistance }} km</p>
+        <p>🗺️ 总距离: {{ totalDistance }} m</p>
         <p>⏱️ 预计时间: {{ estimatedTime }} min</p>
         <p>🚩 途径: {{ points }}</p>
       </div>
@@ -41,6 +50,7 @@
 <script>
 import { onMounted, ref } from "vue";
 import AMapLoader from "@amap/amap-jsapi-loader";
+import axios from 'axios';
 
 export default {
   name: "MapComponent",
@@ -51,25 +61,24 @@ export default {
     const estimatedTime = ref(0);
     const points = ref("");
     const map = ref(null);
+    const selectedMode = ref(1);
+
+   // 用来存当前绘制到地图上的点和线
+   let routeMarkers = [];
+   let routePolyline = null;
 
     let AMapInstance = null;
 
     onMounted(() => {
-      // 配置安全密钥
-      window._AMapSecurityConfig = {
-        securityJsCode: "7ac63ea230a00cbb7a4d0f9f3b046a84", // 替换为你的安全密钥
-      };
-
-      // 使用 AMapLoader 加载高德地图 API
+      window._AMapSecurityConfig = { securityJsCode: "7ac63ea230a00cbb7a4d0f9f3b046a84" };
       AMapLoader.load({
-        key: "82af44ada0b783b707679cdc4f0ff723", // 替换为你的API Key
-        version: "2.0", // 指定要加载的 JSAPI 的版本
+        key: "82af44ada0b783b707679cdc4f0ff723",
+        version: "2.0",
       })
       .then((AMap) => {
-        // 初始化地图
         AMapInstance = AMap;
         map.value = new AMap.Map("map-container", {
-          center: [116.36, 39.96], // 北京邮电大学的经纬度
+          center: [116.36, 39.96],
           zoom: 16,
         });
       })
@@ -85,75 +94,85 @@ export default {
         return;
       }
 
-      // const response = await axios.post('http://localhost:8080/plan', {
-      //   startLocation: startLocation.value,
-      //   endLocation: endLocation.value,
-      // });
+      axios.post('http://localhost:8000/path_plan', {
+        start: startLocation.value,
+        end: endLocation.value,
+        mode: parseInt(selectedMode.value),
+      })
+      .then(res => {
+        const data = res.data;
+        if (data.path.length === 0) {
+          alert("未找到路线");
+          return;
+        }
 
-      const data = {
-        existed: true,
-        distance: 8,
-        time: 10,
-        route: [
-          { name: "北京邮电大学北门", polyline: "116.36101,39.96241;116.36000,39.96200" },
-          { name: "时光广场", polyline: "116.36100,39.96200;116.35900,39.96100" },
-          { name: "北京邮电大学东门", polyline: "116.35900,39.96100;116.35706,39.96500" }
-        ]
-      };
-
-      if (data.existed === true && data.route.length > 0) {
-        const route = data.route;
+        const route = data.path;
         totalDistance.value = data.distance;
         estimatedTime.value = data.time;
-        points.value = route.map(step => step.name).join(" -> ");
+        points.value = route.map(p => p.name).join(" → ");
 
-        if(!AMapInstance){
+        if (!AMapInstance) {
           alert("地图加载失败，请稍后再试！");
           return;
         }
-        // 绘制导航路径
-        const routePath = route.flatMap(step => step.polyline.split(";").map(coord => {
-          const [lng, lat] = coord.split(",");
-          return new AMapInstance.LngLat(lng, lat);
-        }));
 
-        const polyline = new AMapInstance.Polyline({
-          path: routePath,
-          strokeColor: "#4CAF50",
-          strokeWeight: 6,
-          strokeOpacity: 0.7,
-        });
-        map.value.add(polyline);
+       // —— 清除旧的覆盖物 —— 
+       routeMarkers.forEach(m => m.setMap(null));
+       routeMarkers = [];
+       if (routePolyline) {
+         routePolyline.setMap(null);
+         routePolyline = null;
+       }
 
-        // 添加起点终点标记
-        const markers = [
-          new AMapInstance.Marker({
-            position: routePath[0],
-            icon: new AMapInstance.Icon({
-              size: new AMapInstance.Size(34, 34),
-              image: "https://mapapi.qq.com/web/lbs/javascriptGL/demo/img/markerDefault.png",
-            }),
-            title: "起点",
-          }),
-          new AMapInstance.Marker({
-            position: routePath[routePath.length - 1],
-            icon: new AMapInstance.Icon({
-              size: new AMapInstance.Size(34, 34),
-              image: "https://mapapi.qq.com/web/lbs/javascriptGL/demo/img/markerRed.png",
-            }),
-            title: "终点",
-          }),
-        ];
-        map.value.add(markers);
-      } else {
-        alert("未找到路线");
-      }
+       // —— 组装坐标数组 （注意：服务端给的字段名 latitude/longitude 在这里是反过来的）——
+       const coords = route.map(p => [p.latitude, p.longitude]);
+
+       // —— 按顺序打点 —— 
+       route.forEach(p => {
+         const marker = new AMapInstance.Marker({
+           position: [p.latitude, p.longitude],
+           map: map.value,
+           title: p.name
+         });
+         // 用 Label 给点加个红色小标签
+         marker.setLabel({
+           offset: new AMapInstance.Pixel(-10, -28),
+           content: `<div style="
+             background: #f33;
+             color: #fff;
+             padding: 2px 4px;
+             border-radius: 3px;
+             font-size: 12px;
+           ">${p.name}</div>`
+         });
+         routeMarkers.push(marker);
+       });
+
+       // —— 画连线 —— 
+       routePolyline = new AMapInstance.Polyline({
+         path: coords,
+         strokeColor: "#FF0000",
+         strokeWeight: 4,
+         strokeOpacity: 0.8,
+         lineJoin: "round",
+         map: map.value
+       });
+
+       // —— 自动缩放视野到所有点和线 —— 
+       map.value.setFitView();
+
+        console.log("已绘制路径和标记");
+      })
+      .catch(err => {
+        // ...原有错误处理...
+      });
     }
 
     return { startLocation, endLocation, totalDistance, estimatedTime, points, startNavigation };
   },
 };
 </script>
+
 
 <style>
 :root {

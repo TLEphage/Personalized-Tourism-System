@@ -17,25 +17,65 @@
           <li v-for="hobby in user.hobbies" :key="hobby">{{ hobby }}</li>
         </ul>
       </div>
+      <div class="diaries-container">
+        <h2>日记列表</h2>
+        <div v-if="diaries.length > 0">
+          <div
+          v-for="diary in diaries"
+          :key="diary.id"
+          class="diary-item"
+          >
+            <div class="diary-content">
+              <h3>{{ diary.title }}</h3>
+              <p>{{ diary.content }}</p>
+              <!-- <div v-if="diary.image" class="diary-media">
+                <img src="diary.image" alt="Diary Image">
+              </div>
+              <div v-if="diary.video" class="diary-media">
+                <video controls>
+                  <source :src="diary.video" type="video/mp4">
+                </video>
+              </div> -->
+              <div class="diary-stats">
+                <p>浏览量: {{ diary.views }}</p>
+                <p>评分: {{ diary.rating }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div v-else>暂无日记</div>
+      </div>
     </div>
   </template>
   
   <script>
   import { mapState } from 'vuex';
+  import axios from 'axios';
   export default {
     name: 'UserProfile',
     computed:{
         ...mapState(['user'])
     },
+    data() {
+      return {
+        diaries: [],
+      };
+    },
     created() {
-        // if (!this.user.id) {
-        //     this.$router.push({ name: 'LoginRegister' });
-        // }
+        this.fetchDiaries();
     },
     methods: {
       goToHomePage() {
         this.$router.push({ name: 'Recommend' });
       },
+      async fetchDiaries() {
+        try {
+          const response = await axios.get(`http://localhost:8000/diaries/${this.user.username}`);
+          this.diaries = response.data;
+        } catch (error) {
+          console.error('Error fetching diaries:', error);
+        }
+      }
     },
   };
   </script>
@@ -88,4 +128,32 @@
   li {
     margin: 5px 0;
   }
+
+  .diaries-container {
+  margin-top: 20px;
+}
+
+.diary-item {
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.diary-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.diary-media img,
+.diary-media video {
+  max-width: 100%;
+  height: auto;
+}
+
+.diary-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
   </style>

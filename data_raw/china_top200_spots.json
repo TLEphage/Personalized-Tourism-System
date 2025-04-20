@@ -9,10 +9,13 @@
                 "latitude": 39.917839
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "雍和宫",
@@ -23,10 +26,13 @@
                 "latitude": 39.947239
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "天安门广场",
@@ -37,10 +43,13 @@
                 "latitude": 39.903179
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "天安门",
@@ -51,10 +60,13 @@
                 "latitude": 39.909187
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "中国人民革命军事博物馆",
@@ -65,10 +77,13 @@
                 "latitude": 39.909108
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "北海公园",
@@ -79,10 +94,13 @@
                 "latitude": 39.928775
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "景山公园",
@@ -93,10 +111,13 @@
                 "latitude": 39.925875
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "什刹海",
@@ -107,10 +128,13 @@
                 "latitude": 39.941862
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "中国国家博物馆",
@@ -121,10 +145,13 @@
                 "latitude": 39.905374
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "天安门-城楼",
@@ -135,10 +162,13 @@
                 "latitude": 39.908751
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "紫竹院公园",
@@ -149,10 +179,13 @@
                 "latitude": 39.942352
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "妙应寺白塔",
@@ -163,10 +196,13 @@
                 "latitude": 39.924848
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "南锣鼓巷",
@@ -177,10 +213,13 @@
                 "latitude": 39.937182
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "玉渊潭公园",
@@ -191,10 +230,13 @@
                 "latitude": 39.91662
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "中山公园",
@@ -205,10 +247,13 @@
                 "latitude": 39.910707
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "前门大街",
@@ -219,10 +264,13 @@
                 "latitude": 39.896152
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "天坛公园",
@@ -233,10 +281,13 @@
                 "latitude": 39.881913
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "广济寺",
@@ -247,10 +298,13 @@
                 "latitude": 39.924971
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "故宫博物院-午门",
@@ -261,10 +315,13 @@
                 "latitude": 39.913582
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "首都博物馆",
@@ -275,10 +332,13 @@
                 "latitude": 39.906412
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "天安门广场-国旗",
@@ -289,10 +349,13 @@
                 "latitude": 39.906928
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "毛主席纪念堂",
@@ -303,10 +366,13 @@
                 "latitude": 39.902517
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "鼓楼",
@@ -317,10 +383,13 @@
                 "latitude": 39.940781
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "北京大栅栏",
@@ -331,10 +400,13 @@
                 "latitude": 39.895715
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "法源寺",
@@ -345,10 +417,13 @@
                 "latitude": 39.885385
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "王府井步行街",
@@ -359,10 +434,13 @@
                 "latitude": 39.913392
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "紫禁城神武门",
@@ -373,10 +451,13 @@
                 "latitude": 39.922305
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "烟袋斜街",
@@ -387,10 +468,13 @@
                 "latitude": 39.939329
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "太庙",
@@ -401,10 +485,13 @@
                 "latitude": 39.911374
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "朝阳公园",
@@ -415,10 +502,13 @@
                 "latitude": 39.944093
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "李大钊故居",
@@ -429,10 +519,13 @@
                 "latitude": 39.904721
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "北京前门大栅栏",
@@ -443,10 +536,13 @@
                 "latitude": 39.896061
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "北京天文馆",
@@ -457,10 +553,13 @@
                 "latitude": 39.937306
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "什刹海-后海",
@@ -471,10 +570,13 @@
                 "latitude": 39.943559
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "北京历代帝王庙",
@@ -485,10 +587,13 @@
                 "latitude": 39.924802
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "陶然亭公园",
@@ -499,10 +604,13 @@
                 "latitude": 39.874496
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "国家自然博物馆",
@@ -513,10 +621,13 @@
                 "latitude": 39.883183
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "后海公园",
@@ -527,10 +638,13 @@
                 "latitude": 39.942143
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "北京古代建筑博物馆",
@@ -541,10 +655,13 @@
                 "latitude": 39.877536
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "万松老人塔",
@@ -555,10 +672,13 @@
                 "latitude": 39.922117
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "地坛公园",
@@ -569,10 +689,13 @@
                 "latitude": 39.953778
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "天宁寺",
@@ -583,10 +706,13 @@
                 "latitude": 39.894719
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "莲花池公园",
@@ -597,10 +723,13 @@
                 "latitude": 39.893297
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "中国钱币博物馆",
@@ -611,10 +740,13 @@
                 "latitude": 39.902127
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "白塔寺博物馆",
@@ -625,10 +757,13 @@
                 "latitude": 39.924035
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "中央礼品文物管理中心",
@@ -639,10 +774,13 @@
                 "latitude": 39.897847
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "国子监",
@@ -653,10 +791,13 @@
                 "latitude": 39.946777
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "北京明城墙遗址公园",
@@ -667,10 +808,13 @@
                 "latitude": 39.901264
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "中央电视塔",
@@ -681,10 +825,13 @@
                 "latitude": 39.918852
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "智化寺",
@@ -695,10 +842,13 @@
                 "latitude": 39.917621
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "中华世纪坛",
@@ -709,10 +859,13 @@
                 "latitude": 39.910663
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "西华门",
@@ -723,10 +876,13 @@
                 "latitude": 39.914872
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "景山公园-万春亭",
@@ -737,10 +893,13 @@
                 "latitude": 39.924863
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "正阳门",
@@ -751,10 +910,13 @@
                 "latitude": 39.900505
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "北京宣南文化博物馆",
@@ -765,10 +927,13 @@
                 "latitude": 39.892823
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "真武庙",
@@ -779,10 +944,13 @@
                 "latitude": 39.903502
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "北京隆福寺",
@@ -793,10 +961,13 @@
                 "latitude": 39.925256
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "国家体育场",
@@ -807,10 +978,13 @@
                 "latitude": 39.993306
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "普度寺遗址",
@@ -821,10 +995,13 @@
                 "latitude": 39.913437
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "天主教北京总教区宣武门天主堂南堂",
@@ -835,10 +1012,13 @@
                 "latitude": 39.90072
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "鲁迅故居",
@@ -849,10 +1029,13 @@
                 "latitude": 39.925774
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "颐和园",
@@ -863,10 +1046,13 @@
                 "latitude": 39.999617
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "北京艺术博物馆",
@@ -877,10 +1063,13 @@
                 "latitude": 39.947089
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "北海公园-永安寺",
@@ -891,10 +1080,13 @@
                 "latitude": 39.92435
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "北京市蒙藏学校旧址",
@@ -905,10 +1097,13 @@
                 "latitude": 39.910113
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "万寿寺",
@@ -919,10 +1114,13 @@
                 "latitude": 39.947093
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "郭沫若故居",
@@ -933,10 +1131,13 @@
                 "latitude": 39.934621
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "北京动物园-西区",
@@ -947,10 +1148,13 @@
                 "latitude": 39.94164
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "团城",
@@ -961,10 +1165,13 @@
                 "latitude": 39.922978
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "北海公园-九龙壁",
@@ -975,10 +1182,13 @@
                 "latitude": 39.931861
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "元大都城垣遗址公园",
@@ -989,10 +1199,13 @@
                 "latitude": 39.976118
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "龙潭公园",
@@ -1003,10 +1216,13 @@
                 "latitude": 39.879792
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "天主教北京教区西直门教堂-办公楼",
@@ -1017,10 +1233,13 @@
                 "latitude": 39.940052
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "先农坛",
@@ -1031,10 +1250,13 @@
                 "latitude": 39.876929
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "人民英雄纪念碑",
@@ -1045,10 +1267,13 @@
                 "latitude": 39.904632
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "北京动物园-东区",
@@ -1059,10 +1284,13 @@
                 "latitude": 39.940979
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "北海公园-白塔",
@@ -1073,10 +1301,13 @@
                 "latitude": 39.925826
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "故宫博物院-神武门广场",
@@ -1087,10 +1318,13 @@
                 "latitude": 39.922481
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "元大都城垣遗址公园-海棠花溪",
@@ -1101,10 +1335,13 @@
                 "latitude": 39.976484
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "西便门城墙遗址公园",
@@ -1115,10 +1352,13 @@
                 "latitude": 39.900042
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "成贤街",
@@ -1129,10 +1369,13 @@
                 "latitude": 39.944783
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "银锭桥",
@@ -1143,24 +1386,13 @@
                 "latitude": 39.938948
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
-        },
-        {
-            "name": "精品公园",
-            "description": "暂无描述",
-            "location": "阜成门北大街(阜成门地铁站C东南口步行380米)",
-            "coordinates": {
-                "longitude": 116.356935,
-                "latitude": 39.919781
+            "open_hours": {
+                "today": "",
+                "week": ""
             },
-            "rating": 0.0,
-            "popularity": 0,
-            "tags": [],
-            "price_range": "免费",
-            "open_hours": {}
+            "telephone": ""
         },
         {
             "name": "黄瓦增福财神庙",
@@ -1171,10 +1403,13 @@
                 "latitude": 39.940976
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "东单公园",
@@ -1185,10 +1420,13 @@
                 "latitude": 39.904917
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "故宫-钟表馆",
@@ -1199,10 +1437,13 @@
                 "latitude": 39.918851
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "人定湖公园",
@@ -1213,10 +1454,13 @@
                 "latitude": 39.957583
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "北滨河公园",
@@ -1227,10 +1471,13 @@
                 "latitude": 39.95044
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "圆明园遗址公园",
@@ -1241,10 +1488,13 @@
                 "latitude": 40.008759
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "故宫博物院-御花园",
@@ -1255,10 +1505,13 @@
                 "latitude": 39.921459
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "北京牛街礼拜寺(不对外开放)",
@@ -1269,10 +1522,13 @@
                 "latitude": 39.885711
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "东岳庙",
@@ -1283,10 +1539,13 @@
                 "latitude": 39.924932
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "升旗台",
@@ -1297,10 +1556,30 @@
                 "latitude": 39.906926
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
+        },
+        {
+            "name": "奥林匹克公园中心区",
+            "description": "暂无描述",
+            "location": "科荟路33号",
+            "coordinates": {
+                "longitude": 116.392464,
+                "latitude": 40.000038
+            },
+            "rating": 0.0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "正阳门箭楼",
@@ -1311,10 +1590,13 @@
                 "latitude": 39.899368
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "北平图书馆旧址(暂停开放)",
@@ -1325,10 +1607,13 @@
                 "latitude": 39.923461
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "老舍故居(暂停开放)",
@@ -1339,10 +1624,13 @@
                 "latitude": 39.91863
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "嵩祝寺",
@@ -1353,10 +1641,13 @@
                 "latitude": 39.928403
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "什刹海-汇通祠-西海湿地公园",
@@ -1367,10 +1658,13 @@
                 "latitude": 39.948043
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "故宫博物院-东华门城楼",
@@ -1381,10 +1675,13 @@
                 "latitude": 39.915049
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         },
         {
             "name": "五道营胡同",
@@ -1395,10 +1692,13 @@
                 "latitude": 39.948536
             },
             "rating": 0.0,
-            "popularity": 0,
             "tags": [],
             "price_range": "免费",
-            "open_hours": {}
+            "open_hours": {
+                "today": "",
+                "week": ""
+            },
+            "telephone": ""
         }
     ]
 }

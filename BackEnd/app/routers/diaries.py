@@ -41,7 +41,6 @@ def get_diaries(
     return {"diaries": diaries}
 
 @router.put("", summary="更新日记")
-@router.put("/diaries")
 def update_diary(diary: Diary):
     """
     更新日记接口：

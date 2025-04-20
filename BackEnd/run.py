@@ -72,7 +72,7 @@ class UserResponse(BaseModel):
     signature: Optional[str] = None
     hobbies: Optional[List[str]] = None
 
-@app.post("/register")
+@app.post("/users/register")
 def register(user: UserCreate):
     """
     用户注册接口：
@@ -84,7 +84,7 @@ def register(user: UserCreate):
     else:
         raise HTTPException(status_code=400, detail="用户名已存在")
 
-@app.post("/login")
+@app.post("/users/login")
 def login(user: UserLogin):
     """
     用户登录接口：
@@ -97,7 +97,7 @@ def login(user: UserLogin):
     else:
         raise HTTPException(status_code=400, detail=login_info.get("message", ""))
 
-@app.get("/users/{username}")
+@app.get("/users/{username}/details")
 def get_user(username: str):
     """
     查询用户信息接口：
@@ -123,6 +123,11 @@ def update_user(username: str, update: UserUpdate):
         raise HTTPException(status_code=404, detail=str(e))
     return {"message": "用户信息更新成功", "user": updated_user}
 
+# --------------------------- 景点查询接口 ---------------------------
+
+
+
+
 # --------------------------- 路径规划接口 ---------------------------
 
 class PathPlanRequest(BaseModel):
@@ -147,7 +152,7 @@ class PathPlanResponse(BaseModel):
     time: float
     path: list
 
-@app.post("/path_plan")
+@app.post("/map/path_plan")
 def path_plan(map_req: PathPlanRequest):
     """
     A* 算法路径规划：

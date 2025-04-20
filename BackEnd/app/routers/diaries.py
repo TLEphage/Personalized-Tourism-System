@@ -3,7 +3,7 @@ from typing import Optional, List
 from app.models.diaries import Diary
 from app.services import diary_service
 
-router = APIRouter(prefix="/diaries", tags=["日记管理"])
+router = APIRouter(tags=["日记管理"])
 
 @router.post("", response_model=dict, summary="添加游记")
 def add_diary(diary: Diary):

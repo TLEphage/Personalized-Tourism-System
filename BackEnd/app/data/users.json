@@ -34,5 +34,14 @@
         "avatarPath": "D:\\BUPT\\大二\\课设\\数据结构\\Personalized-Tourism-System\\BackEnd\\app\\data\\avatars\\default_avatar.jpg",
         "signature": null,
         "hobbies": []
+    },
+    {
+        "id": 5,
+        "username": "abc",
+        "passwordHash": "958286728:1745157582064",
+        "role": "admin",
+        "avatarPath": "D:\\BUPT\\大二\\课设\\数据结构\\Personalized-Tourism-System\\BackEnd\\app\\data\\avatars\\default_avatar.jpg",
+        "signature": null,
+        "hobbies": []
     }
 ]

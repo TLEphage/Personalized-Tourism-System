@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 # 导入路由模块
-from app.routers import users, diaries, map
+from app.routers import users, diaries, spots, map
 
 # --------------------------- 初始化 FastAPI 应用 ---------------------------
 app = FastAPI(
@@ -17,6 +17,10 @@ app = FastAPI(
         {
             "name": "游记管理",
             "description": "游记的增删改查与排序"
+        },
+        {
+            "name": "景点查询",
+            "description": "景点的查询与排序"
         },
         {
             "name": "路径规划",
@@ -47,6 +51,12 @@ app.include_router(
     diaries.router,
     prefix="/diaries",
     tags=["游记管理"]
+)
+
+app.include_router(
+    spots.router,
+    prefix="/spots",
+    tags=["景点查询"]
 )
 
 # 路径规划路由（前缀 /map，标签"路径规划"）

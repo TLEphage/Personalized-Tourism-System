@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException, Query
 from pydantic import BaseModel
 import uvicorn
-from typing import Optional, List
+from typing import Optional, List, Dict
 from app.services import user_service, diary_service, map_service
 
 # 定义 FastAPI 实例，标题为“旅游系统后端 API”

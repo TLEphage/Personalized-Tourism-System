@@ -2,7 +2,7 @@ from fastapi import APIRouter, HTTPException
 from app.models.map import PathPlanRequest, PathPlanResponse
 from app.services import map_service
 
-router = APIRouter(prefix="/map", tags=["路径规划"])
+router = APIRouter(tags=["路径规划"])
 
 @router.post("/path_plan", response_model=PathPlanResponse, summary="A* 算法路径规划")
 def path_plan(map_req: PathPlanRequest):

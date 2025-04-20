@@ -32,7 +32,7 @@ def get_sorted_spots(sort_key: str, reverse: bool) -> List[Spot]:
     
     return sorted(
         spots_list,
-        key=lambda x: getattr(x, sort_key),
+        key=lambda x: x.get(sort_key, 0),  # 为不存在的key提供默认值
         reverse=reverse
     )
 

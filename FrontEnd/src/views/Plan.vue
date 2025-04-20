@@ -94,7 +94,7 @@ export default {
         return;
       }
 
-      axios.post('http://localhost:8000/path_plan', {
+      axios.post('http://localhost:8000/map/path_plan', {
         start: startLocation.value,
         end: endLocation.value,
         mode: parseInt(selectedMode.value),

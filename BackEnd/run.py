@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Query
 from pydantic import BaseModel
 import uvicorn
 from typing import Optional, List
@@ -196,12 +196,22 @@ def add_diary(diary: Diary):
     return {"message": "日记添加成功"}
 
 @app.get("/diaries/{username}")
-def get_diaries(username: str):
+def get_diaries(
+    username: str,
+    sort_key: str = Query(default="id", description="排序字段（如id/date/title/rating/views等）"),
+    sort_order: str = Query(default="desc", description="排序方向：asc（升序）/desc（降序）")
+):
     """
     获取用户所有日记接口：
       - 根据用户名查询并返回该用户所有日记
+      - 支持自定义排序（默认按id降序）
+      - 示例：/diaries/user1?sort_key=date&sort_order=asc
     """
-    diaries = diary_service.get_diaries(username)
+    diaries = diary_service.get_diaries(
+        username=username,
+        sort_key=sort_key,
+        sort_order=sort_order
+    )
     return {"diaries": diaries}
 
 @app.put("/diaries")

@@ -46,20 +46,37 @@ def add_diary(
     diaries.append(diary_entry)
     write_json(DIARIES_FILE, diaries)
 
-
-def get_diaries(username: str) -> list:
+def get_diaries(username: str, sort_key: str = "id", sort_order: str = "desc") -> list:
     """
-    根据用户名查询日记：
-    - 添加按id降序排列（最新在前）
-    - 保持其他过滤逻辑不变
+    根据用户名查询日记，支持自定义排序规则
+
+    :param username: 查询用户名，"__all__"表示查询所有用户
+    :param sort_key: 排序字段，默认按id排序
+    :param sort_order: 排序方向，asc-升序 desc-降序（默认）
+    :return: 过滤并排序后的日记列表
     """
     diaries = read_json(DIARIES_FILE, default=[])
+    
     if username == "__all__":
-        return sorted(diaries, key=lambda x: x["id"], reverse=True)
+        filtered = diaries
     else:
-        user_diaries = [entry for entry in diaries if entry.get("username") == username]
-        return sorted(user_diaries, key=lambda x: x["id"], reverse=True)
-
+        filtered = [entry for entry in diaries if entry.get("username") == username]
+    
+    # 处理排序方向
+    reverse_sort = sort_order.lower() == "desc"
+    
+    # 执行排序（使用带异常处理的排序方式）
+    try:
+        sorted_diaries = sorted(
+            filtered,
+            key=lambda x: x.get(sort_key, 0),  # 为不存在的key提供默认值
+            reverse=reverse_sort
+        )
+    except TypeError:
+        # 处理类型不一致的情况（如混合类型的字段），按原始顺序返回
+        sorted_diaries = filtered
+    
+    return sorted_diaries
 
 def update_diary(
     username: str,

@@ -34,10 +34,10 @@ def add_diary(
         "id": new_id,
         "title": title,
         "content": content,
-        "image": images,
-        "video": videos,
+        "images": images,
+        "videos": videos,
         "views": 0,
-        "rating": 0.0,
+        "rating": 5.0,
         "tags": tags,
         "timestamp": int(time.time())  # 保留原有时间戳功能
     }

@@ -1,0 +1,21 @@
+{
+    "scenic_spots": [
+        {
+            "name": "八达岭长城",
+            "description": "八达岭长城是明长城的重要组成部分，以其雄伟壮观和保存完好而闻名于世。",
+            "location": "中国北京市延庆区",
+            "coordinates": {
+              "latitude": 40.3574,
+              "longitude": 115.8108
+            },
+            "rating": 4.8,
+            "popularity": 95,
+            "tags": ["自然风光", "历史文化", "世界遗产", "户外活动"],
+            "price_range": "¥40-120",
+            "open_hours": {
+              "weekday": "7:30-17:30",
+              "weekend": "7:00-18:00"
+            }
+        }
+    ]
+}

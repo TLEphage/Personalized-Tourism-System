@@ -1,0 +1,818 @@
+{
+    "scenic_spots": [
+        {
+            "name": "故宫博物院",
+            "description": "故宫博物院是北京著名的自然景观景点，以古建筑群著称。",
+            "location": "北京市西城区",
+            "coordinates": {
+                "latitude": 41.3623,
+                "longitude": 115.4207
+            },
+            "rating": 4.8,
+            "popularity": 95,
+            "tags": [
+                "博物馆",
+                "主题公园",
+                "古建筑",
+                "户外运动",
+                "亲子游"
+            ],
+            "price_range": "¥150-300",
+            "open_hours": {
+                "weekday": "7:00-18:00",
+                "weekend": "6:30-20:00"
+            }
+        },
+        {
+            "name": "天坛公园",
+            "description": "天坛公园是北京著名的主题娱乐景点，以古建筑群著称。",
+            "location": "北京市怀柔区",
+            "coordinates": {
+                "latitude": 41.545,
+                "longitude": 115.9571
+            },
+            "rating": 4.1,
+            "popularity": 90,
+            "tags": [
+                "博物馆",
+                "古建筑",
+                "户外运动",
+                "世界遗产",
+                "自然风光"
+            ],
+            "price_range": "¥20-60",
+            "open_hours": {
+                "weekday": "7:00-18:00",
+                "weekend": "7:00-20:00"
+            }
+        },
+        {
+            "name": "颐和园",
+            "description": "颐和园是北京著名的自然景观景点，以特色活动著称。",
+            "location": "北京市延庆区",
+            "coordinates": {
+                "latitude": 40.4985,
+                "longitude": 115.1302
+            },
+            "rating": 4.8,
+            "popularity": 95,
+            "tags": [
+                "博物馆",
+                "古建筑",
+                "世界遗产",
+                "亲子游"
+            ],
+            "price_range": "¥20-60",
+            "open_hours": {
+                "weekday": "8:00-18:00",
+                "weekend": "6:30-20:00"
+            }
+        },
+        {
+            "name": "八达岭长城",
+            "description": "八达岭长城是北京著名的自然景观景点，以自然山水著称。",
+            "location": "北京市朝阳区",
+            "coordinates": {
+                "latitude": 40.6978,
+                "longitude": 116.2408
+            },
+            "rating": 4.0,
+            "popularity": 80,
+            "tags": [
+                "博物馆",
+                "世界遗产",
+                "历史文化"
+            ],
+            "price_range": "¥60-150",
+            "open_hours": {
+                "weekday": "7:00-17:30",
+                "weekend": "6:30-18:30"
+            }
+        },
+        {
+            "name": "慕田峪长城",
+            "description": "慕田峪长城是北京著名的自然景观景点，以古建筑群著称。",
+            "location": "北京市通州区",
+            "coordinates": {
+                "latitude": 39.7759,
+                "longitude": 115.3455
+            },
+            "rating": 4.4,
+            "popularity": 82,
+            "tags": [
+                "博物馆",
+                "主题公园",
+                "户外运动"
+            ],
+            "price_range": "¥60-150",
+            "open_hours": {
+                "weekday": "7:00-18:00",
+                "weekend": "6:30-18:30"
+            }
+        },
+        {
+            "name": "圆明园",
+            "description": "圆明园是北京著名的自然景观景点，以古建筑群著称。",
+            "location": "北京市房山区",
+            "coordinates": {
+                "latitude": 39.7836,
+                "longitude": 116.4003
+            },
+            "rating": 4.2,
+            "popularity": 81,
+            "tags": [
+                "摄影",
+                "自然风光",
+                "历史文化",
+                "亲子游"
+            ],
+            "price_range": "¥150-300",
+            "open_hours": {
+                "weekday": "7:00-18:00",
+                "weekend": "6:30-20:00"
+            }
+        },
+        {
+            "name": "南锣鼓巷",
+            "description": "南锣鼓巷是北京著名的历史文化景点，以自然山水著称。",
+            "location": "北京市朝阳区",
+            "coordinates": {
+                "latitude": 41.1425,
+                "longitude": 117.612
+            },
+            "rating": 4.7,
+            "popularity": 72,
+            "tags": [
+                "世界遗产",
+                "历史文化",
+                "户外运动"
+            ],
+            "price_range": "¥60-150",
+            "open_hours": {
+                "weekday": "7:00-18:00",
+                "weekend": "7:00-18:30"
+            }
+        },
+        {
+            "name": "798艺术区",
+            "description": "798艺术区是北京著名的主题娱乐景点，以自然山水著称。",
+            "location": "北京市房山区",
+            "coordinates": {
+                "latitude": 39.462,
+                "longitude": 117.1764
+            },
+            "rating": 4.1,
+            "popularity": 77,
+            "tags": [
+                "主题公园",
+                "博物馆",
+                "亲子游",
+                "历史文化"
+            ],
+            "price_range": "¥150-300",
+            "open_hours": {
+                "weekday": "8:00-17:30",
+                "weekend": "6:30-20:00"
+            }
+        },
+        {
+            "name": "北京动物园",
+            "description": "北京动物园是北京著名的自然景观景点，以古建筑群著称。",
+            "location": "北京市朝阳区",
+            "coordinates": {
+                "latitude": 41.3089,
+                "longitude": 116.2525
+            },
+            "rating": 4.0,
+            "popularity": 97,
+            "tags": [
+                "历史文化",
+                "美食",
+                "主题公园",
+                "古建筑",
+                "世界遗产"
+            ],
+            "price_range": "免费",
+            "open_hours": {
+                "weekday": "8:00-18:00",
+                "weekend": "6:30-18:30"
+            }
+        },
+        {
+            "name": "北京欢乐谷",
+            "description": "北京欢乐谷是北京著名的自然景观景点，以特色活动著称。",
+            "location": "北京市延庆区",
+            "coordinates": {
+                "latitude": 41.3543,
+                "longitude": 116.5116
+            },
+            "rating": 4.8,
+            "popularity": 90,
+            "tags": [
+                "古建筑",
+                "博物馆",
+                "世界遗产",
+                "主题公园"
+            ],
+            "price_range": "¥60-150",
+            "open_hours": {
+                "weekday": "8:00-17:30",
+                "weekend": "6:30-20:00"
+            }
+        },
+        {
+            "name": "居庸关长城",
+            "description": "居庸关长城是北京著名的主题娱乐景点，以古建筑群著称。",
+            "location": "北京市顺义区",
+            "coordinates": {
+                "latitude": 40.7994,
+                "longitude": 116.8201
+            },
+            "rating": 4.2,
+            "popularity": 98,
+            "tags": [
+                "户外运动",
+                "历史文化",
+                "主题公园"
+            ],
+            "price_range": "免费",
+            "open_hours": {
+                "weekday": "7:00-17:30",
+                "weekend": "7:00-20:00"
+            }
+        },
+        {
+            "name": "恭王府",
+            "description": "恭王府是北京著名的自然景观景点，以自然山水著称。",
+            "location": "北京市顺义区",
+            "coordinates": {
+                "latitude": 40.0382,
+                "longitude": 116.5778
+            },
+            "rating": 4.2,
+            "popularity": 85,
+            "tags": [
+                "美食",
+                "历史文化",
+                "摄影",
+                "古建筑",
+                "主题公园"
+            ],
+            "price_range": "免费",
+            "open_hours": {
+                "weekday": "8:00-17:30",
+                "weekend": "6:30-18:30"
+            }
+        },
+        {
+            "name": "北京奥林匹克公园",
+            "description": "北京奥林匹克公园是北京著名的主题娱乐景点，以自然山水著称。",
+            "location": "北京市房山区",
+            "coordinates": {
+                "latitude": 40.3022,
+                "longitude": 115.919
+            },
+            "rating": 4.8,
+            "popularity": 100,
+            "tags": [
+                "摄影",
+                "美食",
+                "户外运动"
+            ],
+            "price_range": "¥150-300",
+            "open_hours": {
+                "weekday": "7:00-19:00",
+                "weekend": "7:00-20:00"
+            }
+        },
+        {
+            "name": "北京环球影城",
+            "description": "北京环球影城是北京著名的历史文化景点，以古建筑群著称。",
+            "location": "北京市朝阳区",
+            "coordinates": {
+                "latitude": 39.6057,
+                "longitude": 116.5197
+            },
+            "rating": 4.0,
+            "popularity": 99,
+            "tags": [
+                "户外运动",
+                "博物馆",
+                "自然风光",
+                "古建筑"
+            ],
+            "price_range": "¥150-300",
+            "open_hours": {
+                "weekday": "7:00-19:00",
+                "weekend": "6:30-18:30"
+            }
+        },
+        {
+            "name": "前门大街",
+            "description": "前门大街是北京著名的历史文化景点，以特色活动著称。",
+            "location": "北京市海淀区",
+            "coordinates": {
+                "latitude": 40.3734,
+                "longitude": 116.546
+            },
+            "rating": 4.2,
+            "popularity": 90,
+            "tags": [
+                "户外运动",
+                "历史文化",
+                "博物馆",
+                "世界遗产",
+                "自然风光"
+            ],
+            "price_range": "¥60-150",
+            "open_hours": {
+                "weekday": "7:00-17:30",
+                "weekend": "7:00-20:00"
+            }
+        },
+        {
+            "name": "天安门广场",
+            "description": "天安门广场是北京著名的历史文化景点，以自然山水著称。",
+            "location": "北京市怀柔区",
+            "coordinates": {
+                "latitude": 40.7483,
+                "longitude": 115.4863
+            },
+            "rating": 4.2,
+            "popularity": 86,
+            "tags": [
+                "户外运动",
+                "古建筑",
+                "自然风光"
+            ],
+            "price_range": "¥150-300",
+            "open_hours": {
+                "weekday": "7:00-17:30",
+                "weekend": "7:00-18:30"
+            }
+        },
+        {
+            "name": "国家博物馆",
+            "description": "国家博物馆是北京著名的自然景观景点，以特色活动著称。",
+            "location": "北京市通州区",
+            "coordinates": {
+                "latitude": 39.9394,
+                "longitude": 117.8484
+            },
+            "rating": 4.6,
+            "popularity": 77,
+            "tags": [
+                "美食",
+                "摄影",
+                "亲子游",
+                "世界遗产",
+                "自然风光"
+            ],
+            "price_range": "¥20-60",
+            "open_hours": {
+                "weekday": "8:00-17:30",
+                "weekend": "6:30-20:00"
+            }
+        },
+        {
+            "name": "什刹海",
+            "description": "什刹海是北京著名的主题娱乐景点，以古建筑群著称。",
+            "location": "北京市西城区",
+            "coordinates": {
+                "latitude": 39.7754,
+                "longitude": 116.9305
+            },
+            "rating": 4.2,
+            "popularity": 92,
+            "tags": [
+                "世界遗产",
+                "主题公园",
+                "博物馆",
+                "户外运动",
+                "古建筑"
+            ],
+            "price_range": "免费",
+            "open_hours": {
+                "weekday": "8:00-17:30",
+                "weekend": "6:30-20:00"
+            }
+        },
+        {
+            "name": "景山公园",
+            "description": "景山公园是北京著名的自然景观景点，以特色活动著称。",
+            "location": "北京市西城区",
+            "coordinates": {
+                "latitude": 41.4939,
+                "longitude": 115.6315
+            },
+            "rating": 4.2,
+            "popularity": 99,
+            "tags": [
+                "历史文化",
+                "主题公园",
+                "美食"
+            ],
+            "price_range": "¥20-60",
+            "open_hours": {
+                "weekday": "8:00-19:00",
+                "weekend": "6:30-18:30"
+            }
+        },
+        {
+            "name": "十三陵",
+            "description": "十三陵是北京著名的自然景观景点，以古建筑群著称。",
+            "location": "北京市门头沟区",
+            "coordinates": {
+                "latitude": 40.3676,
+                "longitude": 117.2333
+            },
+            "rating": 4.5,
+            "popularity": 87,
+            "tags": [
+                "户外运动",
+                "主题公园",
+                "摄影"
+            ],
+            "price_range": "¥20-60",
+            "open_hours": {
+                "weekday": "7:00-17:30",
+                "weekend": "7:00-20:00"
+            }
+        },
+        {
+            "name": "北京坊",
+            "description": "北京坊是北京著名的历史文化景点，以古建筑群著称。",
+            "location": "北京市昌平区",
+            "coordinates": {
+                "latitude": 39.416,
+                "longitude": 115.0314
+            },
+            "rating": 4.7,
+            "popularity": 97,
+            "tags": [
+                "户外运动",
+                "古建筑",
+                "世界遗产"
+            ],
+            "price_range": "免费",
+            "open_hours": {
+                "weekday": "8:00-18:00",
+                "weekend": "6:30-20:00"
+            }
+        },
+        {
+            "name": "观复博物馆",
+            "description": "观复博物馆是北京著名的自然景观景点，以古建筑群著称。",
+            "location": "北京市怀柔区",
+            "coordinates": {
+                "latitude": 39.7784,
+                "longitude": 117.9405
+            },
+            "rating": 4.5,
+            "popularity": 97,
+            "tags": [
+                "自然风光",
+                "户外运动",
+                "亲子游",
+                "主题公园",
+                "博物馆"
+            ],
+            "price_range": "免费",
+            "open_hours": {
+                "weekday": "8:00-18:00",
+                "weekend": "7:00-20:00"
+            }
+        },
+        {
+            "name": "石景山游乐园",
+            "description": "石景山游乐园是北京著名的主题娱乐景点，以古建筑群著称。",
+            "location": "北京市延庆区",
+            "coordinates": {
+                "latitude": 40.9796,
+                "longitude": 117.0878
+            },
+            "rating": 4.8,
+            "popularity": 82,
+            "tags": [
+                "亲子游",
+                "美食",
+                "历史文化",
+                "博物馆"
+            ],
+            "price_range": "免费",
+            "open_hours": {
+                "weekday": "8:00-17:30",
+                "weekend": "7:00-20:00"
+            }
+        },
+        {
+            "name": "古北水镇",
+            "description": "古北水镇是北京著名的历史文化景点，以自然山水著称。",
+            "location": "北京市西城区",
+            "coordinates": {
+                "latitude": 40.0233,
+                "longitude": 115.6859
+            },
+            "rating": 4.3,
+            "popularity": 86,
+            "tags": [
+                "主题公园",
+                "历史文化",
+                "摄影",
+                "自然风光",
+                "美食"
+            ],
+            "price_range": "免费",
+            "open_hours": {
+                "weekday": "8:00-17:30",
+                "weekend": "7:00-20:00"
+            }
+        },
+        {
+            "name": "密云渔街",
+            "description": "密云渔街是北京著名的历史文化景点，以古建筑群著称。",
+            "location": "北京市怀柔区",
+            "coordinates": {
+                "latitude": 41.0516,
+                "longitude": 115.195
+            },
+            "rating": 4.4,
+            "popularity": 96,
+            "tags": [
+                "自然风光",
+                "亲子游",
+                "主题公园",
+                "博物馆",
+                "古建筑"
+            ],
+            "price_range": "¥150-300",
+            "open_hours": {
+                "weekday": "8:00-18:00",
+                "weekend": "7:00-20:00"
+            }
+        },
+        {
+            "name": "平谷石林峡",
+            "description": "平谷石林峡是北京著名的主题娱乐景点，以古建筑群著称。",
+            "location": "北京市房山区",
+            "coordinates": {
+                "latitude": 39.7158,
+                "longitude": 115.0544
+            },
+            "rating": 4.0,
+            "popularity": 78,
+            "tags": [
+                "自然风光",
+                "古建筑",
+                "亲子游",
+                "历史文化",
+                "博物馆"
+            ],
+            "price_range": "¥20-60",
+            "open_hours": {
+                "weekday": "7:00-19:00",
+                "weekend": "6:30-18:30"
+            }
+        },
+        {
+            "name": "十渡拒马河",
+            "description": "十渡拒马河是北京著名的主题娱乐景点，以自然山水著称。",
+            "location": "北京市昌平区",
+            "coordinates": {
+                "latitude": 39.8076,
+                "longitude": 115.4068
+            },
+            "rating": 4.2,
+            "popularity": 76,
+            "tags": [
+                "世界遗产",
+                "美食",
+                "自然风光"
+            ],
+            "price_range": "¥20-60",
+            "open_hours": {
+                "weekday": "8:00-17:30",
+                "weekend": "7:00-18:30"
+            }
+        },
+        {
+            "name": "爨底下村",
+            "description": "爨底下村是北京著名的主题娱乐景点，以自然山水著称。",
+            "location": "北京市朝阳区",
+            "coordinates": {
+                "latitude": 41.0475,
+                "longitude": 116.9797
+            },
+            "rating": 4.1,
+            "popularity": 77,
+            "tags": [
+                "博物馆",
+                "主题公园",
+                "古建筑",
+                "自然风光",
+                "美食"
+            ],
+            "price_range": "¥20-60",
+            "open_hours": {
+                "weekday": "8:00-18:00",
+                "weekend": "6:30-18:30"
+            }
+        },
+        {
+            "name": "红螺寺",
+            "description": "红螺寺是北京著名的主题娱乐景点，以特色活动著称。",
+            "location": "北京市门头沟区",
+            "coordinates": {
+                "latitude": 41.4565,
+                "longitude": 117.4594
+            },
+            "rating": 4.5,
+            "popularity": 94,
+            "tags": [
+                "美食",
+                "摄影",
+                "世界遗产",
+                "古建筑",
+                "亲子游"
+            ],
+            "price_range": "免费",
+            "open_hours": {
+                "weekday": "8:00-19:00",
+                "weekend": "7:00-20:00"
+            }
+        },
+        {
+            "name": "潭柘寺",
+            "description": "潭柘寺是北京著名的历史文化景点，以特色活动著称。",
+            "location": "北京市昌平区",
+            "coordinates": {
+                "latitude": 40.2994,
+                "longitude": 117.2813
+            },
+            "rating": 4.0,
+            "popularity": 99,
+            "tags": [
+                "古建筑",
+                "历史文化",
+                "户外运动"
+            ],
+            "price_range": "免费",
+            "open_hours": {
+                "weekday": "7:00-18:00",
+                "weekend": "7:00-18:30"
+            }
+        },
+        {
+            "name": "戒台寺",
+            "description": "戒台寺是北京著名的主题娱乐景点，以特色活动著称。",
+            "location": "北京市昌平区",
+            "coordinates": {
+                "latitude": 39.6562,
+                "longitude": 115.4714
+            },
+            "rating": 4.2,
+            "popularity": 89,
+            "tags": [
+                "博物馆",
+                "历史文化",
+                "主题公园"
+            ],
+            "price_range": "¥60-150",
+            "open_hours": {
+                "weekday": "7:00-17:30",
+                "weekend": "6:30-18:30"
+            }
+        },
+        {
+            "name": "周口店北京人遗址",
+            "description": "周口店北京人遗址是北京著名的自然景观景点，以古建筑群著称。",
+            "location": "北京市昌平区",
+            "coordinates": {
+                "latitude": 40.7217,
+                "longitude": 115.6488
+            },
+            "rating": 4.6,
+            "popularity": 93,
+            "tags": [
+                "摄影",
+                "自然风光",
+                "美食",
+                "古建筑",
+                "博物馆"
+            ],
+            "price_range": "¥150-300",
+            "open_hours": {
+                "weekday": "8:00-17:30",
+                "weekend": "7:00-18:30"
+            }
+        },
+        {
+            "name": "北京植物园",
+            "description": "北京植物园是北京著名的历史文化景点，以自然山水著称。",
+            "location": "北京市朝阳区",
+            "coordinates": {
+                "latitude": 40.8886,
+                "longitude": 115.2514
+            },
+            "rating": 4.3,
+            "popularity": 84,
+            "tags": [
+                "主题公园",
+                "博物馆",
+                "亲子游",
+                "美食"
+            ],
+            "price_range": "¥150-300",
+            "open_hours": {
+                "weekday": "7:00-19:00",
+                "weekend": "6:30-18:30"
+            }
+        },
+        {
+            "name": "世界公园",
+            "description": "世界公园是北京著名的自然景观景点，以自然山水著称。",
+            "location": "北京市昌平区",
+            "coordinates": {
+                "latitude": 40.8058,
+                "longitude": 117.6559
+            },
+            "rating": 4.1,
+            "popularity": 73,
+            "tags": [
+                "历史文化",
+                "主题公园",
+                "世界遗产"
+            ],
+            "price_range": "¥20-60",
+            "open_hours": {
+                "weekday": "8:00-17:30",
+                "weekend": "7:00-20:00"
+            }
+        },
+        {
+            "name": "北京世界花卉大观园",
+            "description": "北京世界花卉大观园是北京著名的历史文化景点，以自然山水著称。",
+            "location": "北京市门头沟区",
+            "coordinates": {
+                "latitude": 40.5308,
+                "longitude": 116.4557
+            },
+            "rating": 4.4,
+            "popularity": 78,
+            "tags": [
+                "户外运动",
+                "主题公园",
+                "世界遗产",
+                "美食"
+            ],
+            "price_range": "¥150-300",
+            "open_hours": {
+                "weekday": "8:00-17:30",
+                "weekend": "7:00-18:30"
+            }
+        },
+        {
+            "name": "中国科学技术馆",
+            "description": "中国科学技术馆是北京著名的自然景观景点，以自然山水著称。",
+            "location": "北京市西城区",
+            "coordinates": {
+                "latitude": 39.6337,
+                "longitude": 115.3
+            },
+            "rating": 4.1,
+            "popularity": 86,
+            "tags": [
+                "美食",
+                "摄影",
+                "世界遗产",
+                "古建筑"
+            ],
+            "price_range": "¥150-300",
+            "open_hours": {
+                "weekday": "7:00-19:00",
+                "weekend": "6:30-20:00"
+            }
+        },
+        {
+            "name": "北京自然博物馆",
+            "description": "北京自然博物馆是北京著名的主题娱乐景点，以古建筑群著称。",
+            "location": "北京市房山区",
+            "coordinates": {
+                "latitude": 40.4279,
+                "longitude": 117.1883
+            },
+            "rating": 4.2,
+            "popularity": 70,
+            "tags": [
+                "自然风光",
+                "历史文化",
+                "亲子游"
+            ],
+            "price_range": "¥20-60",
+            "open_hours": {
+                "weekday": "8:00-18:00",
+                "weekend": "6:30-18:30"
+            }
+        }
+    ]
+}

@@ -7,7 +7,7 @@ from app.routers import users, diaries, spots, map
 # --------------------------- 初始化 FastAPI 应用 ---------------------------
 app = FastAPI(
     title="旅游系统后端 API",
-    description="提供用户管理、游记发布、路径规划等功能接口",
+    description="提供用户管理、日记发布、路径规划等功能接口",
     version="1.0.0",
     openapi_tags=[  # 定义 Swagger 文档的标签分组
         {
@@ -15,8 +15,8 @@ app = FastAPI(
             "description": "用户注册、登录、信息查询与修改"
         },
         {
-            "name": "游记管理",
-            "description": "游记的增删改查与排序"
+            "name": "日记管理",
+            "description": "日记的增删改查与排序"
         },
         {
             "name": "景点查询",
@@ -46,11 +46,11 @@ app.include_router(
     tags=["用户管理"]  # 对应 openapi_tags 中的标签名
 )
 
-# 游记管理路由（前缀 /diaries，标签"游记管理"）
+# 日记管理路由（前缀 /diaries，标签"日记管理"）
 app.include_router(
     diaries.router,
     prefix="/diaries",
-    tags=["游记管理"]
+    tags=["日记管理"]
 )
 
 app.include_router(

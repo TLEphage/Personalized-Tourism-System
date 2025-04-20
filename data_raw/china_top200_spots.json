@@ -1,0 +1,1404 @@
+{
+    "scenic_spots": [
+        {
+            "name": "故宫博物院",
+            "description": "暂无描述",
+            "location": "景山前街4号",
+            "coordinates": {
+                "longitude": 116.397029,
+                "latitude": 39.917839
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "雍和宫",
+            "description": "暂无描述",
+            "location": "雍和宫大街28号(雍和宫地铁站F东南口步行250米)",
+            "coordinates": {
+                "longitude": 116.417296,
+                "latitude": 39.947239
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "天安门广场",
+            "description": "暂无描述",
+            "location": "东长安街",
+            "coordinates": {
+                "longitude": 116.397755,
+                "latitude": 39.903179
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "天安门",
+            "description": "暂无描述",
+            "location": "长安街北侧",
+            "coordinates": {
+                "longitude": 116.397455,
+                "latitude": 39.909187
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "中国人民革命军事博物馆",
+            "description": "暂无描述",
+            "location": "复兴路9号",
+            "coordinates": {
+                "longitude": 116.323871,
+                "latitude": 39.909108
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "北海公园",
+            "description": "暂无描述",
+            "location": "文津街1号",
+            "coordinates": {
+                "longitude": 116.391802,
+                "latitude": 39.928775
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "景山公园",
+            "description": "暂无描述",
+            "location": "景山西街44号",
+            "coordinates": {
+                "longitude": 116.396551,
+                "latitude": 39.925875
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "什刹海",
+            "description": "暂无描述",
+            "location": "地安门西大街49号",
+            "coordinates": {
+                "longitude": 116.385281,
+                "latitude": 39.941862
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "中国国家博物馆",
+            "description": "暂无描述",
+            "location": "东长安街16号天安门广场东侧",
+            "coordinates": {
+                "longitude": 116.401304,
+                "latitude": 39.905374
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "天安门-城楼",
+            "description": "暂无描述",
+            "location": "东长安街天安门(天安门东地铁站A西北入口步行290米)",
+            "coordinates": {
+                "longitude": 116.397487,
+                "latitude": 39.908751
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "紫竹院公园",
+            "description": "暂无描述",
+            "location": "中关村南大街35号",
+            "coordinates": {
+                "longitude": 116.319079,
+                "latitude": 39.942352
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "妙应寺白塔",
+            "description": "暂无描述",
+            "location": "阜成门内大街171号",
+            "coordinates": {
+                "longitude": 116.363365,
+                "latitude": 39.924848
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "南锣鼓巷",
+            "description": "暂无描述",
+            "location": "交道口街道南大街(南锣鼓巷地铁站E西北口旁)",
+            "coordinates": {
+                "longitude": 116.402394,
+                "latitude": 39.937182
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "玉渊潭公园",
+            "description": "暂无描述",
+            "location": "西三环中路10号",
+            "coordinates": {
+                "longitude": 116.319932,
+                "latitude": 39.91662
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "中山公园",
+            "description": "暂无描述",
+            "location": "中华路4号(天安门西侧)",
+            "coordinates": {
+                "longitude": 116.394407,
+                "latitude": 39.910707
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "前门大街",
+            "description": "暂无描述",
+            "location": "东城区",
+            "coordinates": {
+                "longitude": 116.403895,
+                "latitude": 39.896152
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "天坛公园",
+            "description": "暂无描述",
+            "location": "天坛东里甲1号",
+            "coordinates": {
+                "longitude": 116.410829,
+                "latitude": 39.881913
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "广济寺",
+            "description": "暂无描述",
+            "location": "阜成门内大街25号(西四地铁站B东北口步行200米)",
+            "coordinates": {
+                "longitude": 116.372321,
+                "latitude": 39.924971
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "故宫博物院-午门",
+            "description": "暂无描述",
+            "location": "东华门街道景山前街4号故宫博物院内(南侧)",
+            "coordinates": {
+                "longitude": 116.397228,
+                "latitude": 39.913582
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "首都博物馆",
+            "description": "暂无描述",
+            "location": "复兴门外大街16号",
+            "coordinates": {
+                "longitude": 116.342067,
+                "latitude": 39.906412
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "天安门广场-国旗",
+            "description": "暂无描述",
+            "location": "景山前街4号天安门广场内(北侧)",
+            "coordinates": {
+                "longitude": 116.397554,
+                "latitude": 39.906928
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "毛主席纪念堂",
+            "description": "暂无描述",
+            "location": "前门东大街11号(天安门广场人民英雄纪念碑南面)",
+            "coordinates": {
+                "longitude": 116.397815,
+                "latitude": 39.902517
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "鼓楼",
+            "description": "暂无描述",
+            "location": "东城区钟楼湾胡同临字9号",
+            "coordinates": {
+                "longitude": 116.395937,
+                "latitude": 39.940781
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "北京大栅栏",
+            "description": "暂无描述",
+            "location": "煤市街",
+            "coordinates": {
+                "longitude": 116.395042,
+                "latitude": 39.895715
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "法源寺",
+            "description": "暂无描述",
+            "location": "法源寺前街7号",
+            "coordinates": {
+                "longitude": 116.36988,
+                "latitude": 39.885385
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "王府井步行街",
+            "description": "暂无描述",
+            "location": "王府井大街256号(金鱼胡同地铁站B东口步行80米)",
+            "coordinates": {
+                "longitude": 116.412423,
+                "latitude": 39.913392
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "紫禁城神武门",
+            "description": "暂无描述",
+            "location": "景山前街4号北京故宫博物馆",
+            "coordinates": {
+                "longitude": 116.396786,
+                "latitude": 39.922305
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "烟袋斜街",
+            "description": "暂无描述",
+            "location": "烟袋斜街与小石碑胡同交叉口东100米",
+            "coordinates": {
+                "longitude": 116.394748,
+                "latitude": 39.939329
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "太庙",
+            "description": "暂无描述",
+            "location": "东华门街道东长安街北京市劳动人民文化宫",
+            "coordinates": {
+                "longitude": 116.399898,
+                "latitude": 39.911374
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "朝阳公园",
+            "description": "暂无描述",
+            "location": "朝阳公园南路1号",
+            "coordinates": {
+                "longitude": 116.482276,
+                "latitude": 39.944093
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "李大钊故居",
+            "description": "暂无描述",
+            "location": "文华胡同24号",
+            "coordinates": {
+                "longitude": 116.365903,
+                "latitude": 39.904721
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "北京前门大栅栏",
+            "description": "暂无描述",
+            "location": "大栅栏西街110号大栅栏西街商业",
+            "coordinates": {
+                "longitude": 116.397003,
+                "latitude": 39.896061
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "北京天文馆",
+            "description": "暂无描述",
+            "location": "西直门外大街138号",
+            "coordinates": {
+                "longitude": 116.336833,
+                "latitude": 39.937306
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "什刹海-后海",
+            "description": "暂无描述",
+            "location": "甘露胡同附近",
+            "coordinates": {
+                "longitude": 116.38526,
+                "latitude": 39.943559
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "北京历代帝王庙",
+            "description": "暂无描述",
+            "location": "阜成门内大街131号",
+            "coordinates": {
+                "longitude": 116.367443,
+                "latitude": 39.924802
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "陶然亭公园",
+            "description": "暂无描述",
+            "location": "太平街19号",
+            "coordinates": {
+                "longitude": 116.381921,
+                "latitude": 39.874496
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "国家自然博物馆",
+            "description": "暂无描述",
+            "location": "天桥南大街126号",
+            "coordinates": {
+                "longitude": 116.399833,
+                "latitude": 39.883183
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "后海公园",
+            "description": "暂无描述",
+            "location": "羊房胡同",
+            "coordinates": {
+                "longitude": 116.38259,
+                "latitude": 39.942143
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "北京古代建筑博物馆",
+            "description": "暂无描述",
+            "location": "东经路21号",
+            "coordinates": {
+                "longitude": 116.392052,
+                "latitude": 39.877536
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "万松老人塔",
+            "description": "暂无描述",
+            "location": "北京市西长安街街道西四南大街43号",
+            "coordinates": {
+                "longitude": 116.373243,
+                "latitude": 39.922117
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "地坛公园",
+            "description": "暂无描述",
+            "location": "安定门外大街",
+            "coordinates": {
+                "longitude": 116.414449,
+                "latitude": 39.953778
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "天宁寺",
+            "description": "暂无描述",
+            "location": "天宁寺前街甲3号",
+            "coordinates": {
+                "longitude": 116.345962,
+                "latitude": 39.894719
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "莲花池公园",
+            "description": "暂无描述",
+            "location": "西三环中路38号",
+            "coordinates": {
+                "longitude": 116.315327,
+                "latitude": 39.893297
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "中国钱币博物馆",
+            "description": "暂无描述",
+            "location": "西交民巷17号",
+            "coordinates": {
+                "longitude": 116.39493,
+                "latitude": 39.902127
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "白塔寺博物馆",
+            "description": "暂无描述",
+            "location": "阜成门内大街171号妙应寺白塔(南侧)",
+            "coordinates": {
+                "longitude": 116.363515,
+                "latitude": 39.924035
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "中央礼品文物管理中心",
+            "description": "暂无描述",
+            "location": "西兴隆街1号",
+            "coordinates": {
+                "longitude": 116.410901,
+                "latitude": 39.897847
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "国子监",
+            "description": "暂无描述",
+            "location": "国子监街13-15号",
+            "coordinates": {
+                "longitude": 116.413285,
+                "latitude": 39.946777
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "北京明城墙遗址公园",
+            "description": "暂无描述",
+            "location": "崇文门东大街9号",
+            "coordinates": {
+                "longitude": 116.427901,
+                "latitude": 39.901264
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "中央电视塔",
+            "description": "暂无描述",
+            "location": "西三环中路11号(玉渊潭公园对面)",
+            "coordinates": {
+                "longitude": 116.307016,
+                "latitude": 39.918852
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "智化寺",
+            "description": "暂无描述",
+            "location": "禄米仓胡同5号",
+            "coordinates": {
+                "longitude": 116.432325,
+                "latitude": 39.917621
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "中华世纪坛",
+            "description": "暂无描述",
+            "location": "复兴路甲9号",
+            "coordinates": {
+                "longitude": 116.321339,
+                "latitude": 39.910663
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "西华门",
+            "description": "暂无描述",
+            "location": "景山前街4号故宫博物院内(西南角)",
+            "coordinates": {
+                "longitude": 116.3928,
+                "latitude": 39.914872
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "景山公园-万春亭",
+            "description": "暂无描述",
+            "location": "景山西街44号景山公园内",
+            "coordinates": {
+                "longitude": 116.396715,
+                "latitude": 39.924863
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "正阳门",
+            "description": "暂无描述",
+            "location": "前门大街北端(前门地铁站A东北口步行90米)",
+            "coordinates": {
+                "longitude": 116.398021,
+                "latitude": 39.900505
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "北京宣南文化博物馆",
+            "description": "暂无描述",
+            "location": "北京市广安门内街道长椿街9号(近宣武医院)",
+            "coordinates": {
+                "longitude": 116.365004,
+                "latitude": 39.892823
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "真武庙",
+            "description": "暂无描述",
+            "location": "真武庙四里北2门",
+            "coordinates": {
+                "longitude": 116.347734,
+                "latitude": 39.903502
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "北京隆福寺",
+            "description": "暂无描述",
+            "location": "隆福寺街99号(东四地铁站E西北口步行450米)",
+            "coordinates": {
+                "longitude": 116.414209,
+                "latitude": 39.925256
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "国家体育场",
+            "description": "暂无描述",
+            "location": "国家体育场南路1号奥林匹克公园",
+            "coordinates": {
+                "longitude": 116.395866,
+                "latitude": 39.993306
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "普度寺遗址",
+            "description": "暂无描述",
+            "location": "普度寺前巷",
+            "coordinates": {
+                "longitude": 116.404659,
+                "latitude": 39.913437
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "天主教北京总教区宣武门天主堂南堂",
+            "description": "暂无描述",
+            "location": "前门西大街141号(宣武门地铁站C东南口步行240米)",
+            "coordinates": {
+                "longitude": 116.375098,
+                "latitude": 39.90072
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "鲁迅故居",
+            "description": "暂无描述",
+            "location": "阜成门内西三条21号(阜成门地铁站B东北口步行340米)",
+            "coordinates": {
+                "longitude": 116.358173,
+                "latitude": 39.925774
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "颐和园",
+            "description": "暂无描述",
+            "location": "新建宫门路19号",
+            "coordinates": {
+                "longitude": 116.275179,
+                "latitude": 39.999617
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "北京艺术博物馆",
+            "description": "暂无描述",
+            "location": "万寿寺121号",
+            "coordinates": {
+                "longitude": 116.311742,
+                "latitude": 39.947089
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "北海公园-永安寺",
+            "description": "暂无描述",
+            "location": "文津街1号(故宫北)北海公园内(西南角)",
+            "coordinates": {
+                "longitude": 116.389393,
+                "latitude": 39.92435
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "北京市蒙藏学校旧址",
+            "description": "暂无描述",
+            "location": "西单北大街176号西单商业街",
+            "coordinates": {
+                "longitude": 116.37446,
+                "latitude": 39.910113
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "万寿寺",
+            "description": "暂无描述",
+            "location": "万寿寺路22号(万寿寺地铁站C东南口步行120米)",
+            "coordinates": {
+                "longitude": 116.311646,
+                "latitude": 39.947093
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "郭沫若故居",
+            "description": "暂无描述",
+            "location": "北京市什刹海街道前海西街18号(什刹海西南岸)",
+            "coordinates": {
+                "longitude": 116.389306,
+                "latitude": 39.934621
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "北京动物园-西区",
+            "description": "暂无描述",
+            "location": "西直门外大街137号北京动物园内(西侧)",
+            "coordinates": {
+                "longitude": 116.332783,
+                "latitude": 39.94164
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "团城",
+            "description": "暂无描述",
+            "location": "文津街1号(故宫北)北海公园(西南角)",
+            "coordinates": {
+                "longitude": 116.389224,
+                "latitude": 39.922978
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "北海公园-九龙壁",
+            "description": "暂无描述",
+            "location": "文津街1号(故宫北)北海公园西天梵境内",
+            "coordinates": {
+                "longitude": 116.387599,
+                "latitude": 39.931861
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "元大都城垣遗址公园",
+            "description": "暂无描述",
+            "location": "安外小关街24号(近育慧南路)",
+            "coordinates": {
+                "longitude": 116.407879,
+                "latitude": 39.976118
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "龙潭公园",
+            "description": "暂无描述",
+            "location": "龙潭路16号",
+            "coordinates": {
+                "longitude": 116.438258,
+                "latitude": 39.879792
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "天主教北京教区西直门教堂-办公楼",
+            "description": "暂无描述",
+            "location": "西直门内大街与西章胡同交叉口西南60米",
+            "coordinates": {
+                "longitude": 116.36631,
+                "latitude": 39.940052
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "先农坛",
+            "description": "暂无描述",
+            "location": "东经路21号北京古代建筑博物馆",
+            "coordinates": {
+                "longitude": 116.392206,
+                "latitude": 39.876929
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "人民英雄纪念碑",
+            "description": "暂无描述",
+            "location": "天安门广场(长安街中心)",
+            "coordinates": {
+                "longitude": 116.397691,
+                "latitude": 39.904632
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "北京动物园-东区",
+            "description": "暂无描述",
+            "location": "西直门外大街137号北京动物园内(东南角)",
+            "coordinates": {
+                "longitude": 116.339439,
+                "latitude": 39.940979
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "北海公园-白塔",
+            "description": "暂无描述",
+            "location": "文津街1号北海公园(西南角)",
+            "coordinates": {
+                "longitude": 116.389259,
+                "latitude": 39.925826
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "故宫博物院-神武门广场",
+            "description": "暂无描述",
+            "location": "景山前街4号",
+            "coordinates": {
+                "longitude": 116.39682,
+                "latitude": 39.922481
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "元大都城垣遗址公园-海棠花溪",
+            "description": "暂无描述",
+            "location": "北土城东路甲100号元大都遗址公园内(近樱花园西街)",
+            "coordinates": {
+                "longitude": 116.39902,
+                "latitude": 39.976484
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "西便门城墙遗址公园",
+            "description": "暂无描述",
+            "location": "宣武门西大街131号西便门明城墙遗址公园",
+            "coordinates": {
+                "longitude": 116.357853,
+                "latitude": 39.900042
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "成贤街",
+            "description": "暂无描述",
+            "location": "国子监街与大格巷交叉口西南100米",
+            "coordinates": {
+                "longitude": 116.409998,
+                "latitude": 39.944783
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "银锭桥",
+            "description": "暂无描述",
+            "location": "前海后海交接处(什刹海地铁站A2西北口步行250米)",
+            "coordinates": {
+                "longitude": 116.393416,
+                "latitude": 39.938948
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "精品公园",
+            "description": "暂无描述",
+            "location": "阜成门北大街(阜成门地铁站C东南口步行380米)",
+            "coordinates": {
+                "longitude": 116.356935,
+                "latitude": 39.919781
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "黄瓦增福财神庙",
+            "description": "暂无描述",
+            "location": "鼓楼东大街117号",
+            "coordinates": {
+                "longitude": 116.403195,
+                "latitude": 39.940976
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "东单公园",
+            "description": "暂无描述",
+            "location": "崇文门内大街9号(东单地铁站H西南口步行380米)",
+            "coordinates": {
+                "longitude": 116.41709,
+                "latitude": 39.904917
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "故宫-钟表馆",
+            "description": "暂无描述",
+            "location": "景山前街4号故宫博物院",
+            "coordinates": {
+                "longitude": 116.39922,
+                "latitude": 39.918851
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "人定湖公园",
+            "description": "暂无描述",
+            "location": "北京市德胜街道六铺炕街心15号",
+            "coordinates": {
+                "longitude": 116.385492,
+                "latitude": 39.957583
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "北滨河公园",
+            "description": "暂无描述",
+            "location": "德外大街安德路102号",
+            "coordinates": {
+                "longitude": 116.391209,
+                "latitude": 39.95044
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "圆明园遗址公园",
+            "description": "暂无描述",
+            "location": "清华西路28号",
+            "coordinates": {
+                "longitude": 116.30096,
+                "latitude": 40.008759
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "故宫博物院-御花园",
+            "description": "暂无描述",
+            "location": "景山前街4号故宫内",
+            "coordinates": {
+                "longitude": 116.39682,
+                "latitude": 39.921459
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "北京牛街礼拜寺(不对外开放)",
+            "description": "暂无描述",
+            "location": "牛街18号",
+            "coordinates": {
+                "longitude": 116.364641,
+                "latitude": 39.885711
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "东岳庙",
+            "description": "暂无描述",
+            "location": "朝阳门外大街141号",
+            "coordinates": {
+                "longitude": 116.44377,
+                "latitude": 39.924932
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "升旗台",
+            "description": "暂无描述",
+            "location": "北京市东华门街道西长安街与广场西侧路交叉口东160米",
+            "coordinates": {
+                "longitude": 116.397559,
+                "latitude": 39.906926
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "正阳门箭楼",
+            "description": "暂无描述",
+            "location": "百善镇前门大街2号前门商业区A2地块",
+            "coordinates": {
+                "longitude": 116.39791,
+                "latitude": 39.899368
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "北平图书馆旧址(暂停开放)",
+            "description": "暂无描述",
+            "location": "北京市什刹海街道文津街7号",
+            "coordinates": {
+                "longitude": 116.385319,
+                "latitude": 39.923461
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "老舍故居(暂停开放)",
+            "description": "暂无描述",
+            "location": "灯市口西街丰富胡同19号",
+            "coordinates": {
+                "longitude": 116.408367,
+                "latitude": 39.91863
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "嵩祝寺",
+            "description": "暂无描述",
+            "location": "景山后街嵩祝院23号",
+            "coordinates": {
+                "longitude": 116.403968,
+                "latitude": 39.928403
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "什刹海-汇通祠-西海湿地公园",
+            "description": "暂无描述",
+            "location": "德胜门西大街甲60号(积水潭地铁站C东南口步行400米)",
+            "coordinates": {
+                "longitude": 116.374248,
+                "latitude": 39.948043
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "故宫博物院-东华门城楼",
+            "description": "暂无描述",
+            "location": "景山前街4号故宫博物院(东南角)",
+            "coordinates": {
+                "longitude": 116.401433,
+                "latitude": 39.915049
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        },
+        {
+            "name": "五道营胡同",
+            "description": "暂无描述",
+            "location": "安定门五道营胡同67号西门",
+            "coordinates": {
+                "longitude": 116.408701,
+                "latitude": 39.948536
+            },
+            "rating": 0.0,
+            "popularity": 0,
+            "tags": [],
+            "price_range": "免费",
+            "open_hours": {}
+        }
+    ]
+}

@@ -126,7 +126,7 @@ def a_star(start_name, end_name, mode):
                 heapq.heappush(open_set, (tentative_f, neighbor))
 
     # 无路径
-    return inf, []
+    return float('inf'), float('inf'), []
 
 
 # 示例调用

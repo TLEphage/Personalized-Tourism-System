@@ -149,7 +149,7 @@ export default{
       async fetchDiaries() {
         try {
           this.isLoading = true
-          const { data } = await axios.get('http://localhost:8000/diaries/__all__')
+          const { data } = await axios.get(`http://localhost:8000/diaries/__all__?sort_key=${this.sortBy}&sort_order=desc`)
           this.diaries = data.diaries
         } catch (error) {
           console.error('日记加载失败:', error)

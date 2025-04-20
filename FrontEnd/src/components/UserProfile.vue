@@ -106,11 +106,11 @@
         try {
           this.diariesLoading = true
           const { data } = await axios.get(
-            `http://localhost:8000/diaries/${this.user.username}`
+            `http://localhost:8000/diaries/${this.user.username}?sort_key=data&sort_order=desc`
           )
-          console.log('日记加载成功1:', data)
+          //console.log('日记加载成功1:', data)
           this.diaries = data.diaries
-          console.log('日记加载成功2:', this.diaries)
+          //console.log('日记加载成功2:', this.diaries)
         } catch (error) {
           console.error('日记加载失败:', error)
           this.diaries = []

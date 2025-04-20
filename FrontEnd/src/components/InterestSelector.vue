@@ -1,16 +1,24 @@
 <template>
   <div class="interest-selector">
-      <h3>请选择您的旅游兴趣</h3>
+      <h3>📸 选择您的旅行兴趣</h3>
+      <p class="subtitle">发现属于您的独特旅程</p>
       <div class="interest-options">
-          <label v-for="(option, index) in options" :key="index">
+          <label v-for="(option, index) in options" 
+                 :key="index"
+                 class="option-card"
+                 :class="{ selected: selectedInterests.includes(option.value) }">
               <input type="checkbox"
                      :value="option.value"
-                     v-model="selectedInterests">
+                     v-model="selectedInterests"
+                     class="sr-only">
+              <span class="checkmark">✓</span>
               {{ option.label }}
           </label>
       </div>
-      <p>您选择的兴趣: {{ selectedInterests.join(',') }}</p>
-      <button @click="submitInterests">提交</button>
+      <p class="selected-display">已选兴趣：<span>{{ selectedInterests.join(' · ') }}</span></p>
+      <button @click="submitInterests" :disabled="selectedInterests.length === 0">
+          {{ selectedInterests.length ? `开启旅程 (${selectedInterests.length})` : '请选择兴趣' }}
+      </button>
   </div>
 </template>
 
@@ -71,39 +79,138 @@ export default {
 
 <style scoped>
 .interest-selector {
-  font-family: Arial, sans-serif;
-  max-width: 400px;
-  margin: 50px auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background-color: #f9f9f9;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem 2.5rem;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
+  box-shadow: 0 8px 32px rgba(0, 40, 120, 0.1);
+}
+
+h3 {
+  color: #2a3258;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.subtitle {
+  color: #6c757d;
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 .interest-options {
-  margin-top: 15px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin: 2rem 0;
 }
 
-label {
-  display: block;
-  margin-bottom: 5px;
+.option-card {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  background: white;
+  border: 2px solid #e0e7ff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
 }
 
-input[type="checkbox"] {
-  margin-right: 5px;
+.option-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 40, 120, 0.1);
+}
+
+.option-card.selected {
+  background: #4a6fff;
+  border-color: #4a6fff;
+  color: white;
+  animation: selectBounce 0.4s ease;
+}
+
+.checkmark {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #e0e7ff;
+  border-radius: 4px;
+  margin-right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  color: transparent;
+  transition: all 0.2s ease;
+}
+
+.selected .checkmark {
+  border-color: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.1);
+  color: white;
+}
+
+.sr-only {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.selected-display {
+  text-align: center;
+  color: #6c757d;
+  margin: 1.5rem 0;
+}
+
+.selected-display span {
+  color: #4a6fff;
+  font-weight: 500;
 }
 
 button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: #4CAF50;
-  color: white;
+  display: block;
+  width: 100%;
+  padding: 1rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #4a6fff 0%, #6b4aff 100%);
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
   cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 button:hover {
-  background-color: #45a049;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(74, 111, 255, 0.3);
+}
+
+button:disabled {
+  background: #e0e7ff;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+@keyframes selectBounce {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@media (max-width: 640px) {
+  .interest-selector {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .interest-options {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 </style>

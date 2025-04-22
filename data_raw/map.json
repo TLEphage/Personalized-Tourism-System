@@ -5,368 +5,371 @@
             "name": "蓟门桥",
             "type": "车站",
             "popularity": 100,
-            "longitude": 39.962423,
-            "latitude": 116.349494,
+            "longitude": 116.361276,
+            "latitude": 39.973502,
             "connected_edges": [
-                72
+                0
             ]
         },
         {
             "id": 1,
-            "name": "学十公寓",
-            "type": "公寓",
+            "name": "师大北路路口",
+            "type": "路口",
             "popularity": 100,
-            "longitude": 39.962394,
-            "latitude": 116.350684,
+            "longitude": 116.36155,
+            "latitude": 39.970685,
             "connected_edges": [
-                35,
-                36,
-                59
+                0,
+                1,
+                2
             ]
         },
         {
             "id": 2,
-            "name": "北邮科技酒店",
-            "type": "公寓",
+            "name": "北门",
+            "type": "大门",
             "popularity": 100,
-            "longitude": 39.962468,
-            "latitude": 116.349494,
+            "longitude": 116.36184,
+            "latitude": 39.970628,
             "connected_edges": [
-                69
+                1,
+                3,
+                4,
+                5,
+                6
             ]
         },
         {
             "id": 3,
-            "name": "学十一公寓",
+            "name": "北邮科技酒店",
             "type": "公寓",
             "popularity": 100,
-            "longitude": 39.962559,
-            "latitude": 116.350019,
+            "longitude": 116.361846,
+            "latitude": 39.97026,
             "connected_edges": [
-                34,
-                69
+                2
             ]
         },
         {
             "id": 4,
-            "name": "学九公寓",
+            "name": "学十一公寓",
             "type": "公寓",
             "popularity": 100,
-            "longitude": 39.962288,
-            "latitude": 116.349901,
+            "longitude": 116.362677,
+            "latitude": 39.970488,
             "connected_edges": [
-                33,
-                34,
-                35
+                3,
+                7
             ]
         },
         {
             "id": 5,
-            "name": "教九楼",
-            "type": "教学楼",
+            "name": "路口A",
+            "type": "路口",
             "popularity": 100,
-            "longitude": 39.962288,
-            "latitude": 116.350266,
-            "connected_edges": []
+            "longitude": 116.362754,
+            "latitude": 39.970284,
+            "connected_edges": [
+                4,
+                7,
+                8,
+                9
+            ]
         },
         {
             "id": 6,
-            "name": "北门",
-            "type": "大门",
+            "name": "学十公寓",
+            "type": "公寓",
             "popularity": 100,
-            "longitude": 39.962789,
-            "latitude": 116.351221,
+            "longitude": 116.36305,
+            "latitude": 39.970295,
             "connected_edges": [
-                59,
-                60,
-                72
+                5,
+                8
             ]
         },
         {
             "id": 7,
-            "name": "经管楼",
-            "type": "教学楼",
+            "name": "学九公寓",
+            "type": "公寓",
             "popularity": 100,
-            "longitude": 39.962526,
-            "latitude": 116.351639,
+            "longitude": 116.362763,
+            "latitude": 39.970053,
             "connected_edges": [
-                58,
-                60,
-                61
+                9
             ]
         },
         {
             "id": 8,
-            "name": "学六公寓",
-            "type": "公寓",
+            "name": "经管楼",
+            "type": "教学楼",
             "popularity": 100,
-            "longitude": 39.962436,
-            "latitude": 116.352197,
+            "longitude": 116.363789,
+            "latitude": 39.970642,
             "connected_edges": [
-                61,
-                62
+                10
             ]
         },
         {
             "id": 9,
-            "name": "东北家属区",
-            "type": "家属区",
+            "name": "路口B",
+            "type": "路口",
             "popularity": 100,
-            "longitude": 39.96251,
-            "latitude": 116.353226,
+            "longitude": 116.363706,
+            "latitude": 39.970108,
             "connected_edges": [
-                70
+                6,
+                10,
+                11,
+                18
             ]
         },
         {
             "id": 10,
-            "name": "青年教师公寓",
-            "type": "公寓",
+            "name": "路口C",
+            "type": "路口",
             "popularity": 100,
-            "longitude": 39.962394,
-            "latitude": 116.35387,
+            "longitude": 116.365242,
+            "latitude": 39.970094,
             "connected_edges": [
-                64,
-                70
+                11,
+                12,
+                16,
+                38,
+                42
             ]
         },
         {
             "id": 11,
-            "name": "青年公寓",
-            "type": "公寓",
+            "name": "路口D",
+            "type": "路口",
             "popularity": 100,
-            "longitude": 39.961987,
-            "latitude": 116.349425,
+            "longitude": 116.365228,
+            "latitude": 39.970291,
             "connected_edges": [
-                32
+                12,
+                13,
+                14
             ]
         },
         {
             "id": 12,
-            "name": "留学生公寓",
+            "name": "学六公寓",
             "type": "公寓",
             "popularity": 100,
-            "longitude": 39.962008,
-            "latitude": 116.350021,
+            "longitude": 116.365157,
+            "latitude": 39.970475,
             "connected_edges": [
-                31,
-                32,
-                33
+                13
             ]
         },
         {
             "id": 13,
-            "name": "综合食堂",
-            "type": "餐饮",
+            "name": "路口E",
+            "type": "路口",
             "popularity": 100,
-            "longitude": 39.962003,
-            "latitude": 116.350847,
+            "longitude": 116.367308,
+            "latitude": 39.970381,
             "connected_edges": [
-                31,
-                36,
-                37
+                16,
+                17
             ]
         },
         {
             "id": 14,
-            "name": "学五公寓",
-            "type": "公寓",
+            "name": "东北家属区",
+            "type": "家属区",
             "popularity": 100,
-            "longitude": 39.961691,
-            "latitude": 116.350074,
+            "longitude": 116.367465,
+            "latitude": 39.970305,
             "connected_edges": [
-                30,
-                38
+                14,
+                15
             ]
         },
         {
             "id": 15,
-            "name": "学八公寓",
+            "name": "青年教师公寓",
             "type": "公寓",
             "popularity": 100,
-            "longitude": 39.961708,
-            "latitude": 116.350729,
+            "longitude": 116.367308,
+            "latitude": 39.970696,
             "connected_edges": [
-                37,
-                38,
-                39
+                15,
+                17
             ]
         },
         {
             "id": 16,
-            "name": "学生活动中心",
-            "type": "活动场所",
+            "name": "路口F",
+            "type": "路口",
             "popularity": 100,
-            "longitude": 39.962049,
-            "latitude": 116.351629,
+            "longitude": 116.363697,
+            "latitude": 39.96997,
             "connected_edges": [
-                57,
-                58,
-                81
-            ]
-        },
-        {
-            "id": 17,
-            "name": "澡堂",
-            "type": "生活服务场所",
-            "popularity": 100,
-            "longitude": 39.961995,
-            "latitude": 116.352091,
-            "connected_edges": [
-                66,
-                67,
-                81
-            ]
-        },
-        {
-            "id": 18,
-            "name": "水房",
-            "type": "生活服务场所",
-            "popularity": 100,
-            "longitude": 39.961983,
-            "latitude": 116.352445,
-            "connected_edges": [
-                67,
-                78
-            ]
-        },
-        {
-            "id": 19,
-            "name": "科研楼",
-            "type": "科研场所",
-            "popularity": 100,
-            "longitude": 39.962069,
-            "latitude": 116.353136,
-            "connected_edges": [
-                62,
-                63,
-                77
-            ]
-        },
-        {
-            "id": 20,
-            "name": "家属区",
-            "type": "家属区",
-            "popularity": 100,
-            "longitude": 39.962024,
-            "latitude": 116.353775,
-            "connected_edges": [
-                63,
-                64
-            ]
-        },
-        {
-            "id": 21,
-            "name": "学十三公寓",
-            "type": "公寓",
-            "popularity": 100,
-            "longitude": 39.961461,
-            "latitude": 116.349409,
-            "connected_edges": [
+                18,
+                19,
+                20,
                 29
             ]
         },
         {
-            "id": 22,
-            "name": "学三公寓",
-            "type": "公寓",
+            "id": 17,
+            "name": "综合食堂",
+            "type": "餐饮",
             "popularity": 100,
-            "longitude": 39.961153,
-            "latitude": 116.35009,
+            "longitude": 116.362951,
+            "latitude": 39.969697,
             "connected_edges": [
-                28,
-                29,
-                30
+                20,
+                21
             ]
         },
         {
-            "id": 23,
-            "name": "学四公寓",
-            "type": "公寓",
+            "id": 18,
+            "name": "路口G",
+            "type": "路口",
             "popularity": 100,
-            "longitude": 39.961157,
-            "latitude": 116.350788,
+            "longitude": 116.362772,
+            "latitude": 39.969887,
             "connected_edges": [
-                39,
-                40,
-                44
+                19,
+                21,
+                22,
+                23
             ]
         },
         {
-            "id": 24,
-            "name": "学一公寓",
+            "id": 19,
+            "name": "留学生公寓",
             "type": "公寓",
             "popularity": 100,
-            "longitude": 39.960709,
-            "latitude": 116.350064,
+            "longitude": 116.362367,
+            "latitude": 39.969759,
             "connected_edges": [
-                25,
+                22
+            ]
+        },
+        {
+            "id": 20,
+            "name": "路口H",
+            "type": "路口",
+            "popularity": 100,
+            "longitude": 116.362803,
+            "latitude": 39.969493,
+            "connected_edges": [
+                23,
+                24,
+                26,
                 27,
                 28
             ]
         },
         {
-            "id": 25,
-            "name": "学二公寓",
+            "id": 21,
+            "name": "青年公寓",
             "type": "公寓",
             "popularity": 100,
-            "longitude": 39.960713,
-            "latitude": 116.350782,
+            "longitude": 116.36181,
+            "latitude": 39.969683,
+            "connected_edges": [
+                24,
+                25
+            ]
+        },
+        {
+            "id": 22,
+            "name": "路口I",
+            "type": "路口",
+            "popularity": 100,
+            "longitude": 116.363719,
+            "latitude": 39.969552,
             "connected_edges": [
                 26,
-                27,
-                40,
-                41
+                30,
+                31,
+                32,
+                34
+            ]
+        },
+        {
+            "id": 23,
+            "name": "学五公寓",
+            "type": "公寓",
+            "popularity": 100,
+            "longitude": 116.362417,
+            "latitude": 39.969109,
+            "connected_edges": [
+                27
+            ]
+        },
+        {
+            "id": 24,
+            "name": "学八公寓",
+            "type": "公寓",
+            "popularity": 100,
+            "longitude": 116.363284,
+            "latitude": 39.969185,
+            "connected_edges": [
+                28
+            ]
+        },
+        {
+            "id": 25,
+            "name": "学生活动中心",
+            "type": "活动场所",
+            "popularity": 100,
+            "longitude": 116.363701,
+            "latitude": 39.96997,
+            "connected_edges": [
+                29,
+                30
             ]
         },
         {
             "id": 26,
-            "name": "小松林",
-            "type": "活动场所",
+            "name": "麦当劳",
+            "type": "餐饮",
             "popularity": 100,
-            "longitude": 39.961182,
-            "latitude": 116.351581,
+            "longitude": 116.36411,
+            "latitude": 39.9694,
             "connected_edges": [
-                45,
-                46
+                31
             ]
         },
         {
             "id": 27,
-            "name": "时光广场",
-            "type": "活动场所",
+            "name": "澡堂",
+            "type": "生活服务场所",
             "popularity": 100,
-            "longitude": 39.960713,
-            "latitude": 116.351624,
+            "longitude": 116.364339,
+            "latitude": 39.969797,
             "connected_edges": [
-                46,
-                47,
-                74
+                32,
+                33
             ]
         },
         {
             "id": 28,
-            "name": "图书馆",
-            "type": "教学楼",
+            "name": "水房",
+            "type": "生活服务场所",
             "popularity": 100,
-            "longitude": 39.960976,
-            "latitude": 116.352252,
+            "longitude": 116.365067,
+            "latitude": 39.969835,
             "connected_edges": [
-                47,
-                48,
-                49,
-                73
+                33
             ]
         },
         {
             "id": 29,
-            "name": "教工餐厅",
-            "type": "餐饮",
+            "name": "移动营业厅",
+            "type": "生活服务场所",
             "popularity": 100,
-            "longitude": 39.961568,
-            "latitude": 116.352418,
+            "longitude": 116.364725,
+            "latitude": 39.969562,
             "connected_edges": [
-                68
+                34,
+                35
             ]
         },
         {
@@ -374,1212 +377,2247 @@
             "name": "学苑超市",
             "type": "生活服务场所",
             "popularity": 100,
-            "longitude": 39.961708,
-            "latitude": 116.352059,
+            "longitude": 116.364317,
+            "latitude": 39.969531,
             "connected_edges": [
-                56,
-                66
+                35,
+                36
             ]
         },
         {
             "id": 31,
-            "name": "麦当劳",
-            "type": "餐饮",
+            "name": "科研楼",
+            "type": "科研场所",
             "popularity": 100,
-            "longitude": 39.961535,
-            "latitude": 116.351994,
+            "longitude": 116.365579,
+            "latitude": 39.970036,
             "connected_edges": [
-                44,
-                45,
-                56,
-                57
+                37,
+                43
             ]
         },
         {
             "id": 32,
-            "name": "学生食堂",
-            "type": "餐饮",
+            "name": "家属区",
+            "type": "家属区",
             "popularity": 100,
-            "longitude": 39.961564,
-            "latitude": 116.353061,
+            "longitude": 116.3642,
+            "latitude": 39.965335,
             "connected_edges": [
-                48,
-                65,
-                68,
-                77,
-                78
+                38,
+                43
             ]
         },
         {
             "id": 33,
-            "name": "保卫处",
-            "type": "行政",
+            "name": "学十三公寓",
+            "type": "公寓",
             "popularity": 100,
-            "longitude": 39.961531,
-            "latitude": 116.353876,
+            "longitude": 116.361918,
+            "latitude": 39.968805,
             "connected_edges": [
-                65,
-                80
+                25,
+                73
             ]
         },
         {
             "id": 34,
-            "name": "篮球场",
-            "type": "活动场所",
+            "name": "学三公寓",
+            "type": "公寓",
             "popularity": 100,
-            "longitude": 39.960935,
-            "latitude": 116.353061,
+            "longitude": 116.362448,
+            "latitude": 39.968612,
             "connected_edges": [
-                49,
+                48,
                 50
             ]
         },
         {
             "id": 35,
-            "name": "网球场",
-            "type": "活动场所",
+            "name": "路口K",
+            "type": "路口",
             "popularity": 100,
-            "longitude": 39.96091,
-            "latitude": 116.35334,
+            "longitude": 116.362857,
+            "latitude": 39.968823,
             "connected_edges": [
-                50,
-                51
+                47,
+                48,
+                49
             ]
         },
         {
             "id": 36,
-            "name": "排球场",
-            "type": "活动场所",
+            "name": "学四公寓",
+            "type": "公寓",
             "popularity": 100,
-            "longitude": 39.96089,
-            "latitude": 116.353523,
+            "longitude": 116.36327,
+            "latitude": 39.968591,
             "connected_edges": [
-                51,
-                52,
-                80
+                46,
+                47,
+                52
             ]
         },
         {
             "id": 37,
-            "name": "学二十九公寓",
-            "type": "公寓",
+            "name": "路口J",
+            "type": "路口",
             "popularity": 100,
-            "longitude": 39.960964,
-            "latitude": 116.353893,
+            "longitude": 116.363755,
+            "latitude": 39.968947,
             "connected_edges": [
-                54
+                44,
+                46,
+                55,
+                56,
+                61
             ]
         },
         {
             "id": 38,
-            "name": "东门",
-            "type": "大门",
+            "name": "学一公寓",
+            "type": "公寓",
             "popularity": 100,
-            "longitude": 39.960561,
-            "latitude": 116.354252,
+            "longitude": 116.362426,
+            "latitude": 39.968183,
             "connected_edges": [
-                55
+                50,
+                51,
+                79
             ]
         },
         {
             "id": 39,
-            "name": "鸿通楼",
-            "type": "行政",
+            "name": "路口L",
+            "type": "路口",
             "popularity": 100,
-            "longitude": 39.960495,
-            "latitude": 116.349463,
+            "longitude": 116.362902,
+            "latitude": 39.968055,
             "connected_edges": [
-                24,
-                25
+                49,
+                51,
+                53,
+                74,
+                76
             ]
         },
         {
             "id": 40,
-            "name": "教四楼",
-            "type": "教学楼",
+            "name": "学二公寓",
+            "type": "公寓",
             "popularity": 100,
-            "longitude": 39.960125,
-            "latitude": 116.35045,
+            "longitude": 116.363328,
+            "latitude": 39.968214,
             "connected_edges": [
-                16,
-                20,
-                22,
-                26
+                52,
+                53,
+                54
             ]
         },
         {
             "id": 41,
-            "name": "邮局",
-            "type": "生活服务场所",
+            "name": "路口M",
+            "type": "路口",
             "popularity": 100,
-            "longitude": 39.960166,
-            "latitude": 116.349442,
+            "longitude": 116.363805,
+            "latitude": 39.968079,
             "connected_edges": [
-                23,
-                24
+                54,
+                55,
+                58,
+                62,
+                76,
+                83,
+                84,
+                88,
+                89
             ]
         },
         {
             "id": 42,
-            "name": "财务处",
-            "type": "行政",
+            "name": "小松林",
+            "type": "活动场所",
             "popularity": 100,
-            "longitude": 39.960425,
-            "latitude": 116.351549,
+            "longitude": 116.364038,
+            "latitude": 39.968847,
             "connected_edges": [
-                41,
-                42,
-                74
+                56,
+                57,
+                59
             ]
         },
         {
             "id": 43,
-            "name": "行政办公楼",
-            "type": "行政",
+            "name": "时光广场",
+            "type": "活动场所",
             "popularity": 100,
-            "longitude": 39.960277,
-            "latitude": 116.352091,
+            "longitude": 116.363948,
+            "latitude": 39.968384,
             "connected_edges": [
-                42,
-                43
+                57,
+                58,
+                60
             ]
         },
         {
             "id": 44,
-            "name": "教一楼",
+            "name": "图书馆",
             "type": "教学楼",
             "popularity": 100,
-            "longitude": 39.960043,
-            "latitude": 116.352053,
+            "longitude": 116.364406,
+            "latitude": 39.968615,
             "connected_edges": [
-                20,
-                43
+                59,
+                60
             ]
         },
         {
             "id": 45,
-            "name": "体育馆",
-            "type": "活动场所",
+            "name": "路口W",
+            "type": "路口",
             "popularity": 100,
-            "longitude": 39.96017,
-            "latitude": 116.353624,
+            "longitude": 116.365282,
+            "latitude": 39.968145,
             "connected_edges": [
-                52,
-                53,
-                76
+                62,
+                63,
+                64,
+                96
             ]
         },
         {
             "id": 46,
-            "name": "游泳馆",
-            "type": "活动场所",
+            "name": "路口Z1",
+            "type": "路口",
             "popularity": 100,
-            "longitude": 39.960055,
-            "latitude": 116.353989,
+            "longitude": 116.365287,
+            "latitude": 39.968809,
             "connected_edges": [
-                53,
-                54,
-                55
+                39,
+                40,
+                61,
+                63,
+                65,
+                66
             ]
         },
         {
             "id": 47,
-            "name": "移动营业厅",
-            "type": "生活服务场所",
+            "name": "路口Z2",
+            "type": "路口",
             "popularity": 100,
-            "longitude": 39.959743,
-            "latitude": 116.349431,
+            "longitude": 116.365287,
+            "latitude": 39.969462,
             "connected_edges": [
-                21,
-                22,
-                23
+                36,
+                37,
+                39,
+                42
             ]
         },
         {
             "id": 48,
-            "name": "西门",
-            "type": "大门",
+            "name": "教工餐厅",
+            "type": "餐饮",
             "popularity": 100,
-            "longitude": 39.959385,
-            "latitude": 116.349302,
+            "longitude": 116.365035,
+            "latitude": 39.969386,
             "connected_edges": [
-                0,
-                17,
-                21,
-                75
+                44,
+                45
             ]
         },
         {
             "id": 49,
-            "name": "校训石",
-            "type": "活动场所",
+            "name": "学生食堂",
+            "type": "餐饮",
             "popularity": 100,
-            "longitude": 39.959398,
-            "latitude": 116.350396,
+            "longitude": 116.36574,
+            "latitude": 39.969182,
             "connected_edges": [
-                17,
-                18
+                45
             ]
         },
         {
             "id": 50,
-            "name": "主席像",
-            "type": "活动场所",
+            "name": "路口Y",
+            "type": "路口",
             "popularity": 100,
-            "longitude": 39.959377,
-            "latitude": 116.350771,
+            "longitude": 116.366949,
+            "latitude": 39.96885,
             "connected_edges": [
-                18,
-                19
+                40,
+                41,
+                69,
+                70
             ]
         },
         {
             "id": 51,
-            "name": "主楼",
-            "type": "教学楼",
+            "name": "保卫处",
+            "type": "行政",
             "popularity": 100,
-            "longitude": 39.959455,
-            "latitude": 116.352429,
+            "longitude": 116.367232,
+            "latitude": 39.968988,
             "connected_edges": [
-                13,
-                14
+                41
             ]
         },
         {
             "id": 52,
-            "name": "科学会堂",
+            "name": "篮球场",
             "type": "活动场所",
             "popularity": 100,
-            "longitude": 39.959439,
-            "latitude": 116.35304,
+            "longitude": 116.366293,
+            "latitude": 39.968809,
             "connected_edges": [
-                14,
-                15,
-                73,
-                76
+                65,
+                67
             ]
         },
         {
             "id": 53,
-            "name": "体育场",
+            "name": "网球场",
             "type": "活动场所",
             "popularity": 100,
-            "longitude": 39.959028,
-            "latitude": 116.353876,
+            "longitude": 116.366634,
+            "latitude": 39.968522,
             "connected_edges": [
-                15
+                66,
+                67,
+                68
             ]
         },
         {
             "id": 54,
-            "name": "可信网络通信协同创新中心",
-            "type": "科研场所",
+            "name": "排球场",
+            "type": "活动场所",
             "popularity": 100,
-            "longitude": 39.958716,
-            "latitude": 116.353008,
+            "longitude": 116.366643,
+            "latitude": 39.968242,
             "connected_edges": [
-                12
+                68,
+                71
             ]
         },
         {
             "id": 55,
-            "name": "教三楼",
-            "type": "教学楼",
+            "name": "学二十九公寓",
+            "type": "公寓",
             "popularity": 100,
-            "longitude": 39.958736,
-            "latitude": 116.350369,
+            "longitude": 116.3672,
+            "latitude": 39.968619,
             "connected_edges": [
-                10,
-                11,
-                16,
-                75
+                70,
+                72,
+                150
             ]
         },
         {
             "id": 56,
-            "name": "教二楼",
-            "type": "教学楼",
+            "name": "东门",
+            "type": "大门",
             "popularity": 100,
-            "longitude": 39.958699,
-            "latitude": 116.351935,
+            "longitude": 116.367506,
+            "latitude": 39.96829,
             "connected_edges": [
-                11,
-                12,
-                13
+                150,
+                151
             ]
         },
         {
             "id": 57,
-            "name": "校医院",
-            "type": "生活服务场所",
+            "name": "鸿通楼",
+            "type": "行政",
             "popularity": 100,
-            "longitude": 39.958185,
-            "latitude": 116.350482,
+            "longitude": 116.362039,
+            "latitude": 39.96773,
             "connected_edges": [
-                9
+                73,
+                74,
+                75,
+                81
             ]
         },
         {
             "id": 58,
-            "name": "中门",
-            "type": "大门",
+            "name": "教四楼（西门）",
+            "type": "教学楼",
             "popularity": 100,
-            "longitude": 39.95812,
-            "latitude": 116.351179,
+            "longitude": 116.362174,
+            "latitude": 39.967665,
             "connected_edges": [
-                8,
-                9,
-                10
+                79,
+                80,
+                81,
+                82,
+                102
             ]
         },
         {
             "id": 59,
-            "name": "东南家属区",
-            "type": "家属区",
+            "name": "教四楼（东门）",
+            "type": "教学楼",
             "popularity": 100,
-            "longitude": 39.957491,
-            "latitude": 116.352509,
+            "longitude": 116.363701,
+            "latitude": 39.96771,
             "connected_edges": [
-                5,
-                6
+                82,
+                85,
+                86,
+                88
             ]
         },
         {
             "id": 60,
-            "name": "北邮幼儿园",
-            "type": "其他",
+            "name": "路口O",
+            "type": "路口",
             "popularity": 100,
-            "longitude": 39.957721,
-            "latitude": 116.353179,
+            "longitude": 116.362044,
+            "latitude": 39.96799,
             "connected_edges": [
-                5
+                102,
+                103,
+                104,
+                107
             ]
         },
         {
             "id": 61,
-            "name": "明光楼出版社",
-            "type": "多功能",
+            "name": "路口P",
+            "type": "路口",
             "popularity": 100,
-            "longitude": 39.957396,
-            "latitude": 116.353882,
+            "longitude": 116.362125,
+            "latitude": 39.966887,
             "connected_edges": [
-                4
+                106,
+                107,
+                110,
+                111
             ]
         },
         {
             "id": 62,
-            "name": "西南家属区",
-            "type": "家属区",
+            "name": "邮局",
+            "type": "生活服务场所",
             "popularity": 100,
-            "longitude": 39.957207,
-            "latitude": 116.349951,
+            "longitude": 116.362053,
+            "latitude": 39.967558,
             "connected_edges": [
-                2
+                75,
+                80,
+                104,
+                105
             ]
         },
         {
             "id": 63,
-            "name": "南区超市",
-            "type": "生活服务场所",
+            "name": "路口N",
+            "type": "路口",
             "popularity": 100,
-            "longitude": 39.957869,
-            "latitude": 116.350793,
+            "longitude": 116.363805,
+            "latitude": 39.96745,
             "connected_edges": [
-                7,
-                8
+                83,
+                86,
+                87,
+                95,
+                103,
+                113,
+                114
             ]
         },
         {
             "id": 64,
-            "name": "南门",
-            "type": "大门",
+            "name": "教一楼（西门）",
+            "type": "教学楼",
             "popularity": 100,
-            "longitude": 39.956924,
-            "latitude": 116.351908,
+            "longitude": 116.363921,
+            "latitude": 39.967675,
             "connected_edges": [
-                1,
-                2,
-                3,
-                6,
-                7
+                85,
+                87,
+                89,
+                91,
+                92
             ]
         },
         {
             "id": 65,
-            "name": "明光桥东车站",
-            "type": "车站",
+            "name": "教一楼（东门）",
+            "type": "教学楼",
             "popularity": 100,
-            "longitude": 39.956866,
-            "latitude": 116.352305,
+            "longitude": 116.365192,
+            "latitude": 39.967699,
             "connected_edges": [
-                3,
-                4,
-                71
+                92,
+                93,
+                94
             ]
         },
         {
             "id": 66,
-            "name": "北交附中",
-            "type": "其他",
+            "name": "财务处",
+            "type": "行政",
             "popularity": 100,
-            "longitude": 39.957158,
-            "latitude": 116.353136,
+            "longitude": 116.364159,
+            "latitude": 39.967917,
             "connected_edges": [
-                71
+                84,
+                90,
+                91
             ]
         },
         {
             "id": 67,
-            "name": "明光桥北车站",
-            "type": "车站",
+            "name": "行政办公楼",
+            "type": "行政",
             "popularity": 100,
-            "longitude": 39.957429,
-            "latitude": 116.349157,
+            "longitude": 116.364496,
+            "latitude": 39.967903,
             "connected_edges": [
-                0,
-                1
+                90,
+                93
             ]
         },
         {
             "id": 68,
+            "name": "路口V",
+            "type": "路口",
+            "popularity": 100,
+            "longitude": 116.365282,
+            "latitude": 39.967475,
+            "connected_edges": [
+                94,
+                95,
+                96,
+                97,
+                118,
+                119
+            ]
+        },
+        {
+            "id": 69,
+            "name": "路口U",
+            "type": "路口",
+            "popularity": 100,
+            "longitude": 116.365929,
+            "latitude": 39.96745,
+            "connected_edges": [
+                97,
+                98,
+                101,
+                124
+            ]
+        },
+        {
+            "id": 70,
+            "name": "路口X",
+            "type": "路口",
+            "popularity": 100,
+            "longitude": 116.366639,
+            "latitude": 39.967454,
+            "connected_edges": [
+                64,
+                69,
+                71,
+                72,
+                99,
+                100,
+                151
+            ]
+        },
+        {
+            "id": 71,
+            "name": "体育馆",
+            "type": "活动场所",
+            "popularity": 100,
+            "longitude": 116.366019,
+            "latitude": 39.967762,
+            "connected_edges": [
+                98,
+                99
+            ]
+        },
+        {
+            "id": 72,
+            "name": "游泳馆",
+            "type": "活动场所",
+            "popularity": 100,
+            "longitude": 116.367259,
+            "latitude": 39.967727,
+            "connected_edges": [
+                100,
+                101
+            ]
+        },
+        {
+            "id": 73,
+            "name": "西门",
+            "type": "大门",
+            "popularity": 100,
+            "longitude": 116.361927,
+            "latitude": 39.966828,
+            "connected_edges": [
+                105,
+                106,
+                139
+            ]
+        },
+        {
+            "id": 74,
+            "name": "校训石",
+            "type": "活动场所",
+            "popularity": 100,
+            "longitude": 116.362965,
+            "latitude": 39.966929,
+            "connected_edges": [
+                110,
+                112
+            ]
+        },
+        {
+            "id": 75,
+            "name": "主席像",
+            "type": "活动场所",
+            "popularity": 100,
+            "longitude": 116.363764,
+            "latitude": 39.96698,
+            "connected_edges": [
+                112
+            ]
+        },
+        {
+            "id": 76,
             "name": "音乐喷泉",
             "type": "活动场所",
             "popularity": 100,
-            "longitude": 39.959418,
-            "latitude": 116.351823,
+            "longitude": 116.364568,
+            "latitude": 39.966991,
             "connected_edges": [
-                19
+                114,
+                115,
+                116
+            ]
+        },
+        {
+            "id": 77,
+            "name": "主楼",
+            "type": "教学楼",
+            "popularity": 100,
+            "longitude": 116.364896,
+            "latitude": 39.967098,
+            "connected_edges": [
+                116
+            ]
+        },
+        {
+            "id": 78,
+            "name": "路口Q",
+            "type": "路口",
+            "popularity": 100,
+            "longitude": 116.362174,
+            "latitude": 39.966389,
+            "connected_edges": [
+                111,
+                125,
+                126
+            ]
+        },
+        {
+            "id": 79,
+            "name": "路口R",
+            "type": "路口",
+            "popularity": 100,
+            "longitude": 116.363836,
+            "latitude": 39.966476,
+            "connected_edges": [
+                113,
+                115,
+                117,
+                125,
+                127,
+                128,
+                132
+            ]
+        },
+        {
+            "id": 80,
+            "name": "路口S",
+            "type": "路口",
+            "popularity": 100,
+            "longitude": 116.365282,
+            "latitude": 39.966538,
+            "connected_edges": [
+                117,
+                118,
+                120,
+                121,
+                129,
+                130
+            ]
+        },
+        {
+            "id": 81,
+            "name": "路口T",
+            "type": "路口",
+            "popularity": 100,
+            "longitude": 116.365956,
+            "latitude": 39.966576,
+            "connected_edges": [
+                121,
+                122,
+                123,
+                131
+            ]
+        },
+        {
+            "id": 82,
+            "name": "科学会堂",
+            "type": "活动场所",
+            "popularity": 100,
+            "longitude": 116.365597,
+            "latitude": 39.967132,
+            "connected_edges": [
+                119,
+                120,
+                122
+            ]
+        },
+        {
+            "id": 83,
+            "name": "体育场",
+            "type": "活动场所",
+            "popularity": 100,
+            "longitude": 116.366791,
+            "latitude": 39.966918,
+            "connected_edges": [
+                123,
+                124,
+                135
+            ]
+        },
+        {
+            "id": 84,
+            "name": "可信网络通信协同创新中心",
+            "type": "科研场所",
+            "popularity": 100,
+            "longitude": 116.365565,
+            "latitude": 39.966189,
+            "connected_edges": [
+                130,
+                131,
+                134,
+                135
+            ]
+        },
+        {
+            "id": 85,
+            "name": "教三楼",
+            "type": "教学楼",
+            "popularity": 100,
+            "longitude": 116.363117,
+            "latitude": 39.966351,
+            "connected_edges": [
+                126,
+                127,
+                136
+            ]
+        },
+        {
+            "id": 86,
+            "name": "教二楼",
+            "type": "教学楼",
+            "popularity": 100,
+            "longitude": 116.364636,
+            "latitude": 39.966324,
+            "connected_edges": [
+                128,
+                129,
+                133,
+                134
+            ]
+        },
+        {
+            "id": 87,
+            "name": "校医院",
+            "type": "生活服务场所",
+            "popularity": 100,
+            "longitude": 116.36354,
+            "latitude": 39.965384,
+            "connected_edges": [
+                136,
+                137
+            ]
+        },
+        {
+            "id": 88,
+            "name": "中门",
+            "type": "大门",
+            "popularity": 100,
+            "longitude": 116.363863,
+            "latitude": 39.965522,
+            "connected_edges": [
+                132,
+                133,
+                137,
+                138,
+                140,
+                144
+            ]
+        },
+        {
+            "id": 89,
+            "name": "东南家属区",
+            "type": "家属区",
+            "popularity": 100,
+            "longitude": 116.364195,
+            "latitude": 39.965332,
+            "connected_edges": [
+                138,
+                147
+            ]
+        },
+        {
+            "id": 90,
+            "name": "北邮幼儿园",
+            "type": "其他",
+            "popularity": 100,
+            "longitude": 116.365709,
+            "latitude": 39.965308,
+            "connected_edges": [
+                147,
+                148
+            ]
+        },
+        {
+            "id": 91,
+            "name": "明光楼出版社",
+            "type": "多功能",
+            "popularity": 100,
+            "longitude": 116.367568,
+            "latitude": 39.964402,
+            "connected_edges": [
+                149
+            ]
+        },
+        {
+            "id": 92,
+            "name": "西南家属区",
+            "type": "家属区",
+            "popularity": 100,
+            "longitude": 116.362596,
+            "latitude": 39.964596,
+            "connected_edges": [
+                145,
+                146
+            ]
+        },
+        {
+            "id": 93,
+            "name": "南区超市",
+            "type": "生活服务场所",
+            "popularity": 100,
+            "longitude": 116.362807,
+            "latitude": 39.965145,
+            "connected_edges": [
+                144,
+                145
+            ]
+        },
+        {
+            "id": 94,
+            "name": "南门",
+            "type": "大门",
+            "popularity": 100,
+            "longitude": 116.364555,
+            "latitude": 39.963946,
+            "connected_edges": [
+                142
+            ]
+        },
+        {
+            "id": 95,
+            "name": "北交附中",
+            "type": "其他",
+            "popularity": 100,
+            "longitude": 116.366818,
+            "latitude": 39.964578,
+            "connected_edges": [
+                143,
+                148,
+                149
+            ]
+        },
+        {
+            "id": 96,
+            "name": "明光桥北车站",
+            "type": "车站",
+            "popularity": 100,
+            "longitude": 116.361819,
+            "latitude": 39.964772,
+            "connected_edges": [
+                139
+            ]
+        },
+        {
+            "id": 97,
+            "name": "10号楼前的拐角",
+            "type": "路口",
+            "popularity": 100,
+            "longitude": 116.363944,
+            "latitude": 39.964115,
+            "connected_edges": [
+                140,
+                141,
+                146
+            ]
+        },
+        {
+            "id": 98,
+            "name": "社区前的拐角",
+            "type": "路口",
+            "popularity": 100,
+            "longitude": 116.364505,
+            "latitude": 39.964146,
+            "connected_edges": [
+                141,
+                142,
+                143
             ]
         }
     ],
     "edges": [
         {
             "id": 0,
-            "start_node": 48,
-            "end_node": 67,
-            "distance": 97.87,
+            "start_node": 0,
+            "end_node": 1,
+            "distance": 314.11,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 1,
-            "start_node": 64,
-            "end_node": 67,
-            "distance": 306.91,
+            "start_node": 1,
+            "end_node": 2,
+            "distance": 25.51,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 2,
-            "start_node": 62,
-            "end_node": 64,
-            "distance": 218.06,
+            "start_node": 1,
+            "end_node": 3,
+            "distance": 53.57,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 3,
-            "start_node": 64,
-            "end_node": 65,
-            "distance": 44.24,
+            "start_node": 2,
+            "end_node": 4,
+            "distance": 73.01,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 4,
-            "start_node": 61,
-            "end_node": 65,
-            "distance": 177.3,
+            "start_node": 2,
+            "end_node": 5,
+            "distance": 86.77,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 5,
-            "start_node": 59,
-            "end_node": 60,
-            "distance": 75.36,
+            "start_node": 2,
+            "end_node": 6,
+            "distance": 109.56,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 6,
-            "start_node": 59,
-            "end_node": 64,
-            "distance": 72.45,
+            "start_node": 2,
+            "end_node": 9,
+            "distance": 169.2,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 7,
-            "start_node": 63,
-            "end_node": 64,
-            "distance": 132.47,
+            "start_node": 4,
+            "end_node": 5,
+            "distance": 23.61,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 8,
-            "start_node": 58,
-            "end_node": 63,
-            "distance": 44.67,
+            "start_node": 5,
+            "end_node": 6,
+            "distance": 25.25,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 9,
-            "start_node": 57,
-            "end_node": 58,
-            "distance": 77.57,
+            "start_node": 5,
+            "end_node": 7,
+            "distance": 25.7,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 10,
-            "start_node": 55,
-            "end_node": 58,
-            "distance": 95.06,
+            "start_node": 9,
+            "end_node": 8,
+            "distance": 59.8,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 11,
-            "start_node": 55,
-            "end_node": 56,
-            "distance": 174.14,
+            "start_node": 9,
+            "end_node": 10,
+            "distance": 130.9,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 12,
-            "start_node": 54,
-            "end_node": 56,
-            "distance": 119.32,
+            "start_node": 10,
+            "end_node": 11,
+            "distance": 21.94,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 13,
-            "start_node": 56,
-            "end_node": 51,
-            "distance": 66.41,
+            "start_node": 11,
+            "end_node": 12,
+            "distance": 21.34,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 14,
-            "start_node": 51,
-            "end_node": 52,
-            "distance": 67.94,
+            "start_node": 11,
+            "end_node": 14,
+            "distance": 190.64,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 15,
-            "start_node": 52,
-            "end_node": 53,
-            "distance": 95.15,
+            "start_node": 14,
+            "end_node": 15,
+            "distance": 45.49,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 16,
-            "start_node": 40,
-            "end_node": 55,
-            "distance": 69.14,
+            "start_node": 10,
+            "end_node": 13,
+            "distance": 178.93,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 17,
-            "start_node": 48,
-            "end_node": 49,
-            "distance": 121.65,
+            "start_node": 15,
+            "end_node": 13,
+            "distance": 35.03,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 18,
-            "start_node": 49,
-            "end_node": 50,
-            "distance": 41.71,
+            "start_node": 9,
+            "end_node": 16,
+            "distance": 15.36,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 19,
-            "start_node": 50,
-            "end_node": 68,
-            "distance": 116.99,
+            "start_node": 16,
+            "end_node": 18,
+            "distance": 79.36,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 20,
-            "start_node": 40,
-            "end_node": 44,
-            "distance": 178.29,
+            "start_node": 16,
+            "end_node": 17,
+            "distance": 70.45,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 21,
-            "start_node": 47,
-            "end_node": 48,
-            "distance": 22.76,
+            "start_node": 17,
+            "end_node": 18,
+            "distance": 26.06,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 22,
-            "start_node": 40,
-            "end_node": 47,
-            "distance": 114.87,
+            "start_node": 18,
+            "end_node": 19,
+            "distance": 37.33,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 23,
-            "start_node": 41,
-            "end_node": 47,
-            "distance": 20.91,
+            "start_node": 18,
+            "end_node": 20,
+            "distance": 43.89,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 24,
-            "start_node": 39,
-            "end_node": 41,
-            "distance": 16.4,
+            "start_node": 20,
+            "end_node": 21,
+            "distance": 87.22,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 25,
-            "start_node": 24,
-            "end_node": 39,
-            "distance": 67.66,
+            "start_node": 21,
+            "end_node": 33,
+            "distance": 98.06,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 26,
-            "start_node": 25,
-            "end_node": 40,
-            "distance": 46.96,
+            "start_node": 20,
+            "end_node": 22,
+            "distance": 78.34,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 27,
-            "start_node": 24,
-            "end_node": 25,
-            "distance": 79.84,
+            "start_node": 20,
+            "end_node": 23,
+            "distance": 53.9,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 28,
-            "start_node": 22,
+            "start_node": 20,
             "end_node": 24,
-            "distance": 22.1,
+            "distance": 53.41,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 29,
-            "start_node": 21,
-            "end_node": 22,
-            "distance": 77.23,
+            "start_node": 16,
+            "end_node": 25,
+            "distance": 0.34,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 30,
             "start_node": 22,
-            "end_node": 14,
-            "distance": 26.61,
+            "end_node": 25,
+            "distance": 46.5,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 31,
-            "start_node": 13,
-            "end_node": 12,
-            "distance": 91.85,
+            "start_node": 22,
+            "end_node": 26,
+            "distance": 37.36,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 32,
-            "start_node": 11,
-            "end_node": 12,
-            "distance": 66.28,
+            "start_node": 22,
+            "end_node": 27,
+            "distance": 59.45,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 33,
-            "start_node": 4,
-            "end_node": 12,
-            "distance": 19.21,
+            "start_node": 27,
+            "end_node": 28,
+            "distance": 62.18,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 34,
-            "start_node": 3,
-            "end_node": 4,
-            "distance": 18.74,
+            "start_node": 22,
+            "end_node": 29,
+            "distance": 85.74,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 35,
-            "start_node": 1,
-            "end_node": 4,
-            "distance": 87.22,
+            "start_node": 29,
+            "end_node": 30,
+            "distance": 34.94,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 36,
-            "start_node": 1,
-            "end_node": 13,
-            "distance": 26.47,
+            "start_node": 30,
+            "end_node": 47,
+            "distance": 83.02,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 37,
-            "start_node": 13,
-            "end_node": 15,
-            "distance": 19.6,
+            "start_node": 47,
+            "end_node": 31,
+            "distance": 68.51,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 38,
-            "start_node": 14,
-            "end_node": 15,
-            "distance": 72.84,
+            "start_node": 10,
+            "end_node": 32,
+            "distance": 536.58,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 39,
-            "start_node": 15,
-            "end_node": 23,
-            "distance": 27.98,
+            "start_node": 47,
+            "end_node": 46,
+            "distance": 72.61,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 40,
-            "start_node": 23,
-            "end_node": 25,
-            "distance": 21.92,
+            "start_node": 46,
+            "end_node": 50,
+            "distance": 141.71,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 41,
-            "start_node": 25,
-            "end_node": 42,
-            "distance": 86.46,
+            "start_node": 50,
+            "end_node": 51,
+            "distance": 28.58,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 42,
-            "start_node": 42,
-            "end_node": 43,
-            "distance": 60.71,
+            "start_node": 10,
+            "end_node": 47,
+            "distance": 70.38,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 43,
-            "start_node": 43,
-            "end_node": 44,
-            "distance": 12.3,
+            "start_node": 31,
+            "end_node": 32,
+            "distance": 535.77,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 44,
-            "start_node": 23,
-            "end_node": 31,
-            "distance": 135.39,
+            "start_node": 37,
+            "end_node": 48,
+            "distance": 119.5,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 45,
-            "start_node": 26,
-            "end_node": 31,
-            "distance": 49.12,
+            "start_node": 48,
+            "end_node": 49,
+            "distance": 64.22,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 46,
-            "start_node": 26,
-            "end_node": 27,
-            "distance": 23.64,
+            "start_node": 37,
+            "end_node": 36,
+            "distance": 57.23,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 47,
-            "start_node": 27,
-            "end_node": 28,
-            "distance": 71.03,
+            "start_node": 36,
+            "end_node": 35,
+            "distance": 43.64,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 48,
-            "start_node": 28,
-            "end_node": 32,
-            "distance": 94.52,
+            "start_node": 35,
+            "end_node": 34,
+            "distance": 42.02,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 49,
-            "start_node": 28,
-            "end_node": 34,
-            "distance": 89.98,
+            "start_node": 35,
+            "end_node": 39,
+            "distance": 85.48,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 50,
             "start_node": 34,
-            "end_node": 35,
-            "distance": 31.05,
+            "end_node": 38,
+            "distance": 47.74,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 51,
-            "start_node": 35,
-            "end_node": 36,
-            "distance": 20.37,
+            "start_node": 38,
+            "end_node": 39,
+            "distance": 42.99,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 52,
             "start_node": 36,
-            "end_node": 45,
-            "distance": 37.27,
+            "end_node": 40,
+            "distance": 42.21,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 53,
-            "start_node": 45,
-            "end_node": 46,
-            "distance": 40.98,
+            "start_node": 40,
+            "end_node": 39,
+            "distance": 40.38,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 54,
-            "start_node": 37,
-            "end_node": 46,
-            "distance": 46.12,
+            "start_node": 40,
+            "end_node": 41,
+            "distance": 43.33,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 55,
-            "start_node": 38,
-            "end_node": 46,
-            "distance": 38.46,
+            "start_node": 37,
+            "end_node": 41,
+            "distance": 96.61,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 56,
-            "start_node": 30,
-            "end_node": 31,
-            "distance": 11.19,
+            "start_node": 37,
+            "end_node": 42,
+            "distance": 26.56,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 57,
-            "start_node": 31,
-            "end_node": 16,
-            "distance": 47.86,
+            "start_node": 42,
+            "end_node": 43,
+            "distance": 52.05,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 58,
-            "start_node": 7,
-            "end_node": 16,
-            "distance": 23.57,
+            "start_node": 41,
+            "end_node": 43,
+            "distance": 36.04,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 59,
-            "start_node": 1,
-            "end_node": 6,
-            "distance": 62.81,
+            "start_node": 42,
+            "end_node": 44,
+            "distance": 40.61,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 60,
-            "start_node": 7,
-            "end_node": 6,
-            "distance": 48.26,
+            "start_node": 43,
+            "end_node": 44,
+            "distance": 46.72,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 61,
-            "start_node": 7,
-            "end_node": 8,
-            "distance": 62.21,
+            "start_node": 37,
+            "end_node": 46,
+            "distance": 131.45,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 62,
-            "start_node": 8,
-            "end_node": 19,
-            "distance": 105.97,
+            "start_node": 41,
+            "end_node": 45,
+            "distance": 126.08,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 63,
-            "start_node": 19,
-            "end_node": 20,
-            "distance": 71.09,
+            "start_node": 45,
+            "end_node": 46,
+            "distance": 73.83,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 64,
-            "start_node": 10,
-            "end_node": 20,
-            "distance": 21.1,
+            "start_node": 45,
+            "end_node": 70,
+            "distance": 138.84,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 65,
-            "start_node": 32,
-            "end_node": 33,
-            "distance": 90.64,
+            "start_node": 46,
+            "end_node": 52,
+            "distance": 85.73,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 66,
-            "start_node": 30,
-            "end_node": 17,
-            "distance": 14.61,
+            "start_node": 46,
+            "end_node": 53,
+            "distance": 119.14,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 67,
-            "start_node": 17,
-            "end_node": 18,
-            "distance": 39.37,
+            "start_node": 52,
+            "end_node": 53,
+            "distance": 43.16,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 68,
-            "start_node": 29,
-            "end_node": 32,
-            "distance": 71.5,
+            "start_node": 53,
+            "end_node": 54,
+            "distance": 31.14,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 69,
-            "start_node": 3,
-            "end_node": 2,
-            "distance": 58.55,
+            "start_node": 50,
+            "end_node": 70,
+            "distance": 157.46,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 70,
-            "start_node": 9,
-            "end_node": 10,
-            "distance": 71.84,
+            "start_node": 50,
+            "end_node": 55,
+            "distance": 33.43,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 71,
-            "start_node": 65,
-            "end_node": 66,
-            "distance": 93.52,
+            "start_node": 54,
+            "end_node": 70,
+            "distance": 87.62,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 72,
-            "start_node": 0,
-            "end_node": 6,
-            "distance": 192.88,
+            "start_node": 55,
+            "end_node": 70,
+            "distance": 138.08,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 73,
-            "start_node": 28,
-            "end_node": 52,
-            "distance": 115.9,
+            "start_node": 33,
+            "end_node": 57,
+            "distance": 119.98,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 74,
-            "start_node": 27,
-            "end_node": 42,
-            "distance": 16.48,
+            "start_node": 57,
+            "end_node": 39,
+            "distance": 81.94,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 75,
-            "start_node": 48,
-            "end_node": 55,
-            "distance": 122.89,
+            "start_node": 57,
+            "end_node": 62,
+            "distance": 19.16,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 76,
-            "start_node": 45,
-            "end_node": 52,
-            "distance": 74.29,
+            "start_node": 39,
+            "end_node": 41,
+            "distance": 77.0,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
-            "id": 77,
-            "start_node": 19,
-            "end_node": 32,
-            "distance": 26.28,
+            "id": 79,
+            "start_node": 38,
+            "end_node": 58,
+            "distance": 61.47,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
-            "ebike_speed": 0.0
-        },
-        {
-            "id": 78,
-            "start_node": 18,
-            "end_node": 32,
-            "distance": 71.55,
-            "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 80,
-            "start_node": 33,
-            "end_node": 36,
-            "distance": 50.42,
+            "start_node": 62,
+            "end_node": 58,
+            "distance": 15.74,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         },
         {
             "id": 81,
-            "start_node": 16,
-            "end_node": 17,
-            "distance": 51.44,
+            "start_node": 57,
+            "end_node": 58,
+            "distance": 13.59,
             "walk_speed": 1.0,
-            "bike_speed": 5.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 82,
+            "start_node": 58,
+            "end_node": 59,
+            "distance": 130.23,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 83,
+            "start_node": 41,
+            "end_node": 63,
+            "distance": 69.94,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 84,
+            "start_node": 41,
+            "end_node": 66,
+            "distance": 35.14,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 85,
+            "start_node": 59,
+            "end_node": 64,
+            "distance": 19.15,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 86,
+            "start_node": 59,
+            "end_node": 63,
+            "distance": 30.24,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 87,
+            "start_node": 63,
+            "end_node": 64,
+            "distance": 26.9,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 88,
+            "start_node": 59,
+            "end_node": 41,
+            "distance": 41.98,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 89,
+            "start_node": 41,
+            "end_node": 64,
+            "distance": 46.0,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 90,
+            "start_node": 66,
+            "end_node": 67,
+            "distance": 28.76,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 91,
+            "start_node": 64,
+            "end_node": 66,
+            "distance": 33.7,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 92,
+            "start_node": 64,
+            "end_node": 65,
+            "distance": 108.35,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 93,
+            "start_node": 67,
+            "end_node": 65,
+            "distance": 63.5,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 94,
+            "start_node": 65,
+            "end_node": 68,
+            "distance": 26.06,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 95,
+            "start_node": 63,
+            "end_node": 68,
+            "distance": 125.9,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 96,
+            "start_node": 45,
+            "end_node": 68,
+            "distance": 74.5,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 97,
+            "start_node": 68,
+            "end_node": 69,
+            "distance": 55.21,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 98,
+            "start_node": 69,
+            "end_node": 71,
+            "distance": 35.53,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 99,
+            "start_node": 70,
+            "end_node": 71,
+            "distance": 62.97,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 100,
+            "start_node": 70,
+            "end_node": 72,
+            "distance": 60.94,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 101,
+            "start_node": 69,
+            "end_node": 72,
+            "distance": 117.45,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 102,
+            "start_node": 60,
+            "end_node": 58,
+            "distance": 37.8,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 103,
+            "start_node": 60,
+            "end_node": 63,
+            "distance": 161.64,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 104,
+            "start_node": 62,
+            "end_node": 60,
+            "distance": 48.04,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 105,
+            "start_node": 62,
+            "end_node": 73,
+            "distance": 81.88,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 106,
+            "start_node": 73,
+            "end_node": 61,
+            "distance": 18.1,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 107,
+            "start_node": 61,
+            "end_node": 60,
+            "distance": 122.84,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 110,
+            "start_node": 61,
+            "end_node": 74,
+            "distance": 71.74,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 111,
+            "start_node": 61,
+            "end_node": 78,
+            "distance": 55.53,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 112,
+            "start_node": 74,
+            "end_node": 75,
+            "distance": 68.33,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 113,
+            "start_node": 63,
+            "end_node": 79,
+            "distance": 108.34,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 114,
+            "start_node": 63,
+            "end_node": 76,
+            "distance": 82.66,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 115,
+            "start_node": 79,
+            "end_node": 76,
+            "distance": 84.68,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 116,
+            "start_node": 76,
+            "end_node": 77,
+            "distance": 30.38,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 117,
+            "start_node": 79,
+            "end_node": 80,
+            "distance": 123.42,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 118,
+            "start_node": 80,
+            "end_node": 68,
+            "distance": 104.19,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 119,
+            "start_node": 68,
+            "end_node": 82,
+            "distance": 46.64,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 120,
+            "start_node": 80,
+            "end_node": 82,
+            "distance": 71.3,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 121,
+            "start_node": 80,
+            "end_node": 81,
+            "distance": 57.59,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 122,
+            "start_node": 82,
+            "end_node": 81,
+            "distance": 68.98,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 123,
+            "start_node": 81,
+            "end_node": 83,
+            "distance": 80.68,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 124,
+            "start_node": 69,
+            "end_node": 83,
+            "distance": 94.32,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 125,
+            "start_node": 78,
+            "end_node": 79,
+            "distance": 141.97,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 126,
+            "start_node": 78,
+            "end_node": 85,
+            "distance": 80.48,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 127,
+            "start_node": 85,
+            "end_node": 79,
+            "distance": 62.83,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 128,
+            "start_node": 79,
+            "end_node": 86,
+            "distance": 70.24,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 129,
+            "start_node": 86,
+            "end_node": 80,
+            "distance": 59.98,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 130,
+            "start_node": 80,
+            "end_node": 84,
+            "distance": 45.69,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 131,
+            "start_node": 84,
+            "end_node": 81,
+            "distance": 54.43,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 132,
+            "start_node": 79,
+            "end_node": 88,
+            "distance": 106.1,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 133,
+            "start_node": 88,
+            "end_node": 86,
+            "distance": 110.87,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 134,
+            "start_node": 86,
+            "end_node": 84,
+            "distance": 80.58,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 135,
+            "start_node": 84,
+            "end_node": 83,
+            "distance": 132.24,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 136,
+            "start_node": 85,
+            "end_node": 87,
+            "distance": 113.41,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 137,
+            "start_node": 87,
+            "end_node": 88,
+            "distance": 31.52,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 138,
+            "start_node": 88,
+            "end_node": 89,
+            "distance": 35.31,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 139,
+            "start_node": 73,
+            "end_node": 96,
+            "distance": 228.8,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 140,
+            "start_node": 88,
+            "end_node": 97,
+            "distance": 156.6,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 141,
+            "start_node": 97,
+            "end_node": 98,
+            "distance": 47.94,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 142,
+            "start_node": 98,
+            "end_node": 94,
+            "distance": 22.64,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 143,
+            "start_node": 98,
+            "end_node": 95,
+            "distance": 202.89,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 144,
+            "start_node": 88,
+            "end_node": 93,
+            "distance": 99.28,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 145,
+            "start_node": 93,
+            "end_node": 92,
+            "distance": 63.64,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 146,
+            "start_node": 92,
+            "end_node": 97,
+            "distance": 126.72,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 147,
+            "start_node": 89,
+            "end_node": 90,
+            "distance": 129.06,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 148,
+            "start_node": 90,
+            "end_node": 95,
+            "distance": 124.59,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 149,
+            "start_node": 95,
+            "end_node": 91,
+            "distance": 66.85,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 150,
+            "start_node": 55,
+            "end_node": 56,
+            "distance": 44.93,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 151,
+            "start_node": 70,
+            "end_node": 56,
+            "distance": 118.75,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
             "ebike_speed": 0.0
         }
     ]

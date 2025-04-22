@@ -7,7 +7,8 @@ BUPT数据结构课设-基于大模型的个性化旅游系统的设计和开发
 - [代码留档区](https://lvtdvwrkwee.feishu.cn/wiki/Rd4Pw751ciWGLmkJKcOcqxb4nVb)
 - [处理地图数据的agent](https://www.coze.cn/store/agent/7494286841948930083?bot_id=true)
 - [处理景点数据的agent](https://www.coze.cn/store/agent/7495295509800861706?bot_id=true)
-- [经纬度获取](https://api.map.baidu.com/lbsapi/getpoint/index.html)
+- [百度地图经纬度获取](https://api.map.baidu.com/lbsapi/getpoint/index.html)
+- [高德地图经纬度获取](https://lbs.amap.com/tools/picker)
 - [5-6周周报](https://lvtdvwrkwee.feishu.cn/wiki/X3Dbwe2UfikjS6k1cI8czFHzn3d)
 - [7-8周周报](https://lvtdvwrkwee.feishu.cn/wiki/NOmnwaY4diXxAOkfyapcuc0onZb)
 

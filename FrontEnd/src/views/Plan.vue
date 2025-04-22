@@ -125,12 +125,12 @@ export default {
        }
 
        // —— 组装坐标数组 （注意：服务端给的字段名 latitude/longitude 在这里是反过来的）——
-       const coords = route.map(p => [p.latitude, p.longitude]);
+       const coords = route.map(p => [p.longitude, p.latitude]);
 
        // —— 按顺序打点 —— 
        route.forEach(p => {
          const marker = new AMapInstance.Marker({
-           position: [p.latitude, p.longitude],
+           position: [p.longitude, p.latitude],
            map: map.value,
            title: p.name
          });

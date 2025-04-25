@@ -1,12 +1,25 @@
-GET     /                           -> 服务状态检查
-POST    /users/register             -> 用户注册
-POST    /users/login                -> 用户登录
-GET     /users/{username}/details   -> 查询用户信息
-PUT     /users/{username}           -> 更新用户信息
-POST    /diaries                    -> 添加游记
-GET     /diaries/{username}         -> 获取用户游记
-PUT     /diaries                    -> 更新游记
-POST    /map/path_plan              -> 路径规划
-GET     /spots/                     -> 获取景点
-GET     /spots/{name}               -> 查询景点
-GET     /spots/tag/?tag=...         -> 筛选景点
+通用模块（待定）
+
+
+用户模块
+GET     /                                       -> 服务状态检查
+POST    /users/register                         -> 用户注册
+POST    /users/login                            -> 用户登录
+GET     /users/{username}/details               -> 查询用户信息
+PUT     /users/{username}                       -> 更新用户信息
+
+日记模块
+POST    /diaries                                -> 添加日记
+GET     /diaries/{username}                     -> 获取用户日记
+PUT     /diaries                                -> 更新日记
+
+景点模块
+GET     /spots/?sort_key=...&sort_order=...     -> 获取景点
+GET     /spots/{name}                           -> 查询景点
+GET     /spots/tag/?tag=...                     -> 筛选景点
+
+路径规划模块
+GET     /map/get_graph                          -> 获取地图完整信息
+POST    /map/add_node                           -> 添加地图节点
+POST    /map/add_edge                           -> 添加地图边 
+POST    /map/path_plan                          -> 路径规划

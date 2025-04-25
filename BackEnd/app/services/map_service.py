@@ -1,8 +1,12 @@
 import math
 import heapq
 from app.config import MAP_FILE
-from utils.file_utils import read_json
+from utils.file_utils import read_json, write_json
+from app.models.map import NodeRequest, EdgeRequest
 
+def get_graph():
+    graph = read_json(MAP_FILE, default={})
+    return graph
 
 def haversine(lat1, lon1, lat2, lon2):
     """
@@ -128,6 +132,78 @@ def a_star(start_name, end_name, mode):
     # 无路径
     return float('inf'), float('inf'), []
 
+
+def add_node(node_data: NodeRequest) -> dict:
+    """将请求的节点加入地图数据中"""
+    graph = read_json(MAP_FILE, default={})
+    nodes = graph.get('nodes', [])
+
+    if node_data.id is None:
+        max_id = max(node["id"] for node in nodes)
+        node_data.id = max_id + 1
+
+    for node in nodes:
+        if node["id"] == node_data.id:
+            return {"success": False, "graph": graph}
+    
+    new_node = {
+        'id' : node_data.id,
+        'name' : node_data.name,
+        'type' : node_data.type,
+        'popularity' : node_data.popularity,
+        'longitude' : node_data.longitude,
+        'latitude' : node_data.latitude,
+        'connected_edges' : node_data.connected_edges
+    }
+    graph['nodes'].append(new_node)
+    write_json(MAP_FILE, graph)
+    return {"success": True, "graph": graph}
+
+def add_edge(edge_data: EdgeRequest) -> dict:
+    """将请求的边加入地图数据中"""
+    graph = read_json(MAP_FILE, default={})
+    nodes = graph.get('ndoes', [])
+    edges = graph.get('edges', [])
+
+    start_node = None, end_node = None
+    for node in nodes:
+        if node.get('id',-1) == edge_data.start_node:
+            start_node = node
+        if node.get('id',-1) == edge_data.end_node:
+            end_node = node
+    if start_node is None or end_node is None:
+        return {"success": False, "graph": graph} # 节点不存在
+
+    if edge_data.id is None:
+        max_id = max(edge["id"] for edge in edges)
+        edge_data.id = max_id + 1
+
+    for edge in edges:
+        if edge['id'] == edge_data.id or \
+        edge['start_node'] == edge_data.start_node and edge['end_node'] == edge_data.end_node or \
+        edge['start_node'] == edge_data.end_node and edge['end_node'] == edge_data.start_node:
+            return {"success": False, "graph": graph} # 边重复
+    
+    lon1 = start_node.get('longitude'), lat1 = start_node.get('latitude')
+    lon2 = end_node.get('longitude'), lat2 = end_node.get('latitude')
+    
+    new_edge = {
+        'id' : edge_data.id,
+        'start_node' : edge_data.start_node,
+        'end_node' : edge_data.end_node,
+        'distance' : haversine(lat1, lon1, lat2, lon2),
+        'walk_speed' : edge_data.walk_speed,
+        'bike_speed' : edge_data.bike_speed,
+        'ebike_speed' : edge_data.bike_speed
+    }
+    graph['edges'].append(new_edge)
+    for node in graph['nodes']:
+        if node.get('id',-1) == edge_data.start_node:
+            node['connected_edges'].append(edge_data.id)
+        if node.get('id',-1) == edge_data.end_node:
+            node['connected_edges'].append(edge_data.id)
+    write_json(MAP_FILE, graph)
+    return {"success": True, "graph": graph}
 
 # 示例调用
 if __name__ == '__main__':

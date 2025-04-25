@@ -22,3 +22,23 @@ class PathPlanResponse(BaseModel):
     distance: float
     time: float
     path: list
+
+class NodeRequest(BaseModel):
+    """地图数据节点模型"""
+    id: Optional[int] = None
+    name: str
+    type: Optional[str] = "default"
+    popularity: Optional[int] = 100
+    longitude: float    # 经度
+    latitude: float     # 纬度
+    connected_edges: Optional[List[int]] = None
+
+class EdgeRequest(BaseModel):
+    """地图数据边模型"""
+    id: Optional[int] = None
+    start_node: int
+    end_node: int
+    distance: Optional[int] = None
+    walk_speed: Optional[float] = 1.0
+    bike_speed: Optional[float] = 0.0
+    ebike_speed: Optional[float] = 0.0

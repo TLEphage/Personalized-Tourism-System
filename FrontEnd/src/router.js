@@ -6,6 +6,7 @@ import LoginRegister from './components/LoginRegister.vue'
 import CustomMap from './components/CustomMap.vue'
 import InterestSelector from './components/InterestSelector.vue'
 import UserProfile from './components/UserProfile.vue'
+import Developer from './views/Developer.vue'
 
 const router = createRouter({
     history: createWebHashHistory(),
@@ -44,6 +45,11 @@ const router = createRouter({
             path:'/UserProfile',
             name:'UserProfile',
             component:UserProfile
+        },
+        {
+            path:'/Developer',
+            name:'Developer',
+            component:Developer
         }
     ]
 });

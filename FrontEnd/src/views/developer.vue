@@ -2,69 +2,79 @@
 <template>
   <div id="map-container" style="height: 600px;"></div>
 
+  <!-- 模式选择器 -->
+  <div class="control-panel">
+    <div>
+      <h3>操作模式</h3>
+      <select v-model="mode">
+        <option value="addNode">添加节点</option>
+        <option value="addEdge">添加边</option>
+      </select>
+    </div>
+
+    <div v-if="mode === 'addNode'">
+      <h3>添加新节点</h3>
+      <p>在地图上点击位置添加新节点</p>
+    </div>
+
+    <div v-if="mode === 'addEdge'">
+      <h3>添加新边</h3>
+      <p>在地图上依次点击起点和终点</p>
+      <div v-if="edgeData.startId">
+        <p>已选择起点: {{ edgeData.startId }}</p>
+      </div>
+      <div v-if="edgeData.endId">
+        <p>已选择终点: {{ edgeData.endId }}</p>
+        <input v-model="edgeData.distance" type="number" placeholder="距离" />
+        <input v-model="edgeData.walk_speed" type="number" placeholder="步行速度" />
+        <input v-model="edgeData.bike_speed" type="number" placeholder="骑行速度" />
+        <input v-model="edgeData.ebike_speed" type="number" placeholder="电动车速度" />
+        <button @click="addNewEdge">添加边</button>
+      </div>
+      <button v-else @click="cancelEdgeAdding">取消</button>
+    </div>
+  </div>
+
   <!-- 新增节点对话框 -->
   <div v-if="newNodeDialogVisible" class="overlay">
     <div class="dialog">
-      <h3>添加新节点</h3>
-      <p>坐标：{{ clickedPosition.lng.toFixed(6) }}, {{ clickedPosition.lat.toFixed(6) }}</p>
-      <input v-model="newNodeData.name" placeholder="节点名称" />
-      <input v-model="newNodeData.type" placeholder="节点类型" />
-      <button @click="addNewNode">提交</button>
+      <h3>{{ mode === 'addNode' ? '添加新节点' : '确认边信息' }}</h3>
+      <p v-if="mode === 'addNode'">坐标：{{ clickedPosition.lng.toFixed(6) }}, {{ clickedPosition.lat.toFixed(6) }}</p>
+      <input v-if="mode === 'addNode'" v-model="newNodeData.name" placeholder="节点名称" />
+      <input v-if="mode === 'addNode'" v-model="newNodeData.type" placeholder="节点类型" />
+      <input v-if="mode === 'addNode'" v-model="newNodeData.popularity" type="number" placeholder="节点热度" />
+      
+      <button @click="mode === 'addNode' ? addNewNode() : addNewEdge()">提交</button>
       <button @click="newNodeDialogVisible = false">取消</button>
     </div>
   </div>
 
-  <!-- 新增边表单 -->
-  <div class="control-panel">
-    <h3>添加新边</h3>
-    <select v-model="edgeData.startId">
-      <option value="">选择起点</option>
-      <option v-for="node in existingNodes" :key="node.id" :value="node.id">
-        {{ node.name }}
-      </option>
-    </select>
-    <select v-model="edgeData.endId">
-      <option value="">选择终点</option>
-      <option v-for="node in existingNodes" :key="node.id" :value="node.id">
-        {{ node.name }}
-      </option>
-    </select>
-    <input v-model="edgeData.weight" type="number" placeholder="权重" />
-    <button @click="addNewEdge">添加边</button>
-  </div>
-
-  <!-- 原有路径规划表单... -->
 </template>
 
 <script>
-import { onMounted, ref } from "vue";
+import { ref, onMounted } from "vue";
 import AMapLoader from "@amap/amap-jsapi-loader";
-import axios from 'axios';
+import axios from "axios";
+
 
 export default {
-  name: "MapComponent",
+  name: "Developer",
   setup() {
-    // 原有状态
-    const startLocation = ref("");
-    const endLocation = ref("");
-    const totalDistance = ref(0);
-    const estimatedTime = ref(0);
-    const points = ref("");
     const map = ref(null);
-    const selectedMode = ref(1);
-
-    // 新增开发者模式状态
     const existingNodes = ref([]);
     const existingEdges = ref([]);
     const newNodeDialogVisible = ref(false);
     const clickedPosition = ref({ lng: 0, lat: 0 });
-    const newNodeData = ref({ name: "", type: "" });
-    const edgeData = ref({ startId: "", endId: "", weight: "" });
+    const newNodeData = ref({ name: "", type: "", popularity: "", connected_edges: [] });
+    const edgeData = ref({ startId: "", endId: "", distance: "", walk_speed: "", bike_speed: "", ebike_speed: "" });
+    const mode = ref("add_node"); //add_node, add_edge
+    const edgeStartPoint = ref(null);
 
     // 地图覆盖物引用
     let existingNodeMarkers = [];
     let existingEdgePolylines = [];
     let AMapInstance = null;
+    let edgeStartMarker = null;
 
     // 初始化地图和加载数据
     onMounted(() => {
@@ -89,7 +99,7 @@ export default {
     // 加载图数据
     async function loadGraphData() {
       try {
-        const res = await axios.get("http://localhost:8000/get_graph");
+        const res = await axios.get("http://localhost:8000/map/get_graph");
         existingNodes.value = res.data.nodes;
         existingEdges.value = res.data.edges;
         renderGraphElements();
@@ -122,7 +132,7 @@ export default {
         const endNode = existingNodes.value.find(n => n.id === edge.end_id);
         
         if (startNode && endNode) {
-          const polyline = new AMAPInstance.Polyline({
+          const polyline = new AMapInstance.Polyline({
             path: [
               [startNode.longitude, startNode.latitude],
               [endNode.longitude, endNode.latitude]
@@ -140,32 +150,79 @@ export default {
     function handleMapClick(e) {
       const clickedLng = e.lnglat.getLng();
       const clickedLat = e.lnglat.getLat();
-      
-      // 检查是否在现有节点附近
-      const isExisting = existingNodes.value.some(node => 
-        AMapInstance.GeometryUtil.distance(
-          [node.longitude, node.latitude],
-          [clickedLng, clickedLat]
-        ) < 50 // 50米内视为已有节点
-      );
 
-      if (!isExisting) {
-        clickedPosition.value = { lng: clickedLng, lat: clickedLat };
-        newNodeDialogVisible.value = true;
+      if (mode.value === "addNode") {
+        // 检查是否在现有节点附近
+        const isExisting = existingNodes.value.some(node => 
+          AMapInstance.GeometryUtil.distance(
+            [node.longitude, node.latitude],
+            [clickedLng, clickedLat]
+          ) < 50 // 50米内视为已有节点
+        );
+
+        if (!isExisting) {
+          clickedPosition.value = { lng: clickedLng, lat: clickedLat };
+          newNodeDialogVisible.value = true;
+        }
+      } else if (mode.value === "addEdge") {
+        if (!edgeStartPoint.value) {
+          // 第一次点击，设置起点
+          edgeStartPoint.value = { lng: clickedLng, lat: clickedLat };
+          edgeData.value.startId = existingNodes.value.find(node => 
+            AMapInstance.GeometryUtil.distance(
+              [node.longitude, node.latitude],
+              [clickedLng, clickedLat]
+            ) < 50 // 50米内视为已有节点
+          )?.id;
+
+          // 清除旧的起点标记
+          if (edgeStartMarker) {
+            edgeStartMarker.setMap(null);
+          }
+
+          // 添加起点标记
+          edgeStartMarker = new AMapInstance.Marker({
+            position: [clickedLng, clickedLat],
+            map: map.value,
+            title: "边起点",
+            icon: "https://a.amap.com/jsapi_demos/static/demo-center/icons/poi-marker-red.png"
+          });
+        } else {
+          // 第二次点击，设置终点
+          edgeData.value.endId = existingNodes.value.find(node => 
+            AMapInstance.GeometryUtil.distance(
+              [node.longitude, node.latitude],
+              [clickedLng, clickedLat]
+            ) < 50 // 50米内视为已有节点
+          )?.id;
+
+          if (edgeData.value.startId && edgeData.value.endId) {
+            // 显示添加边的对话框
+            newNodeDialogVisible.value = true;
+            clickedPosition.value = { lng: clickedLng, lat: clickedLat };
+          } else {
+            alert("请选择有效的起点和终点！");
+          }
+
+          // 清除起点标记
+          if (edgeStartMarker) {
+            edgeStartMarker.setMap(null);
+          }
+          edgeStartPoint.value = null;
+        }
       }
     }
-
     // 添加新节点
     async function addNewNode() {
       try {
-        await axios.post("http://localhost:8000/add_node", {
+        await axios.post("http://localhost:8000/map/add_node", {
           longitude: clickedPosition.value.lng,
           latitude: clickedPosition.value.lat,
           ...newNodeData.value
         });
         await loadGraphData();
         newNodeDialogVisible.value = false;
-        newNodeData.value = { name: "", type: "" };
+        newNodeData.value = { name: "", type: "", popularity: "", connected_edges: [] };
       } catch (error) {
         console.error("添加节点失败:", error);
       }
@@ -174,40 +231,34 @@ export default {
     // 添加新边
     async function addNewEdge() {
       try {
-        await axios.post("http://localhost:8000/add_edge", {
+        await axios.post("http://localhost:8000/map/add_edge", {
           start_id: edgeData.value.startId,
           end_id: edgeData.value.endId,
-          weight: edgeData.value.weight
+          distance: edgeData.value.distance,
+          walk_speed: edgeData.value.walk_speed,
+          bike_speed: edgeData.value.bike_speed,
+          ebike_speed: edgeData.value.ebike_speed
         });
         await loadGraphData();
-        edgeData.value = { startId: "", endId: "", weight: "" };
+        edgeData.value = { startId: "", endId: "", distance: "", walk_speed: "", bike_speed: "", ebike_speed: "" };
       } catch (error) {
         console.error("添加边失败:", error);
       }
     }
 
     return {
-      // 原有返回项
-      startLocation,
-      endLocation,
-      totalDistance,
-      estimatedTime,
-      points,
-      startNavigation,
-      
-      // 新增返回项
       existingNodes,
       newNodeDialogVisible,
       clickedPosition,
       newNodeData,
       edgeData,
       addNewNode,
-      addNewEdge
+      addNewEdge,
+      mode
     };
   }
 };
 </script>
-
 
 <style>
 .overlay {

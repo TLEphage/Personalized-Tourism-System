@@ -8,6 +8,8 @@
         <p>请设置您的起点和终点</p>
       </div>
 
+      <button class="developer-button" @click="goToDeveloper">开发者模式</button>
+
       <div class="input-group">
         <label>起点位置</label>
         <input
@@ -170,6 +172,12 @@ export default {
 
     return { startLocation, endLocation, totalDistance, estimatedTime, points, startNavigation };
   },
+  methods: {
+    goToDeveloper() {
+      this.$router.push({ name: "Developer" });
+      console.log("route to developer page");
+    },
+  }
 };
 </script>
 
@@ -274,5 +282,23 @@ body {
   padding: 1.5rem;
   background: #f8f9fa;
   border-radius: 8px;
+}
+
+.developer-button {
+  position: absolute;
+  top: 40px;
+  right: 20px;
+  padding: 0.8rem;
+  background: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.developer-button:hover {
+  background: #1976d2;
+  transform: translateY(-2px);
 }
 </style>

@@ -196,7 +196,7 @@ def add_edge(edge_data: EdgeRequest) -> dict:
         'id' : edge_data.id,
         'start_node' : edge_data.start_node,
         'end_node' : edge_data.end_node,
-        'distance' : haversine(lat1, lon1, lat2, lon2),
+        'distance' : round(haversine(lat1, lon1, lat2, lon2), 2),
         'walk_speed' : edge_data.walk_speed,
         'bike_speed' : edge_data.bike_speed,
         'ebike_speed' : edge_data.bike_speed

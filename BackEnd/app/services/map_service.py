@@ -162,7 +162,9 @@ def add_node(node_data: NodeRequest) -> dict:
 def add_edge(edge_data: EdgeRequest) -> dict:
     """将请求的边加入地图数据中"""
     graph = read_json(MAP_FILE, default={})
-    nodes = graph.get('ndoes', [])
+    if edge_data.start_node == edge_data.end_node:
+        return {"success": False, "graph": graph} # 防止自环
+    nodes = graph.get('nodes', [])
     edges = graph.get('edges', [])
 
     start_node = None
@@ -202,8 +204,10 @@ def add_edge(edge_data: EdgeRequest) -> dict:
     graph['edges'].append(new_edge)
     for node in graph['nodes']:
         if node.get('id',-1) == edge_data.start_node:
+            print("start: ",node)
             node['connected_edges'].append(edge_data.id)
         if node.get('id',-1) == edge_data.end_node:
+            print("end: ",node)
             node['connected_edges'].append(edge_data.id)
     write_json(MAP_FILE, graph)
     return {"success": True, "graph": graph}

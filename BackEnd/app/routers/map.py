@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException
-from app.models.map import PathPlanRequest, PathPlanResponse, NodeRequest, EdgeRequest
+from app.models.map import PathPlanRequest ,PathPlanResponse ,NodeRequestRaw ,NodeRequest ,EdgeRequestRaw , EdgeRequest
 from app.services import map_service
 
 router = APIRouter(tags=["路径规划"])
@@ -22,7 +22,7 @@ def get_graph():
     return map_service.get_graph()
 
 @router.post("/add_node", summary="添加地图节点")
-def add_node(node: NodeRequest):
+def add_node(node: NodeRequestRaw):
     """
     添加地图节点：
       - 接收节点信息
@@ -30,13 +30,15 @@ def add_node(node: NodeRequest):
       - 追加到map.json数据文件
       - 返回新的图信息
     """
-    info = map_service.add_node(node)
+    print(node)
+    node_data = NodeRequest(**node.nodeData)
+    info = map_service.add_node(node_data)
     if not info.get("success", False):
         raise HTTPException(status_code=404, detail="节点编号重复")
     return info.get("graph", {"nodes" : [] , "edges" : [] })
 
 @router.post("/add_edge", summary="添加地图边")
-def add_edge(edge: EdgeRequest):
+def add_edge(edge: EdgeRequestRaw):
     """
     添加地图边：
       - 接收边信息
@@ -44,7 +46,10 @@ def add_edge(edge: EdgeRequest):
       - 追加到map.json数据文件
       - 返回新的图信息
     """
-    info = map_service.add_edge(edge)
+
+    print(edge)
+    edge_data = EdgeRequest(**edge.edgeDataToSend)
+    info = map_service.add_edge(edge_data)
     if not info.get("success", False):
         raise HTTPException(status_code=404, detail="边信息不合法")
     return info.get("graph", {"nodes" : [] , "edges" : [] })

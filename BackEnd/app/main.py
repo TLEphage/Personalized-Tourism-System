@@ -79,7 +79,6 @@ def home():
 # --------------------------- 本地调试启动 ---------------------------
 if __name__ == "__main__":
     import uvicorn
-    print("Oh year~")
     uvicorn.run(
         "app.main:app",  # 模块路径:FastAPI 实例名
         host="0.0.0.0",  # 允许所有 IP 访问

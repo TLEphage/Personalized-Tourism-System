@@ -139,7 +139,7 @@ def add_node(node_data: NodeRequest) -> dict:
     nodes = graph.get('nodes', [])
 
     if node_data.id is None:
-        max_id = max(node["id"] for node in nodes)
+        max_id = max((node["id"] for node in nodes), default=-1)
         node_data.id = max_id + 1
 
     for node in nodes:
@@ -176,7 +176,7 @@ def add_edge(edge_data: EdgeRequest) -> dict:
         return {"success": False, "graph": graph} # 节点不存在
 
     if edge_data.id is None:
-        max_id = max(edge["id"] for edge in edges)
+        max_id = max((edge["id"] for edge in edges), default=-1)
         edge_data.id = max_id + 1
 
     for edge in edges:

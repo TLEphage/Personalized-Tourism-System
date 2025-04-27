@@ -66,7 +66,7 @@ export default {
     const newNodeDialogVisible = ref(false);
     const clickedPosition = ref({ lng: 0, lat: 0 });
     const newNodeData = ref({ name: "", type: "", popularity: ""});
-    const edgeData = ref({ start_node: null, end_node: null, distance: null, walk_speed: null, bike_speed: null, ebike_speed: null });
+    const edgeData = ref({ start_node: -1, end_node: -1, distance: 0, walk_speed: 0, bike_speed: 0, ebike_speed: 0 });
     const mode = ref("add_node"); //add_node, add_edge
     const edgeStartPoint = ref(null);
 
@@ -256,7 +256,7 @@ export default {
           ebike_speed: edgeData.value.ebike_speed
         });
         await loadGraphData();
-        edgeData.value = { start_node: null, end_node: null, distance: null, walk_speed: null, bike_speed: null, ebike_speed: null };
+        edgeData.value = { start_node: -1, end_node: -1, distance: 0, walk_speed: 0, bike_speed: 0, ebike_speed: 0 };
       } catch (error) {
         console.error("添加边失败:", error);
       }

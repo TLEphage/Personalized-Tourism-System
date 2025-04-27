@@ -100,6 +100,7 @@ export default {
     async function loadGraphData() {
       try {
         const res = await axios.get("http://localhost:8000/map/get_graph");
+        console.log("图数据:", res.data);
         existingNodes.value = res.data.nodes;
         existingEdges.value = res.data.edges;
         renderGraphElements();
@@ -144,6 +145,7 @@ export default {
           existingEdgePolylines.push(polyline);
         }
       });
+      console.log("节点和边渲染完成");
     }
 
     // 地图点击处理
@@ -222,7 +224,7 @@ export default {
         });
         await loadGraphData();
         newNodeDialogVisible.value = false;
-        newNodeData.value = { name: "", type: "", popularity: "", connected_edges: [] };
+        newNodeData.value = { name: "", type: "", popularity: "" };
       } catch (error) {
         console.error("添加节点失败:", error);
       }

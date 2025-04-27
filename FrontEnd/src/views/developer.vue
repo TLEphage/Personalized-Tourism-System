@@ -25,7 +25,6 @@
       </div>
       <div v-if="edgeData.end_node">
         <p>已选择终点: {{ getNodeName(edgeData.end_node) }} (ID: {{ edgeData.end_node }})</p>
-        <input v-model="edgeData.distance" type="number" placeholder="距离" />
         <input v-model="edgeData.walk_speed" type="number" placeholder="步行速度" />
         <input v-model="edgeData.bike_speed" type="number" placeholder="骑行速度" />
         <input v-model="edgeData.ebike_speed" type="number" placeholder="电动车速度" />
@@ -65,8 +64,8 @@ export default {
     const existingEdges = ref([]);
     const newNodeDialogVisible = ref(false);
     const clickedPosition = ref({ lng: 0, lat: 0 });
-    const newNodeData = ref({ name: "", type: "", popularity: ""});
-    const edgeData = ref({ start_node: -1, end_node: -1, distance: 0, walk_speed: 0, bike_speed: 0, ebike_speed: 0 });
+    const newNodeData = ref({ name: "", type: null, popularity: null});
+    const edgeData = ref({ start_node: -1, end_node: -1, walk_speed: null, bike_speed: null, ebike_speed: null});
     const mode = ref("add_node"); //add_node, add_edge
     const edgeStartPoint = ref(null);
 
@@ -230,14 +229,23 @@ export default {
     };    // 添加新节点
     async function addNewNode() {
       try {
-        await axios.post("http://localhost:8000/map/add_node", {
-          longitude: clickedPosition.value.lng,
+        const nodeData = {
+          name: newNodeData.value.name,
           latitude: clickedPosition.value.lat,
-          ...newNodeData.value
+          longitude: clickedPosition.value.lng,
+        }
+        if (newNodeData.value.type) {
+          nodeData.type = newNodeData.value.type;
+        }
+        if (newNodeData.value.popularity) {
+          nodeData.popularity = newNodeData.value.popularity;
+        }
+        await axios.post("http://localhost:8000/map/add_node", {
+          nodeData
         });
         await loadGraphData();
         newNodeDialogVisible.value = false;
-        newNodeData.value = { name: "", type: "", popularity: "" };
+        newNodeData.value = { name: "", type: null, popularity: null };
       } catch (error) {
         console.error("添加节点失败:", error);
       }
@@ -246,17 +254,24 @@ export default {
     // 添加新边
     async function addNewEdge() {
       try {
-
-        await axios.post("http://localhost:8000/map/add_edge", {
+        const edgeDataToSend = {
           start_node: edgeData.value.start_node,
-          end_node: edgeData.value.end_node,
-          distance: edgeData.value.distance,
-          walk_speed: edgeData.value.walk_speed,
-          bike_speed: edgeData.value.bike_speed,
-          ebike_speed: edgeData.value.ebike_speed
+          end_node: edgeData.value.end_node
+        }
+        if (edgeData.value.walk_speed) {
+          edgeDataToSend.walk_speed = edgeData.value.walk_speed;
+        }
+        if (edgeData.value.bike_speed) {
+          edgeDataToSend.bike_speed = edgeData.value.bike_speed;
+        }
+        if (edgeData.value.ebike_speed) {
+          edgeDataToSend.ebike_speed = edgeData.value.ebike_speed;
+        }
+        await axios.post("http://localhost:8000/map/add_edge", {
+          edgeDataToSend
         });
         await loadGraphData();
-        edgeData.value = { start_node: -1, end_node: -1, distance: 0, walk_speed: 0, bike_speed: 0, ebike_speed: 0 };
+        edgeData.value = { start_node: -1, end_node: -1, walk_speed: null, bike_speed: null, ebike_speed: null };
       } catch (error) {
         console.error("添加边失败:", error);
       }

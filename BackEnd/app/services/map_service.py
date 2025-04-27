@@ -165,7 +165,8 @@ def add_edge(edge_data: EdgeRequest) -> dict:
     nodes = graph.get('ndoes', [])
     edges = graph.get('edges', [])
 
-    start_node = None, end_node = None
+    start_node = None
+    end_node = None
     for node in nodes:
         if node.get('id',-1) == edge_data.start_node:
             start_node = node
@@ -184,8 +185,10 @@ def add_edge(edge_data: EdgeRequest) -> dict:
         edge['start_node'] == edge_data.end_node and edge['end_node'] == edge_data.start_node:
             return {"success": False, "graph": graph} # 边重复
     
-    lon1 = start_node.get('longitude'), lat1 = start_node.get('latitude')
-    lon2 = end_node.get('longitude'), lat2 = end_node.get('latitude')
+    lon1 = start_node.get('longitude')
+    lat1 = start_node.get('latitude')
+    lon2 = end_node.get('longitude')
+    lat2 = end_node.get('latitude')
     
     new_edge = {
         'id' : edge_data.id,

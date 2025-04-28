@@ -44,7 +44,7 @@
       <input v-if="mode === 'addNode'" v-model="newNodeData.popularity" type="number" placeholder="节点热度" />
       
       <button @click="mode === 'addNode' ? addNewNode() : addNewEdge()">提交</button>
-      <button @click="newNodeDialogVisible = false">取消</button>
+      <button @click="mode === 'addNode' ? cancelNodeAdding() : cancelEdgeAdding()">取消</button>
     </div>
   </div>
 
@@ -113,6 +113,22 @@ export default {
       }
     }
 
+    const cancelEdgeAdding = () => {
+      edgeData.value = { start_node: -1, end_node: -1, walk_speed: null, bike_speed: null, ebike_speed: null };
+      edgeStartPoint.value = null;
+      if (edgeStartMarker) {
+        edgeStartMarker.setMap(null);
+        edgeStartMarker = null;
+      }
+      newNodeDialogVisible.value = false;
+    };
+
+    const cancelNodeAdding = () => {
+      newNodeDialogVisible.value = false;
+      newNodeData.value = { name: "", type: null, popularity: null };
+      clickedPosition.value = { lng: 0, lat: 0 };
+    };
+
     // 渲染节点和边
     const renderGraphElements = () => {
       // 清除旧覆盖物
@@ -123,15 +139,42 @@ export default {
 
       // 绘制节点
       existingNodes.value.forEach(node => {
-        const marker = new AMapInstance.Marker({
-          position: [node.longitude, node.latitude],
+        const marker = new AMapInstance.CircleMarker({
+          center: [node.longitude, node.latitude],
+          radius: 5, // 圆点半径
+          strokeColor: 'red', // 边框颜色
+          strokeWeight: 2, // 边框宽度
+          fillColor: 'red', // 填充颜色
+          fillOpacity: 1, // 填充透明度
           map: map.value,
-          icon: new AMapInstance.Icon({
-            image: 'https://webapi.amap.com/theme/v1.3/markers/n/mark_b.png',
-            size: new AMapInstance.Size(6, 9),
-            imageSize: new AMapInstance.Size(6, 9)
-          })
+          cursor: 'pointer'
         });
+
+        // 为每个节点添加点击事件
+        marker.on('click', () => {
+          if (mode.value === 'addEdge') {
+            if (!edgeStartPoint.value) {
+              edgeData.value.start_node = node.id;
+              edgeStartPoint.value = { lng: node.longitude, lat: node.latitude };
+
+              if (edgeStartMarker) edgeStartMarker.setMap(null);
+              edgeStartMarker = new AMapInstance.CircleMarker({
+                center: [node.longitude, node.latitude],
+                radius: 5, // 圆点半径
+                strokeColor: 'blue', // 边框颜色
+                strokeWeight: 2, // 边框宽度
+                fillColor: 'blue', // 填充颜色
+                fillOpacity: 1, // 填充透明度
+                map: map.value,
+                cursor: 'pointer'
+              });
+            } else {
+              edgeData.value.end_node = node.id;
+              handleEdgeComplete(node);
+            }
+          }
+        });
+
         existingNodeMarkers.push(marker);
       });
 
@@ -139,7 +182,7 @@ export default {
       existingEdges.value.forEach(edge => {
         const startNode = existingNodes.value.find(n => n.id === edge.start_node);
         const endNode = existingNodes.value.find(n => n.id === edge.end_node);
-        
+
         if (startNode && endNode) {
           const polyline = new AMapInstance.Polyline({
             path: [
@@ -151,10 +194,13 @@ export default {
             map: map.value
           });
           existingEdgePolylines.push(polyline);
+        } else {
+          console.error(`无法渲染边 (${edge.start_node} -> ${edge.end_node})，因为起点或终点节点不存在`);
         }
       });
+
       console.log("节点和边渲染完成");
-    }
+    };
 
     // 修改后的地图点击处理
     const handleMapClick = (e) => {
@@ -162,12 +208,12 @@ export default {
       const clickedLat = e.lnglat.getLat();
 
       if (mode.value === "addNode") {
-        // 检查是否在现有节点附近（30米内）
-        const isExisting = existingNodes.value.some(node => 
+        // 检查是否在现有节点附近（10米内）
+        const isExisting = existingNodes.value.some(node =>
           AMapInstance.GeometryUtil.distance(
             [node.longitude, node.latitude],
             [clickedLng, clickedLat]
-          ) < 30
+          ) < 10
         );
 
         if (!isExisting) {
@@ -189,7 +235,7 @@ export default {
           }
         });
 
-        if (minDist > 30) {
+        if (minDist > 10) {
           alert("请点击已有节点！");
           return;
         }
@@ -197,22 +243,23 @@ export default {
         if (!edgeStartPoint.value) {
           edgeData.value.start_node = closestNode.id;
           edgeStartPoint.value = { lng: closestNode.longitude, lat: closestNode.latitude };
-          
+
           if (edgeStartMarker) edgeStartMarker.setMap(null);
-          edgeStartMarker = new AMapInstance.Marker({
-            position: [closestNode.longitude, closestNode.latitude],
+          edgeStartMarker = new AMapInstance.CircleMarker({
+            center: [node.longitude, node.latitude],
+            radius: 5, // 圆点半径
+            strokeColor: 'blue', // 边框颜色
+            strokeWeight: 2, // 边框宽度
+            fillColor: 'blue', // 填充颜色
+            fillOpacity: 1, // 填充透明度
             map: map.value,
-            icon: new AMapInstance.Icon({
-              image: 'https://webapi.amap.com/theme/v1.3/markers/n/mark_b.png',
-              size: new AMapInstance.Size(6, 9),
-              imageSize: new AMapInstance.Size(6, 9)
-            })
+            cursor: 'pointer'
           });
         } else {
           edgeData.value.end_node = closestNode.id;
-          
+
           // 检查边是否已存在
-          const existingEdge = existingEdges.value.find(edge => 
+          const existingEdge = existingEdges.value.find(edge =>
             (edge.start_node === edgeData.value.start_node && edge.end_node === edgeData.value.end_node) ||
             (edge.start_node === edgeData.value.end_node && edge.end_node === edgeData.value.start_node)
           );
@@ -226,13 +273,14 @@ export default {
           newNodeDialogVisible.value = true;
         }
       }
-    };    // 添加新节点
+    };    
+    // 添加新节点
     async function addNewNode() {
       try {
         const nodeData = {
           name: newNodeData.value.name,
           latitude: clickedPosition.value.lat,
-          longitude: clickedPosition.value.lng,
+          longitude: clickedPosition.value.lng
         }
         if (newNodeData.value.type) {
           nodeData.type = newNodeData.value.type;
@@ -286,7 +334,10 @@ export default {
       addNewNode,
       addNewEdge,
       mode,
-      getNodeName
+      getNodeName,
+      cancelEdgeAdding,
+      cancelNodeAdding,
+      existingEdges
     };
   }
 };
@@ -311,15 +362,39 @@ export default {
   border-radius: 8px;
 }
 
+.dialog-buttons {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.dialog-buttons button {
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.dialog-buttons button:first-child {
+  background-color: #1890ff;
+  color: white;
+  border: none;
+}
+
+.dialog-buttons button:last-child {
+  background-color: #fff;
+  border: 1px solid #d9d9d9;
+}
+
 .control-panel {
   position: absolute;
   top: 20px;
   left: 20px;
   background: white;
-  padding: 15px;
+  padding: 10px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  border: 2px solid #1890ff;
+  border: 1px solid #1890ff;
   z-index: 999;
 }
 

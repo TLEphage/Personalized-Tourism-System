@@ -12,6 +12,7 @@ BUPT数据结构课设-基于大模型的个性化旅游系统的设计和开发
 - [高德地图经纬度获取](https://lbs.amap.com/tools/picker)
 - [5-6周周报](https://lvtdvwrkwee.feishu.cn/wiki/X3Dbwe2UfikjS6k1cI8czFHzn3d)
 - [7-8周周报](https://lvtdvwrkwee.feishu.cn/wiki/NOmnwaY4diXxAOkfyapcuc0onZb)
+- [9-10周周报](https://ocn0xlvbn5mc.feishu.cn/docx/J53wdHPUPoInAZxGxX4co21qnSd)
 
 ## 课程任务
 - ~~第1周 布置题目~~

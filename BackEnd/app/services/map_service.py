@@ -199,7 +199,7 @@ def add_edge(edge_data: EdgeRequest) -> dict:
         'distance' : round(haversine(lat1, lon1, lat2, lon2), 2),
         'walk_speed' : edge_data.walk_speed,
         'bike_speed' : edge_data.bike_speed,
-        'ebike_speed' : edge_data.bike_speed
+        'ebike_speed' : edge_data.ebike_speed
     }
     graph['edges'].append(new_edge)
     for node in graph['nodes']:

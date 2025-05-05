@@ -48,3 +48,24 @@ class EdgeRequest(BaseModel):
     walk_speed: Optional[float] = Field(default=1.0, ge=0, le=5, description="步行速度 m/s")
     bike_speed: Optional[float] = Field(default=0.0, ge=0, le=10, description="自行车速度 m/s")
     ebike_speed: Optional[float] = Field(default=0.0, ge=0, le=15, description="电动车速度 m/s")
+
+class PlaceQueryRequest(BaseModel):
+    """场所查询请求模型"""
+    longitude: float    # 用户所在经度
+    latitude: float     # 用户所在纬度
+    query_type: str     # 要查询的场所类型（如："超市", "卫生间" 等）
+    max_results: int = 1  # 最多返回结果数量，默认为1
+
+class PlaceDetail(BaseModel):
+    """场所详情响应模型"""
+    id: int                 # 场所唯一标识
+    name: str               # 场所名称
+    type: str               # 场所类型（与查询类型对应）
+    popularity: int         # 场所人气值
+    longitude: float        # 场所经度
+    latitude: float         # 场所纬度
+    distance: float         # 距离用户的直线距离（单位：米）
+
+class PlaceResponse(BaseModel):
+    """场所查询响应模型"""
+    places: List[PlaceDetail] = []

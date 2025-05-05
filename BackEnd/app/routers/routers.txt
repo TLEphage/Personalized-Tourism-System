@@ -23,3 +23,4 @@ GET     /map/get_graph                          -> 获取地图完整信息
 POST    /map/add_node                           -> 添加地图节点
 POST    /map/add_edge                           -> 添加地图边 
 POST    /map/path_plan                          -> 路径规划
+POST    /map/search_places                      -> 场所查询

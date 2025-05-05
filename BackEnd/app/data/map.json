@@ -30,7 +30,342 @@
             "longitude": 116.35712,
             "latitude": 39.96422,
             "connected_edges": []
+        },
+        {
+            "id": 3,
+            "name": "第三教学楼西大门",
+            "type": "教学类",
+            "popularity": 2,
+            "longitude": 116.35575,
+            "latitude": 39.96034,
+            "connected_edges": []
+        },
+        {
+            "id": 4,
+            "name": "蓟门桥D出口",
+            "type": "车站",
+            "popularity": 100,
+            "longitude": 116.355257,
+            "latitude": 39.967231,
+            "connected_edges": []
+        },
+        {
+            "id": 5,
+            "name": "师大北路路口",
+            "type": "路口",
+            "popularity": 100,
+            "longitude": 116.354938,
+            "latitude": 39.96491,
+            "connected_edges": []
+        },
+        {
+            "id": 6,
+            "name": "北门",
+            "type": "大门",
+            "popularity": 100,
+            "longitude": 116.357059,
+            "latitude": 39.964992,
+            "connected_edges": []
+        },
+        {
+            "id": 7,
+            "name": "西北门",
+            "type": "大门",
+            "popularity": 100,
+            "longitude": 116.355217,
+            "latitude": 39.96477,
+            "connected_edges": []
+        },
+        {
+            "id": 8,
+            "name": "北邮科技酒店",
+            "type": "公寓",
+            "popularity": 100,
+            "longitude": 116.355255,
+            "latitude": 39.964558,
+            "connected_edges": []
+        },
+        {
+            "id": 9,
+            "name": "学十一公寓南门",
+            "type": "公寓",
+            "popularity": 100,
+            "longitude": 116.356002,
+            "latitude": 39.964661,
+            "connected_edges": []
+        },
+        {
+            "id": 10,
+            "name": "路口A",
+            "type": "路口",
+            "popularity": 100,
+            "longitude": 116.35619,
+            "latitude": 39.964496,
+            "connected_edges": []
+        },
+        {
+            "id": 11,
+            "name": "路口G",
+            "type": "路口",
+            "popularity": 100,
+            "longitude": 116.356233,
+            "latitude": 39.964131,
+            "connected_edges": []
+        },
+        {
+            "id": 12,
+            "name": "教学楼九东门",
+            "type": "教学类",
+            "popularity": 100,
+            "longitude": 116.356072,
+            "latitude": 39.964335,
+            "connected_edges": []
         }
+
+        {
+            "id":13,
+            "name": "时光广场",
+            "type": "活动场所",
+            "popularity":"100",
+            "longitude": 116.357504,
+            "latitude":39.962433,            
+            "connected_edges":[]
+        },
+        {
+            "id":14,
+            "name":"图书馆",
+            "type": "教学楼",
+            "popularity":"100",
+            "longitude": 116.357979,
+            "latitude":39.962838,   
+            "connected_edges":[]         
+        },
+        {
+            "id":15,
+            "name":"路口Z4",
+            "type": "路口",
+            "popularity":"100",
+            "longitude":" 116.358722",
+            "latitude":"39.963003",
+            "connected_edges":[]
+        },
+        {
+            "id":16,
+            "name":"路口W",
+            "type": "路口",
+            "popularity":"100",
+            "longitude":"116.358713",
+            "latitude":"39.962319",
+            "connected_edges":[]
+        },
+        {
+            "id":17,
+            "name":"教务处",
+            "type": "行政",
+            "popularity":"100",
+            "longitude":"116.357734",
+            "latitude":"39.96213",
+            "connected_edges":[]
+        },
+        {
+            "id":18,
+            "name":"教一楼西门",
+            "type": "教学类",
+            "popularity":"100",
+            "longitude":"116.357494",
+            "latitude":"39.96192",
+            "connected_edges":[]
+        },
+        {
+            "id":19,
+            "name":"教一楼东区",
+            "type": "教学类",
+            "popularity":"100",
+            "longitude":"116.358521",
+            "latitude":"39.961917",
+            "connected_edges":[]
+        },
+        {
+            "id":20,
+            "name":"路口V",
+            "type": "路口",
+            "popularity":"100",
+            "longitude":" 116.358713",
+            "latitude":"39.961718",
+            "connected_edges":[]
+        },
+        {
+            "id":21,
+            "name":"路口S",
+            "type": "路口",
+            "popularity":"100",
+            "longitude":"116.358717",
+            "latitude":"39.960765",
+            "connected_edges":[]
+        },
+        {
+            "id":22,
+            "name":"路口T",
+            "type": "路口",
+            "popularity":"100",
+            "longitude":"116.358717",
+            "latitude":"39.960765",
+            "connected_edges":[]
+        },
+        {
+            "id":23,
+            "name":"路口U",
+            "type": "路口",
+            "popularity":"100",
+            "longitude":"116.359346",        
+            "latitude":"39.960776",
+            "connected_edges":[]
+        },
+        {
+            "id":24,
+            "name":"科学会堂",
+            "type": "活动场所",
+            "popularity":"100",
+            "longitude":"116.359058",
+            "latitude":"39.961273",
+            "connected_edges":[]
+        },
+        {
+            "id":25,
+            "name":"创新楼",
+            "type":"科研场所",
+            "popularity":"100",
+            "longitude":"116.358521",
+            "latitude":"39.961273",
+            "connected_edges":[]
+        },
+        {
+            "id":26,
+            "name":"东南家属区",
+            "type":"家属区",
+            "popularity":"100",
+            "longitude":" 116.359072",
+            "latitude":" 39.96003",
+            "connected_edges":[]
+        },
+        {
+            "id":27,
+            "name":"体育馆",
+            "type":"活动场所",
+            "popularity":"100",
+            "longitude":"116.359571",
+            "latitude":" 39.962071",
+            "connected_edges":[]
+        },
+        {
+            "id":28,
+            "name":"游泳馆",
+            "type":"活动场所",
+            "popularity":"100",
+            "longitude":"116.360694",
+            "latitude":"39.961939",
+            "connected_edges":[]
+        },
+        {
+            "id":29,
+            "name":"路口X",
+            "type":"路口",
+            "popularity":"100",
+            "longitude":"116.360354",
+            "latitude":"39.962395",
+            "connected_edges":[]
+        },
+        {
+            "id":30,
+            "name":"体育场",
+            "type":"活动场所",
+            "popularity":"100",
+            "longitude":"116.360123",
+            "latitude":"39.960787",
+            "connected_edges":[]
+        },
+        {
+            "id":31,
+            "name":"篮球场",
+            "type":"活动场所",
+            "popularity":"100",
+            "longitude":"116.359346",
+            "latitude":"39.962733",
+            "connected_edges":[]
+        },
+        {
+            "id":32,
+            "name":"网球场",
+            "type":"活动场所",
+            "popularity":"100",
+            "longitude":" 116.360104",
+            "latitude":"39.962887",
+            "connected_edges":[]
+        },
+        {
+            "id":33,
+            "name":"排球场",
+            "type":"活动场所",
+            "popularity":"100",
+            "longitude":"116.360104",
+            "latitude":" 39.962615",
+            "connected_edges":[]
+        },
+        {
+            "id":34,
+            "name":"路口Y1",
+            "type":"路口",
+            "popularity":"100",
+            "longitude":"116.360344",
+            "latitude":"39.963092",
+            "connected_edges":[]
+        },
+        {
+            "id":35,
+            "name":"后勤处",
+            "type":"行政",
+            "popularity":"100",
+            "longitude":" 116.360685",
+            "latitude":"39.96336",
+            "connected_edges":[]
+        },
+        {
+            "id":36,
+            "name":"学生食堂",
+            "type":"餐饮",
+            "popularity":"100",
+            "longitude":"116.359221",
+            "latitude":"39.963349",
+            "connected_edges":[]
+        },
+        {
+            "id":37,
+            "name":"科研楼",
+            "type":"科研场所",
+            "popularity":"100",
+            "longitude":" 116.359125",
+            "latitude":"39.96411",
+            "connected_edges":[]
+        },
+        {
+            "id":38,
+            "name":"东北家属区",
+            "type":"家属区",
+            "popularity":"100",
+            "longitude":"116.359864",
+            "latitude":"39.963948",
+            "connected_edges":[]
+        },
+        {
+            "id":39,
+            "name":"路口Y2",
+            "type":"路口",
+            "popularity":"100",
+            "longitude":"116.360838",
+            "latitude":"39.963022",
+            "connected_edges":[]
+        }
+
     ],
     "edges": [
         {

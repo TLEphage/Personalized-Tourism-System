@@ -18,7 +18,7 @@ GET     /spots/?sort_key=...&sort_order=...     -> 获取景点
 GET     /spots/{name}                           -> 查询景点
 GET     /spots/tag/?tag=...                     -> 筛选景点
 
-路径规划模块
+地图模块
 GET     /map/get_graph                          -> 获取地图完整信息
 POST    /map/add_node                           -> 添加地图节点
 POST    /map/add_edge                           -> 添加地图边 

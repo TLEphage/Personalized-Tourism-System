@@ -2,6 +2,18 @@
     <div class="recommend-container">
       <h1 class="page-title">🌟 发现精彩目的地</h1>
       <swiper/>
+
+      <!-- 搜索框 -->
+      <div class="search-container">
+        <input
+          type="text"
+          v-model="searchQuery"
+          placeholder="请输入景点名称..."
+          class="search-input"
+          @input="handleSearchInput"
+        >
+      </div>
+
       <!-- 热门景点排行 -->
       <div class="spots-section">
         <h2 class="section-title">
@@ -19,7 +31,8 @@
           <div v-for="(spot, index) in rankingList" 
                :key="spot.id"
                class="spot-card"
-               @click="gotoDetailPage(spot.id)">
+               
+              >
             <div class="card-header">
               <img :src="spot.image" 
                    :alt="spot.name"
@@ -68,31 +81,56 @@
     components: { swiper },
     data() {
       return {
+        searchQuery: '',
+        timeoutId: null,
         rankingList: [],
         loading: true,
-        //defaultImage: 'https://via.placeholder.com/400x200?text=Scenery+Image',
         error: null
       }
+    },
+    watch: {
+      searchQuery(newVal) {
+        this.debouncedFetch(newVal);
+      }
+    },
+    created() {
+      // 防抖函数（500ms）
+      this.debouncedFetch = this.debounce((name) => {
+        this.fetchRankingList(name);
+      }, 500);
     },
     mounted() {
       this.fetchRankingList();
     },
     methods: {
-      async fetchRankingList() {
+      async fetchRankingList(name = '') {
         try {
-          const response = await axios.get(
-            'http://localhost:8000/spots'
-          );
-         this.rankingList = response.data;
-         console.log(response.data);
-         console.log(this.rankingList);
-
+          this.loading = true;
+          const response = await axios.get(`http://localhost:8000/spots/${name}`);
+          console.log('请求参数:', name);
+          console.log('获取景点数据成功:', response.data);
+          this.rankingList = response.data;
+          this.error = null;
         } catch (error) {
           console.error('获取景点数据失败:', error);
           this.error = '无法加载景点数据，请稍后重试';
+          this.rankingList = [];
         } finally {
           this.loading = false;
         }
+      },
+      handleSearchInput() {
+        // 清除之前的定时器
+        clearTimeout(this.timeoutId);
+        // 显示实时清除按钮的逻辑可以在此扩展
+      },
+      debounce(fn, delay) {
+        return (...args) => {
+          clearTimeout(this.timeoutId);
+          this.timeoutId = setTimeout(() => {
+            fn.apply(this, args);
+          }, delay);
+        };
       },
       truncateDescription(desc) {
         return desc.length > 60 ? desc.slice(0, 60) + '...' : desc;
@@ -130,6 +168,27 @@
     font-size: 1rem;
     color: #718096;
   }
+
+  .search-container {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.search-input {
+  width: 80%;
+  max-width: 500px;
+  padding: 12px 24px;
+  border: 2px solid #e2e8f0;
+  border-radius: 30px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.search-input:focus {
+  border-color: #4a6fff;
+  box-shadow: 0 2px 8px rgba(74, 111, 255, 0.1);
+}
   
   .loading {
     text-align: center;

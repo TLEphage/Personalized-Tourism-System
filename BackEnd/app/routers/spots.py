@@ -11,6 +11,7 @@ router = APIRouter(tags=["景点查询"])
 
 @router.get("/{name}", response_model=Spot, summary="查询特定景点")
 def query_spot(name: str):
+    print(name)
     try:
         return get_spot_by_name(name)
     except ValueError as e:

@@ -20,7 +20,7 @@ _load_spots_data()
 def get_spot_by_name(name: str) -> Spot:
     """根据名称查询景点"""
     for spot in spots_list:
-        if spot.name == name:
+        if spot.get('name') == name:
             return spot
     raise ValueError("景点不存在")
 

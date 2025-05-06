@@ -8,7 +8,8 @@
             "longitude": 116.357063,
             "latitude": 39.964883,
             "connected_edges": [
-                0
+                0,
+                2
             ]
         },
         {
@@ -19,7 +20,9 @@
             "longitude": 116.357088,
             "latitude": 39.964512,
             "connected_edges": [
-                0
+                0,
+                4,
+                12
             ]
         },
         {
@@ -29,7 +32,11 @@
             "popularity": 100,
             "longitude": 116.35712,
             "latitude": 39.96422,
-            "connected_edges": []
+            "connected_edges": [
+                11,
+                12,
+                17
+            ]
         },
         {
             "id": 3,
@@ -38,7 +45,9 @@
             "popularity": 2,
             "longitude": 116.35575,
             "latitude": 39.96034,
-            "connected_edges": []
+            "connected_edges": [
+                136
+            ]
         },
         {
             "id": 4,
@@ -56,7 +65,10 @@
             "popularity": 100,
             "longitude": 116.354938,
             "latitude": 39.96491,
-            "connected_edges": []
+            "connected_edges": [
+                1,
+                3
+            ]
         },
         {
             "id": 6,
@@ -65,7 +77,10 @@
             "popularity": 100,
             "longitude": 116.357059,
             "latitude": 39.964992,
-            "connected_edges": []
+            "connected_edges": [
+                1,
+                2
+            ]
         },
         {
             "id": 7,
@@ -74,7 +89,11 @@
             "popularity": 100,
             "longitude": 116.355217,
             "latitude": 39.96477,
-            "connected_edges": []
+            "connected_edges": [
+                3,
+                5,
+                8
+            ]
         },
         {
             "id": 8,
@@ -83,7 +102,11 @@
             "popularity": 100,
             "longitude": 116.355255,
             "latitude": 39.964558,
-            "connected_edges": []
+            "connected_edges": [
+                5,
+                7,
+                9
+            ]
         },
         {
             "id": 9,
@@ -92,7 +115,11 @@
             "popularity": 100,
             "longitude": 116.356002,
             "latitude": 39.964661,
-            "connected_edges": []
+            "connected_edges": [
+                8,
+                9,
+                10
+            ]
         },
         {
             "id": 10,
@@ -101,7 +128,13 @@
             "popularity": 100,
             "longitude": 116.35619,
             "latitude": 39.964496,
-            "connected_edges": []
+            "connected_edges": [
+                4,
+                6,
+                7,
+                10,
+                13
+            ]
         },
         {
             "id": 11,
@@ -110,7 +143,12 @@
             "popularity": 100,
             "longitude": 116.356233,
             "latitude": 39.964131,
-            "connected_edges": []
+            "connected_edges": [
+                11,
+                13,
+                14,
+                15
+            ]
         },
         {
             "id": 12,
@@ -119,7 +157,10 @@
             "popularity": 100,
             "longitude": 116.356072,
             "latitude": 39.964335,
-            "connected_edges": []
+            "connected_edges": [
+                6,
+                14
+            ]
         },
         {
             "id": 13,
@@ -137,7 +178,10 @@
             "popularity": 100,
             "longitude": 116.35692,
             "latitude": 39.964013,
-            "connected_edges": []
+            "connected_edges": [
+                17,
+                20
+            ]
         },
         {
             "id": 15,
@@ -146,7 +190,10 @@
             "popularity": 100,
             "longitude": 116.355419,
             "latitude": 39.963641,
-            "connected_edges": []
+            "connected_edges": [
+                62,
+                63
+            ]
         },
         {
             "id": 16,
@@ -155,7 +202,9 @@
             "popularity": 100,
             "longitude": 116.35616,
             "latitude": 39.96355,
-            "connected_edges": []
+            "connected_edges": [
+                60
+            ]
         },
         {
             "id": 17,
@@ -164,7 +213,10 @@
             "popularity": 100,
             "longitude": 116.356957,
             "latitude": 39.963592,
-            "connected_edges": []
+            "connected_edges": [
+                55,
+                56
+            ]
         },
         {
             "id": 18,
@@ -173,7 +225,13 @@
             "popularity": 100,
             "longitude": 116.35627,
             "latitude": 39.963112,
-            "connected_edges": []
+            "connected_edges": [
+                53,
+                54,
+                59,
+                67,
+                68
+            ]
         },
         {
             "id": 19,
@@ -182,7 +240,10 @@
             "popularity": 100,
             "longitude": 116.355876,
             "latitude": 39.962943,
-            "connected_edges": []
+            "connected_edges": [
+                64,
+                67
+            ]
         },
         {
             "id": 20,
@@ -191,7 +252,10 @@
             "popularity": 100,
             "longitude": 116.356746,
             "latitude": 39.962985,
-            "connected_edges": []
+            "connected_edges": [
+                58,
+                59
+            ]
         },
         {
             "id": 21,
@@ -200,7 +264,10 @@
             "popularity": 100,
             "longitude": 116.355895,
             "latitude": 39.962396,
-            "connected_edges": []
+            "connected_edges": [
+                66,
+                70
+            ]
         },
         {
             "id": 22,
@@ -209,7 +276,10 @@
             "popularity": 100,
             "longitude": 116.356737,
             "latitude": 39.962403,
-            "connected_edges": []
+            "connected_edges": [
+                72,
+                73
+            ]
         },
         {
             "id": 23,
@@ -218,7 +288,13 @@
             "popularity": 100,
             "longitude": 116.357176,
             "latitude": 39.96314,
-            "connected_edges": []
+            "connected_edges": [
+                51,
+                53,
+                57,
+                58,
+                75
+            ]
         },
         {
             "id": 24,
@@ -227,7 +303,11 @@
             "popularity": 100,
             "longitude": 116.357472,
             "latitude": 39.963032,
-            "connected_edges": []
+            "connected_edges": [
+                57,
+                76,
+                77
+            ]
         },
         {
             "id": 25,
@@ -236,7 +316,11 @@
             "popularity": 100,
             "longitude": 116.357484,
             "latitude": 39.96242,
-            "connected_edges": []
+            "connected_edges": [
+                74,
+                76,
+                78
+            ]
         },
         {
             "id": 26,
@@ -245,7 +329,10 @@
             "popularity": 100,
             "longitude": 116.357922,
             "latitude": 39.962792,
-            "connected_edges": []
+            "connected_edges": [
+                77,
+                78
+            ]
         },
         {
             "id": 27,
@@ -254,7 +341,9 @@
             "popularity": 100,
             "longitude": 116.357487,
             "latitude": 39.964452,
-            "connected_edges": []
+            "connected_edges": [
+                21
+            ]
         },
         {
             "id": 28,
@@ -263,7 +352,11 @@
             "popularity": 100,
             "longitude": 116.357389,
             "latitude": 39.963866,
-            "connected_edges": []
+            "connected_edges": [
+                16,
+                19,
+                39
+            ]
         },
         {
             "id": 29,
@@ -272,7 +365,12 @@
             "popularity": 100,
             "longitude": 116.357818,
             "latitude": 39.963989,
-            "connected_edges": []
+            "connected_edges": [
+                37,
+                38,
+                40,
+                42
+            ]
         },
         {
             "id": 30,
@@ -281,7 +379,11 @@
             "popularity": 100,
             "longitude": 116.358152,
             "latitude": 39.964004,
-            "connected_edges": []
+            "connected_edges": [
+                38,
+                43,
+                44
+            ]
         },
         {
             "id": 31,
@@ -290,7 +392,11 @@
             "popularity": 100,
             "longitude": 116.357818,
             "latitude": 39.963724,
-            "connected_edges": []
+            "connected_edges": [
+                41,
+                42,
+                44
+            ]
         },
         {
             "id": 32,
@@ -299,7 +405,12 @@
             "popularity": 100,
             "longitude": 116.357586,
             "latitude": 39.963736,
-            "connected_edges": []
+            "connected_edges": [
+                39,
+                40,
+                41,
+                43
+            ]
         },
         {
             "id": 33,
@@ -308,7 +419,9 @@
             "popularity": 100,
             "longitude": 116.358549,
             "latitude": 39.963582,
-            "connected_edges": []
+            "connected_edges": [
+                36
+            ]
         },
         {
             "id": 34,
@@ -317,7 +430,9 @@
             "popularity": 100,
             "longitude": 116.358201,
             "latitude": 39.964618,
-            "connected_edges": []
+            "connected_edges": [
+                26
+            ]
         },
         {
             "id": 35,
@@ -326,7 +441,10 @@
             "popularity": 100,
             "longitude": 116.358599,
             "latitude": 39.964633,
-            "connected_edges": []
+            "connected_edges": [
+                25,
+                26
+            ]
         },
         {
             "id": 36,
@@ -335,7 +453,11 @@
             "popularity": 100,
             "longitude": 116.358631,
             "latitude": 39.964507,
-            "connected_edges": []
+            "connected_edges": [
+                24,
+                25,
+                27
+            ]
         },
         {
             "id": 37,
@@ -344,7 +466,10 @@
             "popularity": 100,
             "longitude": 116.360338,
             "latitude": 39.964532,
-            "connected_edges": []
+            "connected_edges": [
+                30,
+                88
+            ]
         },
         {
             "id": 38,
@@ -353,7 +478,11 @@
             "popularity": 100,
             "longitude": 116.359342,
             "latitude": 39.964507,
-            "connected_edges": []
+            "connected_edges": [
+                27,
+                28,
+                29
+            ]
         },
         {
             "id": 39,
@@ -362,7 +491,9 @@
             "popularity": 100,
             "longitude": 116.359342,
             "latitude": 39.964772,
-            "connected_edges": []
+            "connected_edges": [
+                28
+            ]
         },
         {
             "id": 40,
@@ -371,7 +502,9 @@
             "popularity": 100,
             "longitude": 116.359499,
             "latitude": 39.964125,
-            "connected_edges": []
+            "connected_edges": [
+                32
+            ]
         },
         {
             "id": 41,
@@ -380,7 +513,11 @@
             "popularity": 100,
             "longitude": 116.359609,
             "latitude": 39.964507,
-            "connected_edges": []
+            "connected_edges": [
+                29,
+                30,
+                31
+            ]
         },
         {
             "id": 42,
@@ -389,7 +526,11 @@
             "popularity": 100,
             "longitude": 116.359674,
             "latitude": 39.964165,
-            "connected_edges": []
+            "connected_edges": [
+                31,
+                32,
+                33
+            ]
         },
         {
             "id": 43,
@@ -398,7 +539,11 @@
             "popularity": 100,
             "longitude": 116.359735,
             "latitude": 39.963663,
-            "connected_edges": []
+            "connected_edges": [
+                33,
+                34,
+                83
+            ]
         },
         {
             "id": 44,
@@ -407,7 +552,10 @@
             "popularity": 100,
             "longitude": 116.35883,
             "latitude": 39.963323,
-            "connected_edges": []
+            "connected_edges": [
+                52,
+                84
+            ]
         },
         {
             "id": 45,
@@ -416,7 +564,11 @@
             "popularity": 100,
             "longitude": 116.359188,
             "latitude": 39.96312,
-            "connected_edges": []
+            "connected_edges": [
+                84,
+                85,
+                86
+            ]
         },
         {
             "id": 46,
@@ -425,7 +577,12 @@
             "popularity": 100,
             "longitude": 116.359774,
             "latitude": 39.963053,
-            "connected_edges": []
+            "connected_edges": [
+                82,
+                83,
+                86,
+                87
+            ]
         },
         {
             "id": 47,
@@ -434,7 +591,12 @@
             "popularity": 100,
             "longitude": 116.360337,
             "latitude": 39.96309,
-            "connected_edges": []
+            "connected_edges": [
+                87,
+                88,
+                89,
+                92
+            ]
         },
         {
             "id": 48,
@@ -443,7 +605,10 @@
             "popularity": 100,
             "longitude": 116.360851,
             "latitude": 39.963023,
-            "connected_edges": []
+            "connected_edges": [
+                89,
+                90
+            ]
         },
         {
             "id": 49,
@@ -452,7 +617,10 @@
             "popularity": 100,
             "longitude": 116.360887,
             "latitude": 39.962419,
-            "connected_edges": []
+            "connected_edges": [
+                90,
+                91
+            ]
         },
         {
             "id": 50,
@@ -461,7 +629,12 @@
             "popularity": 100,
             "longitude": 116.360365,
             "latitude": 39.962384,
-            "connected_edges": []
+            "connected_edges": [
+                91,
+                92,
+                93,
+                94
+            ]
         },
         {
             "id": 51,
@@ -470,7 +643,9 @@
             "popularity": 100,
             "longitude": 116.360393,
             "latitude": 39.962289,
-            "connected_edges": []
+            "connected_edges": [
+                94
+            ]
         },
         {
             "id": 52,
@@ -479,7 +654,10 @@
             "popularity": 100,
             "longitude": 116.359573,
             "latitude": 39.962051,
-            "connected_edges": []
+            "connected_edges": [
+                102,
+                103
+            ]
         },
         {
             "id": 53,
@@ -488,7 +666,9 @@
             "popularity": 100,
             "longitude": 116.360709,
             "latitude": 39.961918,
-            "connected_edges": []
+            "connected_edges": [
+                103
+            ]
         },
         {
             "id": 54,
@@ -497,7 +677,12 @@
             "popularity": 100,
             "longitude": 116.359243,
             "latitude": 39.962702,
-            "connected_edges": []
+            "connected_edges": [
+                95,
+                96,
+                97,
+                99
+            ]
         },
         {
             "id": 55,
@@ -506,7 +691,10 @@
             "popularity": 100,
             "longitude": 116.360095,
             "latitude": 39.962844,
-            "connected_edges": []
+            "connected_edges": [
+                98,
+                99
+            ]
         },
         {
             "id": 56,
@@ -515,7 +703,10 @@
             "popularity": 100,
             "longitude": 116.360103,
             "latitude": 39.962619,
-            "connected_edges": []
+            "connected_edges": [
+                97,
+                98
+            ]
         },
         {
             "id": 57,
@@ -524,7 +715,14 @@
             "popularity": 100,
             "longitude": 116.356254,
             "latitude": 39.96376,
-            "connected_edges": []
+            "connected_edges": [
+                15,
+                16,
+                18,
+                54,
+                60,
+                61
+            ]
         },
         {
             "id": 58,
@@ -533,7 +731,11 @@
             "popularity": 100,
             "longitude": 116.355432,
             "latitude": 39.962988,
-            "connected_edges": []
+            "connected_edges": [
+                63,
+                64,
+                65
+            ]
         },
         {
             "id": 59,
@@ -542,7 +744,13 @@
             "popularity": 100,
             "longitude": 116.355484,
             "latitude": 39.962216,
-            "connected_edges": []
+            "connected_edges": [
+                65,
+                66,
+                69,
+                104,
+                105
+            ]
         },
         {
             "id": 60,
@@ -551,7 +759,11 @@
             "popularity": 100,
             "longitude": 116.355565,
             "latitude": 39.961944,
-            "connected_edges": []
+            "connected_edges": [
+                104,
+                108,
+                110
+            ]
         },
         {
             "id": 61,
@@ -560,7 +772,11 @@
             "popularity": 100,
             "longitude": 116.356328,
             "latitude": 39.961731,
-            "connected_edges": []
+            "connected_edges": [
+                109,
+                111,
+                112
+            ]
         },
         {
             "id": 62,
@@ -569,7 +785,10 @@
             "popularity": 100,
             "longitude": 116.357003,
             "latitude": 39.961953,
-            "connected_edges": []
+            "connected_edges": [
+                110,
+                119
+            ]
         },
         {
             "id": 63,
@@ -578,7 +797,9 @@
             "popularity": 100,
             "longitude": 116.358013,
             "latitude": 39.961842,
-            "connected_edges": []
+            "connected_edges": [
+                122
+            ]
         },
         {
             "id": 64,
@@ -587,7 +808,10 @@
             "popularity": 100,
             "longitude": 116.357447,
             "latitude": 39.961947,
-            "connected_edges": []
+            "connected_edges": [
+                119,
+                120
+            ]
         },
         {
             "id": 65,
@@ -596,7 +820,11 @@
             "popularity": 100,
             "longitude": 116.358732,
             "latitude": 39.96198,
-            "connected_edges": []
+            "connected_edges": [
+                100,
+                101,
+                145
+            ]
         },
         {
             "id": 66,
@@ -605,7 +833,10 @@
             "popularity": 100,
             "longitude": 116.358012,
             "latitude": 39.962118,
-            "connected_edges": []
+            "connected_edges": [
+                121,
+                122
+            ]
         },
         {
             "id": 67,
@@ -614,7 +845,10 @@
             "popularity": 100,
             "longitude": 116.357671,
             "latitude": 39.962124,
-            "connected_edges": []
+            "connected_edges": [
+                120,
+                121
+            ]
         },
         {
             "id": 68,
@@ -623,7 +857,11 @@
             "popularity": 100,
             "longitude": 116.356349,
             "latitude": 39.961195,
-            "connected_edges": []
+            "connected_edges": [
+                112,
+                113,
+                114
+            ]
         },
         {
             "id": 69,
@@ -632,7 +870,10 @@
             "popularity": 100,
             "longitude": 116.356831,
             "latitude": 39.961198,
-            "connected_edges": []
+            "connected_edges": [
+                114,
+                115
+            ]
         },
         {
             "id": 70,
@@ -641,7 +882,10 @@
             "popularity": 100,
             "longitude": 116.357843,
             "latitude": 39.961167,
-            "connected_edges": []
+            "connected_edges": [
+                116,
+                117
+            ]
         },
         {
             "id": 71,
@@ -650,7 +894,9 @@
             "popularity": 100,
             "longitude": 116.358232,
             "latitude": 39.961272,
-            "connected_edges": []
+            "connected_edges": [
+                117
+            ]
         },
         {
             "id": 72,
@@ -659,7 +905,12 @@
             "popularity": 100,
             "longitude": 116.357284,
             "latitude": 39.961192,
-            "connected_edges": []
+            "connected_edges": [
+                115,
+                116,
+                118,
+                123
+            ]
         },
         {
             "id": 73,
@@ -668,7 +919,12 @@
             "popularity": 100,
             "longitude": 116.357303,
             "latitude": 39.960719,
-            "connected_edges": []
+            "connected_edges": [
+                123,
+                124,
+                127,
+                128
+            ]
         },
         {
             "id": 74,
@@ -677,7 +933,11 @@
             "popularity": 100,
             "longitude": 116.357504,
             "latitude": 39.960494,
-            "connected_edges": []
+            "connected_edges": [
+                128,
+                129,
+                130
+            ]
         },
         {
             "id": 75,
@@ -686,7 +946,9 @@
             "popularity": 100,
             "longitude": 116.35902,
             "latitude": 39.961283,
-            "connected_edges": []
+            "connected_edges": [
+                143
+            ]
         },
         {
             "id": 76,
@@ -695,7 +957,12 @@
             "popularity": 100,
             "longitude": 116.358644,
             "latitude": 39.960754,
-            "connected_edges": []
+            "connected_edges": [
+                124,
+                125,
+                126,
+                149
+            ]
         },
         {
             "id": 77,
@@ -704,7 +971,11 @@
             "popularity": 100,
             "longitude": 116.358644,
             "latitude": 39.9605,
-            "connected_edges": []
+            "connected_edges": [
+                126,
+                130,
+                139
+            ]
         },
         {
             "id": 78,
@@ -713,7 +984,11 @@
             "popularity": 100,
             "longitude": 116.359354,
             "latitude": 39.96076,
-            "connected_edges": []
+            "connected_edges": [
+                125,
+                141,
+                142
+            ]
         },
         {
             "id": 79,
@@ -722,7 +997,11 @@
             "popularity": 100,
             "longitude": 116.359359,
             "latitude": 39.961188,
-            "connected_edges": []
+            "connected_edges": [
+                142,
+                143,
+                148
+            ]
         },
         {
             "id": 80,
@@ -740,7 +1019,9 @@
             "popularity": 100,
             "longitude": 116.356889,
             "latitude": 39.959901,
-            "connected_edges": []
+            "connected_edges": [
+                134
+            ]
         },
         {
             "id": 82,
@@ -749,7 +1030,14 @@
             "popularity": 100,
             "longitude": 116.357321,
             "latitude": 39.960148,
-            "connected_edges": []
+            "connected_edges": [
+                127,
+                129,
+                131,
+                134,
+                137,
+                138
+            ]
         },
         {
             "id": 83,
@@ -758,7 +1046,10 @@
             "popularity": 100,
             "longitude": 116.357424,
             "latitude": 39.95851,
-            "connected_edges": []
+            "connected_edges": [
+                131,
+                132
+            ]
         },
         {
             "id": 84,
@@ -767,7 +1058,10 @@
             "popularity": 100,
             "longitude": 116.358005,
             "latitude": 39.958461,
-            "connected_edges": []
+            "connected_edges": [
+                132,
+                133
+            ]
         },
         {
             "id": 85,
@@ -776,7 +1070,322 @@
             "popularity": 100,
             "longitude": 116.35803,
             "latitude": 39.95832,
-            "connected_edges": []
+            "connected_edges": [
+                133
+            ]
+        },
+        {
+            "id": 86,
+            "name": "交叉口",
+            "type": "路口",
+            "popularity": 100,
+            "longitude": 116.357153,
+            "latitude": 39.963804,
+            "connected_edges": [
+                18,
+                19,
+                20,
+                46,
+                50,
+                56
+            ]
+        },
+        {
+            "id": 87,
+            "name": "路口x",
+            "type": "路口",
+            "popularity": 100,
+            "longitude": 116.357125,
+            "latitude": 39.96435,
+            "connected_edges": [
+                21,
+                22
+            ]
+        },
+        {
+            "id": 88,
+            "name": "路口x2",
+            "type": "路口",
+            "popularity": 100,
+            "longitude": 116.357855,
+            "latitude": 39.964375,
+            "connected_edges": [
+                22,
+                23,
+                37
+            ]
+        },
+        {
+            "id": 89,
+            "name": "路口x3",
+            "type": "路口",
+            "popularity": 100,
+            "longitude": 116.35859,
+            "latitude": 39.964413,
+            "connected_edges": [
+                23,
+                24,
+                35,
+                45
+            ]
+        },
+        {
+            "id": 90,
+            "name": "丁字路口1",
+            "type": "路口",
+            "popularity": 100,
+            "longitude": 116.3587,
+            "latitude": 39.963648,
+            "connected_edges": [
+                34,
+                35,
+                36,
+                47,
+                49
+            ]
+        },
+        {
+            "id": 91,
+            "name": "丁字路口2",
+            "type": "路口",
+            "popularity": 100,
+            "longitude": 116.358634,
+            "latitude": 39.963863,
+            "connected_edges": [
+                45,
+                46,
+                47
+            ]
+        },
+        {
+            "id": 92,
+            "name": "丁字路口3",
+            "type": "路口",
+            "popularity": 100,
+            "longitude": 116.358694,
+            "latitude": 39.963312,
+            "connected_edges": [
+                48,
+                49,
+                52,
+                81
+            ]
+        },
+        {
+            "id": 93,
+            "name": "丁字路口4",
+            "type": "路口",
+            "popularity": 100,
+            "longitude": 116.357175,
+            "latitude": 39.963278,
+            "connected_edges": [
+                48,
+                50,
+                51,
+                55
+            ]
+        },
+        {
+            "id": 94,
+            "name": "丁字路口‘",
+            "type": "路口",
+            "popularity": 100,
+            "longitude": 116.356252,
+            "latitude": 39.963651,
+            "connected_edges": [
+                61,
+                62
+            ]
+        },
+        {
+            "id": 95,
+            "name": "Null",
+            "type": "路口",
+            "popularity": 100,
+            "longitude": 116.356296,
+            "latitude": 39.962232,
+            "connected_edges": [
+                68,
+                69,
+                70,
+                71,
+                73,
+                111
+            ]
+        },
+        {
+            "id": 96,
+            "name": "none",
+            "type": "路口",
+            "popularity": 100,
+            "longitude": 116.357245,
+            "latitude": 39.962289,
+            "connected_edges": [
+                71,
+                72,
+                74,
+                75,
+                79,
+                118
+            ]
+        },
+        {
+            "id": 97,
+            "name": "null",
+            "type": "路口",
+            "popularity": 100,
+            "longitude": 116.358703,
+            "latitude": 39.962327,
+            "connected_edges": [
+                79,
+                80,
+                93,
+                95,
+                100
+            ]
+        },
+        {
+            "id": 98,
+            "name": "null_",
+            "type": "路口",
+            "popularity": 100,
+            "longitude": 116.358709,
+            "latitude": 39.96302,
+            "connected_edges": [
+                80,
+                81,
+                82,
+                85,
+                96
+            ]
+        },
+        {
+            "id": 99,
+            "name": "Null_`",
+            "type": "路口",
+            "popularity": 100,
+            "longitude": 116.359219,
+            "latitude": 39.962002,
+            "connected_edges": [
+                101,
+                102,
+                147
+            ]
+        },
+        {
+            "id": 100,
+            "name": "西门",
+            "type": "大门",
+            "popularity": 100,
+            "longitude": 116.355306,
+            "latitude": 39.96116,
+            "connected_edges": [
+                107
+            ]
+        },
+        {
+            "id": 101,
+            "name": "null1",
+            "type": "路口",
+            "popularity": 100,
+            "longitude": 116.355507,
+            "latitude": 39.961709,
+            "connected_edges": [
+                105,
+                106,
+                108,
+                109
+            ]
+        },
+        {
+            "id": 102,
+            "name": "null2",
+            "type": "路口",
+            "popularity": 100,
+            "longitude": 116.355537,
+            "latitude": 39.961151,
+            "connected_edges": [
+                106,
+                107,
+                113,
+                135
+            ]
+        },
+        {
+            "id": 103,
+            "name": "null.`",
+            "type": "路口",
+            "popularity": 100,
+            "longitude": 116.355623,
+            "latitude": 39.960139,
+            "connected_edges": [
+                135,
+                136,
+                137
+            ]
+        },
+        {
+            "id": 104,
+            "name": "cross",
+            "type": "路口",
+            "popularity": 100,
+            "longitude": 116.358653,
+            "latitude": 39.960181,
+            "connected_edges": [
+                138,
+                139,
+                140
+            ]
+        },
+        {
+            "id": 105,
+            "name": "null'",
+            "type": "路口",
+            "popularity": 100,
+            "longitude": 116.359337,
+            "latitude": 39.960234,
+            "connected_edges": [
+                140,
+                141
+            ]
+        },
+        {
+            "id": 106,
+            "name": "null_'",
+            "type": "路口",
+            "popularity": 100,
+            "longitude": 116.357243,
+            "latitude": 39.961705,
+            "connected_edges": [
+                144
+            ]
+        },
+        {
+            "id": 107,
+            "name": "null__';`",
+            "type": "路口",
+            "popularity": 100,
+            "longitude": 116.358715,
+            "latitude": 39.961698,
+            "connected_edges": [
+                144,
+                145,
+                146,
+                149
+            ]
+        },
+        {
+            "id": 108,
+            "name": "crossing",
+            "type": "路口",
+            "popularity": 100,
+            "longitude": 116.359278,
+            "latitude": 39.961645,
+            "connected_edges": [
+                146,
+                147,
+                148
+            ]
         }
     ],
     "edges": [
@@ -786,6 +1395,1347 @@
             "end_node": 1,
             "distance": 41.30830079172064,
             "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 1,
+            "start_node": 5,
+            "end_node": 6,
+            "distance": 180.99,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 2,
+            "start_node": 0,
+            "end_node": 6,
+            "distance": 12.13,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 3,
+            "start_node": 5,
+            "end_node": 7,
+            "distance": 28.42,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 4,
+            "start_node": 1,
+            "end_node": 10,
+            "distance": 76.55,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 5,
+            "start_node": 7,
+            "end_node": 8,
+            "distance": 23.79,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 6,
+            "start_node": 10,
+            "end_node": 12,
+            "distance": 20.53,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 7,
+            "start_node": 8,
+            "end_node": 10,
+            "distance": 79.98,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 8,
+            "start_node": 7,
+            "end_node": 9,
+            "distance": 67.99,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 9,
+            "start_node": 8,
+            "end_node": 9,
+            "distance": 64.68,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 10,
+            "start_node": 9,
+            "end_node": 10,
+            "distance": 24.36,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 11,
+            "start_node": 11,
+            "end_node": 2,
+            "distance": 76.24,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 12,
+            "start_node": 1,
+            "end_node": 2,
+            "distance": 32.58,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 13,
+            "start_node": 10,
+            "end_node": 11,
+            "distance": 40.75,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 14,
+            "start_node": 12,
+            "end_node": 11,
+            "distance": 26.51,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 15,
+            "start_node": 11,
+            "end_node": 57,
+            "distance": 41.29,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 16,
+            "start_node": 57,
+            "end_node": 28,
+            "distance": 97.45,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 17,
+            "start_node": 2,
+            "end_node": 14,
+            "distance": 28.64,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 18,
+            "start_node": 57,
+            "end_node": 86,
+            "distance": 76.77,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 19,
+            "start_node": 86,
+            "end_node": 28,
+            "distance": 21.26,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 20,
+            "start_node": 14,
+            "end_node": 86,
+            "distance": 30.57,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 21,
+            "start_node": 87,
+            "end_node": 27,
+            "distance": 32.87,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 22,
+            "start_node": 87,
+            "end_node": 88,
+            "distance": 62.28,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 23,
+            "start_node": 88,
+            "end_node": 89,
+            "distance": 62.78,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 24,
+            "start_node": 89,
+            "end_node": 36,
+            "distance": 11.02,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 25,
+            "start_node": 36,
+            "end_node": 35,
+            "distance": 14.27,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 26,
+            "start_node": 35,
+            "end_node": 34,
+            "distance": 33.96,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 27,
+            "start_node": 36,
+            "end_node": 38,
+            "distance": 60.59,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 28,
+            "start_node": 38,
+            "end_node": 39,
+            "distance": 29.47,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 29,
+            "start_node": 38,
+            "end_node": 41,
+            "distance": 22.75,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 30,
+            "start_node": 41,
+            "end_node": 37,
+            "distance": 62.19,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 31,
+            "start_node": 41,
+            "end_node": 42,
+            "distance": 38.43,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 32,
+            "start_node": 42,
+            "end_node": 40,
+            "distance": 15.56,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 33,
+            "start_node": 42,
+            "end_node": 43,
+            "distance": 56.06,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 34,
+            "start_node": 43,
+            "end_node": 90,
+            "distance": 88.22,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 35,
+            "start_node": 89,
+            "end_node": 90,
+            "distance": 85.58,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 36,
+            "start_node": 90,
+            "end_node": 33,
+            "distance": 14.81,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 37,
+            "start_node": 88,
+            "end_node": 29,
+            "distance": 43.04,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 38,
+            "start_node": 29,
+            "end_node": 30,
+            "distance": 28.51,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 39,
+            "start_node": 28,
+            "end_node": 32,
+            "distance": 22.15,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 40,
+            "start_node": 29,
+            "end_node": 32,
+            "distance": 34.39,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 41,
+            "start_node": 32,
+            "end_node": 31,
+            "distance": 19.82,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 42,
+            "start_node": 29,
+            "end_node": 31,
+            "distance": 29.47,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 43,
+            "start_node": 30,
+            "end_node": 32,
+            "distance": 56.7,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 44,
+            "start_node": 30,
+            "end_node": 31,
+            "distance": 42.19,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 45,
+            "start_node": 89,
+            "end_node": 91,
+            "distance": 61.27,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 46,
+            "start_node": 86,
+            "end_node": 91,
+            "distance": 126.39,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 47,
+            "start_node": 91,
+            "end_node": 90,
+            "distance": 24.56,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 48,
+            "start_node": 92,
+            "end_node": 93,
+            "distance": 129.51,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 49,
+            "start_node": 90,
+            "end_node": 92,
+            "distance": 37.36,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 50,
+            "start_node": 86,
+            "end_node": 93,
+            "distance": 58.52,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 51,
+            "start_node": 93,
+            "end_node": 23,
+            "distance": 15.35,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 52,
+            "start_node": 92,
+            "end_node": 44,
+            "distance": 11.66,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 53,
+            "start_node": 23,
+            "end_node": 18,
+            "distance": 77.28,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 54,
+            "start_node": 57,
+            "end_node": 18,
+            "distance": 72.07,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 55,
+            "start_node": 17,
+            "end_node": 93,
+            "distance": 39.55,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 56,
+            "start_node": 17,
+            "end_node": 86,
+            "distance": 28.89,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 57,
+            "start_node": 23,
+            "end_node": 24,
+            "distance": 27.94,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 58,
+            "start_node": 23,
+            "end_node": 20,
+            "distance": 40.5,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 59,
+            "start_node": 20,
+            "end_node": 18,
+            "distance": 42.96,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 60,
+            "start_node": 57,
+            "end_node": 16,
+            "distance": 24.69,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 61,
+            "start_node": 57,
+            "end_node": 94,
+            "distance": 12.12,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 62,
+            "start_node": 94,
+            "end_node": 15,
+            "distance": 71.0,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 63,
+            "start_node": 15,
+            "end_node": 58,
+            "distance": 72.62,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 64,
+            "start_node": 58,
+            "end_node": 19,
+            "distance": 38.17,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 65,
+            "start_node": 58,
+            "end_node": 59,
+            "distance": 85.96,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 66,
+            "start_node": 21,
+            "end_node": 59,
+            "distance": 40.34,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 67,
+            "start_node": 18,
+            "end_node": 19,
+            "distance": 38.48,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 68,
+            "start_node": 18,
+            "end_node": 95,
+            "distance": 97.88,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 69,
+            "start_node": 59,
+            "end_node": 95,
+            "distance": 69.23,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 70,
+            "start_node": 21,
+            "end_node": 95,
+            "distance": 38.74,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 71,
+            "start_node": 95,
+            "end_node": 96,
+            "distance": 81.13,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 72,
+            "start_node": 22,
+            "end_node": 96,
+            "distance": 45.11,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 73,
+            "start_node": 22,
+            "end_node": 95,
+            "distance": 42.12,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 74,
+            "start_node": 96,
+            "end_node": 25,
+            "distance": 25.04,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 75,
+            "start_node": 96,
+            "end_node": 23,
+            "distance": 94.81,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 76,
+            "start_node": 24,
+            "end_node": 25,
+            "distance": 68.06,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 77,
+            "start_node": 24,
+            "end_node": 26,
+            "distance": 46.72,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 78,
+            "start_node": 26,
+            "end_node": 25,
+            "distance": 55.72,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 79,
+            "start_node": 96,
+            "end_node": 97,
+            "distance": 124.33,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 80,
+            "start_node": 97,
+            "end_node": 98,
+            "distance": 77.06,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 81,
+            "start_node": 92,
+            "end_node": 98,
+            "distance": 32.49,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 82,
+            "start_node": 98,
+            "end_node": 46,
+            "distance": 90.84,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 83,
+            "start_node": 43,
+            "end_node": 46,
+            "distance": 67.91,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 84,
+            "start_node": 45,
+            "end_node": 44,
+            "distance": 37.95,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 85,
+            "start_node": 45,
+            "end_node": 98,
+            "distance": 42.31,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 86,
+            "start_node": 45,
+            "end_node": 46,
+            "distance": 50.5,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 87,
+            "start_node": 46,
+            "end_node": 47,
+            "distance": 48.16,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 88,
+            "start_node": 37,
+            "end_node": 47,
+            "distance": 160.34,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 89,
+            "start_node": 47,
+            "end_node": 48,
+            "distance": 44.44,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 90,
+            "start_node": 48,
+            "end_node": 49,
+            "distance": 67.23,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 91,
+            "start_node": 50,
+            "end_node": 49,
+            "distance": 44.66,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 92,
+            "start_node": 47,
+            "end_node": 50,
+            "distance": 78.54,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 93,
+            "start_node": 97,
+            "end_node": 50,
+            "distance": 141.79,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 94,
+            "start_node": 50,
+            "end_node": 51,
+            "distance": 10.83,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 95,
+            "start_node": 97,
+            "end_node": 54,
+            "distance": 62.1,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 96,
+            "start_node": 98,
+            "end_node": 54,
+            "distance": 57.63,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 97,
+            "start_node": 54,
+            "end_node": 56,
+            "distance": 73.87,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 98,
+            "start_node": 56,
+            "end_node": 55,
+            "distance": 25.03,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 99,
+            "start_node": 54,
+            "end_node": 55,
+            "distance": 74.31,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 100,
+            "start_node": 97,
+            "end_node": 65,
+            "distance": 38.66,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 101,
+            "start_node": 65,
+            "end_node": 99,
+            "distance": 41.58,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 102,
+            "start_node": 99,
+            "end_node": 52,
+            "distance": 30.66,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 103,
+            "start_node": 52,
+            "end_node": 53,
+            "distance": 97.94,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 104,
+            "start_node": 59,
+            "end_node": 60,
+            "distance": 31.02,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 105,
+            "start_node": 59,
+            "end_node": 101,
+            "distance": 56.41,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 106,
+            "start_node": 101,
+            "end_node": 102,
+            "distance": 62.1,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 107,
+            "start_node": 102,
+            "end_node": 100,
+            "distance": 19.71,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 108,
+            "start_node": 60,
+            "end_node": 101,
+            "distance": 26.59,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 109,
+            "start_node": 101,
+            "end_node": 61,
+            "distance": 70.01,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 110,
+            "start_node": 60,
+            "end_node": 62,
+            "distance": 122.56,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 111,
+            "start_node": 95,
+            "end_node": 61,
+            "distance": 55.78,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 112,
+            "start_node": 61,
+            "end_node": 68,
+            "distance": 59.63,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 113,
+            "start_node": 102,
+            "end_node": 68,
+            "distance": 69.38,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 114,
+            "start_node": 68,
+            "end_node": 69,
+            "distance": 41.08,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 115,
+            "start_node": 69,
+            "end_node": 72,
+            "distance": 38.61,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 116,
+            "start_node": 72,
+            "end_node": 70,
+            "distance": 47.72,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 117,
+            "start_node": 70,
+            "end_node": 71,
+            "distance": 35.15,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 118,
+            "start_node": 96,
+            "end_node": 72,
+            "distance": 122.03,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 119,
+            "start_node": 62,
+            "end_node": 64,
+            "distance": 37.85,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 120,
+            "start_node": 64,
+            "end_node": 67,
+            "distance": 27.42,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 121,
+            "start_node": 67,
+            "end_node": 66,
+            "distance": 29.07,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 122,
+            "start_node": 66,
+            "end_node": 63,
+            "distance": 30.69,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 123,
+            "start_node": 72,
+            "end_node": 73,
+            "distance": 52.62,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 124,
+            "start_node": 73,
+            "end_node": 76,
+            "distance": 114.36,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 125,
+            "start_node": 76,
+            "end_node": 78,
+            "distance": 60.52,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 126,
+            "start_node": 77,
+            "end_node": 76,
+            "distance": 28.24,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 127,
+            "start_node": 73,
+            "end_node": 82,
+            "distance": 63.51,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 128,
+            "start_node": 73,
+            "end_node": 74,
+            "distance": 30.32,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 129,
+            "start_node": 74,
+            "end_node": 82,
+            "distance": 41.51,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 130,
+            "start_node": 74,
+            "end_node": 77,
+            "distance": 97.16,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 131,
+            "start_node": 82,
+            "end_node": 83,
+            "distance": 182.35,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 132,
+            "start_node": 83,
+            "end_node": 84,
+            "distance": 49.82,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 133,
+            "start_node": 84,
+            "end_node": 85,
+            "distance": 15.82,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 134,
+            "start_node": 82,
+            "end_node": 81,
+            "distance": 45.93,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 135,
+            "start_node": 102,
+            "end_node": 103,
+            "distance": 112.77,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 136,
+            "start_node": 103,
+            "end_node": 3,
+            "distance": 24.83,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 137,
+            "start_node": 103,
+            "end_node": 82,
+            "distance": 144.72,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 138,
+            "start_node": 82,
+            "end_node": 104,
+            "distance": 113.59,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 139,
+            "start_node": 104,
+            "end_node": 77,
+            "distance": 35.48,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 140,
+            "start_node": 104,
+            "end_node": 105,
+            "distance": 58.59,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 141,
+            "start_node": 105,
+            "end_node": 78,
+            "distance": 58.51,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 142,
+            "start_node": 78,
+            "end_node": 79,
+            "distance": 47.59,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 143,
+            "start_node": 79,
+            "end_node": 75,
+            "distance": 30.76,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 144,
+            "start_node": 106,
+            "end_node": 107,
+            "distance": 125.46,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 145,
+            "start_node": 107,
+            "end_node": 65,
+            "distance": 31.39,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 146,
+            "start_node": 107,
+            "end_node": 108,
+            "distance": 48.34,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 147,
+            "start_node": 108,
+            "end_node": 99,
+            "distance": 40.01,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 148,
+            "start_node": 108,
+            "end_node": 79,
+            "distance": 51.28,
+            "walk_speed": 2.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 149,
+            "start_node": 76,
+            "end_node": 107,
+            "distance": 105.14,
+            "walk_speed": 2.0,
             "bike_speed": 0.0,
             "ebike_speed": 0.0
         }

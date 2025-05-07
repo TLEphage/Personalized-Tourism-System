@@ -44,7 +44,8 @@
           "open_hours": {
               "weekday": "全天开放",
               "weekend": "全天开放"
-          }
+          },
+          "url": "https://images.pexels.com/photos/16141675/pexels-photo-16141675.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
       },
       {
           "name": "八达岭长城",
@@ -67,7 +68,8 @@
           "open_hours": {
               "weekday": "6:30-16:30",
               "weekend": "6:00-17:00"
-          }
+          },
+          "url": "https://images.pexels.com/photos/16141675/pexels-photo-16141675.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
       },
       {
           "name": "颐和园",
@@ -90,7 +92,8 @@
           "open_hours": {
               "weekday": "6:30-18:00",
               "weekend": "6:30-18:00"
-          }
+          },
+          "url": "https://images.pexels.com/photos/16141675/pexels-photo-16141675.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
       },
       {
           "name": "兵马俑",
@@ -112,7 +115,8 @@
           "open_hours": {
               "weekday": "8:30-17:00",
               "weekend": "8:30-17:00"
-          }
+          },
+          "url": "https://images.pexels.com/photos/16141675/pexels-photo-16141675.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
       },
       {
           "name": "东方明珠塔",
@@ -134,7 +138,8 @@
           "open_hours": {
               "weekday": "9:00-21:30",
               "weekend": "9:00-21:30"
-          }
+          },
+          "url": "https://images.pexels.com/photos/16141675/pexels-photo-16141675.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
       },
       {
           "name": "上海迪士尼乐园",
@@ -156,7 +161,8 @@
           "open_hours": {
               "weekday": "根据季节调整",
               "weekend": "根据季节调整"
-          }
+          },
+          "url": "https://images.pexels.com/photos/16141675/pexels-photo-16141675.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
       },
       {
           "name": "外滩",
@@ -178,7 +184,8 @@
           "open_hours": {
               "weekday": "全天开放",
               "weekend": "全天开放"
-          }
+          },
+          "url": "https://images.pexels.com/photos/16141675/pexels-photo-16141675.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
       },
       {
           "name": "黄山风景区",
@@ -200,7 +207,8 @@
           "open_hours": {
               "weekday": "6:30-17:00",
               "weekend": "6:00-17:30"
-          }
+          },
+          "url": "https://images.pexels.com/photos/16141675/pexels-photo-16141675.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
       },
       {
         "name": "九寨沟",
@@ -223,7 +231,8 @@
         "open_hours": {
             "weekday": "7:30-17:00",
             "weekend": "7:30-17:00"
-        }
+        },
+        "url": "https://images.pexels.com/photos/16141675/pexels-photo-16141675.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
     },
     {
         "name": "张家界国家森林公园",
@@ -246,7 +255,8 @@
         "open_hours": {
             "weekday": "7:00-18:00",
             "weekend": "7:00-18:00"
-        }
+        },
+        "url": "https://images.pexels.com/photos/16141675/pexels-photo-16141675.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
     },
     {
         "name": "西湖",
@@ -269,7 +279,8 @@
         "open_hours": {
             "weekday": "全天开放",
             "weekend": "全天开放"
-        }
+        },
+        "url": "https://images.pexels.com/photos/16141675/pexels-photo-16141675.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
     },
     {
         "name": "南京夫子庙",
@@ -292,7 +303,8 @@
         "open_hours": {
             "weekday": "各景点开放时间不同，一般9:00-21:00左右",
             "weekend": "各景点开放时间不同，一般9:00-21:00左右"
-        }
+        },
+        "url": "https://images.pexels.com/photos/16141675/pexels-photo-16141675.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
     },
     {
         "name": "重庆洪崖洞",
@@ -314,7 +326,8 @@
         "open_hours": {
             "weekday": "11:00-23:00",
             "weekend": "11:00-23:00"
-        }
+        },
+        "url": "https://images.pexels.com/photos/16141675/pexels-photo-16141675.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
     },
     {
         "name": "成都宽窄巷子",
@@ -337,7 +350,8 @@
         "open_hours": {
             "weekday": "全天开放",
             "weekend": "全天开放"
-        }
+        },
+        "url": "https://images.pexels.com/photos/16141675/pexels-photo-16141675.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
     },
     {
         "name": "大雁塔",
@@ -360,7 +374,8 @@
         "open_hours": {
             "weekday": "8:00-18:30",
             "weekend": "8:00-18:30"
-        }
+        },
+        "url": "https://images.pexels.com/photos/16141675/pexels-photo-16141675.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
     },
     {
         "name": "布达拉宫",
@@ -383,7 +398,8 @@
         "open_hours": {
             "weekday": "9:00-12:00，15:30-16:30",
             "weekend": "9:00-12:00，15:30-16:30"
-        }
+        },
+        "url": "https://images.pexels.com/photos/16141675/pexels-photo-16141675.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
     },
     {
         "name": "洱海",
@@ -405,7 +421,8 @@
         "open_hours": {
             "weekday": "全天开放",
             "weekend": "全天开放"
-        }
+        },
+        "url": "https://images.pexels.com/photos/16141675/pexels-photo-16141675.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
     }
 
   ]

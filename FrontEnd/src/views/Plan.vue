@@ -3,48 +3,103 @@
     <div id="map-container" ></div>
 
     <div class="nav-panel">
-      <div class="nav-header">
-        <h1 class="nav-title">北京邮电大学导航</h1>
-        <p>请设置您的起点和终点</p>
+      <!-- 模式选择 -->
+      <div class="mode-toggle">
+        <button
+          :class="['mode-button', currentMode.value === 'start-end' ? 'active-mode' : '']"
+          @click="currentMode.value = 'start-end'"
+        >
+          起点终点导航
+        </button>
+        <button
+          :class="['mode-button', currentMode.value === 'search-places' ? 'active-mode' : '']"
+          @click="currentMode.value = 'search-places'"
+        >
+          地点搜索导航
+        </button>
       </div>
 
-      <button class="developer-button" @click="goToDeveloper">开发者模式</button>
+      <!-- 起点终点模式展示内容 -->
+      <template v-if="currentMode.value === 'start-end'">
+        <div class="nav-header">
+          <h1 class="nav-title">北京邮电大学导航</h1>
+          <p>请设置您的起点和终点</p>
+        </div>
 
-      <div class="input-group">
-        <label>起点位置</label>
-        <input
-          type="text"
-          class="input-field"
-          v-model="startLocation"
-        />
-      </div>
+        <button class="developer-button" @click="goToDeveloper">开发者模式</button>
 
-      <div class="input-group">
-        <label>终点位置</label>
-        <input
-          type="text"
-          class="input-field"
-          v-model="endLocation"
-        />
-      </div>
+        <div class="input-group">
+          <label>起点位置</label>
+          <input
+            type="text"
+            class="input-field"
+            v-model="startLocation"
+          />
+        </div>
 
-      <div class="input-group">
-        <label>导航模式</label>
-        <select name="input-field" v-model="selectedMode">
-          <option value="1">步行</option>
-          <option value="2">自行车</option>
-          <option value="3">电动车</option>
-        </select>
-      </div>
+        <div class="input-group">
+          <label>终点位置</label>
+          <input
+            type="text"
+            class="input-field"
+            v-model="endLocation"
+          />
+        </div>
 
-      <button class="nav-button" @click="startNavigation">开始导航</button>
+        <div class="input-group">
+          <label>导航模式</label>
+          <select name="input-field" v-model="selectedMode">
+            <option value="1">步行</option>
+            <option value="2">自行车</option>
+            <option value="3">电动车</option>
+          </select>
+        </div>
 
-      <div class="route-info">
-        <h3>推荐路线信息</h3>
-        <p>🗺️ 总距离: {{ totalDistance }} m</p>
-        <p>⏱️ 预计时间: {{ estimatedTime }} min</p>
-        <p>🚩 途径: {{ points }}</p>
-      </div>
+        <button class="nav-button" @click="startNavigation">开始导航</button>
+
+        <div class="route-info">
+          <h3>推荐路线信息</h3>
+          <p>🗺️ 总距离: {{ totalDistance }} m</p>
+          <p>⏱️ 预计时间: {{ estimatedTime }} min</p>
+          <p>🚩 途径: {{ points }}</p>
+        </div>
+      </template>
+
+      <!-- 搜索选择地点模式展示内容 -->
+      <template v-else>
+        <div class="input-group">
+          <label>点击地图选择当前位置</label>
+          <p class="info-text">请在地图上点击一个位置来作为您的当前位置</p>
+        </div>
+
+        <div class="input-group">
+          <label>服务类型</label>
+          <input
+            type="text"
+            class="input-field"
+            v-model="serviceType"
+            placeholder="例如：超市、卫生间、餐厅"
+          />
+        </div>
+
+        <!-- 展示搜索结果 -->
+        <div class="search-results-container" v-if="searchResults.length > 0">
+          <h3>搜索到的地点</h3>
+          <ul class="search-results-list">
+            <li
+              class="search-result-item"
+              v-for="(item, index) in searchResults"
+              :key="index"
+            >
+              <div>
+                <h4>{{ item.name }}</h4>
+                <p>距离: {{ item.distance }} 米</p>
+                <p>地址: {{ item.address }}</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </template>
     </div>
   </div>
 </template>
@@ -64,6 +119,9 @@ export default {
     const points = ref("");
     const map = ref(null);
     const selectedMode = ref(1);
+    const currentMode = ref('start-end'); // 'start-end' 为起点终点模式，'search-places' 为搜索地点模式
+    const serviceType = ref(''); // 存储用户输入的服务类型
+    const searchResults = ref([]); // 存储搜索到的地点数据
 
    // 用来存当前绘制到地图上的点和线
    let routeMarkers = [];
@@ -87,6 +145,32 @@ export default {
       .catch((e) => {
         console.error("Failed to load AMap script", e);
         alert("加载高德地图API失败，请检查网络连接或API Key是否正确");
+      });
+      map.value.on('click', function(e) {
+        if(currentMode.value === 'search-places') {
+          const position = e.lnglat;
+          console.log('用户点击的地图位置经纬度：', position);
+          // 这里可以存储点击位置的经纬度，供后续调用API使用
+          // 调用后台API服务，具体实现需根据实际接口设计调整
+          axios.post('http://localhost:8000/map/search_places', {
+            latitude: position.lat,
+            longitude: position.lng,
+            type: serviceType.value,
+          })
+          .then(response => {
+            if(response.data && response.data.length > 0) {
+              searchResults.value = response.data;
+              // 在地图上绘制搜索结果相关的标记，如果你需要的话
+
+            } else {
+              alert('未找到符合条件的地点');
+            }
+          })
+          .catch(error => {
+            console.error('搜索地点API调用错误：', error);
+            alert('搜索地点API调用失败，请稍后再试');
+          });
+        }
       });
     });
 
@@ -192,6 +276,64 @@ body {
   margin: 0;
   padding: 20px;
   background: #f5f5f5;
+}
+
+.mode-toggle {
+  display: flex;
+  margin-bottom: 1.5rem;
+}
+
+.mode-button {
+  flex: 1;
+  padding: 0.8rem;
+  margin-right: 0.5rem;
+  background: #f5f5f5;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.mode-button:last-child {
+  margin-right: 0;
+}
+
+.active-mode {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+/* 添加搜索结果样式 */
+.search-results-container {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.search-results-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.search-result-item {
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.search-result-item:last-child {
+  border-bottom: none;
+}
+
+.search-result-item:hover {
+  background: #f1f1f1;
+}
+
+.info-text {
+  font-size: 0.9rem;
+  color: #666;
 }
 
 .poi-container {

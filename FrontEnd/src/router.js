@@ -7,6 +7,7 @@ import CustomMap from './components/CustomMap.vue'
 import InterestSelector from './components/InterestSelector.vue'
 import UserProfile from './components/UserProfile.vue'
 import Developer from './views/Developer.vue'
+import SpotDetail from './components/SpotDetail.vue'
 
 const router = createRouter({
     history: createWebHashHistory(),
@@ -50,6 +51,11 @@ const router = createRouter({
             path:'/Developer',
             name:'Developer',
             component:Developer
+        },
+        {
+            path:'/SpotDetail/:name',
+            name:'SpotDetail',
+            component:SpotDetail
         }
     ]
 });

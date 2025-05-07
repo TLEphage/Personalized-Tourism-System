@@ -19,3 +19,4 @@ class Spot(BaseModel):
     tags: List[str]
     price_range: str
     open_hours: OpenHours
+    url: str = ""

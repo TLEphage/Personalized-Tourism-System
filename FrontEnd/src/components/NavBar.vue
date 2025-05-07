@@ -6,7 +6,7 @@
         </div>
         <div class="logo">
             <img v-if="logo" :src="logo" alt="Logo" />
-            <span v-else>喵旅游喵</span>
+            <span v-else>旅游助手</span>
         </div>
         <div class="nav-links">
             <div 
@@ -24,8 +24,8 @@
             <div v-if="!isLoggedIn" class="login-btn" @click="handleLoginRegister">登录/注册</div>
             <!-- 用户头像和用户名 -->
             <div v-else class="user-profile" @click="goToUserProfile">
-                <img src="" alt="User Avatar" class="avatar" />
-                <div class="username">{{ username }}</div>
+                <img :src="user.avatarPath" alt="User Avatar" class="avatar" />
+                <div class="username">{{ user.username || '用户' }}</div>
             </div>
         </div>
     </div>
@@ -39,47 +39,27 @@ export default{
         GitHubLink,
     },
     props:{
-        logo:{
-            type:String,
-            default:'',
-        },
-        navItems:{
-            type:Array,
-            default:()=>[
-                {name:'旅游推荐', route:'recommend'},
-                {name:'旅游规划', route:'plan'},
-                {name:'旅游日记', route:'diary'},
-            ]
-        },
         isLoggedIn:{
             type:Boolean,
             default:false,
         },
-        userAvatar:{
-            type:String,
-            default:''
-        },
-        username:{
-          type:String,
-          default:''
-        }
     },
     data(){
-        return {
-            activeIndex:0,
-        }
+      return {
+        activeIndex: 0,
+        navItems: [
+          { name: '旅游推荐', route: { name: 'Recommend' } },
+          { name: '旅游规划', route: { name: 'Plan' } },
+          { name: '旅游日记', route: { name: 'Diary' } }
+        ],
+        logo: ''
+      }
     },
     computed: {
         ...mapState(['user']),
-        // isLoggedIn() {
-        //   return this.user.id; // 根据你的用户数据结构判断是否登录
-        // },
-        // username() {
-        //   return this.user.username || '';
-        // },
-        // userAvatar() {
-        //   return this.user.avatarPath || '';
-        // }
+        isLoggedIn() {
+          return this.user.isLoggedIn;
+        },
     },
     methods:{
         handleNavClick(index, route){
@@ -93,7 +73,6 @@ export default{
         goToUserProfile(){
             console.log('goToUserProfile');
             this.$router.push({name:'UserProfile'});
-            console.log('gotoed');
         }
     }
 }

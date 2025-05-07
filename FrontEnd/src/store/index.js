@@ -5,6 +5,7 @@ export default createStore({
     state: {
         user: {
             isLoggedIn: false,
+            id: -1,
             username: '',
             avatarPath: '',
             role: '',
@@ -18,6 +19,7 @@ export default createStore({
         },
         logout(state) {
             state.user.isLoggedIn = false;
+            state.user.id = -1;
             state.user.username = '';
             state.user.avatarPath = '';
             state.user.role = '';

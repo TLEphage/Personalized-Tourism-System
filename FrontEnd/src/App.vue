@@ -2,14 +2,10 @@
 <template>
   <div id="app">
     <NavBar 
-      :isLoggedIn="isLoggedIn"
-      :userAvatar="userAvatar"
-      :username="username"
       @nav-click="handleRouteChange"
     />
     <div class="content-container">
-      <router-view @user-login="handleUserLogin"></router-view>
-      <!-- 其他页面组件 -->
+      <router-view></router-view>
     </div>
   </div>
 </template>
@@ -31,24 +27,21 @@ export default {
   },
   computed:{
     ...mapState(['user']),
-    isLoggedIn(){
-      return this.user.isLoggedIn;
-    },
-    username(){
-      return this.user.username;
-    },
-    userAvatar(){
-      return this.user.userAvatar;
-    },
+    // isLoggedIn(){
+    //   return this.user.isLoggedIn;
+    // },
+    // username(){
+    //   return this.user.username;
+    // },
+    // userAvatar(){
+    //   return this.user.userAvatar;
+    // },
   },
   methods:{
     handleRouteChange(route){
       this.$router.push(route);
       console.log('路由切换到: ', route);
     },
-    handleUserLogin(userData){
-      this.$store.commit('setUser', userData);
-    }
   },
 };
 </script>

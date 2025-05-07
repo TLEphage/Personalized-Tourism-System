@@ -1,18 +1,3 @@
-<!-- 旅游日记总界面，能按评分和热度进行排序 -->
-<!--
-日记数据结构
-diary
-{
-    username:string,
-    id: int,
-    title:string,
-    content:string,
-    images:jpg/png/...,
-    videos:mp4,
-    views:int,
-    rating:float,
-}
--->
 <template>
   <div class="diary-list-container">
     <!-- 搜索控制区 -->

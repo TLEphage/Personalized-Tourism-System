@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException
-from app.models.map import PathPlanRequest ,PathPlanResponse ,NodeRequestRaw ,NodeRequest ,EdgeRequestRaw , EdgeRequest
+from app.models.map import *
 from app.services import map_service
 
 router = APIRouter(tags=["路径规划"])
@@ -53,3 +53,28 @@ def add_edge(edge: EdgeRequestRaw):
     if not info.get("success", False):
         raise HTTPException(status_code=404, detail="边信息不合法")
     return info.get("graph", {"nodes" : [] , "edges" : [] })
+
+@router.post("/search_places", response_model=PlaceResponse, summary="查询最近场所")
+def search_places(query: PlaceQueryRequest):
+    """
+    场所查询服务：
+      - 根据用户坐标和场所类型进行搜索
+      - 返回按距离排序的场所列表（由近到远）
+      - 当没有匹配类型场所时，返回404错误
+    """
+    # 调用服务层获取查询结果
+    found_places = map_service.search_places(
+        longitude=query.longitude,
+        latitude=query.latitude,
+        query_type=query.query_type,
+        max_results=query.max_results
+    )
+
+    # 处理无结果情况
+    if not found_places:
+        raise HTTPException(
+            status_code=404,
+            detail=f"未找到类型为 {query.query_type} 的场所"
+        )
+
+    return PlaceResponse(places=found_places)

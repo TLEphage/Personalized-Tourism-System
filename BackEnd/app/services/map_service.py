@@ -2,7 +2,7 @@ import math
 import heapq
 from app.config import MAP_FILE
 from utils.file_utils import read_json, write_json
-from app.models.map import NodeRequest, EdgeRequest
+from app.models.map import *
 
 def get_graph():
     graph = read_json(MAP_FILE, default={})
@@ -37,7 +37,7 @@ def a_star(start_name, end_name, mode):
       path_nodes: 路径上节点的完整信息列表
     """
     # 读取图数据
-    graph = read_json(MAP_FILE, default={})
+    graph = get_graph()
     nodes = graph.get('nodes', [])
     edges = graph.get('edges', [])
     start_id, end_id = -1, -1
@@ -135,7 +135,7 @@ def a_star(start_name, end_name, mode):
 
 def add_node(node_data: NodeRequest) -> dict:
     """将请求的节点加入地图数据中"""
-    graph = read_json(MAP_FILE, default={})
+    graph = get_graph()
     nodes = graph.get('nodes', [])
 
     if node_data.id is None:
@@ -161,7 +161,7 @@ def add_node(node_data: NodeRequest) -> dict:
 
 def add_edge(edge_data: EdgeRequest) -> dict:
     """将请求的边加入地图数据中"""
-    graph = read_json(MAP_FILE, default={})
+    graph = get_graph()
     if edge_data.start_node == edge_data.end_node:
         return {"success": False, "graph": graph} # 防止自环
     nodes = graph.get('nodes', [])
@@ -199,7 +199,7 @@ def add_edge(edge_data: EdgeRequest) -> dict:
         'distance' : round(haversine(lat1, lon1, lat2, lon2), 2),
         'walk_speed' : edge_data.walk_speed,
         'bike_speed' : edge_data.bike_speed,
-        'ebike_speed' : edge_data.bike_speed
+        'ebike_speed' : edge_data.ebike_speed
     }
     graph['edges'].append(new_edge)
     for node in graph['nodes']:
@@ -211,6 +211,31 @@ def add_edge(edge_data: EdgeRequest) -> dict:
             node['connected_edges'].append(edge_data.id)
     write_json(MAP_FILE, graph)
     return {"success": True, "graph": graph}
+
+def search_places(longitude: float, latitude: float, query_type: str, max_results: int):
+    """查询最近的指定类型节点"""
+    graph = get_graph()
+    nodes = graph.get('nodes', [])
+    candidates = []
+    for node in nodes:
+        if node.get('type', 'default') == query_type:
+            lon1=longitude
+            lat1=latitude
+            lon2=node.get('longitude')
+            lat2=node.get('latitude')
+            candidate_node = PlaceDetail(
+                id=node.get('id'),
+                name=node.get('name'),
+                type=node.get('type'),
+                popularity=node.get('popularity'),
+                longitude=node.get('longitude'),
+                latitude=node.get('latitude'),
+                distance=round(haversine(lat1, lon1, lat2, lon2), 2)
+            )
+            candidates.append(candidate_node)
+            
+    sorted_places = sorted(candidates, key=lambda x: x.distance)
+    return sorted_places[:max_results]
 
 # 示例调用
 if __name__ == '__main__':

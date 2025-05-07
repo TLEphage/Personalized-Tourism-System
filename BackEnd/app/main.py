@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 # 导入路由模块
-from app.routers import users, diaries, spots, map
+from app.routers import users, diaries, spots, map,compression
 
 # --------------------------- 初始化 FastAPI 应用 ---------------------------
 app = FastAPI(
@@ -25,6 +25,10 @@ app = FastAPI(
         {
             "name": "路径规划",
             "description": "基于 A* 算法的路径规划功能"
+        },
+        {
+            "name": "日记压缩",
+            "description": "对日记进行压缩"
         }
     ]
 )
@@ -66,6 +70,12 @@ app.include_router(
     tags=["路径规划"]
 )
 
+# 解压日记路由（前缀 /compress，标签"日记管理"）
+app.include_router(
+    compression.router,
+    prefix="/compress",
+    tags=["日记压缩"]
+)
 # --------------------------- 根路径测试端点 ---------------------------
 @app.get("/", summary="服务状态检查")
 def home():

@@ -17,7 +17,7 @@ def _load_spots_data():
 # 服务启动时加载数据
 _load_spots_data()
 
-def get_spot_by_name(name: str) -> Spot:
+def get_spot_by_name(name: str) -> List[Spot]:
     """根据名称查询景点"""
     spots = []
     for spot in spots_list:

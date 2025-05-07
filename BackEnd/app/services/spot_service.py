@@ -19,11 +19,13 @@ _load_spots_data()
 
 def get_spot_by_name(name: str) -> Spot:
     """根据名称查询景点"""
+    spots = []
     for spot in spots_list:
         if spot.get('name') == name:
-            return spot
-    raise ValueError("景点不存在")
-
+            spots.append(spot)
+    if not spots:
+        raise ValueError("景点不存在")
+    return spots
 def get_sorted_spots(sort_key: str, reverse: bool) -> List[Spot]:
     """获取排序后的景点列表"""
     valid_fields = ["rating", "popularity"]

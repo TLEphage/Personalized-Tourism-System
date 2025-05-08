@@ -81,18 +81,14 @@ export default {
 				})
 				.then(res => {
 					console.log(res.data);
-					// 检查后端返回的用户数据
-					if (res.data.id) { // 如果有id，表示登录成功
+					let user = res.data;
+					if (user.id >= 0) { // 如果有id，表示登录成功
 						alert("登录成功！");
-						//存储用户信息到Vuex store 或本地存储
-						self.store.commit('setUser', res.data);
-						//通知导航栏更新
-						self.$emit('user-login', {
-							isLoggedIn:true,
-							username:res.data.username,
-							userAvatar:res.data.avatarPath,
+						self.store.commit('setUser', {
+							...user,
+							isLoggedIn: true,
 						});
-						if (res.data.hobbies) { // 如果有兴趣信息，跳转到旅游推荐
+						if (user.hobbies.length > 0) { // 如果有兴趣信息，跳转到旅游推荐
 							self.$router.push({name: 'Recommend'});
 						} else {
 							self.$router.push({name: 'InterestSelector'});

@@ -3,15 +3,25 @@
       <h1 class="page-title">🌟 发现精彩目的地</h1>
       <swiper/>
 
-      <!-- 搜索框 -->
-      <div class="search-container">
-        <input
-          type="text"
-          v-model="searchQuery"
-          placeholder="请输入景点名称..."
-          class="search-input"
-          @input="handleSearchInput"
-        >
+      <!-- 搜索和排序容器 -->
+      <div class="search-sort-container">
+        <div class="search-box">
+          <div class="search-icon">🔍</div>
+          <input
+            type="text"
+            v-model="searchQuery"
+            placeholder="搜索景点名称..."
+            class="search-input"
+            @input="handleSearchInput"
+          >
+        </div>
+        <div class="sort-selector">
+          <select v-model="sortBy" @change="handleSortChange" class="sort-select">
+            <option value="popularity">按人气排序</option>
+            <option value="rating">按评分排序</option>
+          </select>
+          <span class="sort-icon">▼</span>
+        </div>
       </div>
 
       <!-- 热门景点排行 -->
@@ -31,10 +41,10 @@
           <div v-for="(spot, index) in rankingList" 
                :key="spot.id"
                class="spot-card"
-               
+               @click="gotoDetailPage(spot.name)"
               >
             <div class="card-header">
-              <img :src="spot.image" 
+              <img :src="spot.url" 
                    :alt="spot.name"
                    class="spot-image">
               <div class="ranking-badge">TOP {{ index + 1 }}</div>
@@ -82,6 +92,7 @@
     data() {
       return {
         searchQuery: '',
+        sortBy: 'popularity',
         timeoutId: null,
         rankingList: [],
         loading: true,
@@ -106,7 +117,12 @@
       async fetchRankingList(name = '') {
         try {
           this.loading = true;
-          const response = await axios.get(`http://localhost:8000/spots/${name}`);
+          let response ;
+          if (name) {
+            response = await axios.get(`http://localhost:8000/spots/${name}`);
+          } else {
+            response = await axios.get(`http://localhost:8000/spots/?sort_key=${this.sortBy}&sort_order=desc`);
+          }
           console.log('请求参数:', name);
           console.log('获取景点数据成功:', response.data);
           this.rankingList = response.data;
@@ -135,8 +151,9 @@
       truncateDescription(desc) {
         return desc.length > 60 ? desc.slice(0, 60) + '...' : desc;
       },
-      gotoDetailPage(spotId) {
-        this.$router.push({ name: 'Detail', params: { spotId } });
+      gotoDetailPage(name) {
+        console.log('点击了景点卡片，跳转到详情页:', name);
+        this.$router.push({ name: 'SpotDetail', params: { name } });
       }
     }
   }

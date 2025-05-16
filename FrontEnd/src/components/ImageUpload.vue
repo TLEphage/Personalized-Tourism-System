@@ -29,7 +29,7 @@ export default {
       try {
         const response = await axios.post('http://localhost:8000/api/upload', formData);
         console.log('上传成功:', response.data);
-        emit('uploaded', response.data);
+        emit('uploaded', response.data.url);
       } catch (error) {
         console.error('上传失败:', error);
         emit('clear');

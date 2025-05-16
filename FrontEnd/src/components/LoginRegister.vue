@@ -94,7 +94,6 @@ export default {
 							self.$router.push({name: 'InterestSelector'});
 						}
 					} else {
-						// 如果没有 token，可能是后端返回了错误信息
 						alert("用户名或密码错误！");
 					}
 				})

@@ -25,10 +25,14 @@
 <script>
 import { ref } from 'vue';
 import axios from 'axios';
+import { useStore } from 'vuex';
+import { useRouter } from 'vue-router'; 
 
 export default {
   name: 'InterestSelector',
   setup() {
+      const store = useStore();
+      const router = useRouter();
       const selectedInterests = ref([]);
       const options = [
           { value: '名人故居', label: '名人故居' },
@@ -50,14 +54,19 @@ export default {
           }
 
           // 向后端发送用户选择的兴趣
-          axios.post('http://localhost:8000/save-interests', {
-              interests: selectedInterests.value
+          axios.put(`http://localhost:8000/users/${store.state.user.username}`, {
+              avatarPath: store.state.user.avatarPath,
+              signature: store.state.user.signature,
+              hobbies: selectedInterests.value
           })
           .then(response => {
-              if (response.data.success) {
+              if (response.data.message === '用户信息更新成功') {
                   alert('兴趣选择已保存！');
-                  // 跳转到旅游推荐页面
-                  window.location.href = '/recommend';
+                  store.commit('setUser',{
+                      ...response.data.user,
+                      isLoggedIn: true
+                  });
+                  router.push({ name: 'Recommend'});
               } else {
                   alert('保存兴趣失败，请重试！');
               }

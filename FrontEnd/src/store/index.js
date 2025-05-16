@@ -27,8 +27,4 @@ export default createStore({
             state.user.hobbies = [];
         }
     },
-    getters: {
-        isLoggedIn: state => state.user.isLoggedIn,
-        user: state => state.user
-    }
 });

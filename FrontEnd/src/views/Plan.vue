@@ -83,6 +83,30 @@
           </select>
         </div>
 
+        <div class="input-group">
+          <label>最大结果数量</label>
+          <input
+            type="number"
+            class="input-field"
+            v-model="maxResults"
+            placeholder="例如：10"
+            min="1"
+          />
+          <p class="hint">最多显示的结果数量</p>
+        </div>
+
+        <div class="input-group">
+          <label>搜索范围</label>
+          <input
+            type="number"
+            class="input-field"
+            v-model="maxDistance"
+            placeholder="例如：1000"
+            min="0"
+          />
+          <p class="hint">单位为米</p>
+        </div>
+
         <button class="nav-button" @click="searchPlaces">搜索附近</button>
 
         <div class="search-results">
@@ -126,6 +150,8 @@ export default {
     const selectedServiceType = ref('超市');
     const currentPosition = ref(null);
     const searchResults = ref([]);
+    const maxResults = ref(10);
+    const maxDistance = ref(1000);
 
     // 用来存当前绘制到地图上的点和线
     let routeMarkers = [];
@@ -288,10 +314,16 @@ export default {
       }
 
       try {
+        console.log('搜索类型:', selectedServiceType.value);
+        console.log('当前位置:', currentPosition.value);
+        console.log('最大结果数:', maxResults.value);
+        console.log('最大距离:', maxDistance.value);
         const response = await axios.post('http://localhost:8000/map/search_places', {
-          lng: currentPosition.value.lng,
-          lat: currentPosition.value.lat,
-          type: selectedServiceType.value
+          longitude: currentPosition.value.lng,
+          latitude: currentPosition.value.lat,
+          query_type: selectedServiceType.value,
+          max_results: maxResults.value,
+          max_distance: maxDistance.value
         });
         
         searchResults.value = response.data.results;
@@ -346,6 +378,8 @@ export default {
       currentPositionText,
       switchMode,
       searchPlaces,
+      maxResults,
+      maxDistance
      };
   },
   methods: {
@@ -536,5 +570,22 @@ body {
 .developer-button:hover {
   background: #1976d2;
   transform: translateY(-2px);
+}
+
+input-group .hint {
+  font-size: 0.75rem;
+  color: #999;
+  margin-top: 0.25rem;
+  line-height: 1.4;
+}
+
+.input-field[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+.input-field::-webkit-outer-spin-button,
+.input-field::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 </style>  

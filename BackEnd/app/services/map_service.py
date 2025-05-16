@@ -212,7 +212,7 @@ def add_edge(edge_data: EdgeRequest) -> dict:
     write_json(MAP_FILE, graph)
     return {"success": True, "graph": graph}
 
-def search_places(longitude: float, latitude: float, query_type: str, max_results: int):
+def search_places(longitude: float, latitude: float, query_type: str, max_results: int, max_distance: float):
     """查询最近的指定类型节点"""
     graph = get_graph()
     nodes = graph.get('nodes', [])
@@ -223,16 +223,18 @@ def search_places(longitude: float, latitude: float, query_type: str, max_result
             lat1=latitude
             lon2=node.get('longitude')
             lat2=node.get('latitude')
-            candidate_node = PlaceDetail(
-                id=node.get('id'),
-                name=node.get('name'),
-                type=node.get('type'),
-                popularity=node.get('popularity'),
-                longitude=node.get('longitude'),
-                latitude=node.get('latitude'),
-                distance=round(haversine(lat1, lon1, lat2, lon2), 2)
-            )
-            candidates.append(candidate_node)
+            distance=round(haversine(lat1, lon1, lat2, lon2), 2)
+            if distance <= max_distance:
+                candidate_node = PlaceDetail(
+                    id=node.get('id'),
+                    name=node.get('name'),
+                    type=node.get('type'),
+                    popularity=node.get('popularity'),
+                    longitude=node.get('longitude'),
+                    latitude=node.get('latitude'),
+                    distance=distance
+                )
+                candidates.append(candidate_node)
             
     sorted_places = sorted(candidates, key=lambda x: x.distance)
     return sorted_places[:max_results]

@@ -67,7 +67,8 @@ def search_places(query: PlaceQueryRequest):
         longitude=query.longitude,
         latitude=query.latitude,
         query_type=query.query_type,
-        max_results=query.max_results
+        max_results=query.max_results,
+        max_distance=query.max_distance
     )
 
     # 处理无结果情况

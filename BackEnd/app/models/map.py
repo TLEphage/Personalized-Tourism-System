@@ -54,7 +54,8 @@ class PlaceQueryRequest(BaseModel):
     longitude: float    # 用户所在经度
     latitude: float     # 用户所在纬度
     query_type: str     # 要查询的场所类型（如："超市", "卫生间" 等）
-    max_results: int = 1  # 最多返回结果数量，默认为1
+    max_results: int = 100  # 最多返回结果数量，默认为100
+    max_distance: float = 1000.0  # 最大范围，默认为1000m
 
 class PlaceDetail(BaseModel):
     """场所详情响应模型"""

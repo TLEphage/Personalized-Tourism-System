@@ -17,26 +17,44 @@ def _load_spots_data():
 # 服务启动时加载数据
 _load_spots_data()
 
-def get_spot_by_name(name: str) -> List[Spot]:
+def get_spot_by_name(name: str, sort_key: str = "popularity", sort_order: str = "desc") -> List[Spot]:
     """根据名称查询景点"""
-    spots = []
-    for spot in spots_list:
-        if spot.get('name') == name:
-            spots.append(spot)
-    if not spots:
-        raise ValueError("景点不存在")
-    return spots
-def get_sorted_spots(sort_key: str, reverse: bool) -> List[Spot]:
-    """获取排序后的景点列表"""
     valid_fields = ["rating", "popularity"]
     if sort_key not in valid_fields:
         raise ValueError(f"无效排序字段，允许值：{valid_fields}")
     
-    return sorted(
-        spots_list,
-        key=lambda x: x.get(sort_key, 0),  # 为不存在的key提供默认值
-        reverse=reverse
-    )
+    if name == "__all__":
+        filtered = spots_list
+    else:
+        filtered = [entry for entry in spots_list if entry.get("name") == name]
+
+    reverse_sort = sort_order.lower() == "desc"
+
+    if not filtered:
+        raise ValueError("景点不存在")
+    try:
+        sorted_spots = sorted(
+            filtered,
+            key=lambda x: x.get(sort_key, 0),  # 为不存在的key提供默认值
+            reverse=reverse_sort
+        )
+    except TypeError:
+        # 处理类型不一致的情况（如混合类型的字段），按原始顺序返回
+        sorted_spots = filtered
+
+    return sorted_spots
+
+# def get_sorted_spots(sort_key: str, reverse: bool) -> List[Spot]:
+#     """获取排序后的景点列表"""
+#     valid_fields = ["rating", "popularity"]
+#     if sort_key not in valid_fields:
+#         raise ValueError(f"无效排序字段，允许值：{valid_fields}")
+    
+#     return sorted(
+#         spots_list,
+#         key=lambda x: x.get(sort_key, 0),  # 为不存在的key提供默认值
+#         reverse=reverse
+#     )
 
 def get_spots_by_tag(tag: str) -> List[Spot]:
     """根据标签筛选景点"""

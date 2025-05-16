@@ -157,17 +157,11 @@
             "popularity": 100,
             "longitude": 116.356072,
             "latitude": 39.964335,
-<<<<<<< HEAD
             "connected_edges": [
                 6,
                 14
             ]
         },
-=======
-            "connected_edges": []
-        },
-
->>>>>>> c923ee42ebc7b111f98d86153b799332564a1557
         {
             "id": 13,
             "name": "学六公寓",

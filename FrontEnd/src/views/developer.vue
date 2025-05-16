@@ -320,6 +320,7 @@ export default {
         });
         await loadGraphData();
         edgeData.value = { start_node: -1, end_node: -1, walk_speed: null, bike_speed: null, ebike_speed: null };
+        edgeStartPoint.value = null;
       } catch (error) {
         console.error("添加边失败:", error);
       }

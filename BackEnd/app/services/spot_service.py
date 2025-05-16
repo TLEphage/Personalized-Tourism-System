@@ -26,12 +26,12 @@ def get_spot(name: str = "__all__", tag: str = "__all__", sort_key: str = "popul
     if name == "__all__":
         filtered_by_name = spots_list
     else:
-        filtered_by_name = [spot for spot in spots_list if spot.name == name]
+        filtered_by_name = [spot for spot in spots_list if name in spot.get('name','')]
 
     if tag == "__all__":
         filtered = filtered_by_name
     else:
-        filtered = [spot for spot in spots_list if tag in spot.tags]
+        filtered = [spot for spot in spots_list if tag in spot.get('tags',[])]
 
     reverse_sort = sort_order.lower() == "desc"
 

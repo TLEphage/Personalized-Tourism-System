@@ -14,7 +14,7 @@ GET     /diaries/{username}?sort_key=...&sort_order=...     -> 获取用户日�
 PUT     /diaries                                            -> 更新日记
 
 景点模块
-GET     /spots/{name}?tag=...?sort_key=...&sort_order=...   -> 获取景点
+GET     /spots/{name}?tag=...&sort_key=...&sort_order=...   -> 获取景点
 
 地图模块
 GET     /map/get_graph                                  -> 获取地图完整信息

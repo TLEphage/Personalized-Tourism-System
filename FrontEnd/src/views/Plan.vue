@@ -165,6 +165,7 @@ export default {
       })
       .then(res => {
         const data = res.data;
+        console.log("路径规划结果:", data);
         if (data.path.length === 0) {
           alert("未找到路线");
           return;
@@ -400,7 +401,8 @@ body {
   flex: 1;
   padding: 0.8rem;
   border: 2px solid #ddd;
-  background: white;
+  background: #f8f9fa;
+  color: #333;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s;

@@ -3,7 +3,6 @@ import Recommend from './views/Recommend.vue'
 import Plan from './views/Plan.vue'
 import Diary from './views/Diary.vue'
 import LoginRegister from './components/LoginRegister.vue'
-import CustomMap from './components/CustomMap.vue'
 import InterestSelector from './components/InterestSelector.vue'
 import UserProfile from './components/UserProfile.vue'
 import Developer from './views/Developer.vue'
@@ -31,11 +30,6 @@ const router = createRouter({
             path: '/LoginRegister',
             name:'LoginRegister',
             component:LoginRegister
-        },
-        {
-            path:'/CustomMap',
-            name:'CustomMap',
-            component:CustomMap,
         },
         {
             path:'/InterestSelector',

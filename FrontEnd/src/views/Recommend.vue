@@ -16,7 +16,7 @@
           >
         </div>
         <div class="sort-selector">
-          <select v-model="sortBy" @change="handleSortChange" class="sort-select">
+          <select v-model="sortBy" @change="fetchRankingList" class="sort-select">
             <option value="popularity">按人气排序</option>
             <option value="rating">按评分排序</option>
           </select>
@@ -100,30 +100,37 @@
       }
     },
     watch: {
-      searchQuery(newVal) {
-        this.debouncedFetch(newVal);
+      searchQuery() {
+        this.debouncedFetch();
+      },
+      sortBy() {
+        this.fetchRankingList();
       }
     },
     created() {
       // 防抖函数（500ms）
-      this.debouncedFetch = this.debounce((name) => {
-        this.fetchRankingList(name);
+      this.debouncedFetch = this.debounce(() => {
+        this.fetchRankingList();
       }, 500);
     },
     mounted() {
       this.fetchRankingList();
     },
     methods: {
-      async fetchRankingList(name = '') {
+      async fetchRankingList() {
         try {
           this.loading = true;
-          let response ;
-          if (name) {
-            response = await axios.get(`http://localhost:8000/spots/${name}`);
-          } else {
-            response = await axios.get(`http://localhost:8000/spots/?sort_key=${this.sortBy}&sort_order=desc`);
-          }
-          console.log('请求参数:', name);
+          // if (this.searchQuery) {
+          //   response = await axios.get(`http://localhost:8000/spots/${encodeURIComponent(this.searchQuery)}`);
+          // } else {
+          //   response = await axios.get(`http://localhost:8000/spots/?sort_key=${this.sortBy}&sort_order=desc`);
+          // }
+          let name;
+          if(this.searchQuery) name = encodeURIComponent(this.searchQuery);
+          else name = '__all__';
+          /// /spots/{name}?tag=...?sort_key=...&sort_order=...
+          console.log('请求的景点名称:', name);
+          const response = await axios.get(`http://localhost:8000/spots/${name}?sort_key=${this.sortBy}&sort_order=desc`);
           console.log('获取景点数据成功:', response.data);
           this.rankingList = response.data;
           this.error = null;
@@ -187,25 +194,25 @@
   }
 
   .search-container {
-  margin: 2rem 0;
-  text-align: center;
-}
+    margin: 2rem 0;
+    text-align: center;
+  }
 
-.search-input {
-  width: 80%;
-  max-width: 500px;
-  padding: 12px 24px;
-  border: 2px solid #e2e8f0;
-  border-radius: 30px;
-  font-size: 16px;
-  transition: all 0.3s ease;
-  outline: none;
-}
+  .search-input {
+    width: 80%;
+    max-width: 500px;
+    padding: 12px 24px;
+    border: 2px solid #e2e8f0;
+    border-radius: 30px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    outline: none;
+  }
 
-.search-input:focus {
-  border-color: #4a6fff;
-  box-shadow: 0 2px 8px rgba(74, 111, 255, 0.1);
-}
+  .search-input:focus {
+    border-color: #4a6fff;
+    box-shadow: 0 2px 8px rgba(74, 111, 255, 0.1);
+  }
   
   .loading {
     text-align: center;
@@ -221,6 +228,14 @@
     border-top-color: #4a6fff;
     animation: spin 1s ease-in-out infinite;
     margin-bottom: 1rem;
+  }
+
+  .sort-select {
+    transition: all 0.3s ease;
+  }
+  .sort-select:focus {
+    border-color: #4a6fff;
+    box-shadow: 0 0 8px rgba(74, 111, 255, 0.2);
   }
   
   .spot-grid {

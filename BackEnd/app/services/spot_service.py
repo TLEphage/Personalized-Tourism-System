@@ -17,16 +17,21 @@ def _load_spots_data():
 # 服务启动时加载数据
 _load_spots_data()
 
-def get_spot_by_name(name: str, sort_key: str = "popularity", sort_order: str = "desc") -> List[Spot]:
+def get_spot(name: str = "__all__", tag: str = "__all__", sort_key: str = "popularity", sort_order: str = "desc") -> List[Spot]:
     """根据名称查询景点"""
     valid_fields = ["rating", "popularity"]
     if sort_key not in valid_fields:
         raise ValueError(f"无效排序字段，允许值：{valid_fields}")
     
     if name == "__all__":
-        filtered = spots_list
+        filtered_by_name = spots_list
     else:
-        filtered = [entry for entry in spots_list if entry.get("name") == name]
+        filtered_by_name = [spot for spot in spots_list if spot.name == name]
+
+    if tag == "__all__":
+        filtered = filtered_by_name
+    else:
+        filtered = [spot for spot in spots_list if tag in spot.tags]
 
     reverse_sort = sort_order.lower() == "desc"
 

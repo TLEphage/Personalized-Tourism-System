@@ -92,16 +92,94 @@
         </article>
       </transition-group>
     </div>
+    <button class="float-btn" @click="showEditor = true">
+      <i class="icon-plus"></i>
+      新建日记
+    </button>
+    <!-- 新建日记模态框 -->
+    <transition name="modal-fade">
+      <div v-if="showEditor" class="diary-editor-modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3>撰写新游记</h3>
+            <button class="close-btn" @click="closeEditor">×</button>
+          </div>
+
+          <form @submit.prevent="submitDiary">
+            <div class="form-group">
+              <label>游记标题</label>
+              <input 
+                type="text" 
+                v-model="newDiary.title" 
+                placeholder="请输入游记标题"
+                required
+              >
+            </div>
+
+            <div class="form-group">
+              <label>游记内容</label>
+              <textarea
+                v-model="newDiary.content"
+                placeholder="写下你的旅行故事..."
+                rows="8"
+                required
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <label>上传图片</label>
+              <ImageUpload 
+                @uploaded="handleImageUpload" 
+                @clear="newDiary.images = []"
+              />
+              <div v-if="newDiary.images.length" class="upload-preview">
+                已上传 {{ newDiary.images.length }} 张图片
+              </div>
+            </div>
+
+            <!-- <div class="form-group">
+              <label>上传视频</label>
+              <VideoUpload 
+                @uploaded="handleVideoUpload"
+                @clear="newDiary.videos = []"
+              />
+              <div v-if="newDiary.videos.length" class="upload-preview">
+                已上传 {{ newDiary.videos.length }} 个视频
+              </div>
+            </div> -->
+
+            <div class="form-actions">
+              <button 
+                type="button" 
+                class="btn-cancel"
+                @click="closeEditor"
+              >
+                取消
+              </button>
+              <button 
+                type="submit" 
+                class="btn-submit"
+                :disabled="isSubmitting"
+              >
+                {{ isSubmitting ? '提交中...' : '发布游记' }}
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </transition>
   </div>
 </template>
 
 <script>
 import axios from 'axios';
 import EditDiary from '../components/EditDiary.vue';
+import ImageUpload from '../components/ImageUpload.vue';
 
 export default{
     components:{
-      EditDiary
+      EditDiary,
+      ImageUpload
     },
     data(){
       return {
@@ -109,6 +187,14 @@ export default{
         searchQuery: '',
         sortBy: 'views',
         isLoading: false,
+        showEditor: false,
+        isSubmitting: false,
+        newDiary: {
+          title: '',
+          content: '',
+          images:[],
+          // videos:[]
+        }
       }
     },
     created(){
@@ -158,6 +244,42 @@ export default{
           hour: '2-digit',
           minute: '2-digit'
         })
+      },
+      handleImageUpload(url) {
+        this.newDiary.images.push(url);
+      },
+      // handleVideoUpload(url) {
+      //   this.newDiary.videos.push(url);
+      // },
+      async submitDiary() {
+        try {
+          this.isSubmitting = true;
+          const payload = {
+            ...this.newDiary,
+            username: this.$store.state.user.username
+          }
+          const response = await axios.post('http://localhost:8000/diaries', payload);
+          if (response.message === '日记添加成功') {
+            alert('日记添加成功！');
+          } else {
+            alert('添加日记失败，请重试！');
+          }
+          this.closeEditor();
+          this.fetchDiaries();
+        } catch (error) {
+          console.log('提交失败',error);
+        } finally {
+          this.isSubmitting = false;
+        }
+      },
+      closeEditor() {
+        this.showEditor = false;
+        this.newDiary = {
+          title: '',
+          content: '',
+          images: [],
+          // videos: []
+        }
       },
     }
 }
@@ -401,5 +523,125 @@ export default{
   .content-section {
     padding: 2rem;
   }
+}
+
+.float-btn {
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+  padding: 16px 24px;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.3);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.2s;
+}
+
+.float-btn:hover {
+  transform: translateY(-2px);
+}
+
+.diary-editor-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  width: 800px;
+  max-height: 90vh;
+  border-radius: 16px;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.close-btn {
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.upload-preview {
+  margin-top: 0.5rem;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.btn-cancel {
+  padding: 0.8rem 1.5rem;
+  background: #f0f0f0;
+  border: none;
+  border-radius: 8px;
+  color: #666;
+}
+
+.btn-submit {
+  padding: 0.8rem 1.5rem;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+}
+
+.modal-fade-enter-active,
+.modal-fade-leave-active {
+  transition: opacity 0.3s;
+}
+
+.modal-fade-enter-from,
+.modal-fade-leave-to {
+  opacity: 0;
 }
 </style>

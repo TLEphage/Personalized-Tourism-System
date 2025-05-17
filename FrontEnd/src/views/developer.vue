@@ -213,7 +213,7 @@ export default {
           AMapInstance.GeometryUtil.distance(
             [node.longitude, node.latitude],
             [clickedLng, clickedLat]
-          ) < 10
+          ) < 5
         );
 
         if (!isExisting) {

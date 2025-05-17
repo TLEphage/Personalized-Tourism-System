@@ -235,7 +235,7 @@ export default {
           }
         });
 
-        if (minDist > 10) {
+        if (minDist > 5) {
           alert("请点击已有节点！");
           return;
         }

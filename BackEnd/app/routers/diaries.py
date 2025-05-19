@@ -5,7 +5,7 @@ from app.services import diary_service
 
 router = APIRouter(tags=["日记管理"])
 
-@router.post("", response_model=dict, summary="添加游记")
+@router.post("", response_model=dict, summary="添加日记")
 def add_diary(diary: Diary):
     """
     添加日记接口：

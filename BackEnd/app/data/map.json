@@ -2908,6 +2908,15 @@
                 187,
                 189
             ]
+        },
+        {
+            "id": 209,
+            "name": "物美超市",
+            "type": "超市",
+            "popularity": 90,
+            "longitude": 116.358031,
+            "latitude": 39.963651,
+            "connected_edges": []
         }
     ],
     "edges": [

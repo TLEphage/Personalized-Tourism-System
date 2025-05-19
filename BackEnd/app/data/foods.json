@@ -1,6 +1,16 @@
 {
     "foods": [
         {
+            "restaurant_name": "金谷园饺子馆",
+            "description": "金谷园饺子馆是一家知名的北京水饺店，以其物美价廉和新鲜手工现包的饺子而著称‌。",
+            "address": "北三环中路44号海淀文教产业园10号楼2层201号",
+            "latitude": 39.965527,
+            "longitude": 116.360708,
+            "popularity": 80,
+            "rating": 4.3,
+            "tags": ["饺子", "饺子", "性价比高", "老字号"]
+        },
+        {
             "restaurant_name": "花家怡园（北邮店）",
             "description": "以地道京味菜著称，环境古色古香，菜品精致，服务周到，深受食客喜爱。",
             "address": "西土城路10号北京邮电大学西门往北100米路西",
@@ -51,154 +61,154 @@
             "tags": ["烧烤", "羊肉串", "小吃"]
         },
         {
-            "restaurant_name": "太熟悉家常菜（北邮店）",
-            "description": "一家经营多年的家常菜馆，菜品丰富，价格实惠，服务热情，深受周边居民和学生的喜爱。",
-            "address": "西土城路10号院1号楼1层105号",
-            "latitude": 39.966415,
-            "longitude": 116.356545,
-            "popularity": 78,
-            "rating": 4.0,
-            "tags": ["家常菜", "性价比高", "量大"]
-        },
-        {
-            "restaurant_name": "新辣道鱼火锅（北邮店）",
-            "description": "专业的鱼火锅品牌，鱼肉新鲜，锅底口味多样，配菜丰富，适合喜欢吃火锅的人。",
-            "address": "西土城路10号院1号楼1层106号",
-            "latitude": 39.966379,
-            "longitude": 116.356513,
-            "popularity": 75,
-            "rating": 3.9,
-            "tags": ["鱼火锅", "川菜", "火锅"]
-        },
-        {
-            "restaurant_name": "眉州东坡酒楼（北邮店）",
-            "description": "知名的川菜连锁品牌，菜品正宗，服务优质，环境优雅，适合商务宴请和家庭聚会。",
-            "address": "西土城路10号院1号楼2层201号",
-            "latitude": 39.966343,
-            "longitude": 116.356481,
-            "popularity": 72,
-            "rating": 3.8,
-            "tags": ["川菜", "东坡肘子", "酒楼"]
-        },
-        {
-            "restaurant_name": "吉野家（北邮店）",
-            "description": "快餐连锁店，以牛肉饭和各种日式简餐为主，出餐快，价格适中，适合快速用餐。",
-            "address": "西土城路10号院1号楼1层107号",
-            "latitude": 39.966307,
-            "longitude": 116.356449,
-            "popularity": 70,
-            "rating": 3.7,
-            "tags": ["快餐", "牛肉饭", "日式料理"]
-        },
-        {
-            "restaurant_name": "肯德基（北邮餐厅）",
-            "description": "全球知名的快餐品牌，提供汉堡、薯条、炸鸡等经典快餐食品，环境舒适，服务便捷。",
-            "address": "西土城路10号院1号楼1层108号",
-            "latitude": 39.966271,
-            "longitude": 116.356417,
-            "popularity": 68,
-            "rating": 3.6,
-            "tags": ["快餐", "汉堡", "炸鸡"]
-        },
-        {
-            "restaurant_name": "照澜院餐厅",
-            "description": "位于清华大学校内，深受师生喜爱，提供多种家常菜和特色美食，价格实惠，用餐氛围好。",
-            "address": "清华大学照澜院",
-            "latitude": 39.990375,
-            "longitude": 116.337857,
+            "restaurant_name": "荷园餐厅",
+            "description": "清华大学校内知名餐厅，提供多样化的中式快餐和特色小吃，环境整洁，价格实惠，深受学生喜爱。",
+            "address": "北京市海淀区清华大学校内荷园",
+            "latitude": 40.000683,
+            "longitude": 116.326215,
             "popularity": 85,
             "rating": 4.2,
-            "tags": ["校内餐厅", "家常菜", "性价比高"]
+            "tags": ["校园食堂", "中式快餐", "性价比高"]
         },
         {
-            "restaurant_name": "丁香园餐厅",
-            "description": "校内经典餐厅之一，菜品丰富多样，有不少特色窗口，能满足不同口味需求。",
-            "address": "清华大学丁香园",
-            "latitude": 39.991148,
-            "longitude": 116.336995,
+            "restaurant_name": "清青小厨",
+            "description": "清华大学校内的小型餐厅，主打家常菜和简餐，菜品口味地道，适合快速用餐。",
+            "address": "北京市海淀区清华大学校内照澜院",
+            "latitude": 40.001245,
+            "longitude": 116.327893,
+            "popularity": 80,
+            "rating": 4.0,
+            "tags": ["家常菜", "简餐", "校园餐厅"]
+        },
+        {
+            "restaurant_name": "桃李园餐厅",
+            "description": "清华大学校内的大型食堂，提供丰富的菜品选择，包括地方特色菜和健康轻食，环境宽敞明亮。",
+            "address": "北京市海淀区清华大学校内桃李园",
+            "latitude": 39.999876,
+            "longitude": 116.325432,
             "popularity": 82,
             "rating": 4.1,
-            "tags": ["校内餐厅", "特色美食", "选择多"]
+            "tags": ["校园食堂", "多样化菜品", "健康轻食"]
+        },
+        {
+            "restaurant_name": "玉树园餐厅",
+            "description": "清华大学校内的特色餐厅，以川菜和湘菜为主，口味偏辣，适合喜欢重口味的食客。",
+            "address": "北京市海淀区清华大学校内玉树园",
+            "latitude": 40.002134,
+            "longitude": 116.328765,
+            "popularity": 78,
+            "rating": 3.9,
+            "tags": ["川菜", "湘菜", "辣味"]
         },
         {
             "restaurant_name": "清芬园餐厅",
-            "description": "提供各地风味美食，早餐种类丰富，其他时段也有多种热菜、小吃可供选择。",
-            "address": "清华大学清芬园",
-            "latitude": 39.990951,
-            "longitude": 116.339333,
+            "description": "清华大学校内的老牌餐厅，提供传统中式菜肴和面点，价格亲民，深受师生欢迎。",
+            "address": "北京市海淀区清华大学校内清芬园",
+            "latitude": 40.000987,
+            "longitude": 116.326754,
+            "popularity": 83,
+            "rating": 4.0,
+            "tags": ["传统中餐", "面点", "老牌餐厅"]
+        },
+        {
+            "restaurant_name": "北航合一楼餐厅",
+            "description": "北航校内最大的食堂，提供各类中式快餐和地方特色小吃，价格实惠，深受学生欢迎。",
+            "address": "北京航空航天大学校内合一楼",
+            "latitude": 39.983125,
+            "longitude": 116.346289,
+            "popularity": 88,
+            "rating": 4.2,
+            "tags": ["校园食堂", "中式快餐", "性价比高"]
+        },
+        {
+            "restaurant_name": "沙县小吃（北航店）",
+            "description": "经典福建风味小吃店，提供扁肉、拌面等特色小吃，价格亲民，出餐速度快。",
+            "address": "学院路37号北航南门对面",
+            "latitude": 39.982876,
+            "longitude": 116.346752,
+            "popularity": 85,
+            "rating": 4.1,
+            "tags": ["福建小吃", "拌面", "扁肉"]
+        },
+        {
+            "restaurant_name": "必胜客（北航店）",
+            "description": "国际连锁披萨餐厅，提供各类披萨、意面和西式小吃，环境舒适。",
+            "address": "学院路37号北航南门西侧",
+            "latitude": 39.982945,
+            "longitude": 116.346832,
+            "popularity": 82,
+            "rating": 4.0,
+            "tags": ["披萨", "西餐", "连锁品牌"]
+        },
+        {
+            "restaurant_name": "重庆小面（北航店）",
+            "description": "主打重庆风味面食，麻辣鲜香，面条劲道，深受爱吃辣的食客喜爱。",
+            "address": "学院路37号北航南门东侧",
+            "latitude": 39.983014,
+            "longitude": 116.346912,
+            "popularity": 80,
+            "rating": 3.9,
+            "tags": ["重庆小面", "川味", "辣味"]
+        },
+        {
+            "restaurant_name": "星巴克（北航店）",
+            "description": "国际知名咖啡连锁店，提供各类咖啡饮品和轻食，环境优雅适合学习交流。",
+            "address": "学院路37号北航南门东侧",
+            "latitude": 39.983083,
+            "longitude": 116.346992,
+            "popularity": 78,
+            "rating": 3.8,
+            "tags": ["咖啡", "轻食", "连锁品牌"]
+        },
+        {
+            "restaurant_name": "北理工食堂",
+            "description": "北京理工大学校内食堂，提供多样化的中式餐点，价格实惠，深受学生喜爱。",
+            "address": "海淀区中关村南大街5号北京理工大学内",
+            "latitude": 39.963123,
+            "longitude": 116.316456,
+            "popularity": 85,
+            "rating": 4.2,
+            "tags": ["校园美食", "中式餐点", "经济实惠"]
+        },
+        {
+            "restaurant_name": "重庆小面（北理店）",
+            "description": "一家以重庆特色小面为主的餐厅，面条麻辣鲜香，配料丰富。",
+            "address": "海淀区中关村南大街5号北京理工大学附近",
+            "latitude": 39.963234,
+            "longitude": 116.316567,
             "popularity": 80,
             "rating": 4.0,
-            "tags": ["校内餐厅", "风味美食", "早餐"]
+            "tags": ["重庆小面", "麻辣", "面食"]
         },
         {
-            "restaurant_name": "观畴园餐厅",
-            "description": "主打高品质餐饮，环境较为舒适，菜品精致，适合宴请和享受美食。",
-            "address": "清华大学观畴园",
-            "latitude": 39.991964,
-            "longitude": 116.338471,
+            "restaurant_name": "吉野家（北理店）",
+            "description": "知名日式快餐连锁品牌，主打牛肉饭、照烧鸡排饭等，出餐速度快。",
+            "address": "海淀区中关村南大街5号北京理工大学附近",
+            "latitude": 39.963345,
+            "longitude": 116.316678,
             "popularity": 78,
             "rating": 3.9,
-            "tags": ["校内餐厅", "精致菜品", "宴请"]
+            "tags": ["日式快餐", "牛肉饭", "连锁品牌"]
         },
         {
-            "restaurant_name": "新园餐厅",
-            "description": "有多种特色菜系，如川菜、粤菜等，口味多样，能满足不同地域学生的口味偏好。",
-            "address": "清华大学新园",
-            "latitude": 39.990618,
-            "longitude": 116.335673,
+            "restaurant_name": "张亮麻辣烫",
+            "description": "全国连锁麻辣烫品牌，食材新鲜，汤底浓郁，可根据个人口味选择辣度。",
+            "address": "海淀区中关村南大街5号北京理工大学附近",
+            "latitude": 39.963456,
+            "longitude": 116.316789,
             "popularity": 75,
             "rating": 3.8,
-            "tags": ["校内餐厅", "多菜系", "口味多样"]
+            "tags": ["麻辣烫", "连锁品牌", "自选食材"]
         },
         {
-            "restaurant_name": "西南美食城",
-            "description": "汇聚了西南地区的特色美食，如火锅、串串、米线等，口味地道。",
-            "address": "清华大学附近",
-            "latitude": 39.989723,
-            "longitude": 116.334521,
+            "restaurant_name": "星巴克（北理店）",
+            "description": "国际知名咖啡连锁品牌，提供咖啡、甜点及轻食，环境舒适。",
+            "address": "海淀区中关村南大街5号北京理工大学附近",
+            "latitude": 39.963567,
+            "longitude": 116.316890,
             "popularity": 72,
             "rating": 3.7,
-            "tags": ["校外餐厅", "西南美食", "火锅"]
-        },
-        {
-            "restaurant_name": "品园餐厅",
-            "description": "校内人气餐厅，有各种炒菜、汤品和主食，价格亲民，分量足。",
-            "address": "清华大学品园",
-            "latitude": 39.991377,
-            "longitude": 116.337239,
-            "popularity": 70,
-            "rating": 3.6,
-            "tags": ["校内餐厅", "炒菜", "亲民价格"]
-        },
-        {
-            "restaurant_name": "荷园餐厅",
-            "description": "以清淡口味的菜品为主，注重营养搭配，适合追求健康饮食的人群。",
-            "address": "清华大学荷园",
-            "latitude": 39.992192,
-            "longitude": 116.339677,
-            "popularity": 68,
-            "rating": 3.5,
-            "tags": ["校内餐厅", "清淡菜品", "营养搭配"]
-        },
-        {
-            "restaurant_name": "听涛园餐厅",
-            "description": "提供丰富的美食选择，包括西餐、中餐等，环境优美，可边用餐边欣赏风景。",
-            "address": "清华大学听涛园",
-            "latitude": 39.992654,
-            "longitude": 116.338715,
-            "popularity": 65,
-            "rating": 3.4,
-            "tags": ["校内餐厅", "多类型餐食", "风景好"]
-        },
-        {
-            "restaurant_name": "梅园餐厅",
-            "description": "有特色面食和小吃，味道不错，价格实惠，是学生日常用餐的选择之一。",
-            "address": "清华大学梅园",
-            "latitude": 39.990026,
-            "longitude": 116.336249,
-            "popularity": 62,
-            "rating": 3.3,
-            "tags": ["校内餐厅", "面食", "小吃"]
+            "tags": ["咖啡", "甜点", "连锁品牌"]
         }
     ]
 }

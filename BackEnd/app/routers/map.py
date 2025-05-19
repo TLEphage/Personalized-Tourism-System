@@ -2,7 +2,7 @@ from fastapi import APIRouter, HTTPException
 from app.models.map import *
 from app.services import map_service
 
-router = APIRouter(tags=["路径规划"])
+router = APIRouter(tags=["地图查询"])
 
 @router.post("/path_plan", response_model=PathPlanResponse, summary="A* 算法路径规划")
 def path_plan(map_req: PathPlanRequest):
@@ -63,6 +63,7 @@ def search_places(query: PlaceQueryRequest):
       - 当没有匹配类型场所时，返回404错误
     """
     # 调用服务层获取查询结果
+    print(query)
     found_places = map_service.search_places(
         longitude=query.longitude,
         latitude=query.latitude,
@@ -72,10 +73,11 @@ def search_places(query: PlaceQueryRequest):
     )
 
     # 处理无结果情况
+    print(found_places)
     if not found_places:
         raise HTTPException(
             status_code=404,
             detail=f"未找到类型为 {query.query_type} 的场所"
         )
-
+    
     return PlaceResponse(places=found_places)

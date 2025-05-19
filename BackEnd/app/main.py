@@ -23,8 +23,12 @@ app = FastAPI(
             "description": "景点的查询与排序"
         },
         {
-            "name": "路径规划",
-            "description": "基于 A* 算法的路径规划功能"
+            "name": "地图查询",
+            "description": "旅游路线规划与场所查询"
+        },
+        {
+            "name": "美食搜索",
+            "description": "美食的查询与排序"
         }
     ]
 )
@@ -53,17 +57,25 @@ app.include_router(
     tags=["日记管理"]
 )
 
+# 景点查询路由（前缀 /spots，标签"景点查询"）
 app.include_router(
     spots.router,
     prefix="/spots",
     tags=["景点查询"]
 )
 
-# 路径规划路由（前缀 /map，标签"路径规划"）
+# 地图查询路由（前缀 /map，标签"地图查询"）
 app.include_router(
     map.router,
     prefix="/map",
-    tags=["路径规划"]
+    tags=["地图查询"]
+)
+
+# 美食搜索路由（前缀 /foods，标签"美食搜索"）
+app.include_router(
+    map.router,
+    prefix="/foods",
+    tags=["美食搜索"]
 )
 
 # --------------------------- 根路径测试端点 ---------------------------

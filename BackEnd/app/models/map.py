@@ -29,7 +29,7 @@ class NodeRequestRaw(BaseModel):
 class NodeRequest(BaseModel):
     """地图数据节点模型"""
     id: Optional[int] = None
-    name: str
+    name: str = "default"
     type: str = "default"
     popularity: int = 100
     longitude: float    # 经度

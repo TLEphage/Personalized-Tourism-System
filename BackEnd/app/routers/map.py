@@ -73,7 +73,6 @@ def search_places(query: PlaceQueryRequest):
     )
 
     # 处理无结果情况
-    print(found_places)
     if not found_places:
         raise HTTPException(
             status_code=404,

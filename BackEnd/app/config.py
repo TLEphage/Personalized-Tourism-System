@@ -10,6 +10,8 @@ DATA_DIR = os.path.join(BASE_DIR, "data")
 USERS_FILE = os.path.join(DATA_DIR, "users.json")
 # 用户头像文件目录
 USERS_AVATARS_DIR = os.path.join(DATA_DIR, "avatars")
+# 图片文件目录
+IMAGES_DIR = os.path.join(DATA_DIR, "images")
 # 日记数据文件路径
 DIARIES_FILE = os.path.join(DATA_DIR, "diaries.json")
 # 地图数据文件路径（存储图结构数据，格式示例：{"A": {"B": 1, "C": 4}, "B": {"A": 1, "C": 2, "D": 5}, ...}）

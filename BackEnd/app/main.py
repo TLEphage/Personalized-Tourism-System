@@ -1,8 +1,10 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 
 # 导入路由模块
-from app.routers import users, diaries, spots, map, foods
+from app.routers import upload, users, diaries, spots, map, foods
+from app.config import *
 
 # --------------------------- 初始化 FastAPI 应用 ---------------------------
 app = FastAPI(
@@ -10,6 +12,10 @@ app = FastAPI(
     description="提供用户管理、日记发布、路径规划等功能接口",
     version="1.0.0",
     openapi_tags=[  # 定义 Swagger 文档的标签分组
+        {
+            "name": "文件上传",
+            "description": "图片、视频等文件上传"
+        },
         {
             "name": "用户管理",
             "description": "用户注册、登录、信息查询与修改"
@@ -43,11 +49,22 @@ app.add_middleware(
 )
 
 # --------------------------- 集成路由模块 ---------------------------
+
+# 挂载静态文件目录，用于访问上传的图片
+app.mount("/images", StaticFiles(directory=IMAGES_DIR), name="images")
+
+# 文件上传路由（前缀 /upload，标签"文件上传"）
+app.include_router(
+    upload.router,
+    prefix="/upload",  # 统一前缀，如 /upload/image
+    tags=["文件上传"]  # 对应 openapi_tags 中的标签名
+)
+
 # 用户管理路由（前缀 /users，标签"用户管理"）
 app.include_router(
     users.router,
-    prefix="/users",  # 统一前缀，如 /users/register
-    tags=["用户管理"]  # 对应 openapi_tags 中的标签名
+    prefix="/users",
+    tags=["用户管理"]
 )
 
 # 日记管理路由（前缀 /diaries，标签"日记管理"）

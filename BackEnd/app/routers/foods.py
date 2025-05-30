@@ -12,6 +12,7 @@ async def search_foods(request: FoodSearchRequest):
       - 可以按照用户选择的热度、评价和距离进行排序，并根据菜系进行过滤
       - 输入美食名称、菜系、饭店或窗口 名称等进行基于内容的模糊查询
     """
+    print(request)
     return food_service.search_foods(
         latitude=request.latitude,
         longitude=request.longitude,

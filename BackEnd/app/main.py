@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 # 导入路由模块
-from app.routers import users, diaries, spots, map
+from app.routers import users, diaries, spots, map, foods
 
 # --------------------------- 初始化 FastAPI 应用 ---------------------------
 app = FastAPI(
@@ -73,7 +73,7 @@ app.include_router(
 
 # 美食搜索路由（前缀 /foods，标签"美食搜索"）
 app.include_router(
-    map.router,
+    foods.router,
     prefix="/foods",
     tags=["美食搜索"]
 )

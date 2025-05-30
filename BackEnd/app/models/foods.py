@@ -16,4 +16,4 @@ class FoodSearchRequest(BaseModel):
     longitude: float
     search_text: Optional[str] = None
     tag: Optional[List[str]] = None
-    sort_key: Optional[str] = None
+    sort_key: Optional[str] = "distance"

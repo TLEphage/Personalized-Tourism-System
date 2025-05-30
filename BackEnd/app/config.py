@@ -16,3 +16,5 @@ DIARIES_FILE = os.path.join(DATA_DIR, "diaries.json")
 MAP_FILE = os.path.join(DATA_DIR, "map.json")
 # 中国景点文件路径
 SPOTS_FILE = os.path.join(DATA_DIR, "spots.json")
+# 美食文件路径
+FOODS_FILE = os.path.join(DATA_DIR, "foods.json")

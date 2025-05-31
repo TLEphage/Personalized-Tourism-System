@@ -5,12 +5,13 @@ from app.services import diary_service
 
 router = APIRouter(tags=["日记管理"])
 
-@router.post("", response_model=dict, summary="添加日记")
+@router.post("/add", response_model=dict, summary="添加日记")
 def add_diary(diary: Diary):
     """
     添加日记接口：
       - 将日记信息保存到持久化存储（JSON 或数据库）
     """
+    print(diary)
     diary_service.add_diary(
         diary.username,
         diary.title,
@@ -40,7 +41,7 @@ def get_diaries(
     )
     return {"diaries": diaries}
 
-@router.put("", summary="更新日记")
+@router.post("/update", summary="更新日记")
 def update_diary(diary: Diary):
     """
     更新日记接口：

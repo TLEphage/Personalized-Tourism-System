@@ -121,7 +121,6 @@
           >
             <h4>{{ place.name }}</h4>
             <p>距离：{{ place.distance }}米</p>
-            <p>地址：{{ place.address }}</p>
           </div>
         </div>
       </div>

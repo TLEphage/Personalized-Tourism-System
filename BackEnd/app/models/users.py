@@ -26,7 +26,7 @@ class UserUpdate(BaseModel):
       - signature: 个性签名
       - hobbies: 兴趣爱好列表
     """
-    avatarPath: Optional[str] = None
+    avatarPath: Optional[str] = "/images/avatars/default_avatar.jpg"
     signature: Optional[str] = None
     hobbies: Optional[List[str]] = None
 

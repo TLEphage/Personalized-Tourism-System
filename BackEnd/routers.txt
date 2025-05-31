@@ -1,5 +1,5 @@
 通用模块
-POST    /upload/image                                   -> 图片上传
+POST    /upload/images                                  -> 图片上传
 
 用户模块
 GET     /                                               -> 服务状态检查

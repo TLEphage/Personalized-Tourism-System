@@ -6,12 +6,12 @@ GET     /                                               -> 服务状态检查
 POST    /users/register                                 -> 用户注册
 POST    /users/login                                    -> 用户登录
 GET     /users/{username}/details                       -> 查询用户信息
-PUT     /users/{username}                               -> 更新用户信息
+PUT     /users/{username}/details                       -> 更新用户信息
 
 日记模块
-POST    /diaries                                            -> 添加日记
+POST    /diaries/add                                        -> 添加日记
 GET     /diaries/{username}?sort_key=...&sort_order=...     -> 获取用户日记
-PUT     /diaries                                            -> 更新日记
+POST    /diaries/update                                     -> 更新日记
 
 景点模块
 GET     /spots/{name}?tag=...&sort_key=...&sort_order=...   -> 获取景点

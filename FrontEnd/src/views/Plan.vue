@@ -121,7 +121,8 @@
           >
             <h4>{{ place.name }}</h4>
             <p>距离：{{ place.distance }}米</p>
-            <p>地址：{{ place.address }}</p>
+            <p>类型：{{ place.type }}</p>
+            <p v-if="place.polularity">人气值：{{ place.polularity }}</p>
           </div>
         </div>
       </div>
@@ -302,8 +303,82 @@ export default {
       positionMarker = new AMapInstance.Marker({
         position: [lnglat.lng, lnglat.lat],
         map: map.value,
-        icon: 'https://webapi.amap.com/theme/v1.3/markers/n/mark_b.png'
+        title: "当前位置"
+      })
+      positionMarker.setLabel({
+        offset: new AMapInstance.Pixel(-10, -28),
+        content: `<div style="
+          background: #f33;
+          color: #fff;
+          padding: 2px 4px;
+          border-radius: 3px;
+          font-size: 12px;
+        ">当前位置</div>`
       });
+
+    }
+
+    let searchResultMarkers = [];
+    function showSearchResultsOnMap(results) {
+      // 清除之前的搜索结果标记
+      searchResultMarkers.forEach(marker => marker.setMap(null));
+      searchResultMarkers = [];
+
+      results.forEach(place => {
+        // 创建标记
+        const marker = new AMapInstance.Marker({
+          position: [place.longitude, place.latitude],
+          map: map.value,
+          title: place.name
+        });
+
+        marker.setLabel({
+           offset: new AMapInstance.Pixel(-10, -28),
+           content: `<div style="
+             background: #f33;
+             color: #fff;
+             padding: 2px 4px;
+             border-radius: 3px;
+             font-size: 12px;
+           ">${place.name}</div>`
+         });
+
+        // 创建信息窗体
+        const infoWindow = new AMapInstance.InfoWindow({
+          content: `
+            <div style="padding: 10px;">
+              <h4 style="margin: 0 0 5px 0;">${place.name}</h4>
+              <p style="margin: 0;">距离：${place.distance.toFixed(0)}米</p>
+            </div>
+          `,
+          offset: new AMapInstance.Pixel(0, -30)
+        });
+
+        // 点击标记时显示信息窗体
+        marker.on('click', () => {
+          infoWindow.open(map.value, marker.getPosition());
+        });
+
+        searchResultMarkers.push(marker);
+      });
+
+      // 调整地图视野以包含所有标记
+      if (searchResultMarkers.length > 0) {
+        map.value.setFitView(searchResultMarkers);
+      }
+    }
+
+    function focusPlace(place) {
+      map.value.setZoomAndCenter(18, [place.longitude, place.latitude]);
+
+      const marker = searchResultMarkers.find(m => 
+        m.getPosition().lng === place.longitude && 
+        m.getPosition().lat === place.latitude
+      );
+
+      if (marker) {
+        marker.emit('click');
+      }
     }
 
     // 添加搜索方法
@@ -325,9 +400,9 @@ export default {
           max_results: maxResults.value,
           max_distance: maxDistance.value
         });
-        
-        searchResults.value = response.data.results;
-        showSearchResultsOnMap(response.data.results);
+        console.log("搜索结果：", response.data.places);
+        searchResults.value = response.data.places;
+        showSearchResultsOnMap(response.data.places);
       } catch (error) {
         console.error('搜索失败:', error);
         alert('搜索失败，请稍后重试');
@@ -338,7 +413,7 @@ export default {
     function showSearchResultsOnMap(results) {
       results.forEach(place => {
         const marker = new AMapInstance.Marker({
-          position: [place.lng, place.lat],
+          position: [place.longitude, place.latitude],
           map: map.value,
           title: place.name,
           content: `<div class="custom-marker">${place.name}</div>`
@@ -379,7 +454,8 @@ export default {
       switchMode,
       searchPlaces,
       maxResults,
-      maxDistance
+      maxDistance,
+      focusPlace,
      };
   },
   methods: {
@@ -465,11 +541,24 @@ body {
   padding: 1rem;
   margin-bottom: 1rem;
   border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.place-item:hover {
+  background: #e9ecef;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .place-item h4 {
   margin: 0 0 0.5rem;
   color: var(--primary-color);
+}
+
+.place-item p {
+  margin: 0.25rem 0;
+  color: #666;
 }
 
 .no-results {

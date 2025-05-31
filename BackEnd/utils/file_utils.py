@@ -1,6 +1,6 @@
 import json
 import os
-from app.algorithm.HuffmanCompressor import HuffmanCompressor
+from app.algorithm.Compress import HuffmanCompressor
 
 def read_json(file_path, default=None):
     """

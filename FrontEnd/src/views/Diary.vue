@@ -39,7 +39,7 @@
           <!-- 封面图 -->
           <div class="diary-cover">
             <img 
-              :src="diary.images[0] || '/default-cover.jpg'"
+              :src="diary.images[0]"
               :alt="diary.title"
               class="cover-image"
             >
@@ -132,7 +132,6 @@ export default{
                diary.content.toLowerCase().includes(search)
         })
 
-        // 排序逻辑
         return filtered.sort((a, b) => {
           if(this.sortBy === 'views') return b.views - a.views
           if(this.sortBy === 'rating') return b.rating - a.rating
@@ -180,13 +179,11 @@ export default{
           });
           
           if (response.data.message === '日记添加成功') {
-            // this.$message.success('日记发布成功！');
             this.closeEditor();
             this.fetchDiaries();
           }
         } catch (error) {
           console.error('提交失败:', error);
-          // this.$message.error('发布失败，请重试');
         }
       },
       closeEditor() {
@@ -200,7 +197,8 @@ export default{
         this.fetchDiaries();
       },
       viewDetail(id) {
-        this.$router.push(`/diary/${id}`);
+        console.log('查看日记详情id:', id)
+        this.$router.push({name: 'DiaryDetail', params: {id}});
       },
       formatNumber(num) {
         if (num >= 1000000) {

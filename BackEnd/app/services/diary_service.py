@@ -115,3 +115,19 @@ def update_diary(
             return entry
     # 若未找到则抛出错误
     raise ValueError(f"未找到用户名 {username} 下 ID 为 {diary_id} 的日记")
+
+def diary_append(
+    diary_id: int,
+    field: str,
+    content: str
+):
+    diaries = read_compressed_json(DIARIES_FILE, default=[])
+    # 查找目标日记
+    for entry in diaries:
+        if entry.get("id") == diary_id:
+            if entry.get(field, None) is not None:
+                entry[field].append(content)
+            else:
+                entry[field]=[content]
+            write_compressed_json(DIARIES_FILE, diaries)
+            return {"message": f"{field}成功添加{content}"}

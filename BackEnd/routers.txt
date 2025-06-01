@@ -27,3 +27,7 @@ POST    /map/path_plan/indoor                           -> 室内导航
 美食模块
 POST     /foods/search                                  -> 美食搜索
 
+生成式AI服务模块
+POST     /AIGen/generate_video                          -> 文生视频
+POST     /AIGen/check_video_status                      -> 将已生成的视频添加到对应日记
+

@@ -2,6 +2,7 @@ from typing import List
 from app.models.spots import Spot
 from app.config import SPOTS_FILE
 from utils.file_utils import read_json
+from algorithm.Sort import partial_selection_sort
 
 # 全局变量存储景点数据
 scenic_spot_list = None
@@ -32,17 +33,15 @@ def get_scenic_spots(name: str = "__all__", tag: str = "__all__", sort_key: str 
     if tag == "__all__":
         filtered = filtered_by_name
     else:
-        filtered = [spot for spot in scenic_spot_list if any(tag in t for t in spot.get('tags', []))]
-
-    reverse_sort = sort_order.lower() == "desc"
+        filtered = [spot for spot in filtered_by_name if any(tag in t for t in spot.get('tags', []))]
 
     if not filtered:
         raise ValueError("景点不存在")
     try:
-        sorted_spots = sorted(
+        sorted_spots = partial_selection_sort(
             filtered,
-            key=lambda x: x.get(sort_key, 0),  # 为不存在的key提供默认值
-            reverse=reverse_sort
+            sort_key=lambda x: x.get(sort_key, 0),  # 为不存在的key提供默认值
+            sort_order=sort_order
         )
     except TypeError:
         # 处理类型不一致的情况（如混合类型的字段），按原始顺序返回
@@ -55,7 +54,6 @@ def get_schools(name: str = "__all__", tag: str = "__all__", sort_key: str = "po
     valid_fields = ["rating", "popularity"]
     if sort_key not in valid_fields:
         raise ValueError(f"无效排序字段，允许值：{valid_fields}")
-    print(1)
     if name == "__all__":
         filtered_by_name = school_list
     else:
@@ -64,17 +62,15 @@ def get_schools(name: str = "__all__", tag: str = "__all__", sort_key: str = "po
     if tag == "__all__":
         filtered = filtered_by_name
     else:
-        filtered = [spot for spot in school_list if any(tag in t for t in spot.get('tags', []))]
-
-    reverse_sort = sort_order.lower() == "desc"
+        filtered = [spot for spot in filtered_by_name if any(tag in t for t in spot.get('tags', []))]
 
     if not filtered:
         raise ValueError("景点不存在")
     try:
-        sorted_spots = sorted(
+        sorted_spots = partial_selection_sort(
             filtered,
-            key=lambda x: x.get(sort_key, 0),  # 为不存在的key提供默认值
-            reverse=reverse_sort
+            sort_key=lambda x: x.get(sort_key, 0),  # 为不存在的key提供默认值
+            sort_order=sort_order
         )
     except TypeError:
         # 处理类型不一致的情况（如混合类型的字段），按原始顺序返回

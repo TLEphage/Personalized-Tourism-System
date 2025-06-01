@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
 # 导入路由模块
-from app.routers import upload, users, diaries, spots, map, foods, AIGen
+from app.routers import upload, users, diaries, spots, map, foods, AIGen, recommend
 from app.config import *
 
 # --------------------------- 初始化 FastAPI 应用 ---------------------------
@@ -25,8 +25,8 @@ app = FastAPI(
             "description": "日记的增删改查与排序"
         },
         {
-            "name": "景点查询",
-            "description": "景点的查询与排序"
+            "name": "地点查询",
+            "description": "景点和校园的查询与排序"
         },
         {
             "name": "地图查询",
@@ -39,6 +39,10 @@ app = FastAPI(
         {
             "name": "生成式AI服务",
             "description": "文生视频和智能体的API调用"
+        },
+        {
+            "name": "内容推荐",
+            "description": "根据用户兴趣推荐日记、景点、校园、日记"
         }
     ]
 )
@@ -80,11 +84,11 @@ app.include_router(
     tags=["日记管理"]
 )
 
-# 景点查询路由（前缀 /spots，标签"景点查询"）
+# 地点查询路由（前缀 /spots，标签"地点查询"）
 app.include_router(
     spots.router,
     prefix="/spots",
-    tags=["景点查询"]
+    tags=["地点查询"]
 )
 
 # 地图查询路由（前缀 /map，标签"地图查询"）
@@ -106,6 +110,13 @@ app.include_router(
     AIGen.router,
     prefix="/AIGen",
     tags=["生成式AI服务"]
+)
+
+# 内容推荐路由（前缀 /recommend，标签"内容推荐"）
+app.include_router(
+    recommend.router,
+    prefix="/recommend",
+    tags=["内容推荐"]
 )
 
 # --------------------------- 根路径测试端点 ---------------------------

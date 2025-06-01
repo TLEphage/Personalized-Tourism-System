@@ -5,7 +5,7 @@ from app.models.spots import Spot
 
 router = APIRouter(tags=["地点查询"])
 
-@router.get("/scenic_spots/{name}", response_model=List[Spot], summary="查询特定景点并排序")
+@router.get("/scenic_spots/{name}", response_model=List[Spot], summary="查询特定地点并排序")
 def query_scenic_spots(
     name: str,
     tag: str = Query(default="__all__", description="需要筛选的标签"),

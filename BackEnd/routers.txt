@@ -35,3 +35,5 @@ POST     /foods/search                                  -> 美食搜索
 POST     /AIGen/generate_video                          -> 文生视频
 POST     /AIGen/check_video_status                      -> 将已生成的视频添加到对应日记
 
+推荐模块
+GET     /recommend/{username}                           -> 根据用户hobbies以及内容的评分和热度推荐相关内容，包括景点、校园、美食、日记

@@ -55,7 +55,6 @@ def get_schools(name: str = "__all__", tag: str = "__all__", sort_key: str = "po
     valid_fields = ["rating", "popularity"]
     if sort_key not in valid_fields:
         raise ValueError(f"无效排序字段，允许值：{valid_fields}")
-    print(1)
     if name == "__all__":
         filtered_by_name = school_list
     else:

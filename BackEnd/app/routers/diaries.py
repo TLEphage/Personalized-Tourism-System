@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException, Query
 from typing import Optional, List
-from app.models.diaries import DiaryRequest, DiaryTagRequest, DiaryResponse
+from app.models.diaries import DiaryRequest, DiaryTagRequest, DiaryResponse, DiaryScoreRequest
 from app.services import diary_service
 
 router = APIRouter(tags=["日记管理"])
@@ -77,9 +77,17 @@ def update_diary(diary: DiaryRequest):
     return {"message": "日记更新成功", "diary": updated}
 
 @router.post("/tag", response_model=dict, summary="给对应id的日记打标签")
-def get_diary(diary: DiaryTagRequest):
+def tag_diary(diary: DiaryTagRequest):
     try:
         response = diary_service.diary_append(diary.id, "tags", diary.tag)
         return {"message": "标签添加成功", "diary": response["diary"]}
+    except ValueError as e:
+        raise HTTPException(status_code=404, detail=str(e))
+    
+@router.post("/rate", response_model=dict, summary="给对应id的日记评分")
+def rate_diary(diary: DiaryScoreRequest):
+    try:
+        response = diary_service.rate_diary(diary.id, diary.rate)
+        return {"message": "评分成功", "diary": response["diary"]}
     except ValueError as e:
         raise HTTPException(status_code=404, detail=str(e))

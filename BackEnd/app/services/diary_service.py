@@ -143,3 +143,16 @@ def diary_append(
             write_compressed_json(DIARIES_FILE, diaries)
             return {"message": f"{field}成功添加{content}", "diary": entry}
     raise ValueError(f"未找到 ID 为 {diary_id} 的日记")
+
+def rate_diary(
+    diary_id: int,
+    rate: float
+):
+    diaries = read_compressed_json(DIARIES_FILE, default=[])
+    # 查找目标日记
+    for entry in diaries:
+        if entry.get("id") == diary_id:
+            entry["rating"] = round((entry["rating"]*entry["views"]+rate)/(entry["views"]+1),2)
+            write_compressed_json(DIARIES_FILE, diaries)
+            return {"message": f"评分成功", "diary": entry}
+    raise ValueError(f"未找到 ID 为 {diary_id} 的日记")

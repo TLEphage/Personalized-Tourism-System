@@ -1,8 +1,8 @@
 通用模块
+GET     /                                               -> 服务状态检查
 POST    /upload/images                                  -> 图片上传
 
 用户模块
-GET     /                                               -> 服务状态检查
 POST    /users/register                                 -> 用户注册
 POST    /users/login                                    -> 用户登录
 GET     /users/{username}/details                       -> 查询用户信息
@@ -14,6 +14,7 @@ POST    /diaries/details/{diary_id}                         -> 查看特定日�
 GET     /diaries/{username}?sort_key=...&sort_order=...     -> 获取用户日记
 POST    /diaries/update                                     -> 更新日记
 POST    /diaries/tag                                        -> 日记打标签
+POST    /diaries/rate                                       -> 日记评分
 
 景点模块
 GET     /spots/{name}?tag=...&sort_key=...&sort_order=...   -> 获取景点

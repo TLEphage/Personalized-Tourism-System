@@ -16,6 +16,11 @@ class DiaryTagRequest(BaseModel):
     id: int
     tag: str
 
+class DiaryScoreRequest(BaseModel):
+    """日记打标签请求模型"""
+    id: int
+    rate: float
+
 class DiaryResponse(BaseModel):
     """日记响应模型"""
     username: str

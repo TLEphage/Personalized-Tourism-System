@@ -17,7 +17,8 @@ POST    /diaries/tag                                        -> 日记打标签
 POST    /diaries/rate                                       -> 日记评分
 
 景点模块
-GET     /spots/{name}?tag=...&sort_key=...&sort_order=...   -> 获取景点
+GET     /spots/scenic_spots/{name}?tag=...&sort_key=...&sort_order=...  -> 获取景点
+GET     /spots/schools/{name}?tag=...&sort_key=...&sort_order=...       -> 获取校园
 
 地图模块
 GET     /map/get_graph                                  -> 获取地图完整信息

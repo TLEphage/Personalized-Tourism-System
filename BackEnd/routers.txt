@@ -10,8 +10,10 @@ PUT     /users/{username}/details                       -> 更新用户信息
 
 日记模块
 POST    /diaries/add                                        -> 添加日记
+POST    /diaries/details/{diary_id}                         -> 查看特定日记
 GET     /diaries/{username}?sort_key=...&sort_order=...     -> 获取用户日记
 POST    /diaries/update                                     -> 更新日记
+POST    /diaries/tag                                        -> 日记打标签
 
 景点模块
 GET     /spots/{name}?tag=...&sort_key=...&sort_order=...   -> 获取景点

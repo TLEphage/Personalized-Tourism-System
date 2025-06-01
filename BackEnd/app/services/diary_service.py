@@ -1,5 +1,6 @@
 import time, os
 from app.config import DIARIES_FILE
+from app.models.diaries import DiaryRequest, DiaryResponse, DiaryTagRequest
 from utils.file_utils import read_json, write_json, read_compressed_json, write_compressed_json
 
 # 在应用初始化时调用
@@ -49,7 +50,16 @@ def add_diary(
     diaries.append(diary_entry)
     write_compressed_json(DIARIES_FILE, diaries)
 
-def get_diaries(username: str, sort_key: str = "id", sort_order: str = "desc") -> list:
+def get_diary(diary_id: int) -> dict:
+    diaries = read_compressed_json(DIARIES_FILE)
+    for entry in diaries:
+        if(entry.get("id") == diary_id):
+            entry["views"] += 1
+            write_compressed_json(DIARIES_FILE, diaries)
+            return {"message": "查找成功", "diary": entry}
+    raise ValueError(f"未找到 ID 为 {diary_id} 的日记")
+
+def get_user_diaries(username: str, sort_key: str = "id", sort_order: str = "desc") -> list:
     """
     根据用户名查询日记，支持自定义排序规则
 
@@ -85,7 +95,7 @@ def update_diary(
     username: str,
     diary_id: int,
     fields: dict
-) -> dict:
+) -> DiaryResponse:
     """
     更新日记：
     - 根据 username 和 id 查找日记条目
@@ -94,6 +104,7 @@ def update_diary(
     - 保留其他字段（views, rating, timestamp）不变
     - 写回文件并返回更新后的日记对象
     """
+    print(fields)
     diaries = read_compressed_json(DIARIES_FILE, default=[])
     # 查找目标日记
     for entry in diaries:
@@ -105,7 +116,7 @@ def update_diary(
             if fields.get("content") is not None:
                 entry["content"] = fields["content"]
             if fields.get("images") is not None:
-                entry["image"] = fields["images"]
+                entry["images"] = fields["images"]
             if fields.get("videos") is not None:
                 entry["video"] = fields["videos"]
             if fields.get("tags") is not None:
@@ -130,4 +141,5 @@ def diary_append(
             else:
                 entry[field]=[content]
             write_compressed_json(DIARIES_FILE, diaries)
-            return {"message": f"{field}成功添加{content}"}
+            return {"message": f"{field}成功添加{content}", "diary": entry}
+    raise ValueError(f"未找到 ID 为 {diary_id} 的日记")

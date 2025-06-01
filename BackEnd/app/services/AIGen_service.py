@@ -89,7 +89,8 @@ def check_video_status(task_id: str) -> dict:
 def download_video(url: str, output_path: str) -> dict:
     """下载视频到指定路径"""
     output_path = output_path.lstrip("/")
-    mount_path = f"http://localhost:8000/videos/{output_path}/"
+    output_path = output_path.rstrip("/")
+    saved_url = f"http://localhost:8000/videos/{output_path}/"
     output_path = os.path.join(VIDEO_DIR, output_path)
     if not os.path.exists(output_path):
         os.makedirs(output_path)
@@ -97,12 +98,12 @@ def download_video(url: str, output_path: str) -> dict:
     response.raise_for_status()
     filename = f"{uuid.uuid4()}.mp4"
     file_path = os.path.join(output_path, filename)
-    mount_path = mount_path+filename
+    saved_url = saved_url+filename
     with open(file_path, "wb") as file:
         for chunk in response.iter_content(chunk_size=8192):
             file.write(chunk)
     
-    return {"message": "视频下载成功", "filename": filename, "file_path": file_path, "mount_path": mount_path}
+    return {"message": "视频下载成功", "filename": filename, "file_path": file_path, "url": saved_url}
 
 def check_all_video_status():
     task_cache = read_json(AI_VIDEO_TASK, [])
@@ -113,10 +114,10 @@ def check_all_video_status():
             video_list = response.get("result")
             for video in video_list:
                 video_info = download_video(video, task.get("output_path"))
-                diary_append(task.get("diary_id"), "videos", video_info.get("mount_path"))
+                diary_append(task.get("diary_id"), "videos", video_info.get("url"))
 
         elif response.get("message") == "正在生成视频":
             new_task_cache.append(task)
 
     write_json(AI_VIDEO_TASK, new_task_cache)
-    return {"message": "视频列表状态已更新"}
+    return {"message": "视频列表状态已更新", "tasks": len(new_task_cache)}

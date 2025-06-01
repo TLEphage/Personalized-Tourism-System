@@ -180,7 +180,7 @@
       },
       async handleAvatarUpload(url) {
         try {
-          const response = await axios.put(`http://localhost:8000/user/${this.user.username}`, {
+          const response = await axios.put(`http://localhost:8000/user/${this.user.username}/details`, {
             signature: this.user.signature,
             hobbies: this.user.hobbies,
             avatarPath: url
@@ -202,7 +202,7 @@
       },
       async saveSignature() {
         try {
-          const response = await axios.put(`http://localhost:8000/users/${this.user.username}`,{
+          const response = await axios.put(`http://localhost:8000/users/${this.user.username}/details`,{
             signature: this.editableSignature,
             hobbies: this.user.hobbies,
             avatarPath: this.user.avatarPath

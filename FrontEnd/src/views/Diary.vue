@@ -28,146 +28,76 @@
     </div>
 
     <!-- 日记列表 -->
-    <div class="diary-list">
+    <div class="diary-grid">
       <transition-group name="diary-fade">
         <article 
           v-for="diary in filteredDiaries"
           :key="diary.id"
           class="diary-card"
+          @click="viewDetail(diary.id)"
         >
-          <!-- 媒体区 -->
-          <div class="media-section">
-            <div class="image-gallery">
-              <img 
-                v-for="(img, index) in diary.images.slice(0, 3)"
-                :key="index"
-                :src="img"
-                :alt="`旅行图片 ${index + 1}`"
-                class="gallery-image"
-                :class="{ 'main-image': index === 0 }"
-              >
-            </div>
-            <div v-if="diary.videos.length" class="video-container">
-              <video controls :poster="diary.images[0]">
-                <source :src="diary.videos[0]" type="video/mp4">
-              </video>
+          <!-- 封面图 -->
+          <div class="diary-cover">
+            <img 
+              :src="diary.images[0] || '/default-cover.jpg'"
+              :alt="diary.title"
+              class="cover-image"
+            >
+            <div class="diary-meta">
+              <span class="meta-item">
+                <i class="fas fa-eye"></i>
+                {{ formatNumber(diary.views) }}
+              </span>
+              <span class="meta-item">
+                <i class="fas fa-star"></i>
+                {{ diary.rating.toFixed(1) }}
+              </span>
             </div>
           </div>
 
-          <!-- 内容区 -->
-          <div class="content-section">
-            <h2 class="diary-title">{{ diary.title }}</h2>
-            <div class="author-meta">
-              <span class="author">✍️ {{ diary.username }}</span>
-              <time class="post-date">📅 {{ diary.createdAt?formatDate(diary.createdAt):'暂无时间信息' }}</time>
-            </div>
-            <p class="diary-content">{{ diary.content }}</p>
+          <!-- 内容预览 -->
+          <div class="diary-preview">
+            <h3 class="diary-title">{{ diary.title }}</h3>
+            <p class="diary-excerpt">{{ truncateContent(diary.content, 100) }}</p>
             
-            <!-- 数据指标 -->
-            <div class="metrics-grid">
-              <div class="metric-item">
-                <i class="icon-eye"></i>
-                <div>
-                  <span class="metric-value">{{ diary.views }}</span>
-                  <span class="metric-label">浏览量</span>
-                </div>
-              </div>
-              <div class="metric-item">
-                <i class="icon-star"></i>
-                <div>
-                  <span class="metric-value">{{ diary.rating.toFixed(1) }}</span>
-                  <span class="metric-label">平均评分</span>
-                </div>
+            <!-- 标签 -->
+            <div class="diary-tags" v-if="diary.tags && diary.tags.length">
+              <span 
+                v-for="(tag, index) in diary.tags.slice(0, 3)" 
+                :key="index"
+                class="tag"
+              >
+                {{ tag }}
+              </span>
+              <span v-if="diary.tags.length > 3" class="tag more-tag">
+                +{{ diary.tags.length - 3 }}
+              </span>
+            </div>
+
+            <!-- 作者信息 -->
+            <div class="diary-footer">
+              <div class="author-info">
+                <img :src="diary.avatar || '/default-avatar.jpg'" class="author-avatar">
+                <span class="author-name">{{ diary.username }}</span>
               </div>
             </div>
-          </div>
-
-          <!-- 操作按钮 -->
-          <div class="action-section">
-            <button class="btn-detail" @click="viewDetail(diary.id)">
-              <i class="icon-arrow-right"></i>
-              查看详情
-            </button>
           </div>
         </article>
       </transition-group>
     </div>
-    <button class="float-btn" @click="showEditor = true">
+
+    <button class="create-diary-btn" @click="showEditor = true">
       <i class="icon-plus"></i>
       新建日记
     </button>
-    <!-- 新建日记模态框 -->
-    <transition name="modal-fade">
-      <div v-if="showEditor" class="diary-editor-modal">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h3>撰写新游记</h3>
-            <button class="close-btn" @click="closeEditor">×</button>
-          </div>
-
-          <form @submit.prevent="submitDiary">
-            <div class="form-group">
-              <label>游记标题</label>
-              <input 
-                type="text" 
-                v-model="newDiary.title" 
-                placeholder="请输入游记标题"
-                required
-              >
-            </div>
-
-            <div class="form-group">
-              <label>游记内容</label>
-              <textarea
-                v-model="newDiary.content"
-                placeholder="写下你的旅行故事..."
-                rows="8"
-                required
-              ></textarea>
-            </div>
-
-            <div class="form-group">
-              <label>上传图片</label>
-              <ImageUpload 
-                @uploaded="handleImageUpload" 
-                @clear="newDiary.images = []"
-              />
-              <div v-if="newDiary.images.length" class="upload-preview">
-                已上传 {{ newDiary.images.length }} 张图片
-              </div>
-            </div>
-
-            <!-- <div class="form-group">
-              <label>上传视频</label>
-              <VideoUpload 
-                @uploaded="handleVideoUpload"
-                @clear="newDiary.videos = []"
-              />
-              <div v-if="newDiary.videos.length" class="upload-preview">
-                已上传 {{ newDiary.videos.length }} 个视频
-              </div>
-            </div> -->
-
-            <div class="form-actions">
-              <button 
-                type="button" 
-                class="btn-cancel"
-                @click="closeEditor"
-              >
-                取消
-              </button>
-              <button 
-                type="submit" 
-                class="btn-submit"
-                :disabled="isSubmitting"
-              >
-                {{ isSubmitting ? '提交中...' : '发布游记' }}
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </transition>
+    
+    <EditDiary
+      v-if="showEditor"
+      :diary="editingDiary"
+      :isEdit="!!editingDiary"
+      @close="closeEditor"
+      
+    />
   </div>
 </template>
 
@@ -188,13 +118,7 @@ export default{
         sortBy: 'views',
         isLoading: false,
         showEditor: false,
-        isSubmitting: false,
-        newDiary: {
-          title: '',
-          content: '',
-          images:[],
-          // videos:[]
-        }
+        editingDiary: null
       }
     },
     created(){
@@ -248,77 +172,90 @@ export default{
       handleImageUpload(url) {
         this.newDiary.images.push(url);
       },
-      // handleVideoUpload(url) {
-      //   this.newDiary.videos.push(url);
-      // },
-      async submitDiary() {
+      async handleDiarySubmit(diaryData) {
         try {
-          this.isSubmitting = true;
-          const payload = {
-            ...this.newDiary,
+          const response = await axios.post('http://localhost:8000/diaries/add', {
+            ...diaryData,
             username: this.$store.state.user.username
+          });
+          
+          if (response.data.message === '日记添加成功') {
+            // this.$message.success('日记发布成功！');
+            this.closeEditor();
+            this.fetchDiaries();
           }
-          const response = await axios.post('http://localhost:8000/diaries', payload);
-          if (response.message === '日记添加成功') {
-            alert('日记添加成功！');
-          } else {
-            alert('添加日记失败，请重试！');
-          }
-          this.closeEditor();
-          this.fetchDiaries();
         } catch (error) {
-          console.log('提交失败',error);
-        } finally {
-          this.isSubmitting = false;
+          console.error('提交失败:', error);
+          // this.$message.error('发布失败，请重试');
         }
       },
       closeEditor() {
         this.showEditor = false;
-        this.newDiary = {
-          title: '',
-          content: '',
-          images: [],
-          // videos: []
-        }
+        this.editingDiary = null;
       },
+      handleSort() {
+        this.fetchDiaries();
+      },
+      handleSearch() {
+        this.fetchDiaries();
+      },
+      viewDetail(id) {
+        this.$router.push(`/diary/${id}`);
+      },
+      formatNumber(num) {
+        if (num >= 1000000) {
+          return (num / 1000000).toFixed(1) + 'M';
+        }
+        if (num >= 1000) {
+          return (num / 1000).toFixed(1) + 'K';
+        }
+        return num.toString();
+      }
     }
 }
 </script>
 
 <style scoped>
-/* 容器布局 */
 .diary-list-container {
-  max-width: 1280px;
+  max-width: 1440px;
   margin: 2rem auto;
   padding: 0 2rem;
 }
 
-/* 搜索控制区 */
+/* 搜索区域 */
 .search-control {
   margin-bottom: 3rem;
   padding: 2rem;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .search-group {
-  display: grid;
-  gap: 2rem;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .search-wrapper {
   display: flex;
   gap: 1rem;
-  width: 100%;
+  flex: 1;
 }
 
 .search-input {
   flex: 1;
-  padding: 1.2rem;
+  padding: 1rem 1.5rem;
   border: 2px solid #e0e0e0;
   border-radius: 12px;
-  font-size: 1.1rem;
+  font-size: 1rem;
   transition: all 0.3s ease;
 }
 
@@ -333,13 +270,14 @@ export default{
   color: white;
   border: none;
   border-radius: 12px;
-  font-size: 1.1rem;
+  font-size: 1rem;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .search-btn:hover {
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
 }
 
 /* 排序控件 */
@@ -358,20 +296,6 @@ export default{
 }
 
 /* 日记卡片 */
-.diary-list {
-  display: grid;
-  gap: 3rem;
-}
-
-.diary-card {
-  background: white;
-  border-radius: 24px;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
-  overflow: hidden;
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  min-height: 480px;
-}
 
 .media-section {
   position: relative;
@@ -418,13 +342,6 @@ export default{
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-}
-
-.diary-title {
-  font-size: 2rem;
-  margin: 0;
-  color: #1a1a1a;
-  line-height: 1.3;
 }
 
 .author-meta {
@@ -499,31 +416,6 @@ export default{
 }
 
 /* 过渡动画 */
-.diary-fade-enter-active,
-.diary-fade-leave-active {
-  transition: all 0.5s ease;
-}
-
-.diary-fade-enter-from,
-.diary-fade-leave-to {
-  opacity: 0;
-  transform: translateY(30px);
-}
-
-@media (max-width: 1024px) {
-  .diary-card {
-    grid-template-columns: 1fr;
-    min-height: auto;
-  }
-  
-  .media-section {
-    height: 400px;
-  }
-  
-  .content-section {
-    padding: 2rem;
-  }
-}
 
 .float-btn {
   position: fixed;
@@ -643,5 +535,220 @@ textarea {
 .modal-fade-enter-from,
 .modal-fade-leave-to {
   opacity: 0;
+}
+
+.diary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin: 2rem auto;
+  max-width: 1200px;
+}
+
+.diary-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.diary-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* 封面样式 */
+.diary-cover {
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+}
+
+.cover-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.diary-card:hover .cover-image {
+  transform: scale(1.05);
+}
+
+.diary-meta {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 0.8rem;
+  z-index: 2;
+}
+
+.meta-item {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.meta-item i {
+  font-size: 1rem;
+}
+
+/* 内容预览 */
+.diary-preview {
+  flex: 1;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.diary-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+  line-height: 1.3;
+}
+
+.diary-excerpt {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #666;
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+
+/* 标签样式 */
+.diary-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.tag {
+  background: #f0f2f5;
+  color: #666;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.tag:hover {
+  background: #e4e7eb;
+  transform: translateY(-1px);
+}
+
+/* 底部信息 */
+.diary-footer {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.author-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.author-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.author-name {
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.publish-date {
+  color: #999;
+  font-size: 0.9rem;
+}
+
+/* 新建按钮 */
+.create-diary-btn {
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  cursor: pointer;
+  box-shadow: 0 8px 16px rgba(0, 123, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.create-diary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(0, 123, 255, 0.3);
+}
+
+/* 动画效果 */
+.diary-fade-enter-active,
+.diary-fade-leave-active {
+  transition: all 0.5s ease;
+}
+
+.diary-fade-enter-from,
+.diary-fade-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* 响应式布局优化 */
+@media (max-width: 1200px) {
+  .diary-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 1rem;
+  }
+  
+  .search-control {
+    margin: 2rem 1rem;
+  }
+  
+  .search-group {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .diary-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .diary-card {
+    margin-bottom: 2rem;
+  }
+  
+  .search-wrapper {
+    flex-direction: column;
+  }
 }
 </style>

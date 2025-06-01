@@ -54,7 +54,7 @@ export default {
           }
 
           // 向后端发送用户选择的兴趣
-          axios.put(`http://localhost:8000/users/${store.state.user.username}`, {
+          axios.put(`http://localhost:8000/users/${store.state.user.username}/details`, {
               avatarPath: store.state.user.avatarPath,
               signature: store.state.user.signature,
               hobbies: selectedInterests.value

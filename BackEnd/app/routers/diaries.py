@@ -12,7 +12,7 @@ def add_diary(diary: DiaryRequest):
       - 将日记信息保存到持久化存储（JSON 或数据库）
     """
     print(diary)
-    diary_service.add_diary(
+    diary_id = diary_service.add_diary(
         diary.username,
         diary.title,
         diary.content,
@@ -20,7 +20,7 @@ def add_diary(diary: DiaryRequest):
         diary.videos,
         diary.tags
     )
-    return {"message": "日记添加成功"}
+    return {"message": "日记添加成功", "diary_id": diary_id}
 
 @router.post("/details/{diary_id}", response_model=DiaryResponse, summary="获取特定id的日记")
 def get_diary(diary_id: int):

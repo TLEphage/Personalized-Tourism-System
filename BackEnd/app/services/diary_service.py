@@ -49,6 +49,7 @@ def add_diary(
     # 更新并写入完整列表
     diaries.append(diary_entry)
     write_compressed_json(DIARIES_FILE, diaries)
+    return new_id
 
 def get_diary(diary_id: int) -> dict:
     diaries = read_compressed_json(DIARIES_FILE)

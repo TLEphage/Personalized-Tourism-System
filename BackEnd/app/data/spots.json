@@ -953,6 +953,204 @@
                 "weekend": "全天开放"
             },
             "url": "https://images.pexels.com/photos/31168964/pexels-photo-31168964.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        },
+        {
+            "name": "鼓浪屿",
+            "description": "鼓浪屿是厦门西南禺的一座小岛，岛上气候宜人，四季如春，无车马喧嚣，有鸟语花香，素有“海上花园”之誉。岛上保存大量中外风格各异的建筑物，有“万国建筑博览”之称。",
+            "location": "福建省厦门市思明区鼓浪屿",
+            "coordinates": {
+                "latitude": 24.43978,
+                "longitude": 118.03732
+            },
+            "rating": 4.87,
+            "popularity": 92,
+            "tags": [
+                "海岛",
+                "历史建筑",
+                "音乐之岛"
+            ],
+            "price_range": "上岛免费，部分景点单独收费，联票约 100 - 130 元",
+            "open_hours": {
+                "weekday": "全天开放",
+                "weekend": "全天开放"
+            },
+            "url": "https://images.pexels.com/photos/31168964/pexels-photo-31168964.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        },
+        {
+            "name": "稻城亚丁",
+            "description": "稻城亚丁主要由“仙乃日、央迈勇、夏诺多吉”三座神山和周围的河流、湖泊和高山草甸组成，它的景致保持着在地球上近绝迹的纯粹，因其独特的地貌和原生态的自然风光，被誉为“香格里拉之魂”和“最后的香格里拉”。",
+            "location": "四川省甘孜藏族自治州稻城县香格里拉镇亚丁村境内",
+            "coordinates": {
+                "latitude": 28.39335,
+                "longitude": 100.49242
+            },
+            "rating": 4.90,
+            "popularity": 90,
+            "tags": [
+                "高原雪山",
+                "自然保护区",
+                "徒步胜地"
+            ],
+            "price_range": "门票 150 元，观光车 120 元",
+            "open_hours": {
+                "weekday": "07:00 - 17:30",
+                "weekend": "07:00 - 17:30"
+            },
+            "url": "https://images.pexels.com/photos/31168964/pexels-photo-31168964.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        },
+        {
+            "name": "长江三峡",
+            "description": "长江三峡是瞿塘峡、巫峡和西陵峡三段峡谷的总称，西起重庆市奉节县白帝城，东至湖北宜昌市南津关，全长 193 千米，沿途两岸奇峰陡立、峭壁对峙，自西向东依次为瞿塘峡、巫峡、西陵峡。",
+            "location": "西起重庆市奉节县白帝城，东至湖北省宜昌市南津关",
+            "coordinates": {
+                "latitude": 30.94547,
+                "longitude": 110.77173
+            },
+            "rating": 4.85,
+            "popularity": 88,
+            "tags": [
+                "峡谷风光",
+                "游船观光",
+                "历史文化"
+            ],
+            "price_range": "游船票价因线路和船型而异，大致在 500 - 5000 元不等",
+            "open_hours": {
+                "weekday": "游船运营时间各不相同",
+                "weekend": "游船运营时间各不相同"
+            },
+            "url": "https://images.pexels.com/photos/31168964/pexels-photo-31168964.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        },
+        {
+            "name": "苏州园林",
+            "description": "苏州园林是世界文化遗产，主要有沧浪亭、狮子林、拙政园、留园、网师园、怡园等园林，以其精美的造园艺术和深厚的文化内涵闻名于世，体现了中国江南地区传统的园林建筑风格。",
+            "location": "江苏省苏州市",
+            "coordinates": {
+                "latitude": 31.29882,
+                "longitude": 120.58539
+            },
+            "rating": 4.88,
+            "popularity": 91,
+            "tags": [
+                "古典园林",
+                "江南水乡",
+                "文化遗产"
+            ],
+            "price_range": "各园林票价不同，大致在 20 - 90 元",
+            "open_hours": {
+                "weekday": "一般 07:30 - 17:30",
+                "weekend": "一般 07:30 - 17:30"
+            },
+            "url": "https://images.pexels.com/photos/31168964/pexels-photo-31168964.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        },
+        {
+            "name": "青岛栈桥",
+            "description": "青岛栈桥是青岛的标志性建筑，位于青岛湾中，与小青岛隔水相望，北端与中山路成一直线相连，由海岸前伸入海，素有“长虹远引”之美誉。",
+            "location": "山东省青岛市市南区太平路 12 号",
+            "coordinates": {
+                "latitude": 36.04072,
+                "longitude": 120.33721
+            },
+            "rating": 4.75,
+            "popularity": 85,
+            "tags": [
+                "海滨景观",
+                "城市地标",
+                "休闲散步"
+            ],
+            "price_range": "免费",
+            "open_hours": {
+                "weekday": "全天开放",
+                "weekend": "全天开放"
+            },
+            "url": "https://images.pexels.com/photos/31168964/pexels-photo-31168964.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        },
+        {
+            "name": "哈尔滨中央大街",
+            "description": "哈尔滨中央大街是哈尔滨最繁华的商业街，街道建筑包罗了文艺复兴，巴洛克等多种风格的建筑 71 栋，是中国国内罕见的一条建筑艺术长廊。",
+            "location": "黑龙江省哈尔滨市道里区",
+            "coordinates": {
+                "latitude": 45.76871,
+                "longitude": 126.63238
+            },
+            "rating": 4.82,
+            "popularity": 87,
+            "tags": [
+                "商业街",
+                "欧式建筑",
+                "冰雪文化"
+            ],
+            "price_range": "免费",
+            "open_hours": {
+                "weekday": "全天开放",
+                "weekend": "全天开放"
+            },
+            "url": "https://images.pexels.com/photos/31168964/pexels-photo-31168964.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        },
+        {
+            "name": "镜泊湖",
+            "description": "镜泊湖是中国最大、世界第二大高山堰塞湖，以湖光山色为主，兼有火山口地下原始森林、地下熔岩隧道等地质奇观，是著名旅游、避暑和疗养胜地。",
+            "location": "黑龙江省牡丹江市宁安市境西南部",
+            "coordinates": {
+                "latitude": 43.89003,
+                "longitude": 128.82351
+            },
+            "rating": 4.78,
+            "popularity": 83,
+            "tags": [
+                "堰塞湖",
+                "自然景观",
+                "休闲度假"
+            ],
+            "price_range": "门票 100 元，观光车 12 元",
+            "open_hours": {
+                "weekday": "08:00 - 16:00",
+                "weekend": "08:00 - 16:00"
+            },
+            "url": "https://images.pexels.com/photos/31168964/pexels-photo-31168964.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        },
+        {
+            "name": "可可西里",
+            "description": "可可西里是中国最大的无人区之一，也是中国海拔最高、野生动物资源最为丰富的自然保护区之一，主要保护藏羚羊、野牦牛、藏野驴、藏原羚等珍稀野生动物、植物及其栖息环境。",
+            "location": "青海省玉树藏族自治州西部",
+            "coordinates": {
+                "latitude": 35.19367,
+                "longitude": 93.46822
+            },
+            "rating": 4.91,
+            "popularity": 86,
+            "tags": [
+                "无人区",
+                "自然保护",
+                "高原生态"
+            ],
+            "price_range": "免费，但需办理相关手续才能进入",
+            "open_hours": {
+                "weekday": "不对外开放普通游客，科研、保护等活动需申请",
+                "weekend": "不对外开放普通游客，科研、保护等活动需申请"
+            },
+            "url": "https://images.pexels.com/photos/31168964/pexels-photo-31168964.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        },
+        {
+            "name": "桂林漓江",
+            "description": "桂林漓江是世界上规模最大、风景最美的岩溶山水游览区之一，漓江的特点概括为清、奇、巧、变四个字，主要景点有象鼻山、九马画山、黄布倒影等。",
+            "location": "广西壮族自治区桂林市灵川县、阳朔县等地",
+            "coordinates": {
+                "latitude": 24.91526,
+                "longitude": 110.30345
+            },
+            "rating": 4.90,
+            "popularity": 90,
+            "tags": [
+                "岩溶地貌",
+                "山水风光",
+                "游船观光"
+            ],
+            "price_range": "船票价格因线路和船型不同，大致在 200 - 400 元",
+            "open_hours": {
+                "weekday": "游船运营时间各不相同",
+                "weekend": "游船运营时间各不相同"
+            },
+            "url": "https://images.pexels.com/photos/31168964/pexels-photo-31168964.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
         }
     ]
 }

@@ -3,6 +3,7 @@ import heapq
 from app.config import MAP_FILE
 from utils.file_utils import read_json, write_json
 from app.models.map import *
+from algorithm.Sort import quick_sort
 
 def get_graph():
     graph = read_json(MAP_FILE, default={})
@@ -236,7 +237,7 @@ def search_places(longitude: float, latitude: float, query_type: str, max_result
                 )
                 candidates.append(candidate_node)
             
-    sorted_places = sorted(candidates, key=lambda x: x.distance)
+    sorted_places = quick_sort(candidates, sort_key=lambda x: x.distance)
     return sorted_places[:max_results]
 
 # 示例调用

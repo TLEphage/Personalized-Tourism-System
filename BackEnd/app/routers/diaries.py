@@ -50,6 +50,17 @@ def get_user_diaries(
     )
     return {"diaries": diaries}
 
+@router.get("/search", response_model=dict, summary="搜索标题或内容")
+def get_user_diaries(
+    title: str = Query(default="__all__", description="标题"),
+    content: str = Query(default="__all__", description="内容")
+):
+    diaries = diary_service.search_diaries(
+        title=title,
+        content=content
+    )
+    return {"diaries": diaries}
+
 @router.post("/update", response_model=dict, summary="更新日记")
 def update_diary(diary: DiaryRequest):
     """

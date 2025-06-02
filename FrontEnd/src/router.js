@@ -7,6 +7,7 @@ import InterestSelector from './components/InterestSelector.vue'
 import UserProfile from './components/UserProfile.vue'
 import Developer from './views/Developer.vue'
 import SpotDetail from './components/SpotDetail.vue'
+import DiaryDetail from './components/DiaryDetail.vue'
 
 const router = createRouter({
     history: createWebHashHistory(),
@@ -50,6 +51,11 @@ const router = createRouter({
             path:'/SpotDetail/:name',
             name:'SpotDetail',
             component:SpotDetail
+        },
+        {
+            path:'/DiaryDetail/:id',
+            name:'DiaryDetail',
+            component:DiaryDetail
         }
     ]
 });

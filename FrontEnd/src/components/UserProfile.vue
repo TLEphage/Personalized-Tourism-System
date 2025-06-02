@@ -41,10 +41,15 @@
       <!-- 头像编辑弹窗 -->
       <transition name="modal">
         <div v-if="showAvatarEditor" class="modal-mask">
+          <!-- 添加modal-wrapper确保正确布局 -->
           <div class="modal-wrapper">
-            <div class="modal-container">
+            <!-- 使用统一的modal-container类 -->
+            <div class="modal-container avatar-modal-container">
               <h3>更换头像</h3>
-              <ImageUpload @uploaded="handleAvatarUpload"/>
+              <!-- 添加包裹容器确保正确渲染 -->
+              <div class="upload-wrapper">
+                <ImageUpload @uploaded="handleAvatarUpload"/>
+              </div>
               <button class="modal-close" @click="showAvatarEditor = false">
                 ×
               </button>
@@ -90,7 +95,7 @@
                     :key="'img-'+index"
                     class="media-item"
                   >
-                    <img :src="img" alt="日记图片" class="media-image" @click="openLightbox(img)">
+                    <img :src="img" alt="日记图片" class="media-image" @click="viewDiaryDetail(diary.id)">
                   </div>
                   <div
                     v-for="(video,index) in diary.videos"
@@ -127,9 +132,13 @@
 <script>
   import { mapState } from 'vuex';
   import axios from 'axios';
+  import ImageUpload from './ImageUpload.vue';
 
   export default {
     name: 'UserProfile',
+    components: {
+      ImageUpload,
+    },
     data() {
       return {
         diaries: [],
@@ -180,7 +189,7 @@
       },
       async handleAvatarUpload(url) {
         try {
-          const response = await axios.put(`http://localhost:8000/user/${this.user.username}/details`, {
+          const response = await axios.put(`http://localhost:8000/users/${this.user.username}/details`, {
             signature: this.user.signature,
             hobbies: this.user.hobbies,
             avatarPath: url
@@ -221,6 +230,9 @@
         } finally {
           this.showSignatureEditor = false
         }
+      },
+      viewDiaryDetail(id) {
+        this.$router.push({name:'DiaryDetail', params: {id}});
       }
     }
   }
@@ -511,15 +523,6 @@
   position: relative;
 }
 
-.modal-close {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  font-size: 1.5rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
 
 .modal-actions {
   margin-top: 1.5rem;
@@ -535,5 +538,87 @@
 .modal-enter-from, .modal-leave-to {
   opacity: 0;
   transform: scale(0.9);
+}
+
+.modal-mask {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100%;
+}
+
+.avatar-modal-container {
+  width: 500px;
+  max-width: 90%;
+  padding: 30px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+/* 上传区域包裹容器 */
+.upload-wrapper {
+  min-height: 300px; /* 确保有足够高度 */
+  display: flex;
+  flex-direction: column;
+}
+
+.image-upload-container {
+  flex: 1;
+  display: flex;
+}
+
+.upload-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px; /* 确保最小高度 */
+  padding: 30px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 28px;
+  background: none;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s;
+  z-index: 100;
+}
+
+.modal-close:hover {
+  background: #f5f5f5;
+  transform: rotate(90deg);
+}
+
+.image-upload-container {
+  flex: 1; /* 填充剩余空间 */
+  display: flex;
+}
+
+.upload-area {
+  flex: 1; /* 填充容器 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 </style>

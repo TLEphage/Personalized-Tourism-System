@@ -59,6 +59,30 @@
                 placeholder="输入标签按回车添加"
               >
             </div>
+            <div class="tags-preview">
+                <span v-for="tag in tags" :key="tag" class="tag-item">
+                  {{ tag }} <button @click="removeTag(tag)" class="remove-tag-btn">x</button>
+                </span>
+              </div>
+          </div>
+
+          <div v-if="!isEdit" class="video-generation-section">
+            <h4>文生视频(根据日记内容)</h4>
+            <div class="form-group">
+              <label>生成模式</label>
+              <div>
+                <input type="radio" id="qualitySpeed" value="speed" v-model="videoParams.quality">
+                <label for="qualitySpeed" style="margin-left: 5px;">速度优先</label>
+              </div>
+              <div>
+                <input type="radio" id="qualityQuality" value="quality" v-model="videoParams.quality">
+                <label for="qualityQuality" style="margin-left: 5px;">质量优先</label>
+              </div>
+              <div>
+                <input type="checkbox" id="generateVideoToggle" v-model="videoParams.shouldGenerate">
+                <label for="generateVideoToggle" style="margin-left: 5px;">为此日记生成视频</label>
+              </div>
+            </div>
           </div>
   
           <div class="form-actions">
@@ -122,6 +146,10 @@
   
       const newTag = ref('');
       const isSubmitting = ref(false);
+      const videoParams = reactive({
+        shouldGenerate: false,
+        quality: 'speed'
+      });
   
       const addTag = () => {
         const tag = newTag.value.trim();
@@ -175,9 +203,18 @@
             await axios.post('http://localhost:8000/diaries/update', payload);
           } else {
             // 新建模式
-            await axios.post('http://localhost:8000/diaries/add', payload);
+            const response = await axios.post('http://localhost:8000/diaries/add', payload);
+            if(this.videoParams.shouldGenerate) {
+              const videoRequestData = {
+                username: store.state.user.username,
+                diary_id: response.data.id,
+                prompt: this.content,
+                quality: this.videoParams.quality
+              }
+              const videoGenApiResponse = await axios.post('http://localhost:8000/api/AIGen/generate_video', videoRequestData);
+              console.log("文生视频结果： ",  videoGenApiResponse.data.message);
+            }
           }
-
           emit('submit', payload);
           emit('close');
         } catch (error) {
@@ -197,7 +234,8 @@
         handleImageUpload,
         handleImageClear,
         handleUploadError,
-        handleSubmit
+        handleSubmit,
+        videoParams
       };
     }
   };

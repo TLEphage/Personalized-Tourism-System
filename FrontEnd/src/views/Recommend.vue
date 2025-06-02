@@ -62,7 +62,7 @@
           <div v-for="(item, index) in list"
               :key="item.id"
               class="spot-card"
-              @click="gotoDetailPage(item.name)">
+              @click="gotoDetailPage(item.name, activeTab)">
             <div class="card-header">
               <img :src="item.url"
                   :alt="item.name"
@@ -104,7 +104,7 @@
           <div v-for="(rec, index) in list"
               :key="rec.item.id"
               class="recommend-card"
-              @click="gotoDetailPage(rec.item.name)">
+              @click="gotoDetailPage(rec.item.name, activeTab)">
             <div class="card-header">
               <img :src="rec.item.url"
                   :alt="rec.item.name"
@@ -318,9 +318,18 @@ export default {
     truncateDescription(desc) {
       return desc?.length > 60 ? desc.slice(0, 60) + '...' : desc;
     },
-    gotoDetailPage(name) {
+    gotoDetailPage(name, tab) {
       console.log('点击了卡片，跳转到详情页:', name);
-      this.$router.push({ name: 'SpotDetail', params: { name } });
+      let type;
+      if(tab === 'schools' || tab === 'recommend_schools') {
+        type = 'schools';
+      } else if(tab === 'spots' || tab === 'recommend_scenic_spots') {
+        type = 'scenic_spots';
+      } else {
+        console.error('未知的tab类型:', tab);
+        return;
+      }
+      this.$router.push({ name: 'SpotDetail', params: { name, type } });
     },
     async fetchFoodList() {
       try {

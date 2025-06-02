@@ -106,6 +106,7 @@
     },
     created() {
       this.name = this.$route.params.name;
+      this.type = this.$route.params.type;
       this.fetchSpotDetail(this.name);
       console.log('获取景点详情的参数:', this.name);
     },
@@ -114,7 +115,7 @@
         try {
           this.loading = true;
           console.log('请求参数:', name);
-          const response = await axios.get(`http://localhost:8000/spots/${name}`);
+          const response = await axios.get(`http://localhost:8000/spots/${this.type}/${name}`);
           console.log('获取景点详情成功:', response.data);
           this.spot = response.data[0];
           this.error = null;

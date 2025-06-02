@@ -2,6 +2,7 @@ import time, os
 from app.config import DIARIES_FILE
 from app.models.diaries import DiaryRequest, DiaryResponse, DiaryTagRequest
 from utils.file_utils import read_json, write_json, read_compressed_json, write_compressed_json
+from algorithm.Sort import quick_sort
 
 # 在应用初始化时调用
 if not os.path.exists(DIARIES_FILE):
@@ -49,6 +50,7 @@ def add_diary(
     # 更新并写入完整列表
     diaries.append(diary_entry)
     write_compressed_json(DIARIES_FILE, diaries)
+    return new_id
 
 def get_diary(diary_id: int) -> dict:
     diaries = read_compressed_json(DIARIES_FILE)
@@ -75,15 +77,40 @@ def get_user_diaries(username: str, sort_key: str = "id", sort_order: str = "des
     else:
         filtered = [entry for entry in diaries if entry.get("username") == username]
     
+    # 执行排序（使用带异常处理的排序方式）
+    try:
+        sorted_diaries = quick_sort(
+            filtered,
+            sort_key=lambda x: x.get(sort_key, 0),  # 为不存在的key提供默认值
+            sort_order=sort_order
+        )
+    except TypeError:
+        # 处理类型不一致的情况（如混合类型的字段），按原始顺序返回
+        sorted_diaries = filtered
+    
+    return sorted_diaries
+
+def search_diaries(title: str, content: str) -> list:
+    diaries = read_compressed_json(DIARIES_FILE)
+    
+    if title == "__all__":
+        filtered_by_title = diaries
+    else:
+        filtered_by_title = [entry for entry in diaries if entry.get("title") == title]
+
+    if content == "__all__":
+        filtered = diaries
+    else:
+        filtered = [entry for entry in filtered_by_title if content in entry.get("content")]
+    
     # 处理排序方向
-    reverse_sort = sort_order.lower() == "desc"
     
     # 执行排序（使用带异常处理的排序方式）
     try:
-        sorted_diaries = sorted(
+        sorted_diaries = quick_sort(
             filtered,
-            key=lambda x: x.get(sort_key, 0),  # 为不存在的key提供默认值
-            reverse=reverse_sort
+            sort_key=lambda x: x.get("id", 0),  # 为不存在的key提供默认值
+            sort_order="desc"
         )
     except TypeError:
         # 处理类型不一致的情况（如混合类型的字段），按原始顺序返回

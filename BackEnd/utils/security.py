@@ -1,5 +1,5 @@
 import time
-from app.algorithm.Hash import simple_hash
+from algorithm.Hash import simple_hash
 
 def hash_password(password: str) -> str:
     """

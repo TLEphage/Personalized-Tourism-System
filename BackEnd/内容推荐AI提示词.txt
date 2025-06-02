@@ -1,0 +1,145 @@
+我用python+fastapi制作了个性化旅游系统，后端的目录结构如下
+BackEnd/
+├── app/
+│   ├── config.py          # 配置文件（如JSON文件路径）
+│   │
+│   ├── routes/             # 路由层
+│   │   ├── users.py        # 用户注册/登录
+│   │   ├── foods.py        # 美食搜索
+│   │   ├── spots.py        # 地点搜索
+│   │   └── diaries.py      # 日记管理
+│   │   
+│   │
+│   ├── services/          # 业务逻辑
+│   │   ├── user_service.py       # 用户注册/登录
+│   │   ├── food_service.py       # 美食搜索
+│   │   ├── spot_service.py       # 地点搜索
+│   │   └── diary_service.py      # 日记管理
+│   │   
+│   │     
+│   └── data/              # JSON数据文件存放目录
+│       ├── users.json     # 用户数据文件
+│       ├── diaries.json   # 日记数据文件
+│       ├── spots.json     # 地点数据文件，包括学校和景点
+│       └── foods.json     # 美食数据文件
+│       
+│
+└── utils/
+    ├── file_utils.py      # JSON文件读写工具
+    └── security.py        # 密码哈希校验
+
+在app.config.py中，定义users.json路径为USERS_FILE，diaries.json路径为DIARIES_FILE，spots.json路径为SPOTS_FILE，foods.json路径为FOODS_FILE
+file_utils.py中定义了read_json(file_path, default=None)用于读取file_path对应的json文件，write_json(file_path, data)用于将data写入file_path对应的json文件
+
+users.json部分数据如下
+```json
+[
+    {
+        "id": 2,
+        "username": "TLEphage",
+        "passwordHash": "201757652:1744883375623",
+        "role": "admin",
+        "avatarPath": "http://localhost:8000/images/avatars/default_avatar.jpg",
+        "signature": "大家好啊",
+        "hobbies": [
+            "校园"
+        ]
+    }
+]
+```
+
+diaries.json部分数据如下
+```json
+[
+    {
+        "username": "Alice",
+        "id": 4,
+        "title": "北航行",
+        "content": "北航行",
+        "images": ["http://localhost:8000/images/avatars/default_avatar.jpg"],
+        "videos": ["http://localhost:8000/videos/Alice/8c67213a-fb62-4aa3-a936-b033ef40b277.mp4"],
+        "views": 60,
+        "rating": 3.5,
+        "tags": ["校园"],
+        "timestamp": 114514
+    }
+]
+```
+
+foods.json部分数据如下
+```json
+{
+    "foods": [
+        {
+            "restaurant_name": "金谷园饺子馆",
+            "description": "金谷园饺子馆是一家知名的北京水饺店，以其物美价廉和新鲜手工现包的饺子而著称‌。",
+            "address": "北三环中路44号海淀文教产业园10号楼2层201号",
+            "latitude": 39.965527,
+            "longitude": 116.360708,
+            "popularity": 80,
+            "rating": 4.3,
+            "tags": ["饺子", "性价比高", "老字号"]
+        },
+    ]
+}
+```
+
+spots.json部分数据如下
+```json
+{
+    "schools": [
+        {
+            "name": "北京邮电大学",
+            "description": "北京邮电大学是教育部直属、工业和信息化部共建、首批进行“211工程”建设的全国重点大学，是“双一流”建设高校。学校拥有优良的教学科研环境，校园文化丰富，学术氛围浓厚，培养了众多优秀人才。",
+            "location": "北京市海淀区西土城路10号（西土城路校区）；北京市昌平区沙河高教园区南三街（沙河校区）",
+            "coordinates": {
+                "latitude": 39.96343,
+                "longitude": 116.35839
+            },
+            "rating": 4.70,
+            "popularity": 80,
+            "tags": [
+                "高等学府",
+                "学术研究",
+                "校园观光"
+            ],
+            "price_range": "免费",
+            "open_hours": {
+                "weekday": "全天开放（部分教学区域除外）",
+                "weekend": "全天开放（部分教学区域除外）"
+            },
+            "url": "https://images.pexels.com/photos/16141675/pexels-photo-16141675.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        }
+    ],
+    "scenic_spots":[
+        {
+            "name": "故宫博物院",
+            "description": "中国明清两代的皇家宫殿，是世界上现存规模最大、保存最为完整的木质结构古建筑群之一，承载着丰富的历史文化内涵，拥有大量的文物珍宝。",
+            "location": "北京市东城区景山前街4号",
+            "coordinates": {
+                "latitude": 39.91634,
+                "longitude": 116.39712
+            },
+            "rating": 4.90,
+            "popularity": 98,
+            "tags": [
+                "博物馆",
+                "古建筑",
+                "历史文化",
+                "亲子游",
+                "人文景观"
+            ],
+            "price_range": "¥40-60",
+            "open_hours": {
+                "weekday": "8:30-17:00",
+                "weekend": "8:30-17:00"
+            },
+            "url": "https://images.pexels.com/photos/16141675/pexels-photo-16141675.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        }
+    ]
+}
+```
+
+帮我设计一个针对用户兴趣的内容推荐算法，分别推荐景点scenic_spots、学校schools、美食foods、日记diaries，并给出这些推荐内容的匹配度为多少。
+一个兴趣点匹配可以是被"tags"对应的字符串包含，也可以是被"name","description","title","content"对应的字符串包含，但是权重不同
+对于四种推荐内容，对匹配度、评分、热度设计不同的推荐权重

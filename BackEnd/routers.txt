@@ -12,6 +12,7 @@ PUT     /users/{username}/details                       -> 更新用户信息
 POST    /diaries/add                                        -> 添加日记
 POST    /diaries/details/{diary_id}                         -> 查看特定日记
 GET     /diaries/{username}?sort_key=...&sort_order=...     -> 获取用户日记
+GET     /diaries/search?title=...&content=...               -> 搜索标题或内容
 POST    /diaries/update                                     -> 更新日记
 POST    /diaries/tag                                        -> 日记打标签
 POST    /diaries/rate                                       -> 日记评分
@@ -35,3 +36,5 @@ POST     /foods/search                                  -> 美食搜索
 POST     /AIGen/generate_video                          -> 文生视频
 POST     /AIGen/check_video_status                      -> 将已生成的视频添加到对应日记
 
+推荐模块
+GET     /recommend/{username}                           -> 根据用户hobbies以及内容的评分和热度推荐相关内容，包括景点、校园、美食、日记

@@ -49,11 +49,6 @@ def search_foods(
     if tag:
         filtered = [f for f in filtered if tag in f["tags"]]
     
-    # 排序逻辑
-
-    # valid_fields = ["distance", "rating", "popularity"]
-    # if sort_key is None or sort_key not in valid_fields:
-    #     sort_key = "distance"
     reverse = sort_key in ["popularity", "rating"]  # 这些字段降序排列
     
     def get_sort_value(food):

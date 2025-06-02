@@ -12,6 +12,10 @@ USERS_FILE = os.path.join(DATA_DIR, "users.json")
 USERS_AVATARS_DIR = os.path.join(DATA_DIR, "avatars")
 # 图片文件目录
 IMAGES_DIR = os.path.join(DATA_DIR, "images")
+# 视频文件目录
+VIDEO_DIR = os.path.join(DATA_DIR, "videos")
+# AIGen视频生成列表
+AI_VIDEO_TASK = os.path.join(DATA_DIR, "ai_video_task.json")
 # 日记数据文件路径
 DIARIES_FILE = os.path.join(DATA_DIR, "diaries.json")
 # 地图数据文件路径（存储图结构数据，格式示例：{"A": {"B": 1, "C": 4}, "B": {"A": 1, "C": 2, "D": 5}, ...}）

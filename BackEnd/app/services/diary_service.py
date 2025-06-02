@@ -1,7 +1,11 @@
-import time
+import time, os
 from app.config import DIARIES_FILE
-from utils.file_utils import read_json, write_json
+from app.models.diaries import DiaryRequest, DiaryResponse, DiaryTagRequest
+from utils.file_utils import read_json, write_json, read_compressed_json, write_compressed_json
 
+# 在应用初始化时调用
+if not os.path.exists(DIARIES_FILE):
+    write_compressed_json(DIARIES_FILE, [])  # 写入空列表的压缩形式
 
 def add_diary(
     username: str,
@@ -24,8 +28,8 @@ def add_diary(
     tags = tags or []
 
     # 读取现有日记并生成新ID
-    diaries = read_json(DIARIES_FILE, default=[])
-    max_id = max((entry.get("id", 0) for entry in diaries) if diaries else [0])
+    diaries = read_compressed_json(DIARIES_FILE)
+    max_id = max([entry.get("id", 0) for entry in diaries]) if diaries else 0
     new_id = max_id + 1
 
     # 创建完整日记条目
@@ -44,9 +48,18 @@ def add_diary(
 
     # 更新并写入完整列表
     diaries.append(diary_entry)
-    write_json(DIARIES_FILE, diaries)
+    write_compressed_json(DIARIES_FILE, diaries)
 
-def get_diaries(username: str, sort_key: str = "id", sort_order: str = "desc") -> list:
+def get_diary(diary_id: int) -> dict:
+    diaries = read_compressed_json(DIARIES_FILE)
+    for entry in diaries:
+        if(entry.get("id") == diary_id):
+            entry["views"] += 1
+            write_compressed_json(DIARIES_FILE, diaries)
+            return {"message": "查找成功", "diary": entry}
+    raise ValueError(f"未找到 ID 为 {diary_id} 的日记")
+
+def get_user_diaries(username: str, sort_key: str = "id", sort_order: str = "desc") -> list:
     """
     根据用户名查询日记，支持自定义排序规则
 
@@ -55,7 +68,7 @@ def get_diaries(username: str, sort_key: str = "id", sort_order: str = "desc") -
     :param sort_order: 排序方向，asc-升序 desc-降序（默认）
     :return: 过滤并排序后的日记列表
     """
-    diaries = read_json(DIARIES_FILE, default=[])
+    diaries = read_compressed_json(DIARIES_FILE)
     
     if username == "__all__":
         filtered = diaries
@@ -82,7 +95,7 @@ def update_diary(
     username: str,
     diary_id: int,
     fields: dict
-) -> dict:
+) -> DiaryResponse:
     """
     更新日记：
     - 根据 username 和 id 查找日记条目
@@ -91,7 +104,8 @@ def update_diary(
     - 保留其他字段（views, rating, timestamp）不变
     - 写回文件并返回更新后的日记对象
     """
-    diaries = read_json(DIARIES_FILE, default=[])
+    print(fields)
+    diaries = read_compressed_json(DIARIES_FILE, default=[])
     # 查找目标日记
     for entry in diaries:
         if entry.get("id") == diary_id:
@@ -102,13 +116,43 @@ def update_diary(
             if fields.get("content") is not None:
                 entry["content"] = fields["content"]
             if fields.get("images") is not None:
-                entry["image"] = fields["images"]
+                entry["images"] = fields["images"]
             if fields.get("videos") is not None:
                 entry["video"] = fields["videos"]
             if fields.get("tags") is not None:
                 entry["tags"] = fields["tags"]
             # 写回并返回
-            write_json(DIARIES_FILE, diaries)
+            write_compressed_json(DIARIES_FILE, diaries)
             return entry
     # 若未找到则抛出错误
     raise ValueError(f"未找到用户名 {username} 下 ID 为 {diary_id} 的日记")
+
+def diary_append(
+    diary_id: int,
+    field: str,
+    content: str
+):
+    diaries = read_compressed_json(DIARIES_FILE, default=[])
+    # 查找目标日记
+    for entry in diaries:
+        if entry.get("id") == diary_id:
+            if entry.get(field, None) is not None:
+                entry[field].append(content)
+            else:
+                entry[field]=[content]
+            write_compressed_json(DIARIES_FILE, diaries)
+            return {"message": f"{field}成功添加{content}", "diary": entry}
+    raise ValueError(f"未找到 ID 为 {diary_id} 的日记")
+
+def rate_diary(
+    diary_id: int,
+    rate: float
+):
+    diaries = read_compressed_json(DIARIES_FILE, default=[])
+    # 查找目标日记
+    for entry in diaries:
+        if entry.get("id") == diary_id:
+            entry["rating"] = round((entry["rating"]*entry["views"]+rate)/(entry["views"]+1),2)
+            write_compressed_json(DIARIES_FILE, diaries)
+            return {"message": f"评分成功", "diary": entry}
+    raise ValueError(f"未找到 ID 为 {diary_id} 的日记")

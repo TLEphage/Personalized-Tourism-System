@@ -41,7 +41,7 @@ def get_user(username: str):
         return UserResponse(**user)
     raise HTTPException(status_code=404, detail="用户不存在")
 
-@router.put("/{username}", summary="修改用户信息")
+@router.put("/{username}/details", summary="修改用户信息")
 def update_user(username: str, update: UserUpdate):
     """
     修改用户信息接口：

@@ -1,5 +1,6 @@
 import json
 import os
+from app.algorithm.Compress import HuffmanCompressor
 
 def read_json(file_path, default=None):
     """
@@ -36,3 +37,23 @@ def append_json(file_path, new_data):
         # 如果已有数据不是列表，则将其转换为列表形式存储
         data = [data, new_data]
     write_json(file_path, data)
+
+def read_compressed_json(filepath: str, default=None):
+    try:
+        with open(filepath, 'rb') as f:
+            compressed = f.read()
+        if not compressed:
+            return default if default is not None else []
+        decompressed = HuffmanCompressor.decompress(compressed)
+        return json.loads(decompressed)
+    except Exception as e:
+        raise IOError(f"读取失败: {str(e)}")
+
+def write_compressed_json(filepath: str, data):
+    try:
+        json_str = json.dumps(data, ensure_ascii=False)
+        compressed = HuffmanCompressor.compress(json_str)
+        with open(filepath, 'wb') as f:
+            f.write(compressed)
+    except Exception as e:
+        raise IOError(f"写入失败: {str(e)}")

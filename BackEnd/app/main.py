@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
 # 导入路由模块
-from app.routers import upload, users, diaries, spots, map, foods
+from app.routers import upload, users, diaries, spots, map, foods, AIGen
 from app.config import *
 
 # --------------------------- 初始化 FastAPI 应用 ---------------------------
@@ -35,6 +35,10 @@ app = FastAPI(
         {
             "name": "美食搜索",
             "description": "美食的查询与排序"
+        },
+        {
+            "name": "生成式AI服务",
+            "description": "文生视频和智能体的API调用"
         }
     ]
 )
@@ -52,6 +56,8 @@ app.add_middleware(
 
 # 挂载静态文件目录，用于访问上传的图片
 app.mount("/images", StaticFiles(directory=IMAGES_DIR), name="images")
+# 挂载静态文件目录，用于访问生成的视频
+app.mount("/videos", StaticFiles(directory=VIDEO_DIR), name="videos")
 
 # 文件上传路由（前缀 /upload，标签"文件上传"）
 app.include_router(
@@ -93,6 +99,13 @@ app.include_router(
     foods.router,
     prefix="/foods",
     tags=["美食搜索"]
+)
+
+# 生成式AI服务路由（前缀 /AIGen，标签"生成式AI服务"）
+app.include_router(
+    AIGen.router,
+    prefix="/AIGen",
+    tags=["生成式AI服务"]
 )
 
 # --------------------------- 根路径测试端点 ---------------------------

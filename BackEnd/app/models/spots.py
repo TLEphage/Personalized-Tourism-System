@@ -19,4 +19,4 @@ class Spot(BaseModel):
     tags: List[str]
     price_range: str
     open_hours: OpenHours
-    url: str
+    url: str = "http://localhost:8000/images/avatars/default_avatar.jpg"

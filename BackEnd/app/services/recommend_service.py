@@ -70,7 +70,7 @@ def recommend_for_user(username):
     users = read_json(USERS_FILE, default=[])
     user = next((u for u in users if u["username"] == username), None)
     if not user:
-        return {"error": "User not found"}
+        raise ValueError(f"未找到用户名 {username} ")
 
     hobbies = user.get("hobbies", [])
     hobby_count = len(hobbies)

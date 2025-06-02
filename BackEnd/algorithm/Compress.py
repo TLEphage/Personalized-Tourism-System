@@ -5,6 +5,7 @@ from collections import defaultdict
 
 class HuffmanCompressor:
     """自定义哈夫曼编码压缩器"""
+    """使用的模块: file_utils.py"""
     
     @staticmethod
     def _build_frequency_dict(data):

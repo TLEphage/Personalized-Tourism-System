@@ -1,6 +1,7 @@
 def partial_selection_sort(lst, sort_key=None, sort_order='asc', max_number=None):
     """
     对列表进行部分选择排序
+    使用该函数的模块: spot_service
     :param lst: 待排序的列表
     :param sort_key: 排序依据的键（函数），默认为None，即直接比较元素
     :param sort_order: 排序顺序，'asc'表示升序，'desc'表示降序，默认为'asc'
@@ -41,6 +42,7 @@ def partial_selection_sort(lst, sort_key=None, sort_order='asc', max_number=None
 def quick_sort(lst, sort_key=None, sort_order='asc'):
     """
     使用快速排序算法对列表进行排序
+    使用该函数的模块: diary_service, map_service
     :param lst: 待排序的列表
     :param sort_key: 排序依据的键（函数），默认为None，即直接比较元素
     :param sort_order: 排序顺序，'asc'表示升序，'desc'表示降序，默认为'asc'

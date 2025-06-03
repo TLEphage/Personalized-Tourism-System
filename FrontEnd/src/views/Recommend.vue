@@ -290,7 +290,7 @@ export default {
           const response = await axios.get(`http://localhost:8000/recommend/${this.$store.state.user.username}`);
           this.list = response.data.scenic_spots;
           console.log('推荐景点数据:', this.list);
-          console.log('test:', this.list[0].item.name);
+          // console.log('test:', this.list[0].item.name);
         } else if(this.activeTab === 'recommend_schools') {
           // GET     /recommend/{username}                           -> 根据用户hobbies以及内容的评分和热度推荐相关内容，包括景点、校园、美食、日记
           const response = await axios.get(`http://localhost:8000/recommend/${this.$store.state.user.username}`);

@@ -31,7 +31,7 @@
     <div class="diary-grid">
       <transition-group name="diary-fade">
         <article 
-          v-for="diary in filteredDiaries"
+          v-for="diary in normalDiaries"
           :key="diary.id"
           class="diary-card"
           @click="viewDetail(diary.id)"
@@ -86,6 +86,75 @@
       </transition-group>
     </div>
 
+    <!-- 推荐日记卡片 -->
+    <article 
+      v-for="recommendDiary in recommendDiaries"
+      :key="recommendDiary.item.id"
+      class="recommend-diary-card"
+      @click="viewDetail(recommendDiary.item.id)"
+    >
+      <div class="recommend-badge">推荐</div>
+      
+      <!-- 封面图 -->
+      <div class="diary-cover">
+        <img 
+          :src="recommendDiary.item.images[0]"
+          :alt="recommendDiary.item.title"
+          class="cover-image"
+        >
+        <div class="diary-meta">
+          <span class="meta-item">
+            <i class="fas fa-eye"></i>
+            {{ formatNumber(recommendDiary.item.views) }}
+          </span>
+          <span class="meta-item">
+            <i class="fas fa-star"></i>
+            {{ recommendDiary.item.rating.toFixed(1) }}
+          </span>
+        </div>
+      </div>
+
+      <!-- 内容预览 -->
+      <div class="diary-preview">
+        <h3 class="diary-title">{{ recommendDiary.item.title }}</h3>
+        <p class="diary-excerpt">{{ truncateContent(recommendDiary.item.content, 100) }}</p>
+        
+        <!-- 推荐分数 -->
+        <div class="recommend-scores">
+          <div class="score-item">
+            <span class="score-label">匹配度:</span>
+            <span class="score-value">{{ (recommendDiary.match_score * 100).toFixed(1) }}%</span>
+          </div>
+          <div class="score-item">
+            <span class="score-label">推荐指数:</span>
+            <span class="score-value">{{ recommendDiary.final_score.toFixed(2) }}</span>
+          </div>
+        </div>
+        
+        <!-- 标签 -->
+        <div class="diary-tags" v-if="recommendDiary.item.tags && recommendDiary.item.tags.length">
+          <span 
+            v-for="(tag, index) in recommendDiary.item.tags.slice(0, 3)" 
+            :key="index"
+            class="tag"
+          >
+            {{ tag }}
+          </span>
+          <span v-if="recommendDiary.item.tags.length > 3" class="tag more-tag">
+            +{{ recommendDiary.item.tags.length - 3 }}
+          </span>
+        </div>
+
+        <!-- 作者信息 -->
+        <div class="diary-footer">
+          <div class="author-info">
+            <img :src="recommendDiary.item.avatar || '/default-avatar.jpg'" class="author-avatar">
+            <span class="author-name">{{ recommendDiary.item.username }}</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
     <button class="create-diary-btn" @click="showEditor = true">
       <i class="icon-plus"></i>
       新建日记
@@ -125,26 +194,48 @@ export default{
       this.fetchDiaries();
     },
     computed:{
+      // 普通日记（非推荐）
+      normalDiaries() {
+        return this.diaries.filter(diary => !diary.hasOwnProperty('item'));
+      },
+      
+      // 推荐日记（带推荐分数的）
+      recommendDiaries() {
+        return this.diaries.filter(diary => diary.hasOwnProperty('item'));
+      },
+      
       filteredDiaries(){
         let filtered = this.diaries.filter(diary => {
-        const search = this.searchQuery.toLowerCase()
-        return diary.title.toLowerCase().includes(search) || 
-               diary.content.toLowerCase().includes(search)
-        })
+          const diaryItem = diary.item || diary; // 统一处理普通日记和推荐日记
+          const search = this.searchQuery.toLowerCase();
+          return diaryItem.title.toLowerCase().includes(search) || 
+                 diaryItem.content.toLowerCase().includes(search);
+        });
 
         return filtered.sort((a, b) => {
-          if(this.sortBy === 'views') return b.views - a.views
-          if(this.sortBy === 'rating') return b.rating - a.rating
-          return 0
-        })
+          // 对于推荐日记，使用final_score排序
+          if (a.final_score && b.final_score) {
+            return b.final_score - a.final_score;
+          }
+          
+          // 普通日记按原逻辑排序
+          if(this.sortBy === 'views') return (b.item?.views || b.views) - (a.item?.views || a.views);
+          if(this.sortBy === 'rating') return (b.item?.rating || b.rating) - (a.item?.rating || a.rating);
+          return 0;
+        });
       }
     },
     methods:{
       async fetchDiaries() {
         try {
           this.isLoading = true
-          const { data } = await axios.get(`http://localhost:8000/diaries/__all__?sort_key=${this.sortBy}&sort_order=desc`)
-          this.diaries = data.diaries
+          if(this.$store.state.user.username) {
+            const response = await axios.get(`http://localhost:8000/recommend/${this.$store.state.user.username}`);
+            this.diaries = response.data.diaries || [];
+          } else {
+            const { data } = await axios.get(`http://localhost:8000/diaries/__all__?sort_key=${this.sortBy}&sort_order=desc`)
+            this.diaries = data.diaries
+          }
         } catch (error) {
           console.error('日记加载失败:', error)
         } finally {
@@ -278,7 +369,6 @@ export default{
   box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
 }
 
-/* 排序控件 */
 .sort-wrapper {
   display: flex;
   align-items: center;
@@ -292,8 +382,6 @@ export default{
   font-size: 1rem;
   background: white;
 }
-
-/* 日记卡片 */
 
 .media-section {
   position: relative;
@@ -334,7 +422,6 @@ export default{
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* 内容区 */
 .content-section {
   padding: 2.5rem;
   display: flex;
@@ -356,7 +443,6 @@ export default{
   line-height: 1.8;
 }
 
-/* 数据指标 */
 .metrics-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -389,7 +475,6 @@ export default{
   font-size: 0.9rem;
 }
 
-/* 操作按钮 */
 .action-section {
   border-top: 1px solid #eee;
   padding: 1.5rem 2.5rem;
@@ -412,8 +497,6 @@ export default{
   background: #007bff;
   color: white;
 }
-
-/* 过渡动画 */
 
 .float-btn {
   position: fixed;
@@ -746,6 +829,78 @@ textarea {
   
   .search-wrapper {
     flex-direction: column;
+  }
+}
+
+.recommend-diary-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border: 1px solid #e0f2fe;
+}
+
+.recommend-diary-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.recommend-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: linear-gradient(135deg, #4a6fff, #8a2be2);
+  color: white;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-weight: bold;
+  z-index: 2;
+}
+
+.recommend-scores {
+  display: flex;
+  justify-content: space-around;
+  padding: 0.8rem;
+  background: #f8fafc;
+  border-radius: 8px;
+  margin: 0.5rem 0;
+  border: 1px solid #e2e8f0;
+}
+
+.score-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.score-label {
+  font-size: 0.85rem;
+  color: #718096;
+  margin-bottom: 0.3rem;
+}
+
+.score-value {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #4a6fff;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .recommend-scores {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .score-item {
+    flex-direction: row;
+    justify-content: space-between;
   }
 }
 </style>

@@ -20,6 +20,22 @@
         <span>作者: {{ diary.username }}</span>
       </div>
 
+      <button
+        @click="editDiary"
+        style="
+          padding: 0.6em 1.2em;
+          background-color: #28a745;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          font-size: 0.9em;
+          white-space: nowrap;
+        "
+      >
+        编辑日记
+      </button>
+
       <div class="main-content section">
         <h3>内容详情</h3>
         <div class="ql-snow"><div class="ql-editor" v-html="diary.content"></div></div>
@@ -62,13 +78,25 @@
       <div v-else class="section"><p>暂无标签。</p></div>
 
     </div>
+    <EditDiary
+      v-if="showEditor"
+      :diary="editingDiary"
+      :isEdit="!!editingDiary"
+      @close="closeEditor"
+      @submit="handleDiarySubmit"
+    />
   </div>
 </template>
 
 <script>
 import axios from 'axios';
+import EditDiary from './EditDiary.vue';
+
 export default {
   name: 'DiaryDetail',
+  components: {
+    EditDiary
+  },
   data() {
     return {
       diary: null,
@@ -78,6 +106,8 @@ export default {
       pollingInterval: null,
       pollingAttempts: 0,
       maxPollingAttempts: 20,
+      showEditor: false,
+      editingDiary: null
     };
   },
   methods: {
@@ -113,7 +143,23 @@ export default {
 
     goBack() {
       this.$router.go(-1);
-    }
+    },
+    editDiary() {
+      this.editingDiary = { ...this.diary };
+      this.showEditor = true;
+    },
+    
+    handleDiarySubmit(updatedDiary) {
+      this.diary = updatedDiary;
+      this.closeEditor();
+      alert('日记已更新！');
+    },
+    
+    // 新增关闭编辑器方法
+    closeEditor() {
+      this.showEditor = false;
+      this.editingDiary = null;
+    },
   },
   created() {
     this.fetchDiaryDetail();
@@ -126,9 +172,6 @@ export default {
     }
   },
   watch: {
-    // Watch for changes in the route parameter 'id'
-    // This is useful if you navigate from one diary detail to another directly
-    // e.g., /diary/1 -> /diary/2, the same component instance might be reused
     id(newId, oldId) {
       if (newId !== oldId) {
         console.log(`Diary ID changed from ${oldId} to ${newId}. Re-fetching details.`);

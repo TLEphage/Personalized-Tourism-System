@@ -684,7 +684,6 @@ textarea {
   font-size: 0.9rem;
 }
 
-/* 新建按钮 */
 .create-diary-btn {
   position: fixed;
   right: 2rem;

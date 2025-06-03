@@ -25,10 +25,11 @@
           placeholder="输入关键词进行搜索"
           class="search-input"
           @input="handleSearchInput"
+          @keyup.enter="fetchList"
         >
       </div>
       <div v-if="activeTab !== 'foods'" class="sort-selector">
-        <select v-model="currentSortBy" @change="fetchLst" class="sort-select">
+        <select v-model="currentSortBy" @change="fetchList" class="sort-select">
           <option value="popularity">按人气排序</option>
           <option value="rating">按评分排序</option>
         </select>

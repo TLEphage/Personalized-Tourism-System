@@ -137,8 +137,15 @@ export default {
       }
     },
 
-    checkVideoStatus() {
-        axios.post('http://localhost:8000/AIGen/check_video_status');
+    async checkVideoStatus() {
+      try {
+        const response = await axios.post('http://localhost:8000/AIGen/check_video_status');
+        if(response.data.message) {
+          console.log("文生视频成功，共" + response.data.tasks + "个任务");
+        }
+      } catch (err) {
+        console.error('Error checking video status:', err);
+      }
     },
 
     goBack() {

@@ -32,6 +32,7 @@
   
           <div class="form-group">
             <label>图片</label>
+            
             <ImageUpload 
               @uploaded="handleImageUpload"
               @clear="handleImageClear"
@@ -55,15 +56,10 @@
               <input 
                 type="text" 
                 v-model="newTag"
-                @keyup.enter.prevent="addTag"
+                @keydown.enter.prevent="addTag"
                 placeholder="输入标签按回车添加"
               >
             </div>
-            <div class="tags-preview">
-                <span v-for="tag in tags" :key="tag" class="tag-item">
-                  {{ tag }} <button @click="removeTag(tag)" class="remove-tag-btn">x</button>
-                </span>
-              </div>
           </div>
 
           <div v-if="!isEdit" class="video-generation-section">
@@ -164,7 +160,11 @@
       };
   
       const handleImageUpload = (url) => {
-        formData.images.push(url);
+        if(url && !formData.images.includes(url)) {
+          formData.images.push(url);
+        } else {
+          console.warn('图片已存在或无效:', url);
+        }
       };
   
       const handleImageClear = (index) => {
@@ -203,15 +203,17 @@
             await axios.post('http://localhost:8000/diaries/update', payload);
           } else {
             // 新建模式
+            console.log("开始创建日记:", payload);
             const response = await axios.post('http://localhost:8000/diaries/add', payload);
-            if(this.videoParams.shouldGenerate) {
+            if(videoParams.shouldGenerate) {
               const videoRequestData = {
                 username: store.state.user.username,
-                diary_id: response.data.id,
-                prompt: this.content,
-                quality: this.videoParams.quality
+                diary_id: response.data.diary_id,
+                prompt: formData.content,  // 修复：使用formData.content
+                quality: videoParams.quality  // 修复：直接使用videoParams变量
               }
-              const videoGenApiResponse = await axios.post('http://localhost:8000/api/AIGen/generate_video', videoRequestData);
+              console.log("开始文生视频");
+              const videoGenApiResponse = await axios.post('http://localhost:8000/AIGen/generate_video', videoRequestData);
               console.log("文生视频结果： ",  videoGenApiResponse.data.message);
             }
           }
@@ -229,13 +231,13 @@
         formData,
         newTag,
         isSubmitting,
+        videoParams,
         addTag,
         removeTag,
         handleImageUpload,
         handleImageClear,
         handleUploadError,
-        handleSubmit,
-        videoParams
+        handleSubmit
       };
     }
   };
@@ -335,6 +337,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
+    margin-bottom: 0.5rem;
   }
   
   .tag {
@@ -399,5 +402,46 @@
   .btn-submit:disabled {
     background: #ccc;
     cursor: not-allowed;
+  }
+
+  /* 图片预览样式 */
+  .image-previews {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .image-preview-item {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  .preview-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .remove-image-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: rgba(255, 0, 0, 0.7);
+    color: white;
+    border: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 1;
   }
   </style>

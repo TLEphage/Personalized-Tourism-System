@@ -10,4 +10,13 @@ export default defineConfig({
     },
     extensions: ['.js', '.ts', '.json', '.vue'],
   },
+  server: {
+    proxy: {
+      '/AIGen': {
+        target: 'http://localhost:8000',
+        changeOrigin: true,
+        rewrite: path => path.replace(/^\/AIGen/, '')
+      }
+    }
+  }
 });

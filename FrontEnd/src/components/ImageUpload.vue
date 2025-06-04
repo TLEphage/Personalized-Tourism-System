@@ -99,8 +99,8 @@ export default {
             }
           });
           
-          emit('uploaded', response.data.url);
-          console.log("上传成功：", response.data.url);
+          emit('uploaded', response.data.file_path);
+          console.log("上传成功：", response.data.file_path);
         } catch (error) {
           console.error('上传失败:', error);
           emit('error', `图片 ${file.name} 上传失败`);

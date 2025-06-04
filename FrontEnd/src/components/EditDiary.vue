@@ -177,12 +177,12 @@
         formData.tags.splice(index, 1);
       };
   
-      const handleImageUpload = (url) => {
-        if(url && !formData.images.includes(url)) {
-          console.log('EditDiary添加图片:', url);
-          formData.images.push(url);
+      const handleImageUpload = (file_path) => {
+        if(file_path && !formData.images.includes(file_path)) {
+          console.log('EditDiary添加图片:', file_path);
+          formData.images.push(file_path);
         } else {
-          console.warn('图片已存在或无效:', url);
+          console.warn('图片已存在或无效:', file_path);
         }
       };
   

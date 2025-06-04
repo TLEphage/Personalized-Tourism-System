@@ -4,10 +4,16 @@
     <div class="search-control glassmorphism-effect">
       <div class="search-group">
         <div class="search-wrapper">
+          <select v-model="searchType" class="search-type-select">
+            <option value="title">日记名称</option>
+            <option value="content">日记内容</option>
+            <option value="user">用户</option>
+          </select>
+
           <input 
             type="text" 
             v-model="searchQuery"
-            placeholder="输入关键词搜索旅行日记..."
+            :placeholder="placeholderText"
             class="search-input"
             @keyup.enter="handleSearch"
           >
@@ -123,7 +129,7 @@
         <div class="recommend-scores">
           <div class="score-item">
             <span class="score-label">匹配度:</span>
-            <span class="score-value">{{ (recommendDiary.match_score * 100).toFixed(1) }}%</span>
+            <span class="score-value">{{ (recommendDiary.match_score).toFixed(1) }}%</span>
           </div>
           <div class="score-item">
             <span class="score-label">推荐指数:</span>
@@ -187,13 +193,22 @@ export default{
         sortBy: 'views',
         isLoading: false,
         showEditor: false,
-        editingDiary: null
+        editingDiary: null,
+        searchType: 'title'
       }
     },
     created(){
       this.fetchDiaries();
     },
     computed:{
+      placeholderText() {
+        switch(this.searchType) {
+          case 'title': return '输入日记名称搜索...';
+          case 'content': return '输入日记内容关键词搜索...';
+          case 'user': return '输入用户名搜索...';
+          default: return '输入关键词搜索旅行日记...';
+        }
+      },
       // 普通日记（非推荐）
       normalDiaries() {
         return this.diaries.filter(diary => !diary.hasOwnProperty('item'));
@@ -228,14 +243,28 @@ export default{
     methods:{
       async fetchDiaries() {
         try {
+          console.log("正在检索");
           this.isLoading = true
-          if(this.$store.state.user.username) {
+          if(this.$store.state.user.username && this.searchQuery === '') {
             const response = await axios.get(`http://localhost:8000/recommend/${this.$store.state.user.username}`);
             this.diaries = response.data.diaries || [];
+          } else if(this.searchQuery && this.searchType === 'user') {
+            const { data } = await axios.get(`http://localhost:8000/diaries/user/${this.searchQuery}?sort_key=${this.sortBy}&sort_order=desc`);
+            console.log(data);
+            this.diaries = data.diaries
+          } else if(this.searchQuery && this.searchType === 'title') {
+            const { data } = await axios.get(`http://localhost:8000/diaries/search?title=${this.searchQuery}`);
+            console.log(data);
+            this.diaries = data.diaries
+          } else if(this.searchQuery && this.searchType === 'content') {
+            const { data } = await axios.get(`http://localhost:8000/diaries/search?content=${this.searchQuery}`);
+            console.log(data);
+            this.diaries = data.diaries
           } else {
-            const { data } = await axios.get(`http://localhost:8000/diaries/__all__?sort_key=${this.sortBy}&sort_order=desc`)
+            const { data } = await axios.get(`http://localhost:8000/diaries/user/__all__?sort_key=${this.sortBy}&sort_order=desc`)
             this.diaries = data.diaries
           }
+          console.log(this.diaries);
         } catch (error) {
           console.error('日记加载失败:', error)
         } finally {
@@ -285,6 +314,7 @@ export default{
         this.fetchDiaries();
       },
       handleSearch() {
+        console.log('搜索关键词:', this.searchQuery);
         this.fetchDiaries();
       },
       viewDetail(id) {
@@ -333,9 +363,19 @@ export default{
   width: 100%;
 }
 
+.search-type-select {
+  padding: 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px 0 0 12px;
+  border-right: none;
+  font-size: 1rem;
+  background: white;
+  width: 140px;
+}
+
 .search-wrapper {
   display: flex;
-  gap: 1rem;
+  gap: 0;
   flex: 1;
 }
 
@@ -362,6 +402,7 @@ export default{
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
+  margin-left: 1rem;
 }
 
 .search-btn:hover {

@@ -2,6 +2,7 @@ import requests
 import logging
 import os
 import uuid
+import base64
 from app.config import VIDEO_DIR, AI_VIDEO_TASK
 from app.services.diary_service import diary_append
 from utils.file_utils import read_json, write_json
@@ -16,17 +17,30 @@ ZHIPUAI_API_KEY = "58660068559c405c981d8517a3fb6f6d.K4aIo3hBB4eGkH5F"  # 替换�
 ZHIPUAI_API_URL = "https://open.bigmodel.cn/api/paas/v4/videos/generations"
 client = ZhipuAI(api_key=ZHIPUAI_API_KEY)
 
-def generate_video_api(prompt: str, quality: str):
+def generate_video_api(image_url: str, prompt: str, quality: str):
     """调用智谱清影API生成视频"""
-
-    response = client.videos.generations(
-        model="cogvideox-2",
-        prompt=prompt,
-        quality=quality,  # 输出模式，"quality"为质量优先，"speed"为速度优先
-        with_audio=True,
-        size="1920x1080",  # 视频分辨率，支持最高4K（如: "3840x2160"）
-        fps=30,  # 帧率，可选为30或60
-    )
+    if not image_url:
+        response = client.videos.generations(
+            model="cogvideox-2",
+            prompt=prompt,
+            quality=quality,  # 输出模式，"quality"为质量优先，"speed"为速度优先
+            with_audio=True,
+            size="1920x1080",  # 视频分辨率，支持最高4K（如: "3840x2160"）
+            fps=30,  # 帧率，可选为30或60
+        )
+    else:
+        with open(image_url, "rb") as image_file:
+            base64_data = base64.b64encode(image_file.read()).decode('utf-8')
+        response = client.videos.generations(
+            model="cogvideox-2",
+            image_url=base64_data,  # 提供的图片URL地址或者 Base64 编码
+            prompt=prompt,
+            quality=quality,  # 输出模式，"quality"为质量优先，"speed"为速度优先
+            with_audio=True,
+            size="1920x1080",  # 视频分辨率，支持最高4K（如: "3840x2160"）
+            fps=30,  # 帧率，可选为30或60
+        )
+    
     print(response)
     if(response.task_status == "PROCESSING"):
         print("正在生成视频")
@@ -41,13 +55,14 @@ def generate_video_api(prompt: str, quality: str):
 def generate_video_request(
     username: str,
     diary_id: int,
+    image_url: str,
     prompt: str,
     quality:str
 ) -> dict :
     task_cache = read_json(AI_VIDEO_TASK)
     try:
         logger.info(f"生成视频请求，提示词: {prompt}")
-        task_id = generate_video_api(prompt, quality)
+        task_id = generate_video_api(image_url, prompt, quality)
         if task_id == -1:
             logger.error(f"视频生成失败: {str(e)}")
             raise Exception("视频生成失败")
@@ -120,4 +135,4 @@ def check_all_video_status():
             new_task_cache.append(task)
 
     write_json(AI_VIDEO_TASK, new_task_cache)
-    return {"message": "视频列表状态已更新", "tasks": len(new_task_cache)}
+    return {"message": "视频列表状态已更新", "remaining_tasks": len(new_task_cache)}

@@ -1,1 +1,9 @@
-[]
+[
+    {
+        "task_id": "13371748747042288-8666090957848286213",
+        "output_path": "Alice",
+        "diary_id": 1,
+        "prompt": "黄色小猫吃汉堡",
+        "quality": "speed"
+    }
+]

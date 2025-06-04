@@ -36,7 +36,7 @@ def get_graph():
     """获取地图信息"""
     return map_service.get_graph()
 
-@router.get("/search_node", response_model=List[str],summary="获取节点名字")
+@router.get("/search_nodes", response_model=List[str],summary="获取节点名字")
 def search_node(name: str = Query(default="__all__", description="节点部分名字")):
     """根据节点部分名字获取完整名字"""
     return map_service.search_node(name)

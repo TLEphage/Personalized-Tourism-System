@@ -24,6 +24,7 @@ GET     /spots/schools/{name}?tag=...&sort_key=...&sort_order=...       -> 获�
 
 地图模块
 GET     /map/get_graph                                  -> 获取地图完整信息
+GET     /map/search_nodes                               -> 通过部分名字获取节点列表
 POST    /map/add_node                                   -> 添加地图节点
 POST    /map/add_edge                                   -> 添加地图边 
 POST    /map/search_places                              -> 场所查询

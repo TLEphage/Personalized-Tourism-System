@@ -2,26 +2,58 @@
   <div class="poi-container">
     <div id="map-container" ></div>
 
+    <button class="developer-button" @click="goToDeveloper">开发者模式</button>
+
     <div class="nav-panel">
       <div class="mode-switch">
         <button 
           @click="switchMode('navigation')"
           :class="{ active: currentMode === 'navigation' }"
-        >路径导航</button>
+        >两点导航</button>
+        <button
+          @click="switchMode('multi')"
+          :class="{ active: currentMode === 'multi'}"  
+        >多点导航</button>
         <button
           @click="switchMode('search')"
           :class="{ active: currentMode === 'search' }"
         >附近搜索</button>
+        <button
+          @click="switchMode('indoor')"
+          :class="{ active: currentMode === 'indoor' }"
+        >室内导航</button>
       </div>
 
-      <!-- 导航模式 -->
+      <!-- 两点导航模式 -->
       <div v-if="currentMode === 'navigation'" class="mode-content">
+        <div class="input-group">
+          <label>区域模式</label>
+          <div class="mode-buttons">
+            <button @click="areaMode = 'campus'" :class="{ active: areaMode === 'campus' }">校园</button>
+            <button @click="areaMode = 'scenic'" :class="{ active: areaMode === 'scenic' }">景区</button>
+          </div>
+        </div>
         <div class="nav-header">
           <h1 class="nav-title">北京邮电大学导航</h1>
           <p>请设置您的起点和终点</p>
         </div>
 
-        <button class="developer-button" @click="goToDeveloper">开发者模式</button>
+        <div class="input-group">
+          <label>路径策略</label>
+          <div class="strategy-buttons">
+            <button @click="strategy = 'shortest_path'" :class="{ active: strategy === 'shortest_path' }">最短路径</button>
+            <button @click="strategy = 'shortest_time'" :class="{ active: strategy === 'shortest_time' }">最短时间</button>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label>交通方式</label>
+          <select name="input-field" v-model="selectedMode">
+            <option v-for="option in modeOptions" :key="option.value" :value="option.value">
+              {{ option.text }}
+            </option>
+          </select>
+        </div>
 
         <div class="input-group">
           <label>起点位置</label>
@@ -41,15 +73,6 @@
           />
         </div>
 
-        <div class="input-group">
-          <label>导航模式</label>
-          <select name="input-field" v-model="selectedMode">
-            <option value="1">步行</option>
-            <option value="2">自行车</option>
-            <option value="3">电动车</option>
-          </select>
-        </div>
-
         <button class="nav-button" @click="startNavigation">开始导航</button>
 
         <div class="route-info">
@@ -57,6 +80,64 @@
           <p>🗺️ 总距离: {{ totalDistance }} m</p>
           <p>⏱️ 预计时间: {{ estimatedTime }} min</p>
           <p>🚩 途径: {{ points }}</p>
+        </div>
+      </div>
+
+      <!-- 多点导航模式 -->
+      <div v-if="currentMode === 'multi'" class="mode-content">
+        <div class="input-group">
+          <label>区域模式</label>
+          <div class="mode-buttons">
+            <button @click="multiAreaMode = 'campus'" :class="{ active: multiAreaMode === 'campus' }">校园</button>
+            <button @click="multiAreaMode = 'scenic'" :class="{ active: multiAreaMode === 'scenic' }">景区</button>
+          </div>
+        </div>
+        <div class="nav-header">
+          <h1 class="nav-title">多点路径规划</h1>
+          <p>请按顺序添加多个景点</p>
+        </div>
+
+        <div class="input-group">
+          <label>交通方式</label>
+          <select name="input-field" v-model="selectedMode">
+            <option v-for="option in modeOptions" :key="option.value" :value="option.value">
+              {{ option.text }}
+            </option>
+          </select>
+        </div>
+
+        <div class="multi-points-container">
+          <div class="point-item" v-for="(point, index) in multiPoints" :key="index">
+            <div class="point-header">
+              <span class="point-number">地点 {{ index + 1 }}</span>
+              <div class="point-actions">
+                <button @click="movePointUp(index)" :disabled="index === 0">↑</button>
+                <button @click="movePointDown(index)" :disabled="index === multiPoints.length - 1">↓</button>
+                <button @click="removePoint(index)">×</button>
+              </div>
+            </div>
+            <input
+              type="text"
+              class="input-field"
+              v-model="multiPoints[index]"
+              :placeholder="'地点 ' + (index + 1)"
+            />
+          </div>
+
+          <button class="add-point-btn" @click="addPoint">
+            + 添加地点
+          </button>
+        </div>
+
+        <button class="nav-button" @click="startMultiNavigation" :disabled="multiPoints.length < 2">
+          {{ multiPoints.length < 2 ? '请至少添加两个地点' : '开始多点导航' }}
+        </button>
+
+        <div class="route-info">
+          <h3>多点路线信息</h3>
+          <p>🗺️ 总距离: {{ multiTotalDistance }} m</p>
+          <p>⏱️ 预计时间: {{ multiEstimatedTime }} min</p>
+          <p>🚩 途径: {{ multiPoints.join(" → ") }}</p>
         </div>
       </div>
 
@@ -127,6 +208,8 @@
         </div>
       </div>
 
+      <!-- 室内导航模式 -->
+
     </div>
   </div>
 </template>
@@ -139,6 +222,9 @@ import axios from 'axios';
 export default {
   name: "MapComponent",
   setup() {
+    const areaMode = ref("campus");
+    const multiAreaMode = ref("campus");
+    const strategy = ref("shortest_path");
     const startLocation = ref("");
     const endLocation = ref("");
     const totalDistance = ref(0);
@@ -153,6 +239,10 @@ export default {
     const searchResults = ref([]);
     const maxResults = ref(10);
     const maxDistance = ref(1000);
+
+    const multiPoints = ref([]);
+    const multiTotalDistance = ref(0);
+    const multiEstimatedTime = ref(0);
 
     // 用来存当前绘制到地图上的点和线
     let routeMarkers = [];
@@ -185,11 +275,29 @@ export default {
         return;
       }
 
-      axios.post('http://localhost:8000/map/path_plan', {
-        start: startLocation.value,
-        end: endLocation.value,
-        mode: parseInt(selectedMode.value),
-      })
+      let apiUrl = '';
+      let request = ref({});
+      if(strategy.value === 'shortest_path') {
+        apiUrl = 'http://localhost:8000/map/path_plan/one_to_one_shortest_path';
+        request.value = {
+          start: startLocation.value,
+          end: endLocation.value
+        };
+      } else {
+        let mode = ref("");
+        if(selectedMode.value === 0) mode = 'walk'; 
+        else if(selectedMode.value === 1 && areaMode === 'campus') mode = 'bike'; 
+        else if(selectedMode.value === 1 && areaMode === 'scenic') mode = 'ebike';
+        else if(selectedMode.value === 2 && areaMode === 'campus') mode = 'walk_bike'; 
+        else if(selectedMode.value === 2 && areaMode === 'scenic') mode = 'walk_ebike';
+        apiUrl = 'http://localhost:8000/map/path_plan/one_to_one_shortest_time';
+        request.value = {
+          start: startLocation.value,
+          end: endLocation.value,
+          mode: mode
+        };
+      }
+      axios.post(apiUrl,request.value)
       .then(res => {
         const data = res.data;
         console.log("路径规划结果:", data);
@@ -256,7 +364,7 @@ export default {
         console.log("已绘制路径和标记");
       })
       .catch(err => {
-        // ...原有错误处理...
+        console.error("路径规划失败：", err);
       });
     }
 
@@ -430,6 +538,41 @@ export default {
         : '未选择位置';
     });
 
+    const modeOptions = computed(() => {
+      if (currentMode.value === 'navigation') {
+        // 两点导航选项
+        if (areaMode.value === 'campus') {
+          return [
+            { text: '步行', value: 'walk' },
+            { text: '自行车', value: 'bike' },
+            { text: '混合', value: 'walk_bike' }
+          ];
+        } else {
+          return [
+            { text: '步行', value: 'walk' },
+            { text: '电动车', value: 'ebike' },
+            { text: '混合', value: 'walk_ebike' }
+          ];
+        }
+      } else {
+        // 多点导航选项
+        if (multiAreaMode.value === 'campus') {
+          return [
+            { text: '步行', value: 'walk' },
+            { text: '自行车', value: 'bike' },
+            { text: '混合', value: 'walk_bike' }
+          ];
+        } else {
+          return [
+            { text: '步行', value: 'walk' },
+            { text: '电动车', value: 'ebike' },
+            { text: '混合', value: 'walk_ebike' }
+          ];
+        }
+      }
+    });
+
+
     // 清理地图覆盖物时同时清理搜索标记
     function clearMapOverlays() {
       // 保留原有清理逻辑，增加：
@@ -438,6 +581,122 @@ export default {
         positionMarker = null;
       }
       searchResults.value = [];
+    }
+
+    //多点导航相关函数
+    const addPoint = () => {
+      multiPoints.value.push("");
+    };
+
+    const removePoint = (index) => {
+      multiPoints.value.splice(index, 1);
+    };
+
+    const movePointUp = (index) => {
+      if (index > 0) {
+        const temp = multiPoints.value[index];
+        multiPoints.value[index] = multiPoints.value[index - 1];
+        multiPoints.value[index - 1] = temp;
+      }
+    };
+
+    const movePointDown = (index) => {
+      if (index < multiPoints.value.length - 1) {
+        const temp = multiPoints.value[index];
+        multiPoints.value[index] = multiPoints.value[index + 1];
+        multiPoints.value[index + 1] = temp;
+      }
+    };
+
+    // 多点导航API调用
+    async function startMultiNavigation() {
+      if (multiPoints.value.length < 2) {
+        alert("请至少添加两个地点");
+        return;
+      }
+
+      // 检查所有地点是否已填写
+      if (multiPoints.value.some(point => !point.trim())) {
+        alert("请填写所有地点");
+        return;
+      }
+
+      try {
+        console.log("start:", multiPoints.value[0]);
+        console.log("end:", multiPoints.value.slice(1));
+        const response = await axios.post('http://localhost:8000/map/path_plan/one_to_many_shortest_path', {
+          start: multiPoints.value[0],
+          end: multiPoints.value.slice(1),
+        });
+        
+        const data = response.data;
+        console.log("多点路径规划结果:", data);
+        
+        if (data.path.length === 0) {
+          alert("未找到路线");
+          return;
+        }
+
+        // 更新路线信息
+        multiTotalDistance.value = data.distance;
+        multiEstimatedTime.value = data.time;
+
+        if (!AMapInstance) {
+          alert("地图加载失败，请稍后再试！");
+          return;
+        }
+
+        // 清除旧覆盖物
+        routeMarkers.forEach(m => m.setMap(null));
+        routeMarkers = [];
+        if (routePolyline) {
+          routePolyline.setMap(null);
+          routePolyline = null;
+        }
+
+        // 组装坐标数组
+        const coords = data.path.map(p => [p.longitude, p.latitude]);
+
+        // 绘制路径点
+        data.path.forEach((p, index) => {
+          const marker = new AMapInstance.Marker({
+            position: [p.longitude, p.latitude],
+            map: map.value,
+            title: p.name
+          });
+          
+          marker.setLabel({
+            offset: new AMapInstance.Pixel(-10, -28),
+            content: `<div style="
+              background: #f33;
+              color: #fff;
+              padding: 2px 4px;
+              border-radius: 3px;
+              font-size: 12px;
+            ">${index + 1}. ${p.name}</div>`
+          });
+          
+          routeMarkers.push(marker);
+        });
+
+        // 画连线
+        routePolyline = new AMapInstance.Polyline({
+          path: coords,
+          strokeColor: "#FF0000",
+          strokeWeight: 4,
+          strokeOpacity: 0.8,
+          lineJoin: "round",
+          map: map.value
+        });
+
+        // 自动缩放视野
+        map.value.setFitView();
+
+        console.log("已绘制多点路径");
+      } catch (error) {
+        console.error("多点导航失败:", error);
+        alert("多点导航失败，请重试");
+      }
     }
 
     return { 
@@ -456,6 +715,18 @@ export default {
       maxResults,
       maxDistance,
       focusPlace,
+      multiPoints,
+      multiTotalDistance,
+      multiEstimatedTime,
+      addPoint,
+      removePoint,
+      movePointUp,
+      movePointDown,
+      startMultiNavigation,
+      modeOptions,
+      areaMode,
+      multiAreaMode,
+      strategy
      };
   },
   methods: {
@@ -676,5 +947,26 @@ input-group .hint {
 .input-field::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.mode-buttons, .strategy-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.mode-buttons button, .strategy-buttons button {
+  flex: 1;
+  padding: 8px 12px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.mode-buttons button.active, .strategy-buttons button.active {
+  background-color: #4CAF50;
+  color: white;
+  border-color: #4CAF50;
 }
 </style>  

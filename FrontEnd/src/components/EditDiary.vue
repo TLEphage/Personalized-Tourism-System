@@ -62,21 +62,38 @@
             </div>
           </div>
 
-          <div v-if="!isEdit" class="video-generation-section">
-            <h4>文生视频(根据日记内容)</h4>
+          <div class="video-generation-section">
+            <h4>视频生成</h4>
             <div class="form-group">
-              <label>生成模式</label>
-              <div>
-                <input type="radio" id="qualitySpeed" value="speed" v-model="videoParams.quality">
-                <label for="qualitySpeed" style="margin-left: 5px;">速度优先</label>
-              </div>
-              <div>
-                <input type="radio" id="qualityQuality" value="quality" v-model="videoParams.quality">
-                <label for="qualityQuality" style="margin-left: 5px;">质量优先</label>
-              </div>
               <div>
                 <input type="checkbox" id="generateVideoToggle" v-model="videoParams.shouldGenerate">
                 <label for="generateVideoToggle" style="margin-left: 5px;">为此日记生成视频</label>
+              </div>
+            </div>
+            
+            <div v-if="videoParams.shouldGenerate">
+              <div class="form-group">
+                <label>生成模式</label>
+                <div>
+                  <input type="radio" id="qualitySpeed" value="speed" v-model="videoParams.quality">
+                  <label for="qualitySpeed" style="margin-left: 5px;">速度优先</label>
+                </div>
+                <div>
+                  <input type="radio" id="qualityQuality" value="quality" v-model="videoParams.quality">
+                  <label for="qualityQuality" style="margin-left: 5px;">质量优先</label>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label>生成方式</label>
+                <div>
+                  <input type="radio" id="genTypeText" value="text" v-model="videoParams.generationType">
+                  <label for="genTypeText" style="margin-left: 5px;">文生视频（根据日记内容）</label>
+                </div>
+                <div>
+                  <input type="radio" id="genTypeImage" value="image" v-model="videoParams.generationType">
+                  <label for="genTypeImage" style="margin-left: 5px;">图生视频（根据日记图片）</label>
+                </div>
               </div>
             </div>
           </div>
@@ -144,7 +161,8 @@
       const isSubmitting = ref(false);
       const videoParams = reactive({
         shouldGenerate: false,
-        quality: 'speed'
+        quality: 'speed',
+        generationType: 'text' // 默认为文生视频
       });
   
       const addTag = () => {
@@ -161,6 +179,7 @@
   
       const handleImageUpload = (url) => {
         if(url && !formData.images.includes(url)) {
+          console.log('EditDiary添加图片:', url);
           formData.images.push(url);
         } else {
           console.warn('图片已存在或无效:', url);
@@ -179,6 +198,35 @@
         // 这里可以添加错误提示UI
         console.error(error);
       };
+
+      const generateVideo = async (diary_id) => {
+        try {
+          if(videoParams.generationType === 'text') {
+            console.log("开始文生视频");
+            const videoRequestData = {
+              username: this.$store.state.user.username,
+              diary_id: diary_id,
+              prompt: formData.content,
+              quality: videoParams.quality
+            };
+            const response = await axios.post('http://localhost:8000/AIGen/text_generate_video', videoRequestData);
+            console.log("文生视频结果： " + response.data.message);
+          } else {
+            console.log("开始图生视频");
+            const videoRequestData = {
+              username: this.$store.state.user.username,
+              diary_id: diary_id,
+              quality: videoParams.quality,
+              image_url: formData.images,
+              prompt: "让画面动起来"
+            }
+            const response = await axios.post('http://localhost:8000/AIGen/image_generate_video', videoRequestData);
+            console.log("图生视频结果： " + response.data.message);
+          }
+        } catch (error) {
+          console.error('视频生成失败：' + error);
+        }
+      }
   
       const handleSubmit = async () => {
         try {
@@ -201,20 +249,15 @@
           if (props.isEdit) {
             // 编辑模式
             await axios.post('http://localhost:8000/diaries/update', payload);
+            if(videoParams.shouldGenerate) {
+              generateVideo(props.diary.id);
+            }
           } else {
             // 新建模式
             console.log("开始创建日记:", payload);
             const response = await axios.post('http://localhost:8000/diaries/add', payload);
             if(videoParams.shouldGenerate) {
-              const videoRequestData = {
-                username: store.state.user.username,
-                diary_id: response.data.diary_id,
-                prompt: formData.content,  // 修复：使用formData.content
-                quality: videoParams.quality  // 修复：直接使用videoParams变量
-              }
-              console.log("开始文生视频");
-              const videoGenApiResponse = await axios.post('http://localhost:8000/AIGen/generate_video', videoRequestData);
-              console.log("文生视频结果： ",  videoGenApiResponse.data.message);
+              generateVideo(response.data.id);
             }
           }
           emit('submit', payload);

@@ -78,6 +78,36 @@
       <div v-else class="section"><p>暂无标签。</p></div>
 
     </div>
+
+    <!-- 评分部分 -->
+    <div class="rating-section section" v-if="!isLoading && !error && diary">
+      <h3>评分</h3>
+      <div class="rating-container">
+        <!-- 当前用户评分 -->
+        <div class="user-rating" v-if="$store.state.user.isLoggedIn">
+          <p>您的评分：</p>
+          <div class="star-rating">
+            <span v-for="star in 5" :key="star" 
+                  @click="rate(star)" 
+                  :class="['star', { 'active': star <= userRating }]"
+                  :title="`${star}星`">
+              ★
+            </span>
+          </div>
+        </div>
+        <div v-else class="login-prompt">
+          <p>请<a href="/login">登录</a>后参与评分</p>
+        </div>
+        
+        <!-- 平均评分 -->
+        <div class="average-rating">
+          <p>
+            平均评分：<strong>{{ diary.rating?.toFixed(1) || '暂无' }}</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+
     <EditDiary
       v-if="showEditor"
       :diary="editingDiary"
@@ -107,7 +137,8 @@ export default {
       pollingAttempts: 0,
       maxPollingAttempts: 20,
       showEditor: false,
-      editingDiary: null
+      editingDiary: null,
+      userRating: 0,
     };
   },
   methods: {
@@ -167,12 +198,31 @@ export default {
       this.showEditor = false;
       this.editingDiary = null;
     },
+    async rate(rating) {
+      if(!this.$store.state.user.isLoggedIn) {
+        alert('请先登录！');
+        return;
+      }
+      try {
+        this.userRating = rating;
+        const response = await axios.post(`http://localhost:8000/diaries/rate`, {
+          id: this.diary.id,
+          rate: rating
+        });
+        if(response.data.message) {
+          console.log(response.data.message);
+          this.diary = response.data.diary;
+        }
+      } catch (err) {
+        console.error('Error submitting rating:', err);
+        alert('评分失败，请稍后再试。');
+      }
+    }
   },
   created() {
     this.fetchDiaryDetail();
   },
   beforeUnmount() {
-    // Clear interval when component is destroyed to prevent memory leaks
     if (this.pollingInterval) {
       clearInterval(this.pollingInterval);
       this.pollingInterval = null;
@@ -353,6 +403,82 @@ export default {
 }
 .tags-section .tag-item:hover {
   background-color: #2980b9;
+}
+
+.rating-section {
+  margin-top: 30px;
+  padding: 25px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+.rating-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.user-rating, .average-rating {
+  flex: 1;
+  min-width: 250px;
+}
+
+.star-rating, .stars-display {
+  font-size: 28px;
+  line-height: 1;
+  margin-top: 8px;
+}
+
+.star-rating .star {
+  color: #ccc;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-right: 5px;
+}
+
+.star-rating .star:hover,
+.star-rating .star.active {
+  color: #FFC107;
+  transform: scale(1.2);
+}
+
+.star-rating .star.active:hover {
+  transform: scale(1.25);
+}
+
+.stars-display .star {
+  color: #e0e0e0;
+  margin-right: 3px;
+}
+
+.stars-display .star.filled {
+  color: #FFC107;
+}
+
+.login-prompt a {
+  color: #3498db;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.login-prompt a:hover {
+  text-decoration: underline;
+}
+
+.rating-count {
+  color: #7f8c8d;
+  font-size: 0.9em;
+  margin-left: 8px;
+}
+
+@media (max-width: 600px) {
+  .rating-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 /* Basic Quill CSS for v-html content if not globally included */

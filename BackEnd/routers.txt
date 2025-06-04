@@ -25,10 +25,10 @@ GET     /spots/schools/{name}?tag=...&sort_key=...&sort_order=...       -> 获�
 GET     /map/get_graph                                  -> 获取地图完整信息
 POST    /map/add_node                                   -> 添加地图节点
 POST    /map/add_edge                                   -> 添加地图边 
+POST    /map/search_places                              -> 场所查询
 POST    /map/path_plan/one_to_one_shortest_path         -> 路径规划-最短路径
 POST    /map/path_plan/one_to_one_shortest_time         -> 路径规划-最短时间
 POST    /map/path_plan/one_to_many_shortest_path        -> 路径规划-多点最短路径
-POST    /map/search_places                              -> 场所查询
 POST    /map/path_plan/indoor                           -> 室内导航
 
 美食模块

@@ -22,7 +22,6 @@ def haversine(lat1, lon1, lat2, lon2):
     a = math.sin(dphi/2)**2 + math.cos(phi1) * math.cos(phi2) * math.sin(dlambda/2)**2
     return 2 * R * math.atan2(math.sqrt(a), math.sqrt(1 - a))
 
-
 def build_graph(nodes, edges, traffic_mode):
     """构建距离/时间邻接表"""
     graph = {}
@@ -281,29 +280,58 @@ def add_edge(edge_data: EdgeRequest) -> dict:
     write_json(MAP_FILE, graph)
     return {"success": True, "graph": graph}
 
+from algorithm.Hash import simple_hash
+
+def _load_places():
+    global head_index
+    global next_index
+    graph = get_map()
+    nodes = graph.get('nodes', [])
+    head_index=[]
+    next_index=[-1]*len(nodes)
+
+    data=[]
+    for i in range(len(nodes)):
+        hash_value = simple_hash(nodes[i].get("type",""))
+        data.append((hash_value,i))
+    data.sort(key=lambda x: x[0])
+    for i in range(len(data)):
+        if i==0 or data[i][0]!=data[i-1][0]:
+            head_index.append((data[i][1],data[i][0]))
+        else:
+            next_index[data[i-1][1]]=data[i][1]
+
+_load_places()
+
 def search_places(longitude: float, latitude: float, query_type: str, max_results: int, max_distance: float):
     """查询最近的指定类型节点"""
     graph = get_map()
     nodes = graph.get('nodes', [])
     candidates = []
-    for node in nodes:
-        if node.get('type', 'default') == query_type:
-            lon1=longitude
-            lat1=latitude
-            lon2=node.get('longitude')
-            lat2=node.get('latitude')
-            distance=round(haversine(lat1, lon1, lat2, lon2), 2)
-            if distance <= max_distance:
-                candidate_node = PlaceDetail(
-                    id=node.get('id'),
-                    name=node.get('name'),
-                    type=node.get('type'),
-                    popularity=node.get('popularity'),
-                    longitude=node.get('longitude'),
-                    latitude=node.get('latitude'),
-                    distance=distance
-                )
-                candidates.append(candidate_node)
+
+    hash_value = simple_hash(query_type)
+    for index, value in head_index:
+        if hash_value==value:
+            while index != -1:
+                node=nodes[index]
+                lon1=longitude
+                lat1=latitude
+                lon2=node.get('longitude')
+                lat2=node.get('latitude')
+                distance=round(haversine(lat1, lon1, lat2, lon2), 2)
+                if distance <= max_distance:
+                    candidate_node = PlaceDetail(
+                        id=node.get('id'),
+                        name=node.get('name'),
+                        type=node.get('type'),
+                        popularity=node.get('popularity'),
+                        longitude=node.get('longitude'),
+                        latitude=node.get('latitude'),
+                        distance=distance
+                    )
+                    candidates.append(candidate_node)
+                index=next_index[index]
+            break
             
     sorted_places = quick_sort(candidates, sort_key=lambda x: x.distance)
     return sorted_places[:max_results]

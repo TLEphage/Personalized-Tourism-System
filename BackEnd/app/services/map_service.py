@@ -11,6 +11,15 @@ def get_map():
     graph = read_json(MAP_FILE, default={})
     return graph
 
+def search_node(name: str):
+    map_data = get_map()
+    nodes = map_data.get("nodes",[])
+    node_list=[]
+    for node in nodes:
+        if name == "__all__" or name in node.get("name",""):
+            node_list.append(node.get("name",""))
+    return node_list[:10]
+
 def haversine(lat1, lon1, lat2, lon2):
     """
     计算两点间的地球表面距离（米），使用 Haversine 公式

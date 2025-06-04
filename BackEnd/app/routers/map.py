@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Query
 from app.models.map import *
 from app.services import map_service
 
@@ -35,6 +35,11 @@ def indoor_shortest_path(map_req: IndoorRequest):
 def get_graph():
     """获取地图信息"""
     return map_service.get_graph()
+
+@router.get("/search_node", response_model=List[str],summary="获取节点名字")
+def search_node(name: str = Query(default="__all__", description="节点部分名字")):
+    """根据节点部分名字获取完整名字"""
+    return map_service.search_node(name)
 
 @router.post("/add_node", summary="添加地图节点")
 def add_node(node: NodeRequestRaw):

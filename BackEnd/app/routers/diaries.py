@@ -55,8 +55,6 @@ def search_diaries(
     title: str = Query(default="__all__", description="标题"),
     content: str = Query(default="__all__", description="内容")
 ):
-    print(title)
-    print(content)
     diaries = diary_service.search_diaries(
         title=title,
         content=content

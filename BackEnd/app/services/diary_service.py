@@ -93,17 +93,14 @@ def get_user_diaries(username: str, sort_key: str = "id", sort_order: str = "des
 
 def search_diaries(title: str, content: str) -> list:
     diaries = read_compressed_json(DIARIES_FILE)
-    
     if title == "__all__":
         filtered_by_title = diaries
     else:
         filtered_by_title = [entry for entry in diaries if entry.get("title") == title]
-
     if content == "__all__":
-        filtered = diaries
+        filtered = filtered_by_title
     else:
         filtered = [entry for entry in filtered_by_title if kmp(entry.get("content"),content)]
-    
     # 处理排序方向
     
     # 执行排序（使用带异常处理的排序方式）

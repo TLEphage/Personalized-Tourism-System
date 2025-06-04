@@ -44,6 +44,22 @@ class OneToManyPathResponse(BaseModel):
     path: list
     distance: float
 
+class IndoorRequest(BaseModel):
+    start: str
+    end: str
+
+class IndoorNode(BaseModel):
+    id: int
+    name: str
+    type: str
+    x: float
+    y: float
+    floor: int
+
+class IndoorResponse(BaseModel):
+    path: List[IndoorNode]
+    distance: float
+
 class NodeRequestRaw(BaseModel):
     nodeData: Dict[str, Any]
 
@@ -69,22 +85,6 @@ class EdgeRequest(BaseModel):
     walk_speed: Optional[float] = Field(default=1.0, ge=0, le=5, description="步行速度 m/s")
     bike_speed: Optional[float] = Field(default=0.0, ge=0, le=10, description="自行车速度 m/s")
     ebike_speed: Optional[float] = Field(default=0.0, ge=0, le=15, description="电动车速度 m/s")
-
-class IndoorRequest(BaseModel):
-    start: str
-    end: str
-
-class IndoorNode(BaseModel):
-    id: int
-    name: str
-    type: str
-    x: float
-    y: float
-    floor: int
-
-class IndoorResponse(BaseModel):
-    path: List[IndoorNode]
-    distance: float
 
 class PlaceQueryRequest(BaseModel):
     """场所查询请求模型"""

@@ -31,7 +31,7 @@ def get_diary(diary_id: int):
     except ValueError as e:
         raise HTTPException(status_code=404, detail="日记未找到")
 
-@router.get("/{username}", response_model=dict, summary="获取用户游记列表")
+@router.get("/user/{username}", response_model=dict, summary="获取用户游记列表")
 def get_user_diaries(
     username: str,
     sort_key: str = Query(default="id", description="排序字段（如id/date/title/rating/views等）"),
@@ -51,10 +51,12 @@ def get_user_diaries(
     return {"diaries": diaries}
 
 @router.get("/search", response_model=dict, summary="搜索标题或内容")
-def get_user_diaries(
+def search_diaries(
     title: str = Query(default="__all__", description="标题"),
     content: str = Query(default="__all__", description="内容")
 ):
+    print(title)
+    print(content)
     diaries = diary_service.search_diaries(
         title=title,
         content=content

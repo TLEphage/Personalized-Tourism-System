@@ -141,7 +141,7 @@ export default {
       try {
         const response = await axios.post('http://localhost:8000/AIGen/check_video_status');
         if(response.data.message) {
-          console.log("文生视频成功，共" + response.data.tasks + "个任务");
+          console.log(response.data.message + "，剩余" + response.data.remaining_tasks + "个任务");
         }
       } catch (err) {
         console.error('Error checking video status:', err);
@@ -246,7 +246,7 @@ export default {
   gap: 10px 20px; /* row-gap column-gap */
 }
 .meta-info span {
-  /* margin-right: 20px; */ /* Replaced by gap */
+  margin-right: 20px;
 }
 
 .section {

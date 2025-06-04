@@ -10,6 +10,8 @@ DATA_DIR = os.path.join(BASE_DIR, "data")
 USERS_FILE = os.path.join(DATA_DIR, "users.json")
 # 用户头像文件目录
 USERS_AVATARS_DIR = os.path.join(DATA_DIR, "avatars")
+# 用户登录状态
+LOCAL_STORAGE = os.path.join(DATA_DIR, "localStorage.json")
 # 图片文件目录
 IMAGES_DIR = os.path.join(DATA_DIR, "images")
 # 视频文件目录

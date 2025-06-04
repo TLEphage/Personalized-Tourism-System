@@ -7,6 +7,7 @@ POST    /users/register                                 -> 用户注册
 POST    /users/login                                    -> 用户登录
 GET     /users/{username}/details                       -> 查询用户信息
 PUT     /users/{username}/details                       -> 更新用户信息
+GET     /users/state                                    -> 获取登录用户信息
 
 日记模块
 POST    /diaries/add                                        -> 添加日记

@@ -1,8 +1,8 @@
 import os
-from app.config import USERS_FILE, USERS_AVATARS_DIR
+from app.config import USERS_FILE, USERS_AVATARS_DIR, LOCAL_STORAGE
 from utils.file_utils import read_json, write_json
 from utils.security import hash_password, verify_password
-
+from app.models.users import UserResponse
 
 def get_max_id(users):
     """
@@ -110,3 +110,11 @@ def update_user(username: str, fields: dict) -> dict:
             }
     # 未找到用户，抛出异常，上层接口捕获并返回 404
     raise ValueError("用户不存在")
+
+def write_local_storage(user_state: UserResponse):
+    write_json(LOCAL_STORAGE,user_state)
+
+def read_local_storage() -> UserResponse:
+    return read_json(LOCAL_STORAGE)
+
+write_local_storage({"username": None})

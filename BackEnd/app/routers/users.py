@@ -25,9 +25,18 @@ def login(user: UserLogin):
     """
     login_info = user_service.login(user.username, user.password)
     if login_info.get("success", False):
+        user_service.write_local_storage(login_info["user"])
         return login_info["user"]
     else:
         raise HTTPException(status_code=400, detail=login_info.get("message", ""))
+
+@router.get("/state", response_model=UserResponse, summary="获取登录信息")
+def get_state():
+    state = user_service.read_local_storage()
+    if state.get("username") is None:
+        raise HTTPException(status_code=400, detail="未登录")
+    else:
+        return state
 
 @router.get("/{username}/details", response_model=UserResponse, summary="查询用户信息")
 def get_user(username: str):

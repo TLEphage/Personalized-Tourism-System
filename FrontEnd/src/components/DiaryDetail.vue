@@ -246,7 +246,7 @@ export default {
   gap: 10px 20px; /* row-gap column-gap */
 }
 .meta-info span {
-  /* margin-right: 20px; */ /* Replaced by gap */
+  margin-right: 20px;
 }
 
 .section {

@@ -5,7 +5,7 @@ from app.services import map_service
 router = APIRouter(tags=["地图查询"])
 
 @router.post("/path_plan/one_to_one_shortest_path", response_model=OneToOnePathResponse, summary="一到一最短路")
-def path_plan(map_req: OneToOnePathRequest):
+def one_to_one_shortest_path(map_req: OneToOnePathRequest):
     print(map_req)
     path, distance = map_service.one_to_one_shortest_path(map_req.start, map_req.end)
     if distance == float('inf'):
@@ -13,18 +13,23 @@ def path_plan(map_req: OneToOnePathRequest):
     return OneToOnePathResponse(path=path, distance=distance)
 
 @router.post("/path_plan/one_to_one_shortest_time", response_model=OneToOneTimeResponse, summary="一到一最短时间")
-def path_plan(map_req: OneToOneTimeRequest):
+def one_to_one_shortest_time(map_req: OneToOneTimeRequest):
     path, mode, time, distance = map_service.one_to_one_shortest_time(map_req.start, map_req.end, map_req.mode)
     if distance == float('inf'):
         raise HTTPException(status_code=404, detail="未能找到合适的路径")
     return OneToOneTimeResponse(path=path,mode=mode,time=time,distance=distance)
 
-@router.post("/path_plan/one_to_many_shortest_path", response_model=OneToManyPathRequest, summary="一到多最短路")
-def path_plan(map_req: OneToManyPathResponse):
+@router.post("/path_plan/one_to_many_shortest_path", response_model=OneToManyPathResponse, summary="一到多最短路")
+def one_to_many_shortest_path(map_req: OneToManyPathRequest):
     path, distance = map_service.one_to_many_shortest_path(map_req.start, map_req.end)
     if distance == float('inf'):
         raise HTTPException(status_code=404, detail="未能找到合适的路径")
     return OneToOnePathResponse(path=path, distance=distance)
+
+@router.post("/plan_path/indoor_shortest_path", response_model=IndoorResponse, summary="室内导航")
+def indoor_shortest_path(map_req: IndoorRequest):
+    path, distance = map_service.indoor_shortest_path(map_req.start, map_req.end)
+    return IndoorResponse(path=path, distance=distance)
 
 @router.get("/get_graph", summary="获取地图信息")
 def get_graph():

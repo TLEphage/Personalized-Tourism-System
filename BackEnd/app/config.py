@@ -22,6 +22,8 @@ AI_VIDEO_TASK = os.path.join(DATA_DIR, "ai_video_task.json")
 DIARIES_FILE = os.path.join(DATA_DIR, "diaries.json")
 # 地图数据文件路径（存储图结构数据，格式示例：{"A": {"B": 1, "C": 4}, "B": {"A": 1, "C": 2, "D": 5}, ...}）
 MAP_FILE = os.path.join(DATA_DIR, "map.json")
+# 室内导航数据文件路径
+INDOOR_FILE = os.path.join(DATA_DIR, "indoor.json")
 # 中国景点文件路径
 SPOTS_FILE = os.path.join(DATA_DIR, "spots.json")
 # 美食文件路径

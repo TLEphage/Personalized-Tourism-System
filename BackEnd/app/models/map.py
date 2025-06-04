@@ -70,6 +70,22 @@ class EdgeRequest(BaseModel):
     bike_speed: Optional[float] = Field(default=0.0, ge=0, le=10, description="自行车速度 m/s")
     ebike_speed: Optional[float] = Field(default=0.0, ge=0, le=15, description="电动车速度 m/s")
 
+class IndoorRequest(BaseModel):
+    start: str
+    end: str
+
+class IndoorNode(BaseModel):
+    id: int
+    name: str
+    type: str
+    x: float
+    y: float
+    floor: int
+
+class IndoorResponse(BaseModel):
+    path: List[IndoorNode]
+    distance: float
+
 class PlaceQueryRequest(BaseModel):
     """场所查询请求模型"""
     longitude: float    # 用户所在经度

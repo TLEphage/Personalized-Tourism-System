@@ -1,7 +1,7 @@
 import math
 import heapq
 import random
-from app.config import MAP_FILE
+from app.config import MAP_FILE, INDOOR_FILE
 from utils.file_utils import read_json, write_json
 from app.models.map import *
 from algorithm.Sort import quick_sort
@@ -88,7 +88,8 @@ def one_to_one_shortest_path(start_name, end_name):
     start_id = next((node['id'] for node in nodes if node['name'] == start_name), -1)
     end_id = next((node['id'] for node in nodes if node['name'] == end_name), -1)
 
-
+    if start_id == -1 or end_id == -1:
+        raise("地点不存在")
     # 构建邻接表
     graph = build_graph(nodes, edges, "no traffic mode")
     
@@ -120,7 +121,9 @@ def one_to_one_shortest_time(start_name, end_name, traffic_mode="walk"):
 
     start_id = next((node['id'] for node in nodes if node['name'] == start_name), -1)
     end_id = next((node['id'] for node in nodes if node['name'] == end_name), -1)
-        
+    
+    if start_id == -1 or end_id == -1:
+        raise("地点不存在")
     # 构建邻接表
     graph = build_graph(nodes, edges, traffic_mode)
     
@@ -160,6 +163,8 @@ def one_to_many_shortest_path(start_name, target_names):
         nodes_dict[node.get('id',0)]=node   
         
     start_id = next((node['id'] for node in nodes if node['name'] == start_name), -1)
+    if start_id == -1:
+        raise("地点不存在")
     target_ids=[]
     for end_name in target_names:
         end_id = next((node['id'] for node in nodes if node['name'] == end_name), -1)
@@ -200,6 +205,36 @@ def one_to_many_shortest_path(start_name, target_names):
     full_path_nodes = [get_node_by_id(nodes_dict, node_id) for node_id in full_path]
     
     return full_path_nodes, round(total_distance,2)
+
+def indoor_shortest_path(start_name, end_name):
+    graph = read_json(INDOOR_FILE, default={})
+    nodes = graph.get("nodes",[])
+    start_node={}
+    end_node={}
+    for node in nodes:
+        if node['name']==start_name:
+            start_node=node
+        if node['name']==end_name:
+            end_node=node
+    if not start_node or not end_node:
+        raise ValueError("地点不存在")
+    def calc_distance(x1,y1,x2,y2):
+        return math.sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2))
+    if start_node['floor'] == end_node['floor']:
+        distance=calc_distance(start_node['x'], start_node['y'], end_node['x'], end_node['y'])
+        return [start_node, end_node], distance
+    elevator1={}
+    elevator2={}
+    for node in nodes:
+        if node['floor'] == start_node['floor'] and node['type']=='电梯':
+            elevator1=node
+        if node['floor'] == end_node['floor'] and node['type']=='电梯':
+            elevator2=node
+    if not elevator1 or not elevator2:
+        return ValueError("找不到路径")
+    distance1=calc_distance(start_node['x'], start_node['y'], elevator1['x'], elevator1['y'])
+    distance2=calc_distance(elevator2['x'], elevator2['y'], end_node['x'], end_node['y'])
+    return [start_node, elevator1, elevator2, end_node], distance1+distance2
 
 def add_node(node_data: NodeRequest) -> dict:
     """将请求的节点加入地图数据中"""

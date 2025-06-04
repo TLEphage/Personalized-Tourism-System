@@ -3,6 +3,7 @@ from app.config import DIARIES_FILE
 from app.models.diaries import DiaryRequest, DiaryResponse, DiaryTagRequest
 from utils.file_utils import read_json, write_json, read_compressed_json, write_compressed_json
 from algorithm.Sort import quick_sort
+from algorithm.TextSearch import kmp
 
 # 在应用初始化时调用
 if not os.path.exists(DIARIES_FILE):
@@ -101,7 +102,7 @@ def search_diaries(title: str, content: str) -> list:
     if content == "__all__":
         filtered = diaries
     else:
-        filtered = [entry for entry in filtered_by_title if content in entry.get("content")]
+        filtered = [entry for entry in filtered_by_title if kmp(entry.get("content"),content)]
     
     # 处理排序方向
     

@@ -345,7 +345,7 @@ export default {
     const startIndoorLocation = ref("");
     const endIndoorLocation = ref("");
     const indoorPoints = ref("");
-    const indoorDistance = ref(0);
+    const indoorDistance = ref(0.0);
     const currentFloor = ref("1L");
     const availableFloors = ref(["1L", "2L", "3L"]);
     let indoorMapInstance = null;
@@ -1030,16 +1030,7 @@ export default {
 
     function switchFloor(floor) {
       currentFloor.value = floor;
-      
-      // 如果已有路径数据，重新绘制当前楼层的路径
-      if (indoorRouteData.value) {
-        const currentFloorRoute = indoorRouteData.value.path.filter(
-          point => point.floor === floor
-        );
-        
-        indoorPoints.value = currentFloorRoute.map(p => p.name).join(" → ");
-        drawIndoorRoute(currentFloorRoute);
-      }
+      fetchIndoorRoute();
     }
 
     // 绘制室内路径
@@ -1142,9 +1133,7 @@ export default {
     async function fetchIndoorRoute() {
       console.log("当前楼层： " +  currentFloor.value);
       try {
-        let response;
-        if(!currentFloor.value) response = await axios.get(`http://localhost:8000/map/path_plan/indoor_shortest_path?floor=1L`);
-        else response = await axios.get(`http://localhost:8000/map/path_plan/indoor_shortest_path?floor=${currentFloor.value}`);
+        const response = await axios.get(`http://localhost:8000/map/path_plan/indoor_shortest_path?floor=${currentFloor.value}`);
         const data = response.data;
         console.log("室内导航结果:", data.path);
         console.log(data.distance);
@@ -1213,7 +1202,8 @@ export default {
       startIndoorNavigation,
       currentFloor,
       availableFloors,
-      switchFloor
+      switchFloor,
+      indoorDistance
      };
   },
   methods: {

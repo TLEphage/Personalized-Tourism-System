@@ -284,6 +284,7 @@ def indoor_shortest_path_v2(start_name, end_name):
     if not start_node or not end_node:
         raise ValueError("地点不存在")
     path, distance = dijkstra(start_node['id'], {end_node['id']}, graph)
+    distance = round(distance,2)
     full_path = []
     if distance == float('inf'):
         raise ValueError("路径不存在")

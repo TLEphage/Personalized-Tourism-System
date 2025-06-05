@@ -57,20 +57,48 @@
 
         <div class="input-group">
           <label>起点位置</label>
-          <input
-            type="text"
-            class="input-field"
-            v-model="startLocation"
-          />
+          <div class="suggestion-container">
+            <input
+              type="text"
+              class="input-field"
+              v-model="startLocation"
+              @input="handleStartInput"
+              @focus="showStartSuggestions = true"
+            />
+            <div v-if="showStartSuggestions && startSuggestions.length" class="suggestion-box">
+              <div 
+                v-for="(suggestion, index) in startSuggestions" 
+                :key="index"
+                class="suggestion-item"
+                @mousedown.prevent="selectStartSuggestion(suggestion)"
+              >
+                {{ suggestion }}
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="input-group">
           <label>终点位置</label>
-          <input
-            type="text"
-            class="input-field"
-            v-model="endLocation"
-          />
+          <div class="suggestion-container">
+            <input
+              type="text"
+              class="input-field"
+              v-model="endLocation"
+              @input="handleEndInput"
+              @focus="showEndSuggestions = true"
+            />
+            <div v-if="showEndSuggestions && endSuggestions.length" class="suggestion-box">
+              <div 
+                v-for="(suggestion, index) in endSuggestions" 
+                :key="index"
+                class="suggestion-item"
+                @mousedown.prevent="selectEndSuggestion(suggestion)"
+              >
+                {{ suggestion }}
+              </div>
+            </div>
+          </div>
         </div>
 
         <button class="nav-button" @click="startNavigation">开始导航</button>
@@ -116,12 +144,29 @@
                 <button @click="removePoint(index)">×</button>
               </div>
             </div>
-            <input
-              type="text"
-              class="input-field"
-              v-model="multiPoints[index]"
-              :placeholder="'地点 ' + (index + 1)"
-            />
+            <div class="suggestion-container">
+              <input
+                type="text"
+                class="input-field"
+                v-model="multiPoints[index].name"
+                @input="handleMultiInput(index, $event)"
+                @focus="setActiveSuggestionIndex(index)"
+              />
+              <div 
+                v-if="activeSuggestionIndex === index && multiSuggestions[index] && multiSuggestions[index].length" 
+                class="suggestion-box"
+                @mouseleave="activeSuggestionIndex = null"
+              >
+                <div 
+                  v-for="(suggestion, sIndex) in multiSuggestions[index]" 
+                  :key="sIndex"
+                  class="suggestion-item"
+                  @mousedown.prevent="selectMultiSuggestion(index, suggestion)"
+                >
+                  {{ suggestion.name }}
+                </div>
+              </div>
+            </div>
           </div>
 
           <button class="add-point-btn" @click="addPoint">
@@ -215,7 +260,7 @@
 </template>
 
 <script>
-import { onMounted, ref, computed } from "vue";
+import { onMounted, ref, computed, onBeforeUnmount } from "vue";
 import AMapLoader from "@amap/amap-jsapi-loader";
 import axios from 'axios';
 
@@ -240,9 +285,17 @@ export default {
     const maxResults = ref(10);
     const maxDistance = ref(1000);
 
-    const multiPoints = ref([]);
+    const multiPoints = ref([{name: "", id: null}]);
     const multiTotalDistance = ref(0);
     const multiEstimatedTime = ref(0);
+
+    const startSuggestions = ref([]);
+    const endSuggestions = ref([]);
+    const showStartSuggestions = ref(false);
+    const showEndSuggestions = ref(false);
+    const multiSuggestions = ref([[]]);
+    const activeSuggestionIndex = ref(null);
+    const suggestionTimeout = ref(null);
 
     // 用来存当前绘制到地图上的点和线
     let routeMarkers = [];
@@ -267,7 +320,24 @@ export default {
         console.error("Failed to load AMap script", e);
         alert("加载高德地图API失败，请检查网络连接或API Key是否正确");
       });
+      document.addEventListener('click', handleGlobalClick);
     });
+
+    onBeforeUnmount(() => {
+      // 组件卸载时移除监听
+      document.removeEventListener('click', handleGlobalClick);
+    });
+
+    function handleGlobalClick(event) {
+      const isInput = event.target.classList.contains('input-field');
+      const isSuggestion = event.target.classList.contains('suggestion-item');
+      
+      if (!isInput && !isSuggestion) {
+        showStartSuggestions.value = false;
+        showEndSuggestions.value = false;
+        activeSuggestionIndex.value = null;
+      }
+    }
 
     async function startNavigation() {
       if (!startLocation.value || !endLocation.value) {
@@ -319,34 +389,15 @@ export default {
        // —— 清除旧的覆盖物 —— 
        routeMarkers.forEach(m => m.setMap(null));
        routeMarkers = [];
+
+       
        if (routePolyline) {
          routePolyline.setMap(null);
          routePolyline = null;
        }
 
-       // —— 组装坐标数组 （注意：服务端给的字段名 latitude/longitude 在这里是反过来的）——
+       // —— 组装坐标数组 ——
        const coords = route.map(p => [p.longitude, p.latitude]);
-
-       // —— 按顺序打点 —— 
-       route.forEach(p => {
-         const marker = new AMapInstance.Marker({
-           position: [p.longitude, p.latitude],
-           map: map.value,
-           title: p.name
-         });
-         // 用 Label 给点加个红色小标签
-         marker.setLabel({
-           offset: new AMapInstance.Pixel(-10, -28),
-           content: `<div style="
-             background: #f33;
-             color: #fff;
-             padding: 2px 4px;
-             border-radius: 3px;
-             font-size: 12px;
-           ">${p.name}</div>`
-         });
-         routeMarkers.push(marker);
-       });
 
        // —— 画连线 —— 
        routePolyline = new AMapInstance.Polyline({
@@ -358,8 +409,51 @@ export default {
          map: map.value
        });
 
+       const startPoint = route[0];
+       const endPoint = route[route.length - 1];
+
+
+      // 绘制起点标记（绿色）
+      const startMarker = new AMapInstance.Marker({
+        position: [startPoint.longitude, startPoint.latitude],
+        map: map.value,
+        title: startPoint.name, 
+      });
+      
+      startMarker.setLabel({
+        offset: new AMapInstance.Pixel(-10, -28),
+        content: `<div style="
+          background: #4CAF50;
+          color: #fff;
+          padding: 2px 4px;
+          border-radius: 3px;
+          font-size: 12px;
+        ">起点: ${startPoint.name}</div>`
+      });
+      routeMarkers.push(startMarker);
+
+      // 绘制终点标记（红色）
+      const endMarker = new AMapInstance.Marker({
+        position: [endPoint.longitude, endPoint.latitude],
+        map: map.value,
+        title: endPoint.name,
+        
+      });
+      
+      endMarker.setLabel({
+        offset: new AMapInstance.Pixel(-10, -28),
+        content: `<div style="
+          background: #F44336;
+          color: #fff;
+          padding: 2px 4px;
+          border-radius: 3px;
+          font-size: 12px;
+        ">终点: ${endPoint.name}</div>`
+      });
+      routeMarkers.push(endMarker);
+      
        // —— 自动缩放视野到所有点和线 —— 
-       map.value.setFitView();
+      map.value.setFitView();
 
         console.log("已绘制路径和标记");
       })
@@ -585,11 +679,13 @@ export default {
 
     //多点导航相关函数
     const addPoint = () => {
-      multiPoints.value.push("");
+      multiPoints.value.push({name: "", id: null});
+      multiSuggestions.value.push([]);
     };
 
     const removePoint = (index) => {
       multiPoints.value.splice(index, 1);
+      multiSuggestions.value.splice(index, 1);
     };
 
     const movePointUp = (index) => {
@@ -608,6 +704,109 @@ export default {
       }
     };
 
+    const fetchSuggestions = async (query, target) => {
+      if (!query.trim()) {
+        if (target === 'start') {
+          startSuggestions.value = [];
+        } else if (target === 'end') {
+          endSuggestions.value = [];
+        } else if (typeof target === 'number') {
+          multiSuggestions.value[target] = [];
+        }
+        return;
+      }
+      
+      try {
+        const response = await axios.get(`http://localhost:8000/map/search_nodes?name=${query}`);
+        const suggestions = response.data || [];
+        console.log('获取搜索建议成功:', suggestions);
+        
+        if (target === 'start') {
+          startSuggestions.value = suggestions;
+        } else if (target === 'end') {
+          endSuggestions.value = suggestions;
+        } else if (typeof target === 'number') {
+          multiSuggestions.value[target] = suggestions;
+        }
+      } catch (error) {
+        console.error('获取搜索建议失败:', error);
+      }
+    };
+
+    // 防抖处理
+    const debounce = (func, delay) => {
+      return (...args) => {
+        clearTimeout(suggestionTimeout.value);
+        suggestionTimeout.value = setTimeout(() => {
+          func.apply(this, args);
+        }, delay);
+      };
+    };
+
+    const debouncedFetchSuggestions = debounce(fetchSuggestions, 300);
+
+    // 起点输入处理
+    const handleStartInput = (event) => {
+      const query = event.target.value;
+      debouncedFetchSuggestions(query, 'start');
+    };
+    
+    // 终点输入处理
+    const handleEndInput = (event) => {
+      const query = event.target.value;
+      debouncedFetchSuggestions(query, 'end');
+    };
+    
+    // 多点输入处理
+    const handleMultiInput = (index, event) => {
+      const query = event.target.value;
+      debouncedFetchSuggestions(query, index);
+    };
+    
+    // 选择起点建议
+    const selectStartSuggestion = (suggestion) => {
+      startLocation.value = suggestion.name;
+      showStartSuggestions.value = false;
+    };
+    
+    // 选择终点建议
+    const selectEndSuggestion = (suggestion) => {
+      endLocation.value = suggestion.name;
+      showEndSuggestions.value = false;
+    };
+    
+    // 选择多点建议
+    const selectMultiSuggestion = (index, suggestion) => {
+      multiPoints.value[index].name = suggestion.name;
+      multiPoints.value[index].id = suggestion.id;
+      activeSuggestionIndex.value = null;
+    };
+    
+    // 设置当前活跃的多点输入索引
+    const setActiveSuggestionIndex = (index) => {
+      activeSuggestionIndex.value = index;
+      if (multiPoints.value[index].name) {
+        debouncedFetchSuggestions(multiPoints.value[index].name, index);
+      }
+    };
+    
+    // 输入框失去焦点处理
+    const onInputBlur = (type) => {
+      setTimeout(() => {
+        if (type === 'start') showStartSuggestions.value = false;
+        if (type === 'end') showEndSuggestions.value = false;
+      }, 200);
+    };
+    
+    // 多点输入框失去焦点处理
+    const onMultiInputBlur = (index) => {
+      setTimeout(() => {
+        if (activeSuggestionIndex.value === index) {
+          activeSuggestionIndex.value = null;
+        }
+      }, 200);
+    };
+    
     // 多点导航API调用
     async function startMultiNavigation() {
       if (multiPoints.value.length < 2) {
@@ -616,7 +815,7 @@ export default {
       }
 
       // 检查所有地点是否已填写
-      if (multiPoints.value.some(point => !point.trim())) {
+      if (multiPoints.value.some(point => !point.name.trim())) {
         alert("请填写所有地点");
         return;
       }
@@ -625,8 +824,8 @@ export default {
         console.log("start:", multiPoints.value[0]);
         console.log("end:", multiPoints.value.slice(1));
         const response = await axios.post('http://localhost:8000/map/path_plan/one_to_many_shortest_path', {
-          start: multiPoints.value[0],
-          end: multiPoints.value.slice(1),
+          start: multiPoints.value[0].name,
+          end: multiPoints.value.slice(1).map(point => point.name)
         });
         
         const data = response.data;
@@ -657,8 +856,14 @@ export default {
         // 组装坐标数组
         const coords = data.path.map(p => [p.longitude, p.latitude]);
 
+        // 绘制用户输入的点（带序号）
+        const userPoints = data.path.filter((p, index) => 
+          index === 0 || index === data.path.length - 1 || 
+          multiPoints.value.some(mp => mp.name === p.name)
+        );
+
         // 绘制路径点
-        data.path.forEach((p, index) => {
+        userPoints.forEach((p, index) => {
           const marker = new AMapInstance.Marker({
             position: [p.longitude, p.latitude],
             map: map.value,
@@ -673,7 +878,7 @@ export default {
               padding: 2px 4px;
               border-radius: 3px;
               font-size: 12px;
-            ">${index + 1}. ${p.name}</div>`
+            ">${p.name}</div>`
           });
           
           routeMarkers.push(marker);
@@ -686,7 +891,10 @@ export default {
           strokeWeight: 4,
           strokeOpacity: 0.8,
           lineJoin: "round",
-          map: map.value
+          map: map.value,
+          showDir: true, // 添加方向箭头
+          dirColor: "#FFFFFF", // 箭头颜色
+          dirSize: 16 // 箭头大小
         });
 
         // 自动缩放视野
@@ -726,7 +934,22 @@ export default {
       modeOptions,
       areaMode,
       multiAreaMode,
-      strategy
+      strategy,
+      startSuggestions,
+      endSuggestions,
+      showStartSuggestions,
+      showEndSuggestions,
+      multiSuggestions,
+      activeSuggestionIndex,
+      handleStartInput,
+      handleEndInput,
+      handleMultiInput,
+      selectStartSuggestion,
+      selectEndSuggestion,
+      selectMultiSuggestion,
+      setActiveSuggestionIndex,
+      onInputBlur,
+      onMultiInputBlur
      };
   },
   methods: {
@@ -968,5 +1191,44 @@ input-group .hint {
   background-color: #4CAF50;
   color: white;
   border-color: #4CAF50;
+}
+
+.suggestion-container {
+  position: relative;
+  width: 100%;
+}
+
+.suggestion-box {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* 确保在最顶层 */
+  max-height: 200px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.suggestion-item {
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.suggestion-item:hover {
+  background-color: #f5f5f5;
+}
+
+.point-item {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.input-group {
+  overflow: visible;
 }
 </style>  

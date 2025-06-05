@@ -256,7 +256,7 @@
 
       <!-- 室内导航模式 -->
       <div v-if="currentMode === 'indoor'" class="mode-content">
-        <div v-if="showFloorControl" class="input-group">
+        <div class="input-group">
           <label>当前楼层</label>
           <div class="floor-control">
             <button 
@@ -276,7 +276,7 @@
             type="text"
             class="input-field"
             v-model="startIndoorLocation"
-            placeholder="例如：1楼A区"
+            placeholder="例如：DIOR"
           />
         </div>
 
@@ -286,7 +286,7 @@
             type="text"
             class="input-field"
             v-model="endIndoorLocation"
-            placeholder="例如：2楼B区"
+            placeholder="例如：DIOR"
           />
         </div>
 
@@ -346,14 +346,20 @@ export default {
     const endIndoorLocation = ref("");
     const indoorPoints = ref("");
     const indoorDistance = ref(0);
-    const currentFloor = ref(null);
-    const availableFloors = ref([]);
-    const showFloorControl = ref(false);
+    const currentFloor = ref("1L");
+    const availableFloors = ref(["1L", "2L", "3L"]);
     let indoorMapInstance = null;
 
     // 用来存当前绘制到地图上的点和线
     let routeMarkers = [];
     let routePolyline = null;
+
+    // 用于保存室内路径数据
+    const indoorRouteData = ref(null);
+    
+    // 室内路径覆盖物
+    let indoorRouteMarkers = [];
+    let indoorRoutePolyline = null;
 
     let AMapInstance = null;
 
@@ -396,24 +402,13 @@ export default {
           pitch: 40,
           showIndoorMap: true
         });
-        
-        // 监听室内地图创建
-        indoorMapInstance.on('indoor_create', () => {
-          const indoorManager = indoorMapInstance.indoormap;
-          indoorManager.showIndoorMap(buildingId.value, (err) => {
-            if(err) {
-              console.log('室内地图加载失败'+err);
-              return ;
-            }
-            availableFloors.value = indoorManager.getFloors();
-            currentFloor.value = indoorManager.getFloor();
-            // 监听楼层变化
-            indoorManager.on('floor_change', (event) => {
-                currentFloor.value = event.floor;
-                fetchIndoorRoute();
-            });
-          });
+
+        new AMap.IndoorMap({
+          map: indoorMapInstance,
+          zIndex: 1000,
         });
+
+        console.log("加载室内地图");
       });
     }
 
@@ -563,6 +558,7 @@ export default {
       }
 
       if (mode === 'indoor' && !indoorMapInstance) {
+        console.log('初始化室内地图')
         initIndoorMap();
       }
     }
@@ -1031,19 +1027,91 @@ export default {
       });
     }
 
-    function showFloorSelector() {
-      if (!indoorMap) {
-        alert('请先加载室内地图');
-        return;
-      }
-      showFloorControl.value = true;
-      indoorMap.showFloorBar();
-    }
 
     function switchFloor(floor) {
-      if (indoorMap) {
-        indoorMap.setFloor(floor);
+      currentFloor.value = floor;
+      
+      // 如果已有路径数据，重新绘制当前楼层的路径
+      if (indoorRouteData.value) {
+        const currentFloorRoute = indoorRouteData.value.path.filter(
+          point => point.floor === floor
+        );
+        
+        indoorPoints.value = currentFloorRoute.map(p => p.name).join(" → ");
+        drawIndoorRoute(currentFloorRoute);
       }
+    }
+
+    // 绘制室内路径
+    const drawIndoorRoute = (route) => {
+      // 清除旧的覆盖物
+      indoorRouteMarkers.forEach(m => m.setMap(null));
+      indoorRouteMarkers = [];
+      
+      if (indoorRoutePolyline) {
+        indoorRoutePolyline.setMap(null);
+        indoorRoutePolyline = null;
+      }
+
+      if (!route || route.length === 0) {
+        alert("未找到当前楼层的室内路径");
+        return;
+      }
+
+      // 组装坐标数组
+      const coords = route.map(p => [p.longitude, p.latitude]);
+
+      // 画连线
+      indoorRoutePolyline = new AMap.Polyline({
+        path: coords,
+        strokeColor: "#4169E1", // 使用不同的颜色区分室内路径
+        strokeWeight: 6,
+        strokeOpacity: 0.8,
+        lineJoin: "round",
+        map: indoorMapInstance
+      });
+
+      // 绘制起点和终点标记
+      const startPoint = route[0];
+      const startMarker = new AMap.Marker({
+        position: [startPoint.longitude, startPoint.latitude],
+        map: indoorMapInstance,
+        title: startPoint.name,
+      });
+      
+      startMarker.setLabel({
+        offset: new AMap.Pixel(-10, -28),
+        content: `<div style="
+          background: #4CAF50;
+          color: #fff;
+          padding: 2px 4px;
+          border-radius: 3px;
+          font-size: 12px;
+        ">起点: ${startPoint.name}</div>`
+      });
+      indoorRouteMarkers.push(startMarker);
+
+      const endPoint = route[route.length - 1];
+      const endMarker = new AMap.Marker({
+        position: [endPoint.longitude, endPoint.latitude],
+        map: indoorMapInstance,
+        title: endPoint.name,
+      });
+      
+      endMarker.setLabel({
+        offset: new AMap.Pixel(-10, -28),
+        content: `<div style="
+          background: #F44336;
+          color: #fff;
+          padding: 2px 4px;
+          border-radius: 3px;
+          font-size: 12px;
+        ">终点: ${endPoint.name}</div>`
+      });
+      indoorRouteMarkers.push(endMarker);
+      
+      // 自动缩放视野到所有点和线
+      indoorMapInstance.setFitView();
     }
 
     async function startIndoorNavigation() {
@@ -1054,17 +1122,15 @@ export default {
 
       try {
         console.log("startIndoorNavigation");
-        const response = await axios.post(
-          'http://localhost:8000/map/path_plan/indoor_shortest_path', 
-          {
+        const response = await axios.post('http://localhost:8000/map/path_plan/indoor_shortest_path', {
             start: startIndoorLocation.value,
             end: endIndoorLocation.value
-          }
-        );
+        });
+        console.log("获取室内导航结果成功:", response.data);
         if(response.data.success !== true) {
           alert("无法规划 indoor 路径，请检查输入的 indoor 位置！");
         }
-        
+        console.log("室内导航成功");
         // 开始导航后自动获取当前楼层路径
         fetchIndoorRoute();
       } catch (error) {
@@ -1075,21 +1141,26 @@ export default {
 
     async function fetchIndoorRoute() {
       console.log("当前楼层： " +  currentFloor.value);
-      if (!currentFloor.value) return;
-      
       try {
-        const response = await axios.get(
-          `http://localhost:8000/map/path_plan/indoor_shortest_path?floor=${currentFloor.value}`
-        );
-        
+        let response;
+        if(!currentFloor.value) response = await axios.get(`http://localhost:8000/map/path_plan/indoor_shortest_path?floor=1L`);
+        else response = await axios.get(`http://localhost:8000/map/path_plan/indoor_shortest_path?floor=${currentFloor.value}`);
         const data = response.data;
-        console.log("室内导航结果:", data);
-        indoorPoints.value = data.path.join(" → ");
+        console.log("室内导航结果:", data.path);
+        console.log(data.distance);
+        indoorRouteData.value = data;
+        const currentFloorRoute = indoorRouteData.value.path.filter(
+          point => point.floor === currentFloor.value
+        );
+        indoorPoints.value = currentFloorRoute.map(p => p.name).join(" → ");
         indoorDistance.value = data.distance;
+        drawIndoorRoute(currentFloorRoute);
       } catch (error) {
         console.error("获取室内路径失败:", error);
       }
     }
+
+
 
     return { 
       startLocation, 
@@ -1139,11 +1210,9 @@ export default {
       endIndoorLocation,
       indoorPoints,
       loadIndoorMap,
-      showFloorSelector,
       startIndoorNavigation,
       currentFloor,
       availableFloors,
-      showFloorControl,
       switchFloor
      };
   },

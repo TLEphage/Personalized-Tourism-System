@@ -29,7 +29,7 @@ def one_to_many_shortest_path(map_req: OneToManyPathRequest):
 @router.post("/path_plan/indoor_shortest_path", response_model=dict, summary="室内导航")
 def indoor_shortest_path(map_req: IndoorRequest):
     print(map_req)
-    response = map_service.indoor_shortest_path(map_req.start, map_req.end)
+    response = map_service.indoor_shortest_path_v2(map_req.start, map_req.end)
     return response
 
 @router.get("/path_plan/indoor_shortest_path", response_model=IndoorResponse, summary="获取室内导航结果")

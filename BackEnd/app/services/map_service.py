@@ -263,6 +263,51 @@ def indoor_shortest_path(start_name, end_name):
     write_json(INDOOR_CACHE_FILE, indoor_cache)
     return {"success": True}
 
+def indoor_shortest_path_v2(start_name, end_name):
+    indoor_cache = {
+            "1L":{"path": [], "distance": 0},
+            "2L":{"path": [], "distance": 0},
+            "3L":{"path": [], "distance": 0},
+        }
+    write_json(INDOOR_CACHE_FILE, indoor_cache)
+    map_data = read_json(INDOOR_FILE, default={})
+    nodes = map_data.get("nodes",[])
+    edges = map_data.get("edges",[])
+    start_node={}
+    end_node={}
+    graph = build_graph(nodes, edges, "no traffic mode")
+    for node in nodes:
+        if node['name']==start_name:
+            start_node=node
+        if node['name']==end_name:
+            end_node=node
+    if not start_node or not end_node:
+        raise ValueError("地点不存在")
+    path, distance = dijkstra(start_node['id'], {end_node['id']}, graph)
+    if distance == float('inf'):
+        raise ValueError("路径不存在")
+    path_1L=[]
+    path_2L=[]
+    path_3L=[]
+    indoor_cache['1L']['distance']=distance
+    indoor_cache['2L']['distance']=distance
+    indoor_cache['3L']['distance']=distance
+    for node in path:
+        if node['floor'] == '1L':
+            path_1L.append(node)
+        elif node['floor'] == '2L':
+            path_2L.append(node)
+        elif node['floor'] == '3L':
+            path_3L.append(node)
+        else:
+            raise ValueError("楼层不存在")
+    indoor_cache['1L']['path']=path_1L
+    indoor_cache['2L']['path']=path_2L
+    indoor_cache['3L']['path']=path_3L
+    
+    write_json(INDOOR_CACHE_FILE, indoor_cache)
+    return {"success": True}
+
 def get_indoor_path(floor: str):
     data = read_json(INDOOR_CACHE_FILE)
     if floor not in data:

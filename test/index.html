@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>高德地图室内地图示例</title>
+    <style>
+        #container {
+            width: 100%;
+            height: 600px;
+        }
+        .control-panel {
+            margin: 10px;
+            padding: 10px;
+            background: #f5f5f5;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="control-panel">
+        <label for="buildingId">建筑物ID：</label>
+        <input type="text" id="buildingId" value="B000A856LJ" placeholder="输入建筑物ID">
+        <button onclick="loadIndoorMap()">加载室内地图</button>
+        <button onclick="showFloorSelector()">显示楼层切换控件</button>
+    </div>
+    <div id="container"></div>
+
+    <!-- 引入高德地图JS API Loader -->
+    <script src="https://webapi.amap.com/loader.js"></script>
+    <script>
+        // 设置安全密钥（如果需要）
+        window._AMapSecurityConfig = {
+            securityJsCode: "ea176f2888ff519f13260e12af956fe6"  // 可选，如果您有安全密钥
+        };
+
+        var map;  // 全局变量，用于存储地图实例
+
+        // 使用AMapLoader加载地图
+        AMapLoader.load({
+            key: "aeefd3c2789d4655bbc8596c2131a8b7",  // 替换为您的实际Key
+            version: "2.0",         // 指定版本
+            plugins: ['AMap.IndoorMap']  // 明确加载室内地图插件
+        }).then((AMap) => {
+            // 地图加载成功回调
+            console.log("高德地图API加载完成");
+            
+            // 初始化地图
+            map = new AMap.Map('container', {
+                center:[116.518542, 39.924677],
+                zoom: 18,        // 缩放级别
+                viewMode: '3D',  // 使用3D视图
+                pitch: 40,       // 俯仰角度
+                showIndoorMap: true  // 显示室内地图
+            });
+
+            // 地图加载完成后的其他初始化操作...
+            
+        }).catch((e) => {
+            // 地图加载失败回调
+            console.error("高德地图API加载失败:", e);
+        });
+
+        // 加载室内地图
+        function loadIndoorMap() {
+            if (!map) {
+                alert('地图尚未初始化完成，请稍后再试');
+                return;
+            }
+            
+            var buildingId = document.getElementById('buildingId').value;
+            if (!buildingId) {
+                alert('请输入建筑物ID');
+                return;
+            }
+            
+            // 创建室内地图实例
+            map.on('indoor_create', function(){
+                var indoorMap = map.indoormap;
+                
+                // 加载指定的建筑物
+                indoorMap.showIndoorMap(buildingId, function(){
+                    console.log('室内地图加载完成');
+                });
+            });
+        }
+
+        // 显示楼层切换控件
+        function showFloorSelector() {
+            if (!map || !map.indoormap) {
+                alert('请先加载室内地图');
+                return;
+            }
+            map.indoormap.showFloorBar();
+        }
+    </script>
+</body>
+</html>
+

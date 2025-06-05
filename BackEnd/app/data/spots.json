@@ -1526,29 +1526,7 @@
             },
             "url":"https://media.istockphoto.com/id/1754407533/zh/%E7%85%A7%E7%89%87/sanfang-qixiang-scenic-area-fuzhou-city-fujian-province.jpg?s=612x612&w=is&k=20&c=Lb6fL0po-9qNpce9QwCG8KaXUpRX4bn2bVw784kUMLg="
         },
-        {
-            "name": "厦门大学",
-            "description": "中国最美大学之一，校园建筑风格独特，有芙蓉湖、情人谷等自然景观，还有鲁迅纪念馆等人文景点。",
-            "location": "福建省厦门市思明区思明南路422号",
-            "coordinates": {
-                "latitude": 24.44948,
-                "longitude": 118.10274
-            },
-            "rating": 4.70,
-            "popularity": 87,
-            "tags": [
-                "高等学府",
-                "旅游景点",
-                "建筑景观"
-            ],
-            "price_range": "免费，但需提前预约，且有参观人数限制",
-            "open_hours": {
-                "weekday": "根据学校规定分时段开放",
-                "weekend": "根据学校规定分时段开放"
-            },
-            "url":"https://images.pexels.com/photos/20265634/pexels-photo-20265634.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-        },
-        {
+                {
             "name": "南靖土楼",
             "description": "世界文化遗产，以历史悠久、数量众多、规模宏大、造型奇异、风格独特而闻名于世，主要包括田螺坑土楼群、河坑土楼群等。",
             "location": "福建省漳州市南靖县",
@@ -4211,8 +4189,8 @@
                 "latitude": 48.85840,
                 "longitude": 2.29450
             },
-            "rating": 4.90,
-            "popularity": 95,
+            "rating": 2.90,
+            "popularity": 75,
             "tags": [
                 "建筑奇迹",
                 "旅游胜地",
@@ -4225,72 +4203,9 @@
             },
              "url": "https://images.pexels.com/photos/31427555/pexels-photo-31427555.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
         },
-        {
-            "name": "牛津大学",
-            "description": "牛津大学是英语世界中最古老的大学，也是世界顶尖的高等学府之一。它由多个学院组成，拥有悠久的历史和卓越的学术传统，在自然科学、人文社会科学等领域都取得了杰出的成就。校园建筑风格多样，充满了浓厚的学术氛围。",
-            "location": "英国牛津市",
-            "coordinates": {
-                "latitude": 51.75200,
-                "longitude": -1.25770
-            },
-            "rating": 4.80,
-            "popularity": 85,
-            "tags": [
-                "高等学府",
-                "学术研究",
-                "历史文化"
-            ],
-            "price_range": "部分学院参观收费，一般3 - 10英镑",
-            "open_hours": {
-                "weekday": "各学院开放时间不同，一般9:00 - 17:00",
-                "weekend": "各学院开放时间不同，一般9:00 - 17:00"
-            },
-             "url": "https://images.pexels.com/photos/31427555/pexels-photo-31427555.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-        },
-        {
-            "name": "剑桥大学",
-            "description": "剑桥大学是一所世界著名的公立研究型大学，与牛津大学并称为“牛剑”。它同样由多个学院组成，在学术研究、科技创新等方面具有极高的声誉。校园环境优美，剑河穿校而过，有许多著名的桥梁和建筑。",
-            "location": "英国剑桥市",
-            "coordinates": {
-                "latitude": 52.20530,
-                "longitude": 0.12180
-            },
-            "rating": 4.80,
-            "popularity": 85,
-            "tags": [
-                "高等教育",
-                "学术殿堂",
-                "自然风光"
-            ],
-            "price_range": "部分学院参观收费，一般3 - 10英镑",
-            "open_hours": {
-                "weekday": "各学院开放时间不同，一般9:00 - 17:00",
-                "weekend": "各学院开放时间不同，一般9:00 - 17:00"
-            },
-             "url": "https://images.pexels.com/photos/31427555/pexels-photo-31427555.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-        },
-        {
-            "name": "麻省理工学院",
-            "description": "麻省理工学院是世界顶尖的私立研究型大学，尤其在工程技术和自然科学领域处于领先地位。学校拥有众多知名的科研机构和实验室，培养了大量优秀的科学家、工程师和企业家。校园建筑现代化，充满了创新和科技氛围。",
-            "location": "美国马萨诸塞州剑桥市",
-            "coordinates": {
-                "latitude": 42.35840,
-                "longitude": -71.09080
-            },
-            "rating": 4.80,
-            "popularity": 80,
-            "tags": [
-                "高等教育",
-                "科技创新",
-                "学术交流"
-            ],
-            "price_range": "免费参观",
-            "open_hours": {
-                "weekday": "一般全天开放部分区域",
-                "weekend": "一般全天开放部分区域"
-            },
-             "url": "https://images.pexels.com/photos/31427555/pexels-photo-31427555.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-        },
+       
+        
+        
         {
             "name": "新天鹅堡",
             "description": "新天鹅堡是19世纪晚期的建筑，位于德国巴伐利亚西南方，邻近年代较早的高天鹅堡。它是巴伐利亚国王路德维希二世的行宫之一，具有童话般的外观，激发了许多现代童话城堡的灵感，是德国最受欢迎的旅游景点之一。",
@@ -4299,8 +4214,8 @@
                 "latitude": 47.55750,
                 "longitude": 10.74980
             },
-            "rating": 4.90,
-            "popularity": 90,
+            "rating": 2.90,
+            "popularity": 70,
             "tags": [
                 "童话城堡",
                 "历史建筑",
@@ -4321,8 +4236,8 @@
                 "latitude": 39.94260,
                 "longitude": 116.41400
             },
-            "rating": 4.70,
-            "popularity": 80,
+            "rating": 2.70,
+            "popularity": 70,
             "tags": [
                 "佛教寺庙",
                 "历史文化",
@@ -4343,8 +4258,8 @@
                 "latitude": 45.44080,
                 "longitude": 12.31550
             },
-            "rating": 4.80,
-            "popularity": 90,
+            "rating": 2.80,
+            "popularity": 70,
             "tags": [
                 "水上城市",
                 "历史文化",
@@ -4365,8 +4280,8 @@
                 "latitude": 36.05440,
                 "longitude": -112.14010
             },
-            "rating": 4.90,
-            "popularity": 90,
+            "rating": 2.90,
+            "popularity": 70,
             "tags": [
                 "自然奇观",
                 "地质地貌",
@@ -4387,8 +4302,8 @@
                 "latitude": 43.72290,
                 "longitude": 10.39630
             },
-            "rating": 4.70,
-            "popularity": 85,
+            "rating": 2.70,
+            "popularity": 75,
             "tags": [
                 "历史建筑",
                 "建筑奇观",
@@ -4409,8 +4324,8 @@
                 "latitude": 48.86060,
                 "longitude": 2.33760
             },
-            "rating": 4.90,
-            "popularity": 95,
+            "rating": 2.90,
+            "popularity": 75,
             "tags": [
                 "艺术殿堂",
                 "历史文化",
@@ -4431,8 +4346,8 @@
                 "latitude": 41.89020,
                 "longitude": 12.49220
             },
-            "rating": 4.80,
-            "popularity": 90,
+            "rating": 2.80,
+            "popularity": 70,
             "tags": [
                 "历史遗迹",
                 "建筑奇迹",
@@ -4453,8 +4368,8 @@
                 "latitude": 46.49820,
                 "longitude": 10.68470
             },
-            "rating": 4.80,
-            "popularity": 85,
+            "rating": 2.80,
+            "popularity": 75,
             "tags": [
                 "自然景观",
                 "户外运动",
@@ -4475,8 +4390,8 @@
                 "latitude": 51.17890,
                 "longitude": -1.82620
             },
-            "rating": 4.70,
-            "popularity": 80,
+            "rating": 2.70,
+            "popularity": 60,
             "tags": [
                 "史前遗迹",
                 "考古研究",
@@ -4488,7 +4403,31 @@
                 "weekend": "11月 - 2月9:30 - 16:00，3月 - 6月、9月 - 10月9:00 - 18:00，7月 - 8月9:00 - 20:00"
             },
              "url": "https://images.pexels.com/photos/31427555/pexels-photo-31427555.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        },
+         {
+            "name": "凡尔赛宫",
+            "description": "凡尔赛宫是巴黎著名的宫殿之一，也是世界五大宫殿之一。它见证了法国历史上的许多重要事件，是法国封建统治历史时期的一座华丽的纪念碑。宫殿建筑气势磅礴，布局严密、协调，内部装饰极为豪华，拥有众多精美的壁画、雕塑和家具。其园林也是法式园林的经典代表，园内树木花草别具匠心，喷泉池沼相互映衬。",
+            "location": "法国巴黎西南郊外伊夫林省省会凡尔赛镇",
+            "coordinates": {
+                "latitude": 48.80480,
+                "longitude": 2.12180
+            },
+            "rating": 4.90,
+            "popularity": 92,
+            "tags": [
+                "历史建筑",
+                "艺术殿堂",
+                "皇家宫殿",
+                "法式园林"
+            ],
+            "price_range": "通票25欧元（含宫殿和花园），宫殿单独门票18欧元；每月第一个周日免费（花园喷泉开放日除外）",
+            "open_hours": {
+                "weekday": "周二至周日9:00 - 18:30（最后入场时间17:30 ），周一闭馆",
+                "weekend": "周六、周日9:00 - 18:30（最后入场时间17:30 ）"
+            },
+            "url":"https://images.pexels.com/photos/32348557/pexels-photo-32348557.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
         }
+        
         
         
     ]

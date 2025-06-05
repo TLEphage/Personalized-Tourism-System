@@ -32,6 +32,7 @@ POST    /map/path_plan/one_to_one_shortest_path         -> 路径规划-最短�
 POST    /map/path_plan/one_to_one_shortest_time         -> 路径规划-最短时间
 POST    /map/path_plan/one_to_many_shortest_path        -> 路径规划-多点最短路径
 POST    /map/path_plan/indoor_shortest_path             -> 室内导航
+GET     /map/path_plan/indoor_shortest_path?floor=...   -> 获取室内导航结果
 
 美食模块
 POST     /foods/search                                  -> 美食搜索

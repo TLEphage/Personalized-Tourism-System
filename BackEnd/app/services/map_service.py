@@ -1,7 +1,7 @@
 import math
 import heapq
 import random
-from app.config import MAP_FILE, INDOOR_FILE
+from app.config import MAP_FILE, INDOOR_FILE, INDOOR_CACHE_FILE
 from utils.file_utils import read_json, write_json
 from app.models.map import *
 from algorithm.Sort import quick_sort
@@ -216,10 +216,18 @@ def one_to_many_shortest_path(start_name, target_names):
     return full_path_nodes, round(total_distance,2)
 
 def indoor_shortest_path(start_name, end_name):
-    graph = read_json(INDOOR_FILE, default={})
-    nodes = graph.get("nodes",[])
+    indoor_cache = {
+            "1L":{"path": [], "distance": 0},
+            "2L":{"path": [], "distance": 0},
+            "3L":{"path": [], "distance": 0},
+        }
+    write_json(INDOOR_CACHE_FILE, indoor_cache)
+    map_data = read_json(INDOOR_FILE, default={})
+    nodes = map_data.get("nodes",[])
+    edges = map_data.get("edges",[])
     start_node={}
     end_node={}
+    graph = build_graph(nodes, edges, "no traffic mode")
     for node in nodes:
         if node['name']==start_name:
             start_node=node
@@ -227,11 +235,16 @@ def indoor_shortest_path(start_name, end_name):
             end_node=node
     if not start_node or not end_node:
         raise ValueError("地点不存在")
-    def calc_distance(x1,y1,x2,y2):
-        return math.sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2))
+    
     if start_node['floor'] == end_node['floor']:
-        distance=calc_distance(start_node['x'], start_node['y'], end_node['x'], end_node['y'])
-        return [start_node, end_node], distance
+        # 可优化部分：减少节点数
+        # n_nodes = [node for node in nodes if node.get("floor") == start_node['floor']]
+        
+        path, distance = dijkstra(start_node['id'], {end_node['id']}, graph)
+        indoor_cache[start_node['floor']]["path"]=path
+        indoor_cache[start_node['floor']]["distance"]=distance
+        write_json(INDOOR_CACHE_FILE, indoor_cache)
+        return {"success": True}
     elevator1={}
     elevator2={}
     for node in nodes:
@@ -241,9 +254,20 @@ def indoor_shortest_path(start_name, end_name):
             elevator2=node
     if not elevator1 or not elevator2:
         return ValueError("找不到路径")
-    distance1=calc_distance(start_node['x'], start_node['y'], elevator1['x'], elevator1['y'])
-    distance2=calc_distance(elevator2['x'], elevator2['y'], end_node['x'], end_node['y'])
-    return [start_node, elevator1, elevator2, end_node], distance1+distance2
+    path, distance = dijkstra(start_node['id'], {elevator1['id']}, graph)
+    indoor_cache[start_node['floor']]["path"]=path
+    indoor_cache[start_node['floor']]["distance"]=distance   
+    path, distance = dijkstra(elevator2['id'], {end_node['id']}, graph)
+    indoor_cache[end_node['floor']]["path"]=path
+    indoor_cache[end_node['floor']]["distance"]=distance   
+    write_json(INDOOR_CACHE_FILE, indoor_cache)
+    return {"success": True}
+
+def get_indoor_path(floor: str):
+    data = read_json(INDOOR_CACHE_FILE)
+    if floor not in data:
+        raise ValueError("楼层不存在")
+    return data[floor]["path"], data[floor]["distance"]
 
 def add_node(node_data: NodeRequest) -> dict:
     """将请求的节点加入地图数据中"""

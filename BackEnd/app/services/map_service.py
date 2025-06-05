@@ -456,6 +456,57 @@ def search_places(longitude: float, latitude: float, query_type: str, max_result
     sorted_places = quick_sort(candidates, sort_key=lambda x: x.distance)
     return sorted_places[:max_results]
 
+def search_places_v2(start_name: str, query_type: str, max_results: int, max_distance: float):
+    """查询最近的指定类型节点"""
+    map_data = get_map()
+    nodes = map_data['nodes']
+    edges = map_data['edges']
+    candidates = []
+    nodes_dict = {}
+    for node in nodes:
+        nodes_dict[node.get('id',0)]=node   
+
+    start_id = next((node['id'] for node in nodes if node['name'] == start_name), -1)
+    for node in nodes:
+        if node['name']==start_name:
+            start_node = node
+    if start_id == -1:
+        raise("地点不存在")
+    # 构建邻接表
+    graph = build_graph(nodes, edges, "no traffic mode")
+    
+    hash_value = simple_hash(query_type)
+    for index, value in head_index:
+        if hash_value==value:
+            while index != -1:
+                node=nodes[index]
+                lon1=start_node.get('longitude')
+                lat1=start_node.get('latitude')
+                lon2=node.get('longitude')
+                lat2=node.get('latitude')
+                distance=round(haversine(lat1, lon1, lat2, lon2), 2)
+                if distance <= max_distance:
+                    candidate_node = PlaceDetail(
+                        id=node.get('id'),
+                        name=node.get('name'),
+                        type=node.get('type'),
+                        popularity=node.get('popularity'),
+                        longitude=node.get('longitude'),
+                        latitude=node.get('latitude'),
+                        distance=distance
+                    )
+                    candidates.append(candidate_node)
+                index=next_index[index]
+            break
+    
+    result = []
+    count = 0
+    while count < max_results:
+        path, distance = dijkstra(start_id,candidates,graph)
+        result.append(get_node_by_id(nodes_dict,path[-1]))
+        count+=1
+    return result
+
 # 示例调用
 if __name__ == '__main__':
     path, distance= one_to_one_shortest_path("北门", "西门")

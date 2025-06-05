@@ -212,7 +212,8 @@
             "connected_edges": [
                 17,
                 20,
-                20
+                20,
+                266
             ]
         },
         {
@@ -455,7 +456,8 @@
                 41,
                 42,
                 44,
-                107
+                107,
+                261
             ]
         },
         {
@@ -470,7 +472,8 @@
                 40,
                 41,
                 43,
-                106
+                106,
+                260
             ]
         },
         {
@@ -482,7 +485,8 @@
             "latitude": 39.963582,
             "connected_edges": [
                 36,
-                61
+                61,
+                265
             ]
         },
         {
@@ -1921,7 +1925,8 @@
             "latitude": 39.958759,
             "connected_edges": [
                 221,
-                222
+                222,
+                276
             ]
         },
         {
@@ -1933,7 +1938,8 @@
             "latitude": 39.959117,
             "connected_edges": [
                 220,
-                221
+                221,
+                274
             ]
         },
         {
@@ -1970,7 +1976,8 @@
             "latitude": 39.959714,
             "connected_edges": [
                 213,
-                214
+                214,
+                270
             ]
         },
         {
@@ -2116,7 +2123,8 @@
             "connected_edges": [
                 214,
                 215,
-                217
+                217,
+                271
             ]
         },
         {
@@ -2560,7 +2568,8 @@
             "connected_edges": [
                 26,
                 27,
-                30
+                30,
+                262
             ]
         },
         {
@@ -2701,7 +2710,8 @@
             "connected_edges": [
                 103,
                 104,
-                105
+                105,
+                269
             ]
         },
         {
@@ -2911,12 +2921,147 @@
         },
         {
             "id": 209,
-            "name": "物美超市",
+            "name": "物美超市仓库",
             "type": "超市",
             "popularity": 90,
             "longitude": 116.358031,
             "latitude": 39.963651,
-            "connected_edges": []
+            "connected_edges": [
+                261
+            ]
+        },
+        {
+            "id": 210,
+            "name": "麦当劳",
+            "type": "餐厅",
+            "popularity": 100,
+            "longitude": 116.357583,
+            "latitude": 39.963679,
+            "connected_edges": [
+                260,
+                269
+            ]
+        },
+        {
+            "id": 211,
+            "name": "瑞幸咖啡",
+            "type": "餐厅",
+            "popularity": 100,
+            "longitude": 116.358179,
+            "latitude": 39.963752,
+            "connected_edges": [
+                262,
+                263
+            ]
+        },
+        {
+            "id": 212,
+            "name": "水果店",
+            "type": "超市",
+            "popularity": 100,
+            "longitude": 116.358341,
+            "latitude": 39.963765,
+            "connected_edges": [
+                263,
+                264
+            ]
+        },
+        {
+            "id": 213,
+            "name": "打印店",
+            "type": "超市",
+            "popularity": 100,
+            "longitude": 116.358503,
+            "latitude": 39.96378,
+            "connected_edges": [
+                264,
+                265
+            ]
+        },
+        {
+            "id": 214,
+            "name": "综合食堂二层",
+            "type": "食堂",
+            "popularity": 100,
+            "longitude": 116.356773,
+            "latitude": 39.964013,
+            "connected_edges": [
+                266,
+                267
+            ]
+        },
+        {
+            "id": 215,
+            "name": "综合食堂3",
+            "type": "食堂",
+            "popularity": 100,
+            "longitude": 116.356635,
+            "latitude": 39.964013,
+            "connected_edges": [
+                267,
+                268
+            ]
+        },
+        {
+            "id": 216,
+            "name": "综合食堂4",
+            "type": "食堂",
+            "popularity": 100,
+            "longitude": 116.356449,
+            "latitude": 39.964022,
+            "connected_edges": [
+                268
+            ]
+        },
+        {
+            "id": 217,
+            "name": "家属区14号楼",
+            "type": "家属区",
+            "popularity": 100,
+            "longitude": 116.35561,
+            "latitude": 39.959734,
+            "connected_edges": [
+                270,
+                272
+            ]
+        },
+        {
+            "id": 218,
+            "name": "家属区15号楼",
+            "type": "家属区",
+            "popularity": 100,
+            "longitude": 116.355605,
+            "latitude": 39.959505,
+            "connected_edges": [
+                271,
+                272,
+                273
+            ]
+        },
+        {
+            "id": 219,
+            "name": "家属区16号楼",
+            "type": "家属区",
+            "popularity": 100,
+            "longitude": 116.355615,
+            "latitude": 39.959133,
+            "connected_edges": [
+                273,
+                274,
+                275
+            ]
+        },
+        {
+            "id": 220,
+            "name": "家属区17号楼",
+            "type": "家属区",
+            "popularity": 100,
+            "longitude": 116.35562,
+            "latitude": 39.958726,
+            "connected_edges": [
+                275,
+                276
+            ]
         }
     ],
     "edges": [
@@ -5256,6 +5401,159 @@
             "start_node": 127,
             "end_node": 128,
             "distance": 16.57,
+            "walk_speed": 1.0,
+            "bike_speed": 2.5,
+            "ebike_speed": 3.5
+        },
+        {
+            "id": 260,
+            "start_node": 210,
+            "end_node": 32,
+            "distance": 6.34,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 261,
+            "start_node": 209,
+            "end_node": 31,
+            "distance": 19.89,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 262,
+            "start_node": 211,
+            "end_node": 181,
+            "distance": 10.66,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 263,
+            "start_node": 211,
+            "end_node": 212,
+            "distance": 13.88,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 264,
+            "start_node": 212,
+            "end_node": 213,
+            "distance": 13.91,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 265,
+            "start_node": 213,
+            "end_node": 33,
+            "distance": 22.36,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 266,
+            "start_node": 14,
+            "end_node": 214,
+            "distance": 12.53,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 267,
+            "start_node": 214,
+            "end_node": 215,
+            "distance": 11.76,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 268,
+            "start_node": 215,
+            "end_node": 216,
+            "distance": 15.88,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 269,
+            "start_node": 210,
+            "end_node": 192,
+            "distance": 37.16,
+            "walk_speed": 1.0,
+            "bike_speed": 2.5,
+            "ebike_speed": 3.5
+        },
+        {
+            "id": 270,
+            "start_node": 134,
+            "end_node": 217,
+            "distance": 70.95,
+            "walk_speed": 1.0,
+            "bike_speed": 2.5,
+            "ebike_speed": 3.5
+        },
+        {
+            "id": 271,
+            "start_node": 146,
+            "end_node": 218,
+            "distance": 72.02,
+            "walk_speed": 1.0,
+            "bike_speed": 2.5,
+            "ebike_speed": 3.5
+        },
+        {
+            "id": 272,
+            "start_node": 217,
+            "end_node": 218,
+            "distance": 25.47,
+            "walk_speed": 1.0,
+            "bike_speed": 2.5,
+            "ebike_speed": 3.5
+        },
+        {
+            "id": 273,
+            "start_node": 218,
+            "end_node": 219,
+            "distance": 41.37,
+            "walk_speed": 1.0,
+            "bike_speed": 2.5,
+            "ebike_speed": 3.5
+        },
+        {
+            "id": 274,
+            "start_node": 219,
+            "end_node": 131,
+            "distance": 72.38,
+            "walk_speed": 1.0,
+            "bike_speed": 2.5,
+            "ebike_speed": 3.5
+        },
+        {
+            "id": 275,
+            "start_node": 219,
+            "end_node": 220,
+            "distance": 45.26,
+            "walk_speed": 1.0,
+            "bike_speed": 2.5,
+            "ebike_speed": 3.5
+        },
+        {
+            "id": 276,
+            "start_node": 220,
+            "end_node": 130,
+            "distance": 73.05,
             "walk_speed": 1.0,
             "bike_speed": 2.5,
             "ebike_speed": 3.5

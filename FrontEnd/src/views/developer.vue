@@ -77,9 +77,9 @@ export default {
 
     // 初始化地图和加载数据
     onMounted(() => {
-      window._AMapSecurityConfig = { securityJsCode: "7ac63ea230a00cbb7a4d0f9f3b046a84" };
+      window._AMapSecurityConfig = { securityJsCode: "ea176f2888ff519f13260e12af956fe6" };
       AMapLoader.load({
-        key: "82af44ada0b783b707679cdc4f0ff723",
+        key: "aeefd3c2789d4655bbc8596c2131a8b7",
         version: "2.0",
       })
       .then((AMap) => {

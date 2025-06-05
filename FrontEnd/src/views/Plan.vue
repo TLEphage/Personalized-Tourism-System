@@ -65,13 +65,14 @@
               v-model="startLocation"
               @input="handleStartInput"
               @focus="showStartSuggestions = true"
+              @blur="onInputBlur('start')"
             />
             <div v-if="showStartSuggestions && startSuggestions.length" class="suggestion-box">
               <div 
                 v-for="(suggestion, index) in startSuggestions" 
                 :key="index"
                 class="suggestion-item"
-                @mousedown.prevent="selectStartSuggestion(suggestion)"
+                @click="selectStartSuggestion(suggestion)"
               >
                 {{ suggestion }}
               </div>
@@ -88,13 +89,14 @@
               v-model="endLocation"
               @input="handleEndInput"
               @focus="showEndSuggestions = true"
+              @blur="onInputBlur('end')"
             />
             <div v-if="showEndSuggestions && endSuggestions.length" class="suggestion-box">
               <div 
                 v-for="(suggestion, index) in endSuggestions" 
                 :key="index"
                 class="suggestion-item"
-                @mousedown.prevent="selectEndSuggestion(suggestion)"
+                @click="selectEndSuggestion(suggestion)"
               >
                 {{ suggestion }}
               </div>
@@ -152,6 +154,7 @@
                 v-model="multiPoints[index].name"
                 @input="handleMultiInput(index, $event)"
                 @focus="setActiveSuggestionIndex(index)"
+                @blur="onMultiInputBlur(index)"
               />
               <div 
                 v-if="activeSuggestionIndex === index && multiSuggestions[index] && multiSuggestions[index].length" 
@@ -162,9 +165,9 @@
                   v-for="(suggestion, sIndex) in multiSuggestions[index]" 
                   :key="sIndex"
                   class="suggestion-item"
-                  @mousedown.prevent="selectMultiSuggestion(index, suggestion)"
+                  @click="selectMultiSuggestion(index, suggestion)"
                 >
-                  {{ suggestion.name }}
+                  {{ suggestion }}
                 </div>
               </div>
             </div>
@@ -328,7 +331,7 @@ export default {
     const maxResults = ref(10);
     const maxDistance = ref(1000);
 
-    const multiPoints = ref([{name: "", id: null}]);
+    const multiPoints = ref([{name: ""}]);
     const multiTotalDistance = ref(0);
     const multiEstimatedTime = ref(0);
 
@@ -345,7 +348,7 @@ export default {
     const startIndoorLocation = ref("");
     const endIndoorLocation = ref("");
     const indoorPoints = ref("");
-    const indoorDistance = ref(0);
+    const indoorDistance = ref(0.0);
     const currentFloor = ref("1L");
     const availableFloors = ref(["1L", "2L", "3L"]);
     let indoorMapInstance = null;
@@ -415,8 +418,10 @@ export default {
     function handleGlobalClick(event) {
       const isInput = event.target.classList.contains('input-field');
       const isSuggestion = event.target.classList.contains('suggestion-item');
+      const isSuggestionBox = event.target.classList.contains('suggestion-box');
+ 
       
-      if (!isInput && !isSuggestion) {
+      if (!isInput && !isSuggestion && !isSuggestionBox) {
         showStartSuggestions.value = false;
         showEndSuggestions.value = false;
         activeSuggestionIndex.value = null;
@@ -768,7 +773,7 @@ export default {
 
     //多点导航相关函数
     const addPoint = () => {
-      multiPoints.value.push({name: "", id: null});
+      multiPoints.value.push({name: ""});
       multiSuggestions.value.push([]);
     };
 
@@ -854,20 +859,19 @@ export default {
     
     // 选择起点建议
     const selectStartSuggestion = (suggestion) => {
-      startLocation.value = suggestion.name;
+      startLocation.value = suggestion;
       showStartSuggestions.value = false;
     };
     
     // 选择终点建议
     const selectEndSuggestion = (suggestion) => {
-      endLocation.value = suggestion.name;
+      endLocation.value = suggestion;
       showEndSuggestions.value = false;
     };
     
     // 选择多点建议
     const selectMultiSuggestion = (index, suggestion) => {
-      multiPoints.value[index].name = suggestion.name;
-      multiPoints.value[index].id = suggestion.id;
+      multiPoints.value[index].name = suggestion;
       activeSuggestionIndex.value = null;
     };
     
@@ -1030,16 +1034,7 @@ export default {
 
     function switchFloor(floor) {
       currentFloor.value = floor;
-      
-      // 如果已有路径数据，重新绘制当前楼层的路径
-      if (indoorRouteData.value) {
-        const currentFloorRoute = indoorRouteData.value.path.filter(
-          point => point.floor === floor
-        );
-        
-        indoorPoints.value = currentFloorRoute.map(p => p.name).join(" → ");
-        drawIndoorRoute(currentFloorRoute);
-      }
+      fetchIndoorRoute();
     }
 
     // 绘制室内路径
@@ -1142,9 +1137,7 @@ export default {
     async function fetchIndoorRoute() {
       console.log("当前楼层： " +  currentFloor.value);
       try {
-        let response;
-        if(!currentFloor.value) response = await axios.get(`http://localhost:8000/map/path_plan/indoor_shortest_path?floor=1L`);
-        else response = await axios.get(`http://localhost:8000/map/path_plan/indoor_shortest_path?floor=${currentFloor.value}`);
+        const response = await axios.get(`http://localhost:8000/map/path_plan/indoor_shortest_path?floor=${currentFloor.value}`);
         const data = response.data;
         console.log("室内导航结果:", data.path);
         console.log(data.distance);
@@ -1213,7 +1206,8 @@ export default {
       startIndoorNavigation,
       currentFloor,
       availableFloors,
-      switchFloor
+      switchFloor,
+      indoorDistance
      };
   },
   methods: {

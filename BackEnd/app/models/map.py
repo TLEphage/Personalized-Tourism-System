@@ -48,16 +48,8 @@ class IndoorRequest(BaseModel):
     start: str
     end: str
 
-class IndoorNode(BaseModel):
-    id: int
-    name: str
-    type: str
-    x: float
-    y: float
-    floor: int
-
 class IndoorResponse(BaseModel):
-    path: List[IndoorNode]
+    path: list
     distance: float
 
 class NodeRequestRaw(BaseModel):

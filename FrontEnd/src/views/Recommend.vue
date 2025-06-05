@@ -70,8 +70,8 @@
                   class="spot-image">
               <div class="ranking-badge">TOP {{ index + 1 }}</div>
               <div class="rating">
-                ⭐ {{ item.rating?.toFixed(1) }}
-                <span class="reviews">({{ item.popularity }}人评价)</span>
+                ⭐ {{ item.rating?.toFixed(2) }}
+                <span class="reviews">(热度{{ item.popularity }})</span>
               </div>
             </div>
 

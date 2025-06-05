@@ -106,7 +106,7 @@
         <div class="route-info">
           <h3>推荐路线信息</h3>
           <p>🗺️ 总距离: {{ totalDistance }} m</p>
-          <p>⏱️ 预计时间: {{ estimatedTime }} min</p>
+          <p>⏱️ 预计时间: {{ estimatedTime }} s</p>
           <p>🚩 途径: {{ points }}</p>
         </div>
       </div>
@@ -254,7 +254,50 @@
       </div>
 
       <!-- 室内导航模式 -->
+      <div v-if="currentMode === 'indoor'" class="mode-content">
+        <div class="input-group">
+          <label>建筑物ID</label>
+          <input
+            type="text"
+            class="input-field"
+            v-model="buildingId"
+            placeholder="例如：B000A856LJ"
+          />
+          <p class="hint">输入要加载的室内地图ID</p>
+        </div>
 
+        <div class="button-group">
+          <button class="nav-button" @click="loadIndoorMap">加载室内地图</button>
+          <button class="nav-button" @click="showFloorSelector">显示楼层切换</button>
+        </div>
+
+        <div class="input-group">
+          <label>起点位置</label>
+          <input
+            type="text"
+            class="input-field"
+            v-model="startIndoorLocation"
+            placeholder="例如：1楼A区"
+          />
+        </div>
+
+        <div class="input-group">
+          <label>终点位置</label>
+          <input
+            type="text"
+            class="input-field"
+            v-model="endIndoorLocation"
+            placeholder="例如：2楼B区"
+          />
+        </div>
+
+        <button class="nav-button" @click="startIndoorNavigation">开始室内导航</button>
+
+        <div class="route-info">
+          <h3>室内路线信息</h3>
+          <p>🚩 途径: {{ indoorPoints }}</p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -296,6 +339,9 @@ export default {
     const multiSuggestions = ref([[]]);
     const activeSuggestionIndex = ref(null);
     const suggestionTimeout = ref(null);
+
+    // 室内导航相关变量
+    
 
     // 用来存当前绘制到地图上的点和线
     let routeMarkers = [];

@@ -26,11 +26,17 @@ def one_to_many_shortest_path(map_req: OneToManyPathRequest):
         raise HTTPException(status_code=404, detail="未能找到合适的路径")
     return OneToOnePathResponse(path=path, distance=distance)
 
-@router.post("/plan_path/indoor_shortest_path", response_model=IndoorResponse, summary="室内导航")
+@router.post("/path_plan/indoor_shortest_path", response_model=dict, summary="室内导航")
 def indoor_shortest_path(map_req: IndoorRequest):
-    path, distance = map_service.indoor_shortest_path(map_req.start, map_req.end)
-    return IndoorResponse(path=path, distance=distance)
+    print(map_req)
+    response = map_service.indoor_shortest_path_v2(map_req.start, map_req.end)
+    return response
 
+@router.get("/path_plan/indoor_shortest_path", response_model=IndoorResponse, summary="获取室内导航结果")
+def get_indoor_path(floor: str = Query(..., description="楼层")):
+    path, distance = map_service.get_indoor_path(floor)
+    return IndoorResponse(path=path, distance=distance)
+    
 @router.get("/get_graph", summary="获取地图信息")
 def get_graph():
     """获取地图信息"""

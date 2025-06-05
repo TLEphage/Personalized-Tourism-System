@@ -4180,7 +4180,316 @@
                 "weekend": "10:00 - 19:00"
             },
             "url":"https://images.pexels.com/photos/32290444/pexels-photo-32290444.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        },
+        {
+            "name": "凯旋门",
+            "description": "凯旋门是巴黎四大代表建筑之一，也是法国政府迎接国内外贵宾的地方。它是为纪念拿破仑在奥斯特尔里茨战役中打败俄、奥联军而建，门上有许多精美的浮雕，展现了法国的历史和文化。",
+            "location": "法国巴黎戴高乐广场中央",
+            "coordinates": {
+                "latitude": 48.87370,
+                "longitude": 2.29500
+            },
+            "rating": 4.80,
+            "popularity": 90,
+            "tags": [
+                "历史建筑",
+                "文化地标",
+                "纪念意义"
+            ],
+            "price_range": "登顶8欧元，18岁以下免费",
+            "open_hours": {
+                "weekday": "10:00 - 23:00",
+                "weekend": "10:00 - 23:00"
+            },
+             "url": "https://images.pexels.com/photos/31427555/pexels-photo-31427555.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        },
+        {
+            "name": "埃菲尔铁塔",
+            "description": "埃菲尔铁塔是巴黎的标志性建筑，也是世界著名的建筑之一。它由古斯塔夫·埃菲尔设计，于1889年建成，为庆祝法国大革命100周年而建。铁塔高324米，可俯瞰巴黎全景。",
+            "location": "法国巴黎战神广场",
+            "coordinates": {
+                "latitude": 48.85840,
+                "longitude": 2.29450
+            },
+            "rating": 4.90,
+            "popularity": 95,
+            "tags": [
+                "建筑奇迹",
+                "旅游胜地",
+                "浪漫地标"
+            ],
+            "price_range": "根据不同观景层和上下方式价格不同，约16 - 33欧元",
+            "open_hours": {
+                "weekday": "9:30 - 23:00",
+                "weekend": "9:30 - 23:00"
+            },
+             "url": "https://images.pexels.com/photos/31427555/pexels-photo-31427555.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        },
+        {
+            "name": "牛津大学",
+            "description": "牛津大学是英语世界中最古老的大学，也是世界顶尖的高等学府之一。它由多个学院组成，拥有悠久的历史和卓越的学术传统，在自然科学、人文社会科学等领域都取得了杰出的成就。校园建筑风格多样，充满了浓厚的学术氛围。",
+            "location": "英国牛津市",
+            "coordinates": {
+                "latitude": 51.75200,
+                "longitude": -1.25770
+            },
+            "rating": 4.80,
+            "popularity": 85,
+            "tags": [
+                "高等学府",
+                "学术研究",
+                "历史文化"
+            ],
+            "price_range": "部分学院参观收费，一般3 - 10英镑",
+            "open_hours": {
+                "weekday": "各学院开放时间不同，一般9:00 - 17:00",
+                "weekend": "各学院开放时间不同，一般9:00 - 17:00"
+            },
+             "url": "https://images.pexels.com/photos/31427555/pexels-photo-31427555.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        },
+        {
+            "name": "剑桥大学",
+            "description": "剑桥大学是一所世界著名的公立研究型大学，与牛津大学并称为“牛剑”。它同样由多个学院组成，在学术研究、科技创新等方面具有极高的声誉。校园环境优美，剑河穿校而过，有许多著名的桥梁和建筑。",
+            "location": "英国剑桥市",
+            "coordinates": {
+                "latitude": 52.20530,
+                "longitude": 0.12180
+            },
+            "rating": 4.80,
+            "popularity": 85,
+            "tags": [
+                "高等教育",
+                "学术殿堂",
+                "自然风光"
+            ],
+            "price_range": "部分学院参观收费，一般3 - 10英镑",
+            "open_hours": {
+                "weekday": "各学院开放时间不同，一般9:00 - 17:00",
+                "weekend": "各学院开放时间不同，一般9:00 - 17:00"
+            },
+             "url": "https://images.pexels.com/photos/31427555/pexels-photo-31427555.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        },
+        {
+            "name": "麻省理工学院",
+            "description": "麻省理工学院是世界顶尖的私立研究型大学，尤其在工程技术和自然科学领域处于领先地位。学校拥有众多知名的科研机构和实验室，培养了大量优秀的科学家、工程师和企业家。校园建筑现代化，充满了创新和科技氛围。",
+            "location": "美国马萨诸塞州剑桥市",
+            "coordinates": {
+                "latitude": 42.35840,
+                "longitude": -71.09080
+            },
+            "rating": 4.80,
+            "popularity": 80,
+            "tags": [
+                "高等教育",
+                "科技创新",
+                "学术交流"
+            ],
+            "price_range": "免费参观",
+            "open_hours": {
+                "weekday": "一般全天开放部分区域",
+                "weekend": "一般全天开放部分区域"
+            },
+             "url": "https://images.pexels.com/photos/31427555/pexels-photo-31427555.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        },
+        {
+            "name": "新天鹅堡",
+            "description": "新天鹅堡是19世纪晚期的建筑，位于德国巴伐利亚西南方，邻近年代较早的高天鹅堡。它是巴伐利亚国王路德维希二世的行宫之一，具有童话般的外观，激发了许多现代童话城堡的灵感，是德国最受欢迎的旅游景点之一。",
+            "location": "德国巴伐利亚州富森市",
+            "coordinates": {
+                "latitude": 47.55750,
+                "longitude": 10.74980
+            },
+            "rating": 4.90,
+            "popularity": 90,
+            "tags": [
+                "童话城堡",
+                "历史建筑",
+                "自然风光"
+            ],
+            "price_range": "成人票13欧元，不同套票价格不同",
+            "open_hours": {
+                "weekday": "4月 - 9月9:00 - 17:00，10月 - 次年3月10:00 - 15:00",
+                "weekend": "4月 - 9月9:00 - 17:00，10月 - 次年3月10:00 - 15:00"
+            },
+             "url": "https://images.pexels.com/photos/31427555/pexels-photo-31427555.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        },
+        {
+            "name": "雍和宫",
+            "description": "雍和宫是北京最大的藏传佛教寺院之一，具有汉、满、蒙、藏等多民族建筑艺术风格。它原本是雍亲王府，后改为喇嘛庙。宫内保存了大量的佛教文物和珍贵的艺术品，是北京重要的宗教和文化场所。",
+            "location": "北京市东城区内城东北角雍和宫大街东侧",
+            "coordinates": {
+                "latitude": 39.94260,
+                "longitude": 116.41400
+            },
+            "rating": 4.70,
+            "popularity": 80,
+            "tags": [
+                "佛教寺庙",
+                "历史文化",
+                "宗教活动"
+            ],
+            "price_range": "25元",
+            "open_hours": {
+                "weekday": "9:00 - 16:30",
+                "weekend": "9:00 - 16:30"
+            },
+             "url": "https://images.pexels.com/photos/31427555/pexels-photo-31427555.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        },
+        {
+            "name": "威尼斯",
+            "description": "威尼斯是意大利东北部著名的旅游与工业城市，也是威尼托地区的首府。它由118个小岛组成，以其独特的水上城市风貌而闻名于世。有众多的运河、桥梁和古老的建筑，如圣马可广场、叹息桥等，是浪漫的旅游胜地。",
+            "location": "意大利威尼托大区",
+            "coordinates": {
+                "latitude": 45.44080,
+                "longitude": 12.31550
+            },
+            "rating": 4.80,
+            "popularity": 90,
+            "tags": [
+                "水上城市",
+                "历史文化",
+                "旅游度假"
+            ],
+            "price_range": "不同景点收费不同，部分免费",
+            "open_hours": {
+                "weekday": "各景点开放时间不同",
+                "weekend": "各景点开放时间不同"
+            },
+             "url": "https://images.pexels.com/photos/31427555/pexels-photo-31427555.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        },
+        {
+            "name": "亚利桑那峡谷",
+            "description": "亚利桑那峡谷通常指科罗拉多大峡谷，它是世界上最大的峡谷之一，位于美国亚利桑那州西北部的科罗拉多高原上。峡谷的岩石色彩斑斓，形态各异，展现了大自然的鬼斧神工。它是美国著名的自然奇观和旅游胜地。",
+            "location": "美国亚利桑那州西北部",
+            "coordinates": {
+                "latitude": 36.05440,
+                "longitude": -112.14010
+            },
+            "rating": 4.90,
+            "popularity": 90,
+            "tags": [
+                "自然奇观",
+                "地质地貌",
+                "户外运动"
+            ],
+            "price_range": "大峡谷国家公园门票35美元/车，有效期7天",
+            "open_hours": {
+                "weekday": "全天开放",
+                "weekend": "全天开放"
+            },
+             "url": "https://images.pexels.com/photos/31427555/pexels-photo-31427555.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        },
+        {
+            "name": "比萨斜塔",
+            "description": "比萨斜塔是意大利比萨城大教堂的独立式钟楼，位于意大利托斯卡纳省比萨城北面的奇迹广场上。它因地基不均匀和土层松软而倾斜，是世界建筑史上的一大奇迹，吸引了众多游客前来参观。",
+            "location": "意大利托斯卡纳大区比萨市",
+            "coordinates": {
+                "latitude": 43.72290,
+                "longitude": 10.39630
+            },
+            "rating": 4.70,
+            "popularity": 85,
+            "tags": [
+                "历史建筑",
+                "建筑奇观",
+                "旅游景点"
+            ],
+            "price_range": "登塔20欧元",
+            "open_hours": {
+                "weekday": "10月 - 次年3月9:30 - 17:40，4月 - 9月8:30 - 20:30",
+                "weekend": "10月 - 次年3月9:30 - 17:40，4月 - 9月8:30 - 20:30"
+            },
+             "url": "https://images.pexels.com/photos/31427555/pexels-photo-31427555.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        },
+        {
+            "name": "卢浮宫",
+            "description": "卢浮宫是世界四大博物馆之首，位于法国巴黎市中心的塞纳河北岸。它始建于1204年，原是法国的王宫，居住过50位法国国王和王后，现是卢浮宫博物馆，拥有丰富的艺术藏品，如《蒙娜丽莎》《胜利女神像》《断臂维纳斯》等。",
+            "location": "法国巴黎市塞纳-马恩省",
+            "coordinates": {
+                "latitude": 48.86060,
+                "longitude": 2.33760
+            },
+            "rating": 4.90,
+            "popularity": 95,
+            "tags": [
+                "艺术殿堂",
+                "历史文化",
+                "博物馆"
+            ],
+            "price_range": "17欧元，每月第一个周日免费",
+            "open_hours": {
+                "weekday": "周二闭馆，周三 - 周一9:00 - 18:00，周五9:00 - 21:45",
+                "weekend": "周三 - 周一9:00 - 18:00，周五9:00 - 21:45"
+            },
+             "url": "https://images.pexels.com/photos/31427555/pexels-photo-31427555.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        },
+        {
+            "name": "罗马斗兽场",
+            "description": "罗马斗兽场是古罗马文明的象征，是古罗马帝国专供奴隶主、贵族和自由民观看斗兽或奴隶角斗的地方。它建于公元72 - 80年间，是古罗马建筑的杰出代表，规模宏大，建筑风格独特。",
+            "location": "意大利罗马市中心",
+            "coordinates": {
+                "latitude": 41.89020,
+                "longitude": 12.49220
+            },
+            "rating": 4.80,
+            "popularity": 90,
+            "tags": [
+                "历史遗迹",
+                "建筑奇迹",
+                "旅游景点"
+            ],
+            "price_range": "16欧元，部分人员免费",
+            "open_hours": {
+                "weekday": "1月 - 2月、11月 - 12月8:30 - 16:30，3月8:30 - 17:00，4月 - 9月8:30 - 19:15，10月8:30 - 18:30",
+                "weekend": "1月 - 2月、11月 - 12月8:30 - 16:30，3月8:30 - 17:00，4月 - 9月8:30 - 19:15，10月8:30 - 18:30"
+            },
+             "url": "https://images.pexels.com/photos/31427555/pexels-photo-31427555.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        },
+        {
+            "name": "阿尔卑斯山",
+            "description": "阿尔卑斯山是欧洲最高大、最雄伟的山脉，覆盖了意大利北部边界、法国东南部、瑞士、列支敦士登、奥地利、德国南部及斯洛文尼亚。它拥有壮丽的自然风光，如雪山、冰川、湖泊等，是滑雪、登山、徒步等户外运动的天堂。",
+            "location": "欧洲中南部",
+            "coordinates": {
+                "latitude": 46.49820,
+                "longitude": 10.68470
+            },
+            "rating": 4.80,
+            "popularity": 85,
+            "tags": [
+                "自然景观",
+                "户外运动",
+                "旅游度假"
+            ],
+            "price_range": "不同滑雪场、景点收费不同",
+            "open_hours": {
+                "weekday": "各景点开放时间不同",
+                "weekend": "各景点开放时间不同"
+            },
+             "url": "https://images.pexels.com/photos/31427555/pexels-photo-31427555.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        },
+        {
+            "name": "巨石阵",
+            "description": "巨石阵是英国最著名的史前建筑遗迹之一，位于英格兰威尔特郡索尔兹伯里平原。它由巨大的石头组成，这些石头的排列方式和用途至今仍是未解之谜，吸引了众多考古学家和游客前来探索。",
+            "location": "英国威尔特郡",
+            "coordinates": {
+                "latitude": 51.17890,
+                "longitude": -1.82620
+            },
+            "rating": 4.70,
+            "popularity": 80,
+            "tags": [
+                "史前遗迹",
+                "考古研究",
+                "旅游景点"
+            ],
+            "price_range": "成人票21英镑",
+            "open_hours": {
+                "weekday": "11月 - 2月9:30 - 16:00，3月 - 6月、9月 - 10月9:00 - 18:00，7月 - 8月9:00 - 20:00",
+                "weekend": "11月 - 2月9:30 - 16:00，3月 - 6月、9月 - 10月9:00 - 18:00，7月 - 8月9:00 - 20:00"
+            },
+             "url": "https://images.pexels.com/photos/31427555/pexels-photo-31427555.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
         }
+        
         
     ]
 }

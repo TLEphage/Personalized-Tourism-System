@@ -284,15 +284,21 @@ def indoor_shortest_path_v2(start_name, end_name):
     if not start_node or not end_node:
         raise ValueError("地点不存在")
     path, distance = dijkstra(start_node['id'], {end_node['id']}, graph)
+    full_path = []
     if distance == float('inf'):
         raise ValueError("路径不存在")
+    for id in path:
+        for node in nodes:
+            if node['id']==id:
+                full_path.append(node)
+                break
     path_1L=[]
     path_2L=[]
     path_3L=[]
     indoor_cache['1L']['distance']=distance
     indoor_cache['2L']['distance']=distance
     indoor_cache['3L']['distance']=distance
-    for node in path:
+    for node in full_path:
         if node['floor'] == '1L':
             path_1L.append(node)
         elif node['floor'] == '2L':

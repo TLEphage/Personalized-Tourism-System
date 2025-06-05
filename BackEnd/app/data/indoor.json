@@ -1,0 +1,69 @@
+{
+    "nodes":[
+        {
+            "id": 0,
+            "name": "1",
+            "type": "1",
+            "floor": "1L",
+            "popularity": 1,
+            "longitude": 116.357063,
+            "latitude": 39.964883
+        },
+        {
+            "id": 1,
+            "name": "2",
+            "type": "电梯",
+            "floor": "1L",
+            "popularity": 2,
+            "longitude": 116.357088,
+            "latitude": 39.964512
+        },
+        {
+            "id": 2,
+            "name": "3",
+            "type": "电梯",
+            "floor": "2L",
+            "popularity": 2,
+            "longitude": 116.357088,
+            "latitude": 39.964512
+        },
+        {
+            "id": 3,
+            "name": "4",
+            "type": "2",
+            "floor": "2L",
+            "popularity": 2,
+            "longitude": 116.357088,
+            "latitude": 39.964512
+        }
+    ],
+    "edges":[
+        {
+            "id": 0,
+            "start_node": 0,
+            "end_node": 1,
+            "distance": 180.99,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 5.0
+        },
+        {
+            "id": 1,
+            "start_node": 2,
+            "end_node": 3,
+            "distance": 180.99,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 5.0
+        },
+        {
+            "id": 2,
+            "start_node": 1,
+            "end_node": 2,
+            "distance": 0,
+            "walk_speed": 1.0,
+            "bike_speed": 3.0,
+            "ebike_speed": 5.0
+        }
+    ]
+}

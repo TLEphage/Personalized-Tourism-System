@@ -65,13 +65,14 @@
               v-model="startLocation"
               @input="handleStartInput"
               @focus="showStartSuggestions = true"
+              @blur="onInputBlur('start')"
             />
             <div v-if="showStartSuggestions && startSuggestions.length" class="suggestion-box">
               <div 
                 v-for="(suggestion, index) in startSuggestions" 
                 :key="index"
                 class="suggestion-item"
-                @mousedown.prevent="selectStartSuggestion(suggestion)"
+                @click="selectStartSuggestion(suggestion)"
               >
                 {{ suggestion }}
               </div>
@@ -88,13 +89,14 @@
               v-model="endLocation"
               @input="handleEndInput"
               @focus="showEndSuggestions = true"
+              @blur="onInputBlur('end')"
             />
             <div v-if="showEndSuggestions && endSuggestions.length" class="suggestion-box">
               <div 
                 v-for="(suggestion, index) in endSuggestions" 
                 :key="index"
                 class="suggestion-item"
-                @mousedown.prevent="selectEndSuggestion(suggestion)"
+                @click="selectEndSuggestion(suggestion)"
               >
                 {{ suggestion }}
               </div>
@@ -152,6 +154,7 @@
                 v-model="multiPoints[index].name"
                 @input="handleMultiInput(index, $event)"
                 @focus="setActiveSuggestionIndex(index)"
+                @blur="onMultiInputBlur(index)"
               />
               <div 
                 v-if="activeSuggestionIndex === index && multiSuggestions[index] && multiSuggestions[index].length" 
@@ -162,9 +165,9 @@
                   v-for="(suggestion, sIndex) in multiSuggestions[index]" 
                   :key="sIndex"
                   class="suggestion-item"
-                  @mousedown.prevent="selectMultiSuggestion(index, suggestion)"
+                  @click="selectMultiSuggestion(index, suggestion)"
                 >
-                  {{ suggestion.name }}
+                  {{ suggestion }}
                 </div>
               </div>
             </div>
@@ -328,7 +331,7 @@ export default {
     const maxResults = ref(10);
     const maxDistance = ref(1000);
 
-    const multiPoints = ref([{name: "", id: null}]);
+    const multiPoints = ref([{name: ""}]);
     const multiTotalDistance = ref(0);
     const multiEstimatedTime = ref(0);
 
@@ -415,8 +418,10 @@ export default {
     function handleGlobalClick(event) {
       const isInput = event.target.classList.contains('input-field');
       const isSuggestion = event.target.classList.contains('suggestion-item');
+      const isSuggestionBox = event.target.classList.contains('suggestion-box');
+ 
       
-      if (!isInput && !isSuggestion) {
+      if (!isInput && !isSuggestion && !isSuggestionBox) {
         showStartSuggestions.value = false;
         showEndSuggestions.value = false;
         activeSuggestionIndex.value = null;
@@ -768,7 +773,7 @@ export default {
 
     //多点导航相关函数
     const addPoint = () => {
-      multiPoints.value.push({name: "", id: null});
+      multiPoints.value.push({name: ""});
       multiSuggestions.value.push([]);
     };
 
@@ -854,20 +859,19 @@ export default {
     
     // 选择起点建议
     const selectStartSuggestion = (suggestion) => {
-      startLocation.value = suggestion.name;
+      startLocation.value = suggestion;
       showStartSuggestions.value = false;
     };
     
     // 选择终点建议
     const selectEndSuggestion = (suggestion) => {
-      endLocation.value = suggestion.name;
+      endLocation.value = suggestion;
       showEndSuggestions.value = false;
     };
     
     // 选择多点建议
     const selectMultiSuggestion = (index, suggestion) => {
-      multiPoints.value[index].name = suggestion.name;
-      multiPoints.value[index].id = suggestion.id;
+      multiPoints.value[index].name = suggestion;
       activeSuggestionIndex.value = null;
     };
     

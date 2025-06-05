@@ -49,8 +49,8 @@
         },
         {
             "id": 3,
-            "name": "第三教学楼西大门",
-            "type": "教学类",
+            "name": "第三教学楼卫生间",
+            "type": "洗手间",
             "popularity": 2,
             "longitude": 116.35575,
             "latitude": 39.96034,
@@ -205,7 +205,7 @@
         {
             "id": 14,
             "name": "综合食堂",
-            "type": "餐饮",
+            "type": "食堂",
             "popularity": 100,
             "longitude": 116.35692,
             "latitude": 39.964013,
@@ -233,7 +233,7 @@
         {
             "id": 16,
             "name": "学生公寓5",
-            "type": "公寓·",
+            "type": "公寓",
             "popularity": 100,
             "longitude": 116.35616,
             "latitude": 39.96355,
@@ -349,7 +349,7 @@
         {
             "id": 24,
             "name": "小松林",
-            "type": "活动场所",
+            "type": "景点",
             "popularity": 100,
             "longitude": 116.357472,
             "latitude": 39.963032,
@@ -363,7 +363,7 @@
         {
             "id": 25,
             "name": "时光广场",
-            "type": "活动场所",
+            "type": "景点",
             "popularity": 100,
             "longitude": 116.357484,
             "latitude": 39.96242,
@@ -416,7 +416,7 @@
         {
             "id": 29,
             "name": "澡堂",
-            "type": "生活服务场所",
+            "type": "公共浴室",
             "popularity": 100,
             "longitude": 116.357818,
             "latitude": 39.963989,
@@ -432,7 +432,7 @@
         {
             "id": 30,
             "name": "水房",
-            "type": "生活服务场所",
+            "type": "公共浴室",
             "popularity": 100,
             "longitude": 116.358152,
             "latitude": 39.964004,
@@ -446,8 +446,8 @@
         },
         {
             "id": 31,
-            "name": "超市",
-            "type": "生活服务场所",
+            "name": "物美超市",
+            "type": "超市",
             "popularity": 100,
             "longitude": 116.357818,
             "latitude": 39.963724,
@@ -461,7 +461,7 @@
         {
             "id": 32,
             "name": "营业厅",
-            "type": "生活服务场所",
+            "type": "商店",
             "popularity": 100,
             "longitude": 116.357586,
             "latitude": 39.963736,
@@ -476,7 +476,7 @@
         {
             "id": 33,
             "name": "学苑餐厅",
-            "type": "餐饮",
+            "type": "食堂",
             "popularity": 100,
             "longitude": 116.358549,
             "latitude": 39.963582,
@@ -586,7 +586,7 @@
         {
             "id": 41,
             "name": "拐角遇到爱",
-            "type": "路口",
+            "type": "卫生间",
             "popularity": 100,
             "longitude": 116.359609,
             "latitude": 39.964507,
@@ -602,7 +602,7 @@
         {
             "id": 42,
             "name": "拐角撞见爱！",
-            "type": "路口",
+            "type": "卫生间",
             "popularity": 100,
             "longitude": 116.359674,
             "latitude": 39.964165,
@@ -635,7 +635,7 @@
         {
             "id": 44,
             "name": "学生食堂西门",
-            "type": "餐饮",
+            "type": "食堂",
             "popularity": 100,
             "longitude": 116.35883,
             "latitude": 39.963323,
@@ -648,7 +648,7 @@
         {
             "id": 45,
             "name": "学生食堂南门",
-            "type": "餐饮",
+            "type": "食堂",
             "popularity": 100,
             "longitude": 116.359188,
             "latitude": 39.96312,
@@ -678,8 +678,8 @@
         },
         {
             "id": 47,
-            "name": "拐角又是你",
-            "type": "路口",
+            "name": "公共厕所",
+            "type": "洗手间",
             "popularity": 100,
             "longitude": 116.360337,
             "latitude": 39.96309,
@@ -991,7 +991,7 @@
         {
             "id": 68,
             "name": "校训石",
-            "type": "活动场所",
+            "type": "景点",
             "popularity": 100,
             "longitude": 116.356349,
             "latitude": 39.961195,
@@ -1008,7 +1008,7 @@
         {
             "id": 69,
             "name": "主席像",
-            "type": "活动场所",
+            "type": "景点",
             "popularity": 100,
             "longitude": 116.356831,
             "latitude": 39.961198,
@@ -1022,7 +1022,7 @@
         {
             "id": 70,
             "name": "音乐喷泉",
-            "type": "活动场所",
+            "type": "景点",
             "popularity": 100,
             "longitude": 116.357843,
             "latitude": 39.961167,
@@ -1186,7 +1186,7 @@
         {
             "id": 81,
             "name": "校医院",
-            "type": "生活服务场所",
+            "type": "医院",
             "popularity": 100,
             "longitude": 116.356889,
             "latitude": 39.959901,
@@ -1803,8 +1803,8 @@
         },
         {
             "id": 121,
-            "name": "路口2",
-            "type": "路口",
+            "name": "社区公共厕所",
+            "type": "洗手间",
             "popularity": 100,
             "longitude": 116.358784,
             "latitude": 39.958574,
@@ -1951,8 +1951,8 @@
         },
         {
             "id": 133,
-            "name": "超市",
-            "type": "生活服务场所",
+            "name": "南区超市",
+            "type": "超市",
             "popularity": 100,
             "longitude": 116.35662,
             "latitude": 39.959273,
@@ -1990,7 +1990,7 @@
         {
             "id": 136,
             "name": "邮局",
-            "type": "生活服务场所",
+            "type": "邮局",
             "popularity": 100,
             "longitude": 116.357574,
             "latitude": 39.959978,
@@ -2134,7 +2134,7 @@
         {
             "id": 148,
             "name": "居委会社区",
-            "type": "生活服务场所",
+            "type": "社区",
             "popularity": 100,
             "longitude": 116.356767,
             "latitude": 39.959338,
@@ -2146,7 +2146,7 @@
         {
             "id": 149,
             "name": "北门快递站",
-            "type": "生活服务场所",
+            "type": "驿站",
             "popularity": 100,
             "longitude": 116.357365,
             "latitude": 39.965005,
@@ -2156,8 +2156,8 @@
         },
         {
             "id": 150,
-            "name": "未知拐点",
-            "type": "路口",
+            "name": "体育馆卫生间",
+            "type": "洗手间",
             "popularity": 100,
             "longitude": 116.360384,
             "latitude": 39.963184,
@@ -2618,7 +2618,7 @@
         {
             "id": 186,
             "name": "学生食堂南门",
-            "type": "餐饮",
+            "type": "食堂",
             "popularity": 100,
             "longitude": 116.359188,
             "latitude": 39.963028,

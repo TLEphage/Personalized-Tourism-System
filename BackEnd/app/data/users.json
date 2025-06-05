@@ -56,5 +56,221 @@
         "avatarPath": "D:\\BUPT\\大二\\课设\\数据结构\\Personalized-Tourism-System\\BackEnd\\app\\data\\avatars\\default_avatar.jpg",
         "signature": null,
         "hobbies": []
+    },
+    {
+        "id": 7,
+        "username": "谢楠",
+        "passwordHash": "793017380:1749139528579",
+        "role": "admin",
+        "avatarPath": "E:\\code\\Bupt\\数据结构课设\\Personalized-Tourism-System\\BackEnd\\app\\data\\avatars\\default_avatar.jpg",
+        "signature": null,
+        "hobbies": []
+    },
+    {
+        "id": 8,
+        "username": "操奕晟",
+        "passwordHash": "962076036:1749139564860",
+        "role": "admin",
+        "avatarPath": "E:\\code\\Bupt\\数据结构课设\\Personalized-Tourism-System\\BackEnd\\app\\data\\avatars\\default_avatar.jpg",
+        "signature": null,
+        "hobbies": []
+    },
+    {
+        "id": 9,
+        "username": "陈毅彪",
+        "passwordHash": "267678733:1749139579039",
+        "role": "admin",
+        "avatarPath": "E:\\code\\Bupt\\数据结构课设\\Personalized-Tourism-System\\BackEnd\\app\\data\\avatars\\default_avatar.jpg",
+        "signature": null,
+        "hobbies": []
+    },
+    {
+        "id": 10,
+        "username": "王浩文",
+        "passwordHash": "843189897:1749139593028",
+        "role": "admin",
+        "avatarPath": "E:\\code\\Bupt\\数据结构课设\\Personalized-Tourism-System\\BackEnd\\app\\data\\avatars\\default_avatar.jpg",
+        "signature": null,
+        "hobbies": []
+    },
+    {
+        "id": 11,
+        "username": "梁桓",
+        "passwordHash": "367958436:1749139626227",
+        "role": "admin",
+        "avatarPath": "E:\\code\\Bupt\\数据结构课设\\Personalized-Tourism-System\\BackEnd\\app\\data\\avatars\\default_avatar.jpg",
+        "signature": null,
+        "hobbies": []
+    },
+    {
+        "id": 12,
+        "username": "安奕轩",
+        "passwordHash": "952548296:1749139644759",
+        "role": "admin",
+        "avatarPath": "E:\\code\\Bupt\\数据结构课设\\Personalized-Tourism-System\\BackEnd\\app\\data\\avatars\\default_avatar.jpg",
+        "signature": null,
+        "hobbies": []
+    },
+    {
+        "id": 13,
+        "username": "陈墨涵",
+        "passwordHash": "533801599:1749139829927",
+        "role": "admin",
+        "avatarPath": "E:\\code\\Bupt\\数据结构课设\\Personalized-Tourism-System\\BackEnd\\app\\data\\avatars\\default_avatar.jpg",
+        "signature": null,
+        "hobbies": []
+    },
+    {
+        "id": 14,
+        "username": "雷致远",
+        "passwordHash": "579479500:1749139892490",
+        "role": "admin",
+        "avatarPath": "E:\\code\\Bupt\\数据结构课设\\Personalized-Tourism-System\\BackEnd\\app\\data\\avatars\\default_avatar.jpg",
+        "signature": null,
+        "hobbies": []
+    },
+    {
+        "id": 15,
+        "username": "鸣人",
+        "passwordHash": "283547867:1749140023191",
+        "role": "admin",
+        "avatarPath": "E:\\code\\Bupt\\数据结构课设\\Personalized-Tourism-System\\BackEnd\\app\\data\\avatars\\default_avatar.jpg",
+        "signature": null,
+        "hobbies": []
+    },
+    {
+        "id": 16,
+        "username": "佐助",
+        "passwordHash": "589373399:1749140038647",
+        "role": "admin",
+        "avatarPath": "E:\\code\\Bupt\\数据结构课设\\Personalized-Tourism-System\\BackEnd\\app\\data\\avatars\\default_avatar.jpg",
+        "signature": null,
+        "hobbies": []
+    },
+    {
+        "id": 17,
+        "username": "水门",
+        "passwordHash": "340670982:1749140091870",
+        "role": "admin",
+        "avatarPath": "E:\\code\\Bupt\\数据结构课设\\Personalized-Tourism-System\\BackEnd\\app\\data\\avatars\\default_avatar.jpg",
+        "signature": null,
+        "hobbies": []
+    },
+    {
+        "id": 18,
+        "username": "saber",
+        "passwordHash": "582093475:1749140119513",
+        "role": "admin",
+        "avatarPath": "E:\\code\\Bupt\\数据结构课设\\Personalized-Tourism-System\\BackEnd\\app\\data\\avatars\\default_avatar.jpg",
+        "signature": null,
+        "hobbies": []
+    },
+    {
+        "id": 19,
+        "username": "violet",
+        "passwordHash": "742023141:1749140151051",
+        "role": "admin",
+        "avatarPath": "E:\\code\\Bupt\\数据结构课设\\Personalized-Tourism-System\\BackEnd\\app\\data\\avatars\\default_avatar.jpg",
+        "signature": null,
+        "hobbies": []
+    },
+    {
+        "id": 20,
+        "username": "米塔",
+        "passwordHash": "641259804:1749140188079",
+        "role": "admin",
+        "avatarPath": "E:\\code\\Bupt\\数据结构课设\\Personalized-Tourism-System\\BackEnd\\app\\data\\avatars\\default_avatar.jpg",
+        "signature": null,
+        "hobbies": []
+    },
+    {
+        "id": 21,
+        "username": "天道超",
+        "passwordHash": "860305397:1749140206398",
+        "role": "admin",
+        "avatarPath": "E:\\code\\Bupt\\数据结构课设\\Personalized-Tourism-System\\BackEnd\\app\\data\\avatars\\default_avatar.jpg",
+        "signature": null,
+        "hobbies": []
+    },
+    {
+        "id": 22,
+        "username": "阿米娅",
+        "passwordHash": "908281438:1749140270158",
+        "role": "admin",
+        "avatarPath": "E:\\code\\Bupt\\数据结构课设\\Personalized-Tourism-System\\BackEnd\\app\\data\\avatars\\default_avatar.jpg",
+        "signature": null,
+        "hobbies": []
+    },
+    {
+        "id": 23,
+        "username": "凯尔希",
+        "passwordHash": "499615297:1749140291665",
+        "role": "admin",
+        "avatarPath": "E:\\code\\Bupt\\数据结构课设\\Personalized-Tourism-System\\BackEnd\\app\\data\\avatars\\default_avatar.jpg",
+        "signature": null,
+        "hobbies": []
+    },
+    {
+        "id": 24,
+        "username": "法厄同",
+        "passwordHash": "611101397:1749140343675",
+        "role": "admin",
+        "avatarPath": "E:\\code\\Bupt\\数据结构课设\\Personalized-Tourism-System\\BackEnd\\app\\data\\avatars\\default_avatar.jpg",
+        "signature": null,
+        "hobbies": []
+    },
+    {
+        "id": 25,
+        "username": "晓",
+        "passwordHash": "914627612:1749140357846",
+        "role": "admin",
+        "avatarPath": "E:\\code\\Bupt\\数据结构课设\\Personalized-Tourism-System\\BackEnd\\app\\data\\avatars\\default_avatar.jpg",
+        "signature": null,
+        "hobbies": []
+    },
+    {
+        "id": 26,
+        "username": "原神",
+        "passwordHash": "8076834:1749140401501",
+        "role": "admin",
+        "avatarPath": "E:\\code\\Bupt\\数据结构课设\\Personalized-Tourism-System\\BackEnd\\app\\data\\avatars\\default_avatar.jpg",
+        "signature": null,
+        "hobbies": []
+    },
+    {
+        "id": 27,
+        "username": "米哈游",
+        "passwordHash": "599308395:1749140422464",
+        "role": "admin",
+        "avatarPath": "E:\\code\\Bupt\\数据结构课设\\Personalized-Tourism-System\\BackEnd\\app\\data\\avatars\\default_avatar.jpg",
+        "signature": null,
+        "hobbies": []
+    },
+    {
+        "id": 28,
+        "username": "zzz",
+        "passwordHash": "494082931:1749140457667",
+        "role": "admin",
+        "avatarPath": "E:\\code\\Bupt\\数据结构课设\\Personalized-Tourism-System\\BackEnd\\app\\data\\avatars\\default_avatar.jpg",
+        "signature": null,
+        "hobbies": []
+    },
+    {
+        "id": 29,
+        "username": "Miyabi",
+        "passwordHash": "78517281:1749140475213",
+        "role": "admin",
+        "avatarPath": "E:\\code\\Bupt\\数据结构课设\\Personalized-Tourism-System\\BackEnd\\app\\data\\avatars\\default_avatar.jpg",
+        "signature": null,
+        "hobbies": []
+    },
+    {
+        "id": 30,
+        "username": "123",
+        "passwordHash": "477845750:1749140534792",
+        "role": "admin",
+        "avatarPath": "E:\\code\\Bupt\\数据结构课设\\Personalized-Tourism-System\\BackEnd\\app\\data\\avatars\\default_avatar.jpg",
+        "signature": null,
+        "hobbies": []
     }
 ]

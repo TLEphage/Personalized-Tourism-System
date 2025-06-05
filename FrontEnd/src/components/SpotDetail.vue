@@ -115,7 +115,9 @@
         try {
           this.loading = true;
           console.log('请求参数:', name);
-          const response = await axios.get(`http://localhost:8000/spots/${this.type}/${name}`);
+          let response;
+          if(this.type === 'schools') response = await axios.get(`http://localhost:8000/spots/schools/${name}`);
+          else response = await axios.get(`http://localhost:8000/spots/scenic_spots/${name}`);
           console.log('获取景点详情成功:', response.data);
           this.spot = response.data[0];
           this.error = null;

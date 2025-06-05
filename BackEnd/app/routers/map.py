@@ -34,7 +34,7 @@ def indoor_shortest_path(map_req: IndoorRequest):
 @router.get("/get_graph", summary="获取地图信息")
 def get_graph():
     """获取地图信息"""
-    return map_service.get_graph()
+    return map_service.get_map()
 
 @router.get("/search_nodes", response_model=List[str],summary="获取节点名字")
 def search_node(name: str = Query(default="__all__", description="节点部分名字")):

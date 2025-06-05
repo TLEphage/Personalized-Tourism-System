@@ -1,3 +1,12 @@
 {
-    "username": null
+    "id": 2,
+    "username": "TLEphage",
+    "role": "admin",
+    "avatarPath": "http://localhost:8000/images/avatars/default_avatar.jpg",
+    "signature": "大家好啊",
+    "hobbies": [
+        "大学",
+        "校园",
+        "老字号"
+    ]
 }

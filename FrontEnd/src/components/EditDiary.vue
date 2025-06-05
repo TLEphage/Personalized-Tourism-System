@@ -156,6 +156,8 @@
         images: props.diary?.images || [],
         tags: props.diary?.tags || []
       });
+
+      const imageG = ref([]);
   
       const newTag = ref('');
       const isSubmitting = ref(false);
@@ -177,12 +179,14 @@
         formData.tags.splice(index, 1);
       };
   
-      const handleImageUpload = (file_path) => {
-        if(file_path && !formData.images.includes(file_path)) {
-          console.log('EditDiary添加图片:', file_path);
-          formData.images.push(file_path);
+      const handleImageUpload = (data) => {
+        const url = data.url;
+        if(url && !formData.images.includes(url)) {
+          console.log('EditDiary添加图片:', url);
+          formData.images.push(url);
+          imageG.value.push(data.file_path);
         } else {
-          console.warn('图片已存在或无效:', file_path);
+          console.warn('图片已存在或无效:', url);
         }
       };
   
@@ -203,24 +207,22 @@
         try {
           if(videoParams.generationType === 'text') {
             console.log("开始文生视频");
-            const videoRequestData = {
-              username: this.$store.state.user.username,
+            const response = await axios.post('http://localhost:8000/AIGen/text_generate_video', {
+              username: store.state.user.username,
               diary_id: diary_id,
               prompt: formData.content,
               quality: videoParams.quality
-            };
-            const response = await axios.post('http://localhost:8000/AIGen/text_generate_video', videoRequestData);
+            });
             console.log("文生视频结果： " + response.data.message);
           } else {
             console.log("开始图生视频");
-            const videoRequestData = {
-              username: this.$store.state.user.username,
+            const response = await axios.post('http://localhost:8000/AIGen/image_generate_video', {
+              username: store.state.user.username,
               diary_id: diary_id,
               quality: videoParams.quality,
-              image_url: formData.images,
+              image_url: imageG.value[0],
               prompt: "让画面动起来"
-            }
-            const response = await axios.post('http://localhost:8000/AIGen/image_generate_video', videoRequestData);
+            });
             console.log("图生视频结果： " + response.data.message);
           }
         } catch (error) {
@@ -257,7 +259,7 @@
             console.log("开始创建日记:", payload);
             const response = await axios.post('http://localhost:8000/diaries/add', payload);
             if(videoParams.shouldGenerate) {
-              generateVideo(response.data.id);
+              generateVideo(response.data.diary_id);
             }
           }
           emit('submit', payload);

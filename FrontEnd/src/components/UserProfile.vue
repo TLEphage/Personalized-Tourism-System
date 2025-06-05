@@ -165,7 +165,7 @@
           this.diariesLoading = true
           console.log('avatar',this.user.avatarPath);
           const { data } = await axios.get(
-            `http://localhost:8000/diaries/${this.user.username}?sort_key=data&sort_order=desc`
+            `http://localhost:8000/diaries/user/${this.user.username}?sort_key=data&sort_order=desc`
           )
           this.diaries = data.diaries
         } catch (error) {
@@ -187,12 +187,12 @@
       gotoInterestSelector() {
         this.$router.push({name: 'InterestSelector'});
       },
-      async handleAvatarUpload(url) {
+      async handleAvatarUpload(data) {
         try {
           const response = await axios.put(`http://localhost:8000/users/${this.user.username}/details`, {
             signature: this.user.signature,
             hobbies: this.user.hobbies,
-            avatarPath: url
+            avatarPath: data.url
           })
           if (response.data.message === '用户信息更新成功') {
             alert('头像更新成功！');

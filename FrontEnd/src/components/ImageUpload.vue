@@ -98,9 +98,9 @@ export default {
               uploadProgress.value = Math.round((progressEvent.loaded * 100) / progressEvent.total);
             }
           });
-          
-          emit('uploaded', response.data.file_path);
-          console.log("上传成功：", response.data.file_path);
+          // response.data有三个值filename,file_path(绝对路径),url(图床路径)
+          emit('uploaded', response.data);
+          console.log("上传成功：", response.data);
         } catch (error) {
           console.error('上传失败:', error);
           emit('error', `图片 ${file.name} 上传失败`);

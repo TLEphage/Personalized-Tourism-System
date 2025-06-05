@@ -1,69 +1,726 @@
 {
-    "nodes":[
+    "nodes": [
         {
             "id": 0,
-            "name": "1",
-            "type": "1",
+            "name": "1L电梯",
+            "type": "电梯",
             "floor": "1L",
-            "popularity": 1,
-            "longitude": 116.357063,
-            "latitude": 39.964883
+            "popularity": 100,
+            "longitude": 116.518429,
+            "latitude": 39.924045,
+            "connected_edges": [
+                0
+            ]
         },
         {
             "id": 1,
-            "name": "2",
-            "type": "电梯",
+            "name": "DIOR",
+            "type": "时尚品牌",
             "floor": "1L",
-            "popularity": 2,
-            "longitude": 116.357088,
-            "latitude": 39.964512
+            "popularity": 100,
+            "longitude": 116.518549,
+            "latitude": 39.923837,
+            "connected_edges": [
+                0,
+                1,
+                2
+            ]
         },
         {
             "id": 2,
-            "name": "3",
-            "type": "电梯",
-            "floor": "2L",
-            "popularity": 2,
-            "longitude": 116.357088,
-            "latitude": 39.964512
+            "name": "麻六记",
+            "type": "餐厅",
+            "floor": "1L",
+            "popularity": 100,
+            "longitude": 116.518777,
+            "latitude": 39.92379,
+            "connected_edges": [
+                2,
+                3,
+                6,
+                8
+            ]
         },
         {
             "id": 3,
-            "name": "4",
-            "type": "2",
+            "name": "VICTORIA S SECRET",
+            "type": "时尚品牌",
+            "floor": "1L",
+            "popularity": 100,
+            "longitude": 116.519016,
+            "latitude": 39.923772,
+            "connected_edges": [
+                8,
+                9,
+                10
+            ]
+        },
+        {
+            "id": 4,
+            "name": "喜茶",
+            "type": "餐饮",
+            "floor": "1L",
+            "popularity": 100,
+            "longitude": 116.519039,
+            "latitude": 39.923907,
+            "connected_edges": [
+                3,
+                4,
+                10
+            ]
+        },
+        {
+            "id": 5,
+            "name": "星巴克",
+            "type": "餐饮",
+            "floor": "1L",
+            "popularity": 100,
+            "longitude": 116.519042,
+            "latitude": 39.924007,
+            "connected_edges": [
+                4,
+                5,
+                7
+            ]
+        },
+        {
+            "id": 6,
+            "name": "南门",
+            "type": "大门",
+            "floor": "1L",
+            "popularity": 100,
+            "longitude": 116.5192,
+            "latitude": 39.923595,
+            "connected_edges": [
+                9
+            ]
+        },
+        {
+            "id": 7,
+            "name": "卫生间1",
+            "type": "厕所",
+            "floor": "1L",
+            "popularity": 100,
+            "longitude": 116.519472,
+            "latitude": 39.923936,
+            "connected_edges": [
+                7
+            ]
+        },
+        {
+            "id": 8,
+            "name": "出口",
+            "type": "大门",
+            "floor": "1L",
+            "popularity": 100,
+            "longitude": 116.518391,
+            "latitude": 39.923716,
+            "connected_edges": [
+                1
+            ]
+        },
+        {
+            "id": 9,
+            "name": "SEPHORA购物",
+            "type": "生活服务场所",
+            "floor": "1L",
+            "popularity": 100,
+            "longitude": 116.518923,
+            "latitude": 39.924048,
+            "connected_edges": [
+                5,
+                6
+            ]
+        },
+        {
+            "id": 10,
+            "name": "2L电梯",
+            "type": "电梯",
             "floor": "2L",
-            "popularity": 2,
-            "longitude": 116.357088,
-            "latitude": 39.964512
+            "popularity": 100,
+            "longitude": 116.51811,
+            "latitude": 39.924201,
+            "connected_edges": [
+                10
+            ]
+        },
+        {
+            "id": 11,
+            "name": "cos专卖店",
+            "type": "生活服务场所",
+            "floor": "2L",
+            "popularity": 100,
+            "longitude": 116.518352,
+            "latitude": 39.924322,
+            "connected_edges": [
+                11,
+                14
+            ]
+        },
+        {
+            "id": 12,
+            "name": "INITIAL",
+            "type": "时尚品牌",
+            "floor": "2L",
+            "popularity": 100,
+            "longitude": 116.518509,
+            "latitude": 39.92416,
+            "connected_edges": [
+                14,
+                15
+            ]
+        },
+        {
+            "id": 13,
+            "name": "卫生间2",
+            "type": "厕所",
+            "floor": "2L",
+            "popularity": 100,
+            "longitude": 116.518679,
+            "latitude": 39.924191,
+            "connected_edges": [
+                15,
+                16
+            ]
+        },
+        {
+            "id": 14,
+            "name": "秀色",
+            "type": "餐饮",
+            "floor": "2L",
+            "popularity": 100,
+            "longitude": 116.518699,
+            "latitude": 39.924294,
+            "connected_edges": [
+                16,
+                17
+            ]
+        },
+        {
+            "id": 15,
+            "name": "竹叶青",
+            "type": "时尚品牌",
+            "floor": "2L",
+            "popularity": 100,
+            "longitude": 116.518798,
+            "latitude": 39.924403,
+            "connected_edges": [
+                17,
+                18
+            ]
+        },
+        {
+            "id": 16,
+            "name": "阅文好物",
+            "type": "生活服务场所",
+            "floor": "2L",
+            "popularity": 100,
+            "longitude": 116.51867,
+            "latitude": 39.924548,
+            "connected_edges": [
+                18,
+                19
+            ]
+        },
+        {
+            "id": 17,
+            "name": "佳能canon",
+            "type": "时尚品牌",
+            "floor": "2L",
+            "popularity": 100,
+            "longitude": 116.51847,
+            "latitude": 39.924634,
+            "connected_edges": [
+                13,
+                19
+            ]
+        },
+        {
+            "id": 18,
+            "name": "ELLASSAY歌力思",
+            "type": "时尚品牌",
+            "floor": "2L",
+            "popularity": 100,
+            "longitude": 116.518085,
+            "latitude": 39.924608,
+            "connected_edges": [
+                12,
+                13
+            ]
+        },
+        {
+            "id": 19,
+            "name": "牛角烧肉专卖店",
+            "type": "餐饮",
+            "floor": "2L",
+            "popularity": 100,
+            "longitude": 116.518223,
+            "latitude": 39.924276,
+            "connected_edges": [
+                10,
+                11,
+                12
+            ]
+        },
+        {
+            "id": 20,
+            "name": "3L电梯",
+            "type": "电梯",
+            "floor": "3L",
+            "popularity": 100,
+            "longitude": 116.51833,
+            "latitude": 39.924658,
+            "connected_edges": [
+                20
+            ]
+        },
+        {
+            "id": 21,
+            "name": "Model red Dream",
+            "type": "时尚品牌",
+            "floor": "3L",
+            "popularity": 100,
+            "longitude": 116.518218,
+            "latitude": 39.924698,
+            "connected_edges": [
+                20,
+                21,
+                30
+            ]
+        },
+        {
+            "id": 22,
+            "name": "LAVINIA",
+            "type": "时尚品牌",
+            "floor": "3L",
+            "popularity": 100,
+            "longitude": 116.518056,
+            "latitude": 39.924714,
+            "connected_edges": [
+                21,
+                22,
+                23
+            ]
+        },
+        {
+            "id": 23,
+            "name": "卫生间3",
+            "type": "厕所",
+            "floor": "3L",
+            "popularity": 100,
+            "longitude": 116.517779,
+            "latitude": 39.92472,
+            "connected_edges": [
+                22
+            ]
+        },
+        {
+            "id": 24,
+            "name": "PUMA",
+            "type": "时尚品牌",
+            "floor": "3L",
+            "popularity": 100,
+            "longitude": 116.518051,
+            "latitude": 39.925024,
+            "connected_edges": [
+                23,
+                24
+            ]
+        },
+        {
+            "id": 25,
+            "name": "VERO MODA",
+            "type": "时尚品牌",
+            "floor": "3L",
+            "popularity": 100,
+            "longitude": 116.518054,
+            "latitude": 39.925166,
+            "connected_edges": [
+                24,
+                25
+            ]
+        },
+        {
+            "id": 26,
+            "name": "花间",
+            "type": "生活服务场所",
+            "floor": "3L",
+            "popularity": 100,
+            "longitude": 116.518145,
+            "latitude": 39.925172,
+            "connected_edges": [
+                25,
+                26
+            ]
+        },
+        {
+            "id": 27,
+            "name": "UNIQLO",
+            "type": "时尚品牌",
+            "floor": "3L",
+            "popularity": 100,
+            "longitude": 116.518189,
+            "latitude": 39.925096,
+            "connected_edges": [
+                26,
+                27
+            ]
+        },
+        {
+            "id": 28,
+            "name": "Bata",
+            "type": "时尚品牌",
+            "floor": "3L",
+            "popularity": 100,
+            "longitude": 116.5182,
+            "latitude": 39.924832,
+            "connected_edges": [
+                27,
+                28,
+                30
+            ]
+        },
+        {
+            "id": 29,
+            "name": "绿茶餐厅",
+            "type": "餐饮",
+            "floor": "3L",
+            "popularity": 100,
+            "longitude": 116.518534,
+            "latitude": 39.924862,
+            "connected_edges": [
+                28,
+                29
+            ]
+        },
+        {
+            "id": 30,
+            "name": "墨纪墨西哥餐厅",
+            "type": "餐饮",
+            "floor": "3L",
+            "popularity": 100,
+            "longitude": 116.518526,
+            "latitude": 39.92497,
+            "connected_edges": [
+                29
+            ]
         }
     ],
-    "edges":[
+    "edges": [
         {
             "id": 0,
             "start_node": 0,
             "end_node": 1,
-            "distance": 180.99,
+            "distance": 25.29,
             "walk_speed": 1.0,
-            "bike_speed": 3.0,
-            "ebike_speed": 5.0
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
         },
         {
             "id": 1,
-            "start_node": 2,
-            "end_node": 3,
-            "distance": 180.99,
+            "start_node": 8,
+            "end_node": 1,
+            "distance": 19.04,
             "walk_speed": 1.0,
-            "bike_speed": 3.0,
-            "ebike_speed": 5.0
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
         },
         {
             "id": 2,
             "start_node": 1,
             "end_node": 2,
-            "distance": 0,
+            "distance": 20.13,
             "walk_speed": 1.0,
-            "bike_speed": 3.0,
-            "ebike_speed": 5.0
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 3,
+            "start_node": 2,
+            "end_node": 4,
+            "distance": 25.85,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 4,
+            "start_node": 4,
+            "end_node": 5,
+            "distance": 11.12,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 5,
+            "start_node": 5,
+            "end_node": 9,
+            "distance": 11.12,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 6,
+            "start_node": 2,
+            "end_node": 9,
+            "distance": 31.27,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 7,
+            "start_node": 5,
+            "end_node": 7,
+            "distance": 37.51,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 8,
+            "start_node": 2,
+            "end_node": 3,
+            "distance": 37.68,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 9,
+            "start_node": 6,
+            "end_node": 3,
+            "distance": 6.46,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 10,
+            "start_node": 3,
+            "end_node": 4,
+            "distance": 15.14,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 11,
+            "start_node": 10,
+            "end_node": 19,
+            "distance": 12.74,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 12,
+            "start_node": 19,
+            "end_node": 11,
+            "distance": 12.13,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 13,
+            "start_node": 19,
+            "end_node": 18,
+            "distance": 38.75,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 14,
+            "start_node": 17,
+            "end_node": 18,
+            "distance": 32.96,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 15,
+            "start_node": 11,
+            "end_node": 12,
+            "distance": 22.44,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 16,
+            "start_node": 12,
+            "end_node": 13,
+            "distance": 14.9,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 17,
+            "start_node": 13,
+            "end_node": 14,
+            "distance": 11.58,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 18,
+            "start_node": 14,
+            "end_node": 15,
+            "distance": 14.77,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 19,
+            "start_node": 15,
+            "end_node": 16,
+            "distance": 19.47,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 20,
+            "start_node": 16,
+            "end_node": 17,
+            "distance": 19.55,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 21,
+            "start_node": 20,
+            "end_node": 21,
+            "distance": 10.54,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 22,
+            "start_node": 21,
+            "end_node": 22,
+            "distance": 13.93,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 23,
+            "start_node": 22,
+            "end_node": 23,
+            "distance": 23.63,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 24,
+            "start_node": 22,
+            "end_node": 24,
+            "distance": 34.47,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 25,
+            "start_node": 24,
+            "end_node": 25,
+            "distance": 15.79,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 26,
+            "start_node": 25,
+            "end_node": 26,
+            "distance": 7.79,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 27,
+            "start_node": 26,
+            "end_node": 27,
+            "distance": 9.25,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 28,
+            "start_node": 27,
+            "end_node": 28,
+            "distance": 29.37,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 29,
+            "start_node": 28,
+            "end_node": 29,
+            "distance": 28.68,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 30,
+            "start_node": 29,
+            "end_node": 30,
+            "distance": 12.03,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 31,
+            "start_node": 21,
+            "end_node": 28,
+            "distance": 14.98,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 32,
+            "start_node": 0,
+            "end_node": 10,
+            "distance": 0.01,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 33,
+            "start_node": 10,
+            "end_node": 20,
+            "distance": 0.01,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 34,
+            "start_node": 0,
+            "end_node": 20,
+            "distance": 0.01,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
         }
     ]
 }

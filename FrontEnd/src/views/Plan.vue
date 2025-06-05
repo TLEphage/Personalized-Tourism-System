@@ -1,6 +1,7 @@
 <template>
   <div class="poi-container">
-    <div id="map-container" ></div>
+    <div id="map-container" v-show="currentMode !== 'indoor'" ></div>
+    <div id="indoor-map-container" v-show="currentMode === 'indoor'"></div>
 
     <button class="developer-button" @click="goToDeveloper">开发者模式</button>
 
@@ -255,20 +256,18 @@
 
       <!-- 室内导航模式 -->
       <div v-if="currentMode === 'indoor'" class="mode-content">
-        <div class="input-group">
-          <label>建筑物ID</label>
-          <input
-            type="text"
-            class="input-field"
-            v-model="buildingId"
-            placeholder="例如：B000A856LJ"
-          />
-          <p class="hint">输入要加载的室内地图ID</p>
-        </div>
-
-        <div class="button-group">
-          <button class="nav-button" @click="loadIndoorMap">加载室内地图</button>
-          <button class="nav-button" @click="showFloorSelector">显示楼层切换</button>
+        <div v-if="showFloorControl" class="input-group">
+          <label>当前楼层</label>
+          <div class="floor-control">
+            <button 
+              v-for="floor in availableFloors" 
+              :key="floor"
+              @click="switchFloor(floor)"
+              :class="{ active: currentFloor === floor }"
+            >
+              {{ floor }}楼
+            </button>
+          </div>
         </div>
 
         <div class="input-group">
@@ -295,6 +294,7 @@
 
         <div class="route-info">
           <h3>室内路线信息</h3>
+          <p>🗺️ 当前楼层距离: {{ indoorDistance }} m</p>
           <p>🚩 途径: {{ indoorPoints }}</p>
         </div>
       </div>
@@ -341,7 +341,15 @@ export default {
     const suggestionTimeout = ref(null);
 
     // 室内导航相关变量
-    
+    const buildingId = ref("B000A856LJ");
+    const startIndoorLocation = ref("");
+    const endIndoorLocation = ref("");
+    const indoorPoints = ref("");
+    const indoorDistance = ref(0);
+    const currentFloor = ref(null);
+    const availableFloors = ref([]);
+    const showFloorControl = ref(false);
+    let indoorMapInstance = null;
 
     // 用来存当前绘制到地图上的点和线
     let routeMarkers = [];
@@ -350,9 +358,9 @@ export default {
     let AMapInstance = null;
 
     onMounted(() => {
-      window._AMapSecurityConfig = { securityJsCode: "7ac63ea230a00cbb7a4d0f9f3b046a84" };
+      window._AMapSecurityConfig = { securityJsCode: "ea176f2888ff519f13260e12af956fe6" };
       AMapLoader.load({
-        key: "82af44ada0b783b707679cdc4f0ff723",
+        key: "aeefd3c2789d4655bbc8596c2131a8b7",
         version: "2.0",
       })
       .then((AMap) => {
@@ -373,6 +381,41 @@ export default {
       // 组件卸载时移除监听
       document.removeEventListener('click', handleGlobalClick);
     });
+
+    const initIndoorMap = () => {
+      window._AMapSecurityConfig = { securityJsCode: "ea176f2888ff519f13260e12af956fe6" };
+      AMapLoader.load({
+        key: "aeefd3c2789d4655bbc8596c2131a8b7",
+        version: "2.0",
+        plugins: ['AMap.IndoorMap']
+      }).then((AMap) => {
+        indoorMapInstance = new AMap.Map('indoor-map-container', {
+          center:[116.518542, 39.924677],
+          zoom: 18,
+          viewMode: '3D',
+          pitch: 40,
+          showIndoorMap: true
+        });
+        
+        // 监听室内地图创建
+        indoorMapInstance.on('indoor_create', () => {
+          const indoorManager = indoorMapInstance.indoormap;
+          indoorManager.showIndoorMap(buildingId.value, (err) => {
+            if(err) {
+              console.log('室内地图加载失败'+err);
+              return ;
+            }
+            availableFloors.value = indoorManager.getFloors();
+            currentFloor.value = indoorManager.getFloor();
+            // 监听楼层变化
+            indoorManager.on('floor_change', (event) => {
+                currentFloor.value = event.floor;
+                fetchIndoorRoute();
+            });
+          });
+        });
+      });
+    }
 
     function handleGlobalClick(event) {
       const isInput = event.target.classList.contains('input-field');
@@ -517,6 +560,10 @@ export default {
         setupMapClickListener();
       } else {
         removeMapClickListener();
+      }
+
+      if (mode === 'indoor' && !indoorMapInstance) {
+        initIndoorMap();
       }
     }
 
@@ -953,6 +1000,97 @@ export default {
       }
     }
 
+    function loadIndoorMap() {
+      if (!map.value) {
+        alert('地图尚未初始化完成，请稍后再试');
+        return;
+      }
+      
+      const bid = buildingId.value;
+      if (!bid) {
+        alert('请输入建筑物ID');
+        return;
+      }
+
+      // 监听室内地图创建事件
+      map.value.on('indoor_create', () => {
+        indoorMap = map.value.indoormap;
+        indoorMap.showIndoorMap(bid, () => {
+          console.log('室内地图加载完成');
+          
+          // 监听楼层变化
+          indoorMap.on('floor_change', (event) => {
+            currentFloor.value = event.floor;
+            fetchIndoorRoute();
+          });
+          
+          // 获取可用楼层
+          availableFloors.value = indoorMap.getFloors();
+          currentFloor.value = indoorMap.getFloor();
+        });
+      });
+    }
+
+    function showFloorSelector() {
+      if (!indoorMap) {
+        alert('请先加载室内地图');
+        return;
+      }
+      showFloorControl.value = true;
+      indoorMap.showFloorBar();
+    }
+
+    function switchFloor(floor) {
+      if (indoorMap) {
+        indoorMap.setFloor(floor);
+      }
+    }
+
+    async function startIndoorNavigation() {
+      if (!startIndoorLocation.value || !endIndoorLocation.value) {
+        alert("请填写起点和终点位置！");
+        return;
+      }
+
+      try {
+        console.log("startIndoorNavigation");
+        const response = await axios.post(
+          'http://localhost:8000/map/path_plan/indoor_shortest_path', 
+          {
+            start: startIndoorLocation.value,
+            end: endIndoorLocation.value
+          }
+        );
+        if(response.data.success !== true) {
+          alert("无法规划 indoor 路径，请检查输入的 indoor 位置！");
+        }
+        
+        // 开始导航后自动获取当前楼层路径
+        fetchIndoorRoute();
+      } catch (error) {
+        console.error("室内导航失败:", error);
+        alert("室内导航失败，请重试");
+      }
+    }
+
+    async function fetchIndoorRoute() {
+      console.log("当前楼层： " +  currentFloor.value);
+      if (!currentFloor.value) return;
+      
+      try {
+        const response = await axios.get(
+          `http://localhost:8000/map/path_plan/indoor_shortest_path?floor=${currentFloor.value}`
+        );
+        
+        const data = response.data;
+        console.log("室内导航结果:", data);
+        indoorPoints.value = data.path.join(" → ");
+        indoorDistance.value = data.distance;
+      } catch (error) {
+        console.error("获取室内路径失败:", error);
+      }
+    }
+
     return { 
       startLocation, 
       endLocation, 
@@ -995,7 +1133,18 @@ export default {
       selectMultiSuggestion,
       setActiveSuggestionIndex,
       onInputBlur,
-      onMultiInputBlur
+      onMultiInputBlur,
+      buildingId,
+      startIndoorLocation,
+      endIndoorLocation,
+      indoorPoints,
+      loadIndoorMap,
+      showFloorSelector,
+      startIndoorNavigation,
+      currentFloor,
+      availableFloors,
+      showFloorControl,
+      switchFloor
      };
   },
   methods: {
@@ -1114,7 +1263,7 @@ body {
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
-#map-container {
+#map-container, #indoor-map-container {
   height: 100vh;
   width: 800px;
   position: relative;
@@ -1277,4 +1426,25 @@ input-group .hint {
 .input-group {
   overflow: visible;
 }
+
+.floor-control {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.floor-control button {
+  padding: 6px 12px;
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.floor-control button.active {
+  background: #4CAF50;
+  color: white;
+  border-color: #4CAF50;
+}
+
 </style>  

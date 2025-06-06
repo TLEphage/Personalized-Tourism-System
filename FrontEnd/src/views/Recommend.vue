@@ -255,7 +255,7 @@ export default {
   created() {
     // 防抖函数（500ms）
     this.debouncedFetch = this.debounce(() => {
-      this.fetchRankingList();
+      this.fetchList();
     }, 500);
   },
   mounted() {
@@ -336,11 +336,12 @@ export default {
       try {
         this.foodLoading = true;
         this.foodError = null;
+        console.log('请求的美食关键词:', this.currentSearchQuery);
         const response = await axios.post(
           `http://localhost:8000/foods/search`, {
             longitude: 116.36,
             latitude: 39.96,
-            search_text: this.foodSearchQuery,
+            search_text: this.currentSearchQuery,
             tags: [""],
             sort_key: "distance"
           }

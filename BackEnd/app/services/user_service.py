@@ -32,7 +32,7 @@ def register(username: str, password: str) -> bool:
         'username': username,
         'passwordHash': passwordHash,
         'role': "admin",  # 默认角色，可后续扩展
-        'avatarPath': os.path.join(USERS_AVATARS_DIR, "default_avatar.jpg"),
+        'avatarPath': "http://localhost:8000/images/avatars/default_avatar.jpg",
         'signature': None,
         'hobbies': []
     }

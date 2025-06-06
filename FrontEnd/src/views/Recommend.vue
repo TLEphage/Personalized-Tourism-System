@@ -113,7 +113,7 @@
               <div class="recommend-badge">推荐 {{ index + 1 }}</div>
               <div class="rating">
                 ⭐ {{ rec.item.rating?.toFixed(1) }}
-                <span class="reviews">({{ rec.item.popularity }}人评价)</span>
+                <span class="reviews">(热度{{ rec.item.popularity }})</span>
               </div>
             </div>
 
@@ -125,7 +125,7 @@
               <div class="recommend-scores">
                 <div class="score-item">
                   <span class="score-label">匹配度:</span>
-                  <span class="score-value">{{ (rec.match_score * 100).toFixed(1) }}%</span>
+                  <span class="score-value">{{ (rec.match_score).toFixed(1) }}%</span>
                 </div>
                 <div class="score-item">
                   <span class="score-label">推荐指数:</span>
@@ -181,8 +181,8 @@
             <p class="food-address">📍 {{ food.address }}</p>
             <p class="food-description">{{ truncateDescription(food.description, 45) }}</p>
             <div class="food-details">
-              <span class="food-rating">⭐ {{ food.rating.toFixed(1) }}</span>
-              <span class="food-popularity">({{ food.popularity }}人气)</span>
+              <span class="food-rating">⭐ {{ food.rating.toFixed(2) }}</span>
+              <span class="food-popularity">(热度{{ food.popularity }})</span>
             </div>
             <div class="tags">
               <span v-for="(tag, tagIndex) in food.tags"

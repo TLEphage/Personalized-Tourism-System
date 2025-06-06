@@ -29,9 +29,14 @@
         >
       </div>
       <div class="sort-selector">
-        <select v-model="currentSortBy" @change="fetchList" class="sort-select">
+        <select v-if="activeTab !== 'food'" v-model="currentSortBy" @change="fetchList" class="sort-select">
           <option value="popularity">按人气排序</option>
           <option value="rating">按评分排序</option>
+        </select>
+        <select v-if="activeTab === 'food'" v-model="currentSortBy" @change="fetchList" class="sort-select">
+          <option value="popularity">按人气排序</option>
+          <option value="rating">按评分排序</option>
+          <option value="distance">按距离排序</option>
         </select>
         <span class="sort-icon">▼</span>
       </div>

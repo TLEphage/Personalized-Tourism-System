@@ -28,7 +28,7 @@
           @keyup.enter="fetchList"
         >
       </div>
-      <div v-if="activeTab !== 'foods'" class="sort-selector">
+      <div class="sort-selector">
         <select v-model="currentSortBy" @change="fetchList" class="sort-select">
           <option value="popularity">按人气排序</option>
           <option value="rating">按评分排序</option>
@@ -343,7 +343,7 @@ export default {
             latitude: 39.96,
             search_text: this.currentSearchQuery,
             tags: [""],
-            sort_key: "distance"
+            sort_key: this.currentSortBy
           }
         );
         console.log('获取美食数据成功:', response.data);

@@ -49,8 +49,8 @@
         },
         {
             "id": 3,
-            "name": "第三教学楼西大门",
-            "type": "教学类",
+            "name": "第三教学楼卫生间",
+            "type": "洗手间",
             "popularity": 2,
             "longitude": 116.35575,
             "latitude": 39.96034,
@@ -205,14 +205,15 @@
         {
             "id": 14,
             "name": "综合食堂",
-            "type": "餐饮",
+            "type": "食堂",
             "popularity": 100,
             "longitude": 116.35692,
             "latitude": 39.964013,
             "connected_edges": [
                 17,
                 20,
-                20
+                20,
+                266
             ]
         },
         {
@@ -233,7 +234,7 @@
         {
             "id": 16,
             "name": "学生公寓5",
-            "type": "公寓·",
+            "type": "公寓",
             "popularity": 100,
             "longitude": 116.35616,
             "latitude": 39.96355,
@@ -349,7 +350,7 @@
         {
             "id": 24,
             "name": "小松林",
-            "type": "活动场所",
+            "type": "景点",
             "popularity": 100,
             "longitude": 116.357472,
             "latitude": 39.963032,
@@ -363,7 +364,7 @@
         {
             "id": 25,
             "name": "时光广场",
-            "type": "活动场所",
+            "type": "景点",
             "popularity": 100,
             "longitude": 116.357484,
             "latitude": 39.96242,
@@ -416,7 +417,7 @@
         {
             "id": 29,
             "name": "澡堂",
-            "type": "生活服务场所",
+            "type": "公共浴室",
             "popularity": 100,
             "longitude": 116.357818,
             "latitude": 39.963989,
@@ -432,7 +433,7 @@
         {
             "id": 30,
             "name": "水房",
-            "type": "生活服务场所",
+            "type": "公共浴室",
             "popularity": 100,
             "longitude": 116.358152,
             "latitude": 39.964004,
@@ -446,8 +447,8 @@
         },
         {
             "id": 31,
-            "name": "超市",
-            "type": "生活服务场所",
+            "name": "物美超市",
+            "type": "超市",
             "popularity": 100,
             "longitude": 116.357818,
             "latitude": 39.963724,
@@ -455,13 +456,14 @@
                 41,
                 42,
                 44,
-                107
+                107,
+                261
             ]
         },
         {
             "id": 32,
             "name": "营业厅",
-            "type": "生活服务场所",
+            "type": "商店",
             "popularity": 100,
             "longitude": 116.357586,
             "latitude": 39.963736,
@@ -470,19 +472,21 @@
                 40,
                 41,
                 43,
-                106
+                106,
+                260
             ]
         },
         {
             "id": 33,
             "name": "学苑餐厅",
-            "type": "餐饮",
+            "type": "食堂",
             "popularity": 100,
             "longitude": 116.358549,
             "latitude": 39.963582,
             "connected_edges": [
                 36,
-                61
+                61,
+                265
             ]
         },
         {
@@ -586,7 +590,7 @@
         {
             "id": 41,
             "name": "拐角遇到爱",
-            "type": "路口",
+            "type": "卫生间",
             "popularity": 100,
             "longitude": 116.359609,
             "latitude": 39.964507,
@@ -602,7 +606,7 @@
         {
             "id": 42,
             "name": "拐角撞见爱！",
-            "type": "路口",
+            "type": "卫生间",
             "popularity": 100,
             "longitude": 116.359674,
             "latitude": 39.964165,
@@ -635,7 +639,7 @@
         {
             "id": 44,
             "name": "学生食堂西门",
-            "type": "餐饮",
+            "type": "食堂",
             "popularity": 100,
             "longitude": 116.35883,
             "latitude": 39.963323,
@@ -648,7 +652,7 @@
         {
             "id": 45,
             "name": "学生食堂南门",
-            "type": "餐饮",
+            "type": "食堂",
             "popularity": 100,
             "longitude": 116.359188,
             "latitude": 39.96312,
@@ -678,8 +682,8 @@
         },
         {
             "id": 47,
-            "name": "拐角又是你",
-            "type": "路口",
+            "name": "公共厕所",
+            "type": "洗手间",
             "popularity": 100,
             "longitude": 116.360337,
             "latitude": 39.96309,
@@ -991,7 +995,7 @@
         {
             "id": 68,
             "name": "校训石",
-            "type": "活动场所",
+            "type": "景点",
             "popularity": 100,
             "longitude": 116.356349,
             "latitude": 39.961195,
@@ -1008,7 +1012,7 @@
         {
             "id": 69,
             "name": "主席像",
-            "type": "活动场所",
+            "type": "景点",
             "popularity": 100,
             "longitude": 116.356831,
             "latitude": 39.961198,
@@ -1022,7 +1026,7 @@
         {
             "id": 70,
             "name": "音乐喷泉",
-            "type": "活动场所",
+            "type": "景点",
             "popularity": 100,
             "longitude": 116.357843,
             "latitude": 39.961167,
@@ -1186,7 +1190,7 @@
         {
             "id": 81,
             "name": "校医院",
-            "type": "生活服务场所",
+            "type": "医院",
             "popularity": 100,
             "longitude": 116.356889,
             "latitude": 39.959901,
@@ -1803,8 +1807,8 @@
         },
         {
             "id": 121,
-            "name": "路口2",
-            "type": "路口",
+            "name": "社区公共厕所",
+            "type": "洗手间",
             "popularity": 100,
             "longitude": 116.358784,
             "latitude": 39.958574,
@@ -1921,7 +1925,8 @@
             "latitude": 39.958759,
             "connected_edges": [
                 221,
-                222
+                222,
+                276
             ]
         },
         {
@@ -1933,7 +1938,8 @@
             "latitude": 39.959117,
             "connected_edges": [
                 220,
-                221
+                221,
+                274
             ]
         },
         {
@@ -1951,8 +1957,8 @@
         },
         {
             "id": 133,
-            "name": "超市",
-            "type": "生活服务场所",
+            "name": "南区超市",
+            "type": "超市",
             "popularity": 100,
             "longitude": 116.35662,
             "latitude": 39.959273,
@@ -1970,7 +1976,8 @@
             "latitude": 39.959714,
             "connected_edges": [
                 213,
-                214
+                214,
+                270
             ]
         },
         {
@@ -1990,7 +1997,7 @@
         {
             "id": 136,
             "name": "邮局",
-            "type": "生活服务场所",
+            "type": "邮局",
             "popularity": 100,
             "longitude": 116.357574,
             "latitude": 39.959978,
@@ -2116,7 +2123,8 @@
             "connected_edges": [
                 214,
                 215,
-                217
+                217,
+                271
             ]
         },
         {
@@ -2134,7 +2142,7 @@
         {
             "id": 148,
             "name": "居委会社区",
-            "type": "生活服务场所",
+            "type": "社区",
             "popularity": 100,
             "longitude": 116.356767,
             "latitude": 39.959338,
@@ -2146,7 +2154,7 @@
         {
             "id": 149,
             "name": "北门快递站",
-            "type": "生活服务场所",
+            "type": "驿站",
             "popularity": 100,
             "longitude": 116.357365,
             "latitude": 39.965005,
@@ -2156,8 +2164,8 @@
         },
         {
             "id": 150,
-            "name": "未知拐点",
-            "type": "路口",
+            "name": "体育馆卫生间",
+            "type": "洗手间",
             "popularity": 100,
             "longitude": 116.360384,
             "latitude": 39.963184,
@@ -2560,7 +2568,8 @@
             "connected_edges": [
                 26,
                 27,
-                30
+                30,
+                262
             ]
         },
         {
@@ -2618,7 +2627,7 @@
         {
             "id": 186,
             "name": "学生食堂南门",
-            "type": "餐饮",
+            "type": "食堂",
             "popularity": 100,
             "longitude": 116.359188,
             "latitude": 39.963028,
@@ -2701,7 +2710,8 @@
             "connected_edges": [
                 103,
                 104,
-                105
+                105,
+                269
             ]
         },
         {
@@ -2911,12 +2921,147 @@
         },
         {
             "id": 209,
-            "name": "物美超市",
+            "name": "物美超市仓库",
             "type": "超市",
             "popularity": 90,
             "longitude": 116.358031,
             "latitude": 39.963651,
-            "connected_edges": []
+            "connected_edges": [
+                261
+            ]
+        },
+        {
+            "id": 210,
+            "name": "麦当劳",
+            "type": "餐厅",
+            "popularity": 100,
+            "longitude": 116.357583,
+            "latitude": 39.963679,
+            "connected_edges": [
+                260,
+                269
+            ]
+        },
+        {
+            "id": 211,
+            "name": "瑞幸咖啡",
+            "type": "餐厅",
+            "popularity": 100,
+            "longitude": 116.358179,
+            "latitude": 39.963752,
+            "connected_edges": [
+                262,
+                263
+            ]
+        },
+        {
+            "id": 212,
+            "name": "水果店",
+            "type": "超市",
+            "popularity": 100,
+            "longitude": 116.358341,
+            "latitude": 39.963765,
+            "connected_edges": [
+                263,
+                264
+            ]
+        },
+        {
+            "id": 213,
+            "name": "打印店",
+            "type": "超市",
+            "popularity": 100,
+            "longitude": 116.358503,
+            "latitude": 39.96378,
+            "connected_edges": [
+                264,
+                265
+            ]
+        },
+        {
+            "id": 214,
+            "name": "综合食堂二层",
+            "type": "食堂",
+            "popularity": 100,
+            "longitude": 116.356773,
+            "latitude": 39.964013,
+            "connected_edges": [
+                266,
+                267
+            ]
+        },
+        {
+            "id": 215,
+            "name": "综合食堂3",
+            "type": "食堂",
+            "popularity": 100,
+            "longitude": 116.356635,
+            "latitude": 39.964013,
+            "connected_edges": [
+                267,
+                268
+            ]
+        },
+        {
+            "id": 216,
+            "name": "综合食堂4",
+            "type": "食堂",
+            "popularity": 100,
+            "longitude": 116.356449,
+            "latitude": 39.964022,
+            "connected_edges": [
+                268
+            ]
+        },
+        {
+            "id": 217,
+            "name": "家属区14号楼",
+            "type": "家属区",
+            "popularity": 100,
+            "longitude": 116.35561,
+            "latitude": 39.959734,
+            "connected_edges": [
+                270,
+                272
+            ]
+        },
+        {
+            "id": 218,
+            "name": "家属区15号楼",
+            "type": "家属区",
+            "popularity": 100,
+            "longitude": 116.355605,
+            "latitude": 39.959505,
+            "connected_edges": [
+                271,
+                272,
+                273
+            ]
+        },
+        {
+            "id": 219,
+            "name": "家属区16号楼",
+            "type": "家属区",
+            "popularity": 100,
+            "longitude": 116.355615,
+            "latitude": 39.959133,
+            "connected_edges": [
+                273,
+                274,
+                275
+            ]
+        },
+        {
+            "id": 220,
+            "name": "家属区17号楼",
+            "type": "家属区",
+            "popularity": 100,
+            "longitude": 116.35562,
+            "latitude": 39.958726,
+            "connected_edges": [
+                275,
+                276
+            ]
         }
     ],
     "edges": [
@@ -5256,6 +5401,159 @@
             "start_node": 127,
             "end_node": 128,
             "distance": 16.57,
+            "walk_speed": 1.0,
+            "bike_speed": 2.5,
+            "ebike_speed": 3.5
+        },
+        {
+            "id": 260,
+            "start_node": 210,
+            "end_node": 32,
+            "distance": 6.34,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 261,
+            "start_node": 209,
+            "end_node": 31,
+            "distance": 19.89,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 262,
+            "start_node": 211,
+            "end_node": 181,
+            "distance": 10.66,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 263,
+            "start_node": 211,
+            "end_node": 212,
+            "distance": 13.88,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 264,
+            "start_node": 212,
+            "end_node": 213,
+            "distance": 13.91,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 265,
+            "start_node": 213,
+            "end_node": 33,
+            "distance": 22.36,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 266,
+            "start_node": 14,
+            "end_node": 214,
+            "distance": 12.53,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 267,
+            "start_node": 214,
+            "end_node": 215,
+            "distance": 11.76,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 268,
+            "start_node": 215,
+            "end_node": 216,
+            "distance": 15.88,
+            "walk_speed": 1.0,
+            "bike_speed": 0.0,
+            "ebike_speed": 0.0
+        },
+        {
+            "id": 269,
+            "start_node": 210,
+            "end_node": 192,
+            "distance": 37.16,
+            "walk_speed": 1.0,
+            "bike_speed": 2.5,
+            "ebike_speed": 3.5
+        },
+        {
+            "id": 270,
+            "start_node": 134,
+            "end_node": 217,
+            "distance": 70.95,
+            "walk_speed": 1.0,
+            "bike_speed": 2.5,
+            "ebike_speed": 3.5
+        },
+        {
+            "id": 271,
+            "start_node": 146,
+            "end_node": 218,
+            "distance": 72.02,
+            "walk_speed": 1.0,
+            "bike_speed": 2.5,
+            "ebike_speed": 3.5
+        },
+        {
+            "id": 272,
+            "start_node": 217,
+            "end_node": 218,
+            "distance": 25.47,
+            "walk_speed": 1.0,
+            "bike_speed": 2.5,
+            "ebike_speed": 3.5
+        },
+        {
+            "id": 273,
+            "start_node": 218,
+            "end_node": 219,
+            "distance": 41.37,
+            "walk_speed": 1.0,
+            "bike_speed": 2.5,
+            "ebike_speed": 3.5
+        },
+        {
+            "id": 274,
+            "start_node": 219,
+            "end_node": 131,
+            "distance": 72.38,
+            "walk_speed": 1.0,
+            "bike_speed": 2.5,
+            "ebike_speed": 3.5
+        },
+        {
+            "id": 275,
+            "start_node": 219,
+            "end_node": 220,
+            "distance": 45.26,
+            "walk_speed": 1.0,
+            "bike_speed": 2.5,
+            "ebike_speed": 3.5
+        },
+        {
+            "id": 276,
+            "start_node": 220,
+            "end_node": 130,
+            "distance": 73.05,
             "walk_speed": 1.0,
             "bike_speed": 2.5,
             "ebike_speed": 3.5

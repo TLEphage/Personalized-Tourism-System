@@ -284,11 +284,11 @@ export default {
         console.log('请求的景点/学校关键词:', searchQuery);
         if(this.activeTab === 'spots') {
           // GET     /spots/scenic_spots/{name}?tag=...&sort_key=...&sort_order=...  -> 获取景点
-          const response = await axios.get(`http://localhost:8000/spots/scenic_spots/${searchQuery}?sory_key=${this.currentSortBy}&sort_order=desc`);
+          const response = await axios.get(`http://localhost:8000/spots/scenic_spots/${searchQuery}?sort_key=${this.currentSortBy}&sort_order=desc`);
           this.list = response.data;
         } else if(this.activeTab === 'schools') {
           // GET     /spots/schools/{name}?tag=...&sort_key=...&sort_order=...       -> 获取校园
-          const response = await axios.get(`http://localhost:8000/spots/schools/${searchQuery}?sory_key=${this.currentSortBy}&sort_order=desc`);
+          const response = await axios.get(`http://localhost:8000/spots/schools/${searchQuery}?sort_key=${this.currentSortBy}&sort_order=desc`);
           this.list = response.data;
         } else if(this.activeTab === 'recommend_scenic_spots') {
           // GET     /recommend/{username}                           -> 根据用户hobbies以及内容的评分和热度推荐相关内容，包括景点、校园、美食、日记

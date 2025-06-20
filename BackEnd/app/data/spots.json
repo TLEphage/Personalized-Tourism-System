@@ -30,8 +30,8 @@
                 "latitude": 39.96718,
                 "longitude": 116.35077
             },
-            "rating": 4.80,
-            "popularity": 85,
+            "rating": 4.90,
+            "popularity": 90,
             "tags": [
                 "高等学府",
                 "教育科研",
@@ -52,8 +52,8 @@
                 "latitude": 39.99047,
                 "longitude": 116.33732
             },
-            "rating": 4.85,
-            "popularity": 90,
+            "rating": 4.95,
+            "popularity": 96,
             "tags": [
                 "高等学府",
                 "学术研究",
@@ -74,8 +74,8 @@
                 "latitude": 39.99232,
                 "longitude": 116.31985
             },
-            "rating": 4.82,
-            "popularity": 88,
+            "rating": 4.96,
+            "popularity": 95,
             "tags": [
                 "高等学府",
                 "学术研究",
@@ -162,7 +162,7 @@
                 "latitude": 31.29974,
                 "longitude": 121.50939
             },
-            "rating": 4.82,
+            "rating": 4.87,
             "popularity": 88,
             "tags": [
                 "高等学府",
@@ -207,7 +207,7 @@
                 "longitude": 121.43747
             },
             "rating": 4.83,
-            "popularity": 89,
+            "popularity": 91,
             "tags": [
                 "高等学府",
                 "学术研究",
@@ -228,7 +228,7 @@
                 "latitude": 32.11643,
                 "longitude": 118.91618
             },
-            "rating": 4.80,
+            "rating": 4.84,
             "popularity": 87,
             "tags": [
                 "高等学府",
@@ -272,7 +272,7 @@
                 "latitude": 31.83095,
                 "longitude": 117.22951
             },
-            "rating": 4.75,
+            "rating": 4.79,
             "popularity": 83,
             "tags": [
                 "高等学府",
@@ -470,7 +470,7 @@
                 "latitude": 24.44595,
                 "longitude": 118.08741
             },
-            "rating": 4.92,
+            "rating": 4.88,
             "popularity": 93,
             "tags": [
                 "高等学府",

@@ -115,6 +115,7 @@
         try {
           this.loading = true;
           console.log('请求参数:', name);
+          console.log("请求类型:", this.type);
           let response;
           if(this.type === 'schools') response = await axios.get(`http://localhost:8000/spots/schools/${name}`);
           else response = await axios.get(`http://localhost:8000/spots/scenic_spots/${name}`);

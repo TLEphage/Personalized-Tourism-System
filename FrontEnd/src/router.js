@@ -52,7 +52,7 @@ const router = createRouter({
             component:Developer
         },
         {
-            path:'/SpotDetail/:name',
+            path:'/SpotDetail/:name:type',
             name:'SpotDetail',
             component:SpotDetail
         },

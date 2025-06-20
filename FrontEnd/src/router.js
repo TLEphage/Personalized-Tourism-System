@@ -13,6 +13,10 @@ const router = createRouter({
     history: createWebHashHistory(),
     routes:[
         {
+            path: '/',
+            redirect: '/Recommend'
+        },
+        {
             path: '/Recommend',
             name:'Recommend',
             component:Recommend

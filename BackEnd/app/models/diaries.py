@@ -17,7 +17,7 @@ class DiaryTagRequest(BaseModel):
     tag: str
 
 class DiaryScoreRequest(BaseModel):
-    """日记打标签请求模型"""
+    """日记打分请求模型"""
     id: int
     rate: float
 
@@ -32,5 +32,4 @@ class DiaryResponse(BaseModel):
     tags: List[str]
     views: int
     rating: float
-    tags: List[str]
     timestamp: int

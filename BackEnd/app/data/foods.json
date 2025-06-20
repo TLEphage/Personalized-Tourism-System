@@ -6,8 +6,8 @@
             "address": "北三环中路44号海淀文教产业园10号楼2层201号",
             "latitude": 39.965527,
             "longitude": 116.360708,
-            "popularity": 80,
-            "rating": 4.3,
+            "popularity": 85,
+            "rating": 4.35,
             "tags": ["饺子", "饺子", "性价比高", "老字号"]
         },
         {
@@ -17,7 +17,7 @@
             "latitude": 39.966838,
             "longitude": 116.356812,
             "popularity": 90,
-            "rating": 4.5,
+            "rating": 4.54,
             "tags": ["京菜", "烤鸭", "环境好", "老字号"]
         },
         {
@@ -27,7 +27,7 @@
             "latitude": 39.966544,
             "longitude": 116.356673,
             "popularity": 88,
-            "rating": 4.4,
+            "rating": 4.48,
             "tags": ["烤鱼", "川菜", "性价比高"]
         },
         {
@@ -67,7 +67,7 @@
             "latitude": 40.000683,
             "longitude": 116.326215,
             "popularity": 85,
-            "rating": 4.2,
+            "rating": 4.61,
             "tags": ["校园食堂", "中式快餐", "性价比高"]
         },
         {
@@ -77,7 +77,7 @@
             "latitude": 40.001245,
             "longitude": 116.327893,
             "popularity": 80,
-            "rating": 4.0,
+            "rating": 4.34,
             "tags": ["家常菜", "简餐", "校园餐厅"]
         },
         {
@@ -87,7 +87,7 @@
             "latitude": 39.999876,
             "longitude": 116.325432,
             "popularity": 82,
-            "rating": 4.1,
+            "rating": 4.55,
             "tags": ["校园食堂", "多样化菜品", "健康轻食"]
         },
         {
@@ -96,8 +96,8 @@
             "address": "北京市海淀区清华大学校内玉树园",
             "latitude": 40.002134,
             "longitude": 116.328765,
-            "popularity": 78,
-            "rating": 3.9,
+            "popularity": 88,
+            "rating": 4.68,
             "tags": ["川菜", "湘菜", "辣味"]
         },
         {
@@ -107,7 +107,7 @@
             "latitude": 40.000987,
             "longitude": 116.326754,
             "popularity": 83,
-            "rating": 4.0,
+            "rating": 4.42,
             "tags": ["传统中餐", "面点", "老牌餐厅"]
         },
         {
@@ -117,7 +117,7 @@
             "latitude": 39.983125,
             "longitude": 116.346289,
             "popularity": 88,
-            "rating": 4.2,
+            "rating": 4.35,
             "tags": ["校园食堂", "中式快餐", "性价比高"]
         },
         {
@@ -127,7 +127,7 @@
             "latitude": 39.982876,
             "longitude": 116.346752,
             "popularity": 85,
-            "rating": 4.1,
+            "rating": 4.10,
             "tags": ["福建小吃", "拌面", "扁肉"]
         },
         {
@@ -137,7 +137,7 @@
             "latitude": 39.982945,
             "longitude": 116.346832,
             "popularity": 82,
-            "rating": 4.0,
+            "rating": 4.50,
             "tags": ["披萨", "西餐", "连锁品牌"]
         },
         {
@@ -157,7 +157,7 @@
             "latitude": 39.983083,
             "longitude": 116.346992,
             "popularity": 78,
-            "rating": 3.8,
+            "rating": 4.70,
             "tags": ["咖啡", "轻食", "连锁品牌"]
         },
         {
@@ -167,7 +167,7 @@
             "latitude": 39.963123,
             "longitude": 116.316456,
             "popularity": 85,
-            "rating": 4.2,
+            "rating": 4.20,
             "tags": ["校园美食", "中式餐点", "经济实惠"]
         },
         {
@@ -177,7 +177,7 @@
             "latitude": 39.963234,
             "longitude": 116.316567,
             "popularity": 80,
-            "rating": 4.0,
+            "rating": 4.10,
             "tags": ["重庆小面", "麻辣", "面食"]
         },
         {
@@ -187,7 +187,7 @@
             "latitude": 39.963345,
             "longitude": 116.316678,
             "popularity": 78,
-            "rating": 3.9,
+            "rating": 3.90,
             "tags": ["日式快餐", "牛肉饭", "连锁品牌"]
         },
         {
@@ -197,7 +197,7 @@
             "latitude": 39.963456,
             "longitude": 116.316789,
             "popularity": 75,
-            "rating": 3.8,
+            "rating": 3.85,
             "tags": ["麻辣烫", "连锁品牌", "自选食材"]
         },
         {
@@ -207,7 +207,7 @@
             "latitude": 39.963567,
             "longitude": 116.316890,
             "popularity": 72,
-            "rating": 3.7,
+            "rating": 4.30,
             "tags": ["咖啡", "甜点", "连锁品牌"]
         }
     ]

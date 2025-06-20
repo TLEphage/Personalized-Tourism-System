@@ -207,9 +207,12 @@
           <label>服务类型</label>
           <select class="input-field" v-model="selectedServiceType">
             <option value="超市">超市</option>
-            <option value="卫生间">卫生间</option>
-            <option value="餐厅">餐厅</option>
-            <option value="ATM">ATM</option>
+            <option value="洗手间">洗手间</option>
+            <option value="食堂">食堂</option>
+            <option value="商店">商店</option>
+            <option value="图书馆">图书馆</option>
+            <option value="饭店">饭店</option>
+            <option value="咖啡馆">咖啡馆</option>
           </select>
         </div>
 
@@ -683,6 +686,8 @@ export default {
         alert('请先在地图上选择当前位置');
         return;
       }
+      routeMarkers.forEach(marker => marker.setMap(null));
+      routeMarkers = [];
 
       try {
         console.log('搜索类型:', selectedServiceType.value);

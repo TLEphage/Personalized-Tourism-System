@@ -1,19 +1,28 @@
 <template>
   <div class="interest-selector">
-      <h3>📸 选择您的旅行兴趣</h3>
+      <h3>📸 选择您的旅行/美食兴趣</h3>
       <p class="subtitle">发现属于您的独特旅程</p>
       <div class="interest-options">
-          <label v-for="(option, index) in options" 
-                 :key="index"
-                 class="option-card"
-                 :class="{ selected: selectedInterests.includes(option.value) }">
-              <input type="checkbox"
-                     :value="option.value"
-                     v-model="selectedInterests"
-                     class="sr-only">
-              <span class="checkmark">✓</span>
-              {{ option.label }}
-          </label>
+        <label v-for="(option, index) in options" 
+                :key="index"
+                class="option-card"
+                :class="{ selected: selectedInterests.includes(option.value) }">
+            <input type="checkbox"
+                    :value="option.value"
+                    v-model="selectedInterests"
+                    class="sr-only">
+            <span class="checkmark">✓</span>
+            {{ option.label }}
+        </label>
+      </div>
+      <div class="custom-tag">
+        <input 
+          type="text" 
+          v-model="customTag" 
+          placeholder="输入自定义兴趣"
+          @keyup.enter="addCustomTag"
+        >
+        <button @click="addCustomTag">添加</button>
       </div>
       <p class="selected-display">已选兴趣：<span>{{ selectedInterests.join(' · ') }}</span></p>
       <button @click="submitInterests" :disabled="selectedInterests.length === 0">
@@ -34,18 +43,26 @@ export default {
       const store = useStore();
       const router = useRouter();
       const selectedInterests = ref([]);
+      const customTag = ref('');
       const options = [
           { value: '名人故居', label: '名人故居' },
           { value: '自然风光', label: '自然风光' },
           { value: '历史文化', label: '历史文化' },
-          { value: '美食探索', label: '美食探索' },
           { value: '现代建筑', label: '现代建筑' },
           { value: '博物馆', label: '博物馆' },
           { value: '公园', label: '公园' },
-          { value: '宗教场所', label: '宗教场所' },
-          { value: '购物', label: '购物' },
-          { value: '夜生活', label: '夜生活' },
+          { value: '火锅', label: '火锅' },
+          { value: '烧烤', label: '烧烤' },
+          { value: '川菜', label: '川菜' },
+          { value: '粤菜', label: '粤菜' },
       ];
+
+      const addCustomTag = () => {
+        if (customTag.value.trim() && !selectedInterests.value.includes(customTag.value)) {
+          selectedInterests.value.push(customTag.value);
+          customTag.value = '';
+        }
+      };
 
       const submitInterests = () => {
           if (selectedInterests.value.length === 0) {
@@ -80,7 +97,9 @@ export default {
       return {
           selectedInterests,
           options,
-          submitInterests
+          submitInterests,
+          customTag,
+          addCustomTag
       };
   }
 };
@@ -102,6 +121,28 @@ h3 {
   font-size: 1.8rem;
   margin-bottom: 0.5rem;
   text-align: center;
+}
+.custom-tag {
+  display: flex;
+  margin: 1.5rem 0;
+  gap: 10px;
+}
+
+.custom-tag input {
+  flex: 1;
+  padding: 0.8rem;
+  border: 2px solid #e0e7ff;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.custom-tag button {
+  padding: 0 1.5rem;
+  background: #4a6fff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
 .subtitle {

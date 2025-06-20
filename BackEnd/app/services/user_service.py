@@ -56,7 +56,7 @@ def get_user(users: list, username: str) -> dict:
                 'id': user.get('id', -1),
                 'username': user.get('username', ''),
                 'role': user.get('role', ''),
-                'avatarPath': user.get('avatarPath', os.path.join(USERS_AVATARS_DIR, "default_avatar.jpg")),
+                'avatarPath': user.get('avatarPath', "http://localhost:8000/images/avatars/default_avatar.jpg"),
                 'signature': user.get('signature'),
                 'hobbies': user.get('hobbies', [])
             }
